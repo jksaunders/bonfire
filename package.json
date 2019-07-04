@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-babel": "babel src -d lib",
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -26,13 +26,17 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-react": "^7.0.0",
     "@storybook/addon-actions": "^5.1.8",
     "@storybook/addon-links": "^5.1.4",
     "@storybook/react": "^5.1.8",
     "@storybook/storybook-deployer": "^2.8.1",
     "babel-loader": "^8.0.6",
-    "styled-components": "^4.3.2"
+    "prop-types": "^15.7.2",
+    "styled-components": "^4.3.2",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
   }
 }
