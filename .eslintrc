@@ -9,7 +9,7 @@
       "eol-last": "off",
       "react/jsx-filename-extension": "off",
       "react/button-has-type": "off",
-      "quotes": "off",
+      "quotes": ["error", "double"],
       "import/prefer-default-export": "off"
     }
   }
