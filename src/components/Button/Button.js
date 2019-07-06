@@ -1,3 +1,7 @@
-import { Button } from '@storybook/react/demo';
+import React from "react";
+
+const Button = () => (
+  <button />
+);
 
 export default Button;
