@@ -12,7 +12,8 @@ deploy:
   email: jk.saunders@hotmail.com
   api_key:
     secure: jXQEWym18WvV1zlvu0RciWZ/afmWP38XVhQYk3GkU3Fi7ChdB8OrtC5y75b0XnikJXFjKQTbBgYeVV+iCa6Rsq4E72OsObzil0J0TLbTs+O/AGpRGGi2E1RO3GFi+LILQVg31lDwEudQtB6RlPO0eFJxGO7PGEQyGIuo9sLFRmYrMBWwiAuo1Mezayf5XEubacBrCcbVLamdJubvXXVE93cJqhGTuUUwcx9eFXsnziWwv2GHq/TDvFB30PuWqty/kQWvJEySjoRO/UStMptL5/uwI2OFqsw9x0N4KTKYeP21TWntwmVYq7MRaXCWd1TbekYZjGvemx/wJ6Jx5hZhXTvuzZmXf/IskZDZv9sW15PrFHxvZ1LHYylusdue6PyWs1sYOO38w9gnKiZIADkm6ZlSN7UuP4wmHtXxd3wWH5qIVlHsV9a6KwpfFTsnF8pAwgkrlzLP9O2M6D1Wq2wL2qYlxJ0XqE8I2ugxLLlphoUZ8d4qCMD6odbnexP2x/W3aeCNru95BLhZPLNOVaZB7PY9nExc84jvwxZzuwAv4BpqFRiz3lhlpoF2cZllFjXvHbbH3R9CYwdin2uw+yQ1ku/4kefnhHX2eCyNc7+0Fk2O7rPczJTCnfGNlWkyPc69fhzeDdIvEjfv0oaQdfZZO72zJohICCiwX5w3MZwd2Vg=
-  tag: next
+  tag: latest
+  skip_cleanup: true
   on:
     tags: true
     repo: jksaunders/bonfire
