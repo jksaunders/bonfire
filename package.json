@@ -33,8 +33,14 @@
   },
   "homepage": "https://github.com/jksaunders/bonfire#readme",
   "dependencies": {
+    "@storybook/addon-knobs": "^5.1.9",
+    "@storybook/addon-actions": "^5.1.8",
+    "@storybook/react": "^5.1.8",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "prop-types": "^15.7.2",
+    "styled-components": "^4.3.2",
+    "styled-theming": "^2.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -42,9 +48,7 @@
     "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
-    "@storybook/addon-actions": "^5.1.8",
     "@storybook/addon-links": "^5.1.4",
-    "@storybook/react": "^5.1.8",
     "@storybook/storybook-deployer": "^2.8.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
@@ -57,8 +61,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
     "mocha": "^6.1.4",
-    "nyc": "^14.1.1",
-    "prop-types": "^15.7.2",
-    "styled-components": "^4.3.2"
+    "nyc": "^14.1.1"
   }
 }
