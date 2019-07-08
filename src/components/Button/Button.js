@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import theme from "styled-theming";
+import theme from "../../theming/themeUtils";
 
-const backgroundColor = theme("mode", {
-  light: "#fafafa",
-  dark: "#222"
-});
+const backgroundColor = theme("PRIMARY_BUTTON");
 
 const StyledButton = styled.button`
   background-color: ${backgroundColor}
