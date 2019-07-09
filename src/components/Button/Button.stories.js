@@ -12,7 +12,8 @@ storiesOf("Button", module)
   .add("with text", () => <Button onClick={action("clicked")}>Hello Button</Button>)
   .add("with some emoji", () => {
     const themeMode = select("Theme Mode", ["light", "dark"], "light");
-    const theme = { mode: themeMode };
+    const themeLayout = select("Theme Layout", ["cozy", "compact"], "cozy");
+    const theme = { mode: themeMode, layout: themeLayout };
     return (
       <ThemeProvider theme={theme}>
         <Button onClick={action("clicked")}>

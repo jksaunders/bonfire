@@ -1,30 +1,10 @@
 import styledTheme from "styled-theming";
-import themes from "./themes";
-
-const MODES = [
-  "light",
-  "dark"
-];
-
-// const LAYOUTS = [
-//   "compact",
-//   "cozy"
-// ];
-
-// const ZOOM = [
-//   "normal",
-//   "big",
-//   "bigger"
-// ];
-
-// export const THEME_CONSTANTS = {
-//   mode: "mode",
-//   layout: "layout",
-//   zoom: "zoom"
-// };
+import themes, { ThemeConstants } from "./themes";
 
 const themeKeyMap = {
-  mode: MODES
+  [ThemeConstants.mode.key]: Object.keys(ThemeConstants.mode.values),
+  [ThemeConstants.layout.key]: Object.keys(ThemeConstants.layout.values),
+  [ThemeConstants.zoom.key]: Object.keys(ThemeConstants.zoom.values)
 };
 
 export const theme = (value, themeKey) => {
