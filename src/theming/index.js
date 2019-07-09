@@ -1,5 +1,4 @@
-import * as colors from "./colors";
+import * as importedPalette from "./palette";
 
-export {
-  colors
-};
+export { theme } from "./theme";
+export const Palette = importedPalette;

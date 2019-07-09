@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import theme from "../../theming/themeUtils";
-
-const backgroundColor = theme("PRIMARY_BUTTON");
+import { theme, Palette } from "../../theming";
 
 const StyledButton = styled.button`
-  background-color: ${backgroundColor}
+  background-color: ${theme(Palette.PRIMARY_BUTTON, "mode")}
 `;
 
 const propTypes = {
@@ -16,7 +14,6 @@ const propTypes = {
 const defaultProps = {
   children: null
 };
-
 
 const Button = ({ children }) => (
   <StyledButton>{children}</StyledButton>
