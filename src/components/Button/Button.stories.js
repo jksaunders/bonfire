@@ -18,26 +18,21 @@ storiesOf("Button", module)
     return (
       <ThemeProvider theme={theme}>
         <div>
-          {Object.keys(Button.CONSTANTS.VARIANT).map(variantKey => (
-            <Button key={variantKey} variant={variantKey} onClick={action("clicked")}>
-              {variantKey.toLowerCase()}
-            </Button>
-          ))}
+          <div>
+            {Object.keys(Button.CONSTANTS.VARIANT).map(variantKey => (
+              <Button key={variantKey} variant={variantKey} onClick={action("clicked")}>
+                {variantKey.toLowerCase()}
+              </Button>
+            ))}
+          </div>
+          <div>
+            {Object.keys(Button.CONSTANTS.VARIANT).map(variantKey => (
+              <Button key={variantKey} variant={variantKey} disabled onClick={action("clicked")}>
+                {`${variantKey.toLowerCase()} disabled`}
+              </Button>
+            ))}
+          </div>
         </div>
-      </ThemeProvider>
-    );
-  })
-  .add("with some emoji", () => {
-    const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
-    const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
-    const theme = { mode: themeMode, layout: themeLayout };
-    return (
-      <ThemeProvider theme={theme}>
-        <Button onClick={action("clicked")}>
-          <span role="img" aria-label="so cool">
-            😀 😎 👍 💯
-          </span>
-        </Button>
       </ThemeProvider>
     );
   });
