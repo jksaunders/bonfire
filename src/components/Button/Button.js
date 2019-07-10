@@ -3,27 +3,54 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { theme, ThemeConstants, Palette } from "../../theming";
 
+const CONSTANTS = {
+  VARIANT: {
+    PRIMARY: "PRIMARY",
+    STRONG_PRIMARY: "STRONG_PRIMARY",
+    SECONDARY: "SECONDARY",
+    SUBTLE: "SUBTLE",
+    ATTENTION: "ATTENTION",
+    DESTRUCTIVE: "DESTRUCTIVE",
+    SUCCESS: "SUCCESS"
+  }
+};
+
+const THEME_VARIANTS = {
+  PRIMARY: {
+    color: Palette.PRIMARY_TEXT,
+    backgroundColor: Palette.PRIMARY_BUTTON
+  },
+  SECONDARY: {
+    color: Palette.PRIMARY_TEXT,
+    backgroundColor: Palette.SECONDARY_BUTTON
+  }
+};
+
 const StyledButton = styled.button`
-  background-color: ${theme(Palette.PRIMARY_BUTTON, ThemeConstants.mode.key)};
+  color: ${theme(Palette.PRIMARY_TEXT, ThemeConstants.mode.key)};
+  background-color: ${({ variant }) => theme(THEME_VARIANTS[variant].backgroundColor, ThemeConstants.mode.key)};
   margin: ${theme(Palette.MARGINS, ThemeConstants.layout.key)};
   padding: ${theme(Palette.MARGINS, ThemeConstants.layout.key)};
 `;
 
 const propTypes = {
   children: PropTypes.node,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  variant: PropTypes.oneOf(Object.keys(CONSTANTS.VARIANT))
 };
 
 const defaultProps = {
   children: null,
-  onClick: () => {}
+  onClick: () => {},
+  variant: CONSTANTS.VARIANT.PRIMARY
 };
 
-const Button = ({ children, onClick }) => (
-  <StyledButton onClick={onClick}>{children}</StyledButton>
+const Button = ({ variant, children, onClick }) => (
+  <StyledButton variant={variant} onClick={onClick}>{children}</StyledButton>
 );
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
+Button.CONSTANTS = CONSTANTS;
 
 export default Button;

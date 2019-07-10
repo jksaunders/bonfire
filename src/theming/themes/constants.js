@@ -3,7 +3,8 @@ export const ThemeConstants = {
     key: "mode",
     values: {
       light: "light",
-      dark: "dark"
+      dark: "dark",
+      greek: "greek"
     }
   },
   layout: {
