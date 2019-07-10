@@ -14,3 +14,10 @@ export const theme = (value, themeKey) => {
   });
   return styledTheme(themeKey, themesForValue);
 };
+
+export const themeVariant = (
+  propName,
+  themeVariantKey,
+  variantsMap,
+  themeKey
+) => props => theme(variantsMap[props[propName]][themeVariantKey], themeKey);

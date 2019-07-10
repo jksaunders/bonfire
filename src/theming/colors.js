@@ -4,4 +4,4 @@ export const blue = "#0074d9";
 
 export const earth = "#34421E";
 export const cotton = "#F1F1EF";
-export const olive = "C19434";
+export const olive = "#C19434";
