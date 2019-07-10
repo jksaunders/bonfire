@@ -19,7 +19,7 @@ const DARK = {
 const GREEK = {
   [Palette.PRIMARY_BUTTON]: Colors.olive,
   [Palette.SECONDARY_BUTTON]: Colors.cotton,
-  [Palette.PRIMARY_TEXT]: Colors.earth,
+  [Palette.PRIMARY_TEXT]: Colors.cotton,
   [Palette.SECONDARY_TEXT]: Colors.earth,
 };
 

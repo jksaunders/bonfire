@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import chroma from "chroma-js";
 import {
   theme, themeVariant, ThemeConstants, Palette
 } from "../../theming";
@@ -28,9 +29,17 @@ const THEME_VARIANTS = {
   }
 };
 
+const disabledBackground = props => (props.disabled
+  ? chroma(themeVariant("variant", "backgroundColor", THEME_VARIANTS, ThemeConstants.mode.key)(props)(props)).alpha(0.5).hex()
+  : themeVariant("variant", "backgroundColor", THEME_VARIANTS, ThemeConstants.mode.key)(props));
+
+const disabledColor = props => (props.disabled
+  ? chroma(themeVariant("variant", "color", THEME_VARIANTS, ThemeConstants.mode.key)(props)(props)).alpha(0.65).hex()
+  : themeVariant("variant", "color", THEME_VARIANTS, ThemeConstants.mode.key)(props));
+
 const StyledButton = styled.button`
-  color: ${themeVariant("variant", "color", THEME_VARIANTS, ThemeConstants.mode.key)};
-  background-color: ${themeVariant("variant", "backgroundColor", THEME_VARIANTS, ThemeConstants.mode.key)};
+  color: ${props => disabledColor(props)};
+  background-color: ${props => disabledBackground(props)};
   margin: ${theme(Palette.MARGINS, ThemeConstants.layout.key)};
   padding: ${theme(Palette.MARGINS, ThemeConstants.layout.key)};
 
