@@ -5,6 +5,8 @@ import { useSpring, animated, config } from "react-spring";
 import { storiesOf } from "@storybook/react";
 import Square from "./Square";
 
+const AnimatedSquare = animated(Square);
+
 const propTypes = {
   bounds: PropTypes.shape({
     minX: PropTypes.number.isRequired,
@@ -44,9 +46,7 @@ const DragMe = ({
   const bind = useGesture({ onDrag: ({ local }) => set({ mousePosition: checkPosition(local) }) });
 
   return (
-    <animated.div {...bind()} style={{ transform: mousePosition.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), display: "inline-flex" }}>
-      <Square height={100} width={100} />
-    </animated.div>
+    <AnimatedSquare height={100} width={100} {...bind()} style={{ transform: mousePosition.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), display: "inline-flex" }} />
   );
 };
 
