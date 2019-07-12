@@ -46,7 +46,7 @@ const DragMe = ({
   const bind = useGesture({ onDrag: ({ local }) => set({ mousePosition: checkPosition(local) }) });
 
   return (
-    <AnimatedSquare height={100} width={100} {...bind()} style={{ transform: mousePosition.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), display: "inline-flex" }} />
+    <AnimatedSquare height={100} width={100} {...bind()} style={{ transform: mousePosition.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`) }} />
   );
 };
 
