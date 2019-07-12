@@ -3,7 +3,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 function loadStories() {
   const req = require.context('../src', true, /\.stories\.js$/);
-  req.keys().forEach(filename => req(filename));
+  req.keys().sort().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);
