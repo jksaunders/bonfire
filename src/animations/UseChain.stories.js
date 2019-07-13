@@ -22,8 +22,8 @@ const ClickMe = () => {
   const { background } = useSpring({
     ref: springRef2,
     config: config.stiff,
-    from: { background: "#48C9B0" },
-    to: { background: open ? "lightblue" : "#48C9B0" }
+    from: { background: Square.styles.getBackground({ gradientRotation: 85 }) },
+    to: { background: Square.styles.getBackground({ gradientRotation: open ? 190 : 85 }) }
   });
 
   const chain = [springRef, springRef2];
@@ -35,7 +35,7 @@ const ClickMe = () => {
       <AnimatedSquare
         onClick={() => setIsOpen(!open)}
         style={{
-          backgroundColor: background.interpolate(c => c),
+          background: background.interpolate(c => c),
           height: size.interpolate(n => `${100 + n}px`),
           width: size.interpolate(n => `${100 + n}px`)
         }}
