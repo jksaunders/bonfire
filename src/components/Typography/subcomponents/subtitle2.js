@@ -1,12 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import {
+  theme, ThemeConstants, Palette
+} from "../../../theming";
 
 const propTypes = {
   children: PropTypes.node
 };
 
 const StyledSubtitle2 = styled.h6`
+  color: ${theme(Palette.SUBTITLE2, ThemeConstants.mode.key)};
   font-size: 0.875rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 500;

@@ -1,12 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import {
+  theme, ThemeConstants, Palette
+} from "../../../theming";
 
 const propTypes = {
   children: PropTypes.node
 };
 
 const StyledH1 = styled.h1`
+  color: ${theme(Palette.H1, ThemeConstants.mode.key)};
   font-size: 6rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 300;

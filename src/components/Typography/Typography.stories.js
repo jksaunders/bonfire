@@ -9,7 +9,7 @@ import Typography from "./Typography";
 
 storiesOf("Typography", module)
   .addDecorator(withKnobs)
-  .add("Typography", () => {
+  .add("all styles", () => {
     const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
     const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
     const theme = { mode: themeMode, layout: themeLayout };
@@ -55,6 +55,23 @@ storiesOf("Typography", module)
           </div>
           <div>
             <Typography.Overline>overline</Typography.Overline>
+          </div>
+        </div>
+      </ThemeProvider>
+    );
+  })
+  .add("sample text", () => {
+    const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
+    const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+    const theme = { mode: themeMode, layout: themeLayout };
+
+    return (
+      <ThemeProvider theme={theme}>
+        <div>
+          <div>
+            <Typography.H1>Welcome to bonfire</Typography.H1>
+            <Typography.H3>This is its typography.</Typography.H3>
+            <Typography.Body1>Lorem ipsum dolor</Typography.Body1>
           </div>
         </div>
       </ThemeProvider>
