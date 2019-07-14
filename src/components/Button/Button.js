@@ -66,9 +66,17 @@ const Button = ({
   children,
   disabled,
   onClick,
-  variant
+  variant,
+  ...rest
 }) => (
-  <StyledButton disabled={disabled} variant={variant} onClick={onClick}>{children}</StyledButton>
+  <StyledButton
+    disabled={disabled}
+    onClick={onClick}
+    variant={variant}
+    {...rest}
+  >
+    {children}
+  </StyledButton>
 );
 
 Button.propTypes = propTypes;
