@@ -13,7 +13,6 @@ const StyledHeader = styled.div`
   display: flex;
   height: ${({ height }) => height};
   justify-content: flex-end;
-  background-color: lightblue;
   padding: 0px 16px;
 `;
 

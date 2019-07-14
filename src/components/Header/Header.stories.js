@@ -1,11 +1,15 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 import { storiesOf } from "@storybook/react";
 import { select, withKnobs } from "@storybook/addon-knobs";
 
 import { ThemeConstants } from "../../theming";
 import Header from "./Header";
+
+const StoryHeader = styled(Header)`
+  background: linear-gradient(270deg, #48C9B0 0%, white 100%);
+`;
 
 storiesOf("Header", module)
   .addDecorator(withKnobs)
@@ -18,13 +22,13 @@ storiesOf("Header", module)
       <ThemeProvider theme={theme}>
         <div>
           <div>
-            <Header>
+            <StoryHeader>
               <Header.HeaderItem text="Programs" />
               <Header.HeaderItem text="About Us" />
               <Header.HeaderItem text="Events" />
               <Header.HeaderItem text="Contact Us" />
               <Header.HeaderButton text="Donate" variant={Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY} />
-            </Header>
+            </StoryHeader>
           </div>
         </div>
       </ThemeProvider>
