@@ -22,15 +22,13 @@ storiesOf("Header", module)
     return (
       <ThemeProvider theme={theme}>
         <div>
-          <div>
-            <StoryHeader>
-              <Header.HeaderItem text="Programs" link="https://google.com" />
-              <Header.HeaderItem text="About Us" onClick={action("About Us")} />
-              <Header.HeaderItem text="Events" onClick={action("Events")} />
-              <Header.HeaderItem text="Contact Us" onClick={action("Contact Us")} />
-              <Header.HeaderButton text="Donate" onClick={action("Donate")} variant={Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY} />
-            </StoryHeader>
-          </div>
+          <StoryHeader>
+            <Header.HeaderItem text="Programs" link="https://google.com" />
+            <Header.HeaderItem text="About Us" onClick={action("About Us")} />
+            <Header.HeaderItem text="Events" onClick={action("Events")} />
+            <Header.HeaderItem text="Contact Us" onClick={action("Contact Us")} />
+            <Header.HeaderButton text="Donate" onClick={action("Donate")} variant={Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY} />
+          </StoryHeader>
         </div>
       </ThemeProvider>
     );

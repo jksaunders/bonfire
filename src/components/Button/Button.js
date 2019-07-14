@@ -74,7 +74,7 @@ const Button = ({
     variant={variant}
     {...rest}
   >
-    <Typography variant={Typography.CONSTANTS.VARIANT.BUTTON}>{text}</Typography>
+    <Typography.ButtonText>{text}</Typography.ButtonText>
   </StyledButton>
 );
 

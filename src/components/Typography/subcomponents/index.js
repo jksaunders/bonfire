@@ -1,0 +1,13 @@
+export { default as H1 } from "./h1";
+export { default as H2 } from "./h2";
+export { default as H3 } from "./h3";
+export { default as H4 } from "./h4";
+export { default as H5 } from "./h5";
+export { default as H6 } from "./h6";
+export { default as Subtitle1 } from "./subtitle1";
+export { default as Subtitle2 } from "./subtitle2";
+export { default as Body1 } from "./body1";
+export { default as Body2 } from "./body2";
+export { default as Caption } from "./caption";
+export { default as ButtonText } from "./button";
+export { default as Overline } from "./overline";
