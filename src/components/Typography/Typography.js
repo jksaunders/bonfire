@@ -25,11 +25,13 @@ const CONSTANTS = {
 
 const propTypes = {
   children: PropTypes.node,
+  spaceAfter: PropTypes.bool,
   variant: PropTypes.oneOf(Object.keys(CONSTANTS.VARIANT)).isRequired
 };
 
 const defaultProps = {
-  children: null
+  children: null,
+  spaceAfter: null
 };
 
 const THEME_VARIANTS = {
@@ -39,7 +41,8 @@ const THEME_VARIANTS = {
     fontSize: "6rem",
     fontWeight: 300,
     lineHeight: 1,
-    letterSpacing: "-0.01562em"
+    letterSpacing: "-0.01562em",
+    spaceAfter: false
   },
   [CONSTANTS.VARIANT.H2]: {
     as: "h2",
@@ -47,7 +50,8 @@ const THEME_VARIANTS = {
     fontSize: "3.75rem",
     fontWeight: 300,
     lineHeight: 1,
-    letterSpacing: "-0.00833em"
+    letterSpacing: "-0.00833em",
+    spaceAfter: false
   },
   [CONSTANTS.VARIANT.H3]: {
     as: "h3",
@@ -55,7 +59,8 @@ const THEME_VARIANTS = {
     fontSize: "3rem",
     fontWeight: 400,
     lineHeight: 1.04,
-    letterSpacing: "0em"
+    letterSpacing: "0em",
+    spaceAfter: false
   },
   [CONSTANTS.VARIANT.H4]: {
     as: "h4",
@@ -63,7 +68,8 @@ const THEME_VARIANTS = {
     fontSize: "2.125rem",
     fontWeight: 400,
     lineHeight: 1.17,
-    letterSpacing: "0.00735em"
+    letterSpacing: "0.00735em",
+    spaceAfter: false
   },
   [CONSTANTS.VARIANT.H5]: {
     as: "h5",
@@ -71,7 +77,8 @@ const THEME_VARIANTS = {
     fontSize: "1.5rem",
     fontWeight: 400,
     lineHeight: 1.33,
-    letterSpacing: "0em"
+    letterSpacing: "0em",
+    spaceAfter: false
   },
   [CONSTANTS.VARIANT.H6]: {
     as: "h6",
@@ -79,7 +86,8 @@ const THEME_VARIANTS = {
     fontSize: "1.25rem",
     fontWeight: 500,
     lineHeight: 1.6,
-    letterSpacing: "0.0075em"
+    letterSpacing: "0.0075em",
+    spaceAfter: false
   },
   [CONSTANTS.VARIANT.SUBTITLE1]: {
     as: "h6",
@@ -87,7 +95,8 @@ const THEME_VARIANTS = {
     fontSize: "1rem",
     fontWeight: 400,
     lineHeight: 1.75,
-    letterSpacing: "0.00938em"
+    letterSpacing: "0.00938em",
+    spaceAfter: false
   },
   [CONSTANTS.VARIANT.SUBTITLE2]: {
     as: "h6",
@@ -95,7 +104,8 @@ const THEME_VARIANTS = {
     fontSize: "0.875rem",
     fontWeight: 500,
     lineHeight: 1.57,
-    letterSpacing: "0.00714em"
+    letterSpacing: "0.00714em",
+    spaceAfter: false
   },
   [CONSTANTS.VARIANT.BODY1]: {
     as: "p",
@@ -103,7 +113,8 @@ const THEME_VARIANTS = {
     fontSize: "1rem",
     fontWeight: 400,
     lineHeight: 1.5,
-    letterSpacing: "0.00938em"
+    letterSpacing: "0.00938em",
+    spaceAfter: true
   },
   [CONSTANTS.VARIANT.BODY2]: {
     as: "p",
@@ -111,7 +122,8 @@ const THEME_VARIANTS = {
     fontSize: "0.875rem",
     fontWeight: 400,
     lineHeight: 1.43,
-    letterSpacing: "0.01071em"
+    letterSpacing: "0.01071em",
+    spaceAfter: true
   },
   [CONSTANTS.VARIANT.CAPTION]: {
     as: "span",
@@ -119,7 +131,8 @@ const THEME_VARIANTS = {
     fontSize: "0.75rem",
     fontWeight: 400,
     lineHeight: 1.66,
-    letterSpacing: "0.03333em"
+    letterSpacing: "0.03333em",
+    spaceAfter: false
   },
   [CONSTANTS.VARIANT.BUTTON_TEXT]: {
     as: "span",
@@ -128,6 +141,7 @@ const THEME_VARIANTS = {
     fontWeight: 500,
     lineHeight: 1.75,
     letterSpacing: "0.02857em",
+    spaceAfter: false,
     textTransform: "uppercase"
   },
   [CONSTANTS.VARIANT.OVERLINE]: {
@@ -137,8 +151,16 @@ const THEME_VARIANTS = {
     fontWeight: 400,
     lineHeight: 2.66,
     letterSpacing: "0.08333em",
+    spaceAfter: false,
     textTransform: "uppercase"
   }
+};
+
+const checkSpaceAfter = ({ spaceAfter, variant }) => {
+  if (spaceAfter != null) {
+    return spaceAfter;
+  }
+  return THEME_VARIANTS[variant].spaceAfter;
 };
 
 const StyledTypography = styled.p`
@@ -150,44 +172,56 @@ const StyledTypography = styled.p`
   letter-spacing: ${(props => THEME_VARIANTS[props.variant].letterSpacing)};;
   ${props => THEME_VARIANTS[props.variant].textTransform && `text-transform: ${THEME_VARIANTS[props.variant].textTransform}`}
   margin: 0;
+  ${props => checkSpaceAfter(props) && "margin-block-start: 1em;"}
+  ${props => checkSpaceAfter(props) && "margin-block-end: 1em;"}
+  ${props => checkSpaceAfter(props) && "margin-inline-start: 0px;"}
+  ${props => checkSpaceAfter(props) && "margin-inline-end: 0px;"}
 `;
 
-const Typography = ({ children, variant, ...rest }) => (
-  <StyledTypography as={THEME_VARIANTS[variant].as} variant={variant} {...rest}>
+const Typography = ({
+  children,
+  spaceAfter,
+  variant,
+  ...rest
+}) => (
+  <StyledTypography
+    as={THEME_VARIANTS[variant].as}
+    spaceAfter={spaceAfter}
+    variant={variant}
+    {...rest}
+  >
     {children}
   </StyledTypography>
 );
 
-const typographyVariant = (variant) => {
-  const TypographyVariant = ({ children, ...rest }) => (
-    <Typography variant={variant} {...rest}>
+const getTypographyVariant = (variant) => {
+  const TypographyVariant = ({ children, spaceAfter, ...rest }) => (
+    <Typography spaceAfter={spaceAfter} variant={variant} {...rest}>
       {children}
     </Typography>
   );
-  TypographyVariant.propTypes = {
-    children: PropTypes.node
-  };
-  TypographyVariant.defaultProps = {
-    children: null
-  };
+  const { variant: pV, ...variantPropTypes } = propTypes;
+  const { variant: dV, ...variantDefaultProps } = defaultProps;
+  TypographyVariant.propTypes = variantPropTypes;
+  TypographyVariant.defaultProps = variantDefaultProps;
   return TypographyVariant;
 };
 
 Typography.propTypes = propTypes;
 Typography.defaultProps = defaultProps;
 Typography.CONSTANTS = CONSTANTS;
-Typography.H1 = typographyVariant(Typography.CONSTANTS.VARIANT.H1);
-Typography.H2 = typographyVariant(Typography.CONSTANTS.VARIANT.H2);
-Typography.H3 = typographyVariant(Typography.CONSTANTS.VARIANT.H3);
-Typography.H4 = typographyVariant(Typography.CONSTANTS.VARIANT.H4);
-Typography.H5 = typographyVariant(Typography.CONSTANTS.VARIANT.H5);
-Typography.H6 = typographyVariant(Typography.CONSTANTS.VARIANT.H6);
-Typography.Subtitle1 = typographyVariant(Typography.CONSTANTS.VARIANT.SUBTITLE1);
-Typography.Subtitle2 = typographyVariant(Typography.CONSTANTS.VARIANT.SUBTITLE2);
-Typography.Body1 = typographyVariant(Typography.CONSTANTS.VARIANT.BODY1);
-Typography.Body2 = typographyVariant(Typography.CONSTANTS.VARIANT.BODY2);
-Typography.Caption = typographyVariant(Typography.CONSTANTS.VARIANT.CAPTION);
-Typography.ButtonText = typographyVariant(Typography.CONSTANTS.VARIANT.BUTTON_TEXT);
-Typography.Overline = typographyVariant(Typography.CONSTANTS.VARIANT.OVERLINE);
+Typography.H1 = getTypographyVariant(Typography.CONSTANTS.VARIANT.H1);
+Typography.H2 = getTypographyVariant(Typography.CONSTANTS.VARIANT.H2);
+Typography.H3 = getTypographyVariant(Typography.CONSTANTS.VARIANT.H3);
+Typography.H4 = getTypographyVariant(Typography.CONSTANTS.VARIANT.H4);
+Typography.H5 = getTypographyVariant(Typography.CONSTANTS.VARIANT.H5);
+Typography.H6 = getTypographyVariant(Typography.CONSTANTS.VARIANT.H6);
+Typography.Subtitle1 = getTypographyVariant(Typography.CONSTANTS.VARIANT.SUBTITLE1);
+Typography.Subtitle2 = getTypographyVariant(Typography.CONSTANTS.VARIANT.SUBTITLE2);
+Typography.Body1 = getTypographyVariant(Typography.CONSTANTS.VARIANT.BODY1);
+Typography.Body2 = getTypographyVariant(Typography.CONSTANTS.VARIANT.BODY2);
+Typography.Caption = getTypographyVariant(Typography.CONSTANTS.VARIANT.CAPTION);
+Typography.ButtonText = getTypographyVariant(Typography.CONSTANTS.VARIANT.BUTTON_TEXT);
+Typography.Overline = getTypographyVariant(Typography.CONSTANTS.VARIANT.OVERLINE);
 
 export default Typography;

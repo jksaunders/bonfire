@@ -8,7 +8,7 @@ storiesOf("Colors", module)
     <div>
       { Object.keys(Colors).map(key => (
         <div key={key} style={{ backgroundColor: Colors[key] }}>
-          <Typography.Body1>{`${key}: ${Colors[key]}`}</Typography.Body1>
+          <Typography.Body1 spaceAfter={false}>{`${key}: ${Colors[key]}`}</Typography.Body1>
         </div>
       ))
       }

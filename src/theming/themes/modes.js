@@ -5,8 +5,8 @@ import { ThemeConstants } from "./constants";
 const LIGHT = {
   [Palette.PRIMARY_BUTTON]: Colors.blue,
   [Palette.SECONDARY_BUTTON]: Colors.white,
-  [Palette.PRIMARY_TEXT]: Colors.white,
-  [Palette.SECONDARY_TEXT]: Colors.black,
+  [Palette.PRIMARY_BUTTON_TEXT]: Colors.white,
+  [Palette.SECONDARY_BUTTON_TEXT]: Colors.black,
   [Palette.H1]: Colors.black,
   [Palette.H2]: Colors.black,
   [Palette.H3]: Colors.black,
@@ -18,15 +18,15 @@ const LIGHT = {
   [Palette.BODY1]: Colors.black,
   [Palette.BODY2]: Colors.lightGrey,
   [Palette.CAPTION]: Colors.black,
-  [Palette.BUTTON_TEXT]: Colors.black,
+  [Palette.BUTTON_TEXT]: Colors.white,
   [Palette.OVERLINE]: Colors.black
 };
 
 const DARK = {
   [Palette.PRIMARY_BUTTON]: Colors.black,
   [Palette.SECONDARY_BUTTON]: Colors.white,
-  [Palette.PRIMARY_TEXT]: Colors.white,
-  [Palette.SECONDARY_TEXT]: Colors.black,
+  [Palette.PRIMARY_BUTTON_TEXT]: Colors.white,
+  [Palette.SECONDARY_BUTTON_TEXT]: Colors.black,
   [Palette.H1]: Colors.black,
   [Palette.H2]: Colors.black,
   [Palette.H3]: Colors.black,
@@ -38,15 +38,15 @@ const DARK = {
   [Palette.BODY1]: Colors.black,
   [Palette.BODY2]: Colors.lightGrey,
   [Palette.CAPTION]: Colors.black,
-  [Palette.BUTTON_TEXT]: Colors.black,
+  [Palette.BUTTON_TEXT]: Colors.white,
   [Palette.OVERLINE]: Colors.black
 };
 
 const GREEK = {
   [Palette.PRIMARY_BUTTON]: Colors.olive,
   [Palette.SECONDARY_BUTTON]: Colors.cotton,
-  [Palette.PRIMARY_TEXT]: Colors.cotton,
-  [Palette.SECONDARY_TEXT]: Colors.earth,
+  [Palette.PRIMARY_BUTTON_TEXT]: Colors.cotton,
+  [Palette.SECONDARY_BUTTON_TEXT]: Colors.earth,
   [Palette.H1]: Colors.black,
   [Palette.H2]: Colors.black,
   [Palette.H3]: Colors.black,
@@ -58,7 +58,7 @@ const GREEK = {
   [Palette.BODY1]: Colors.black,
   [Palette.BODY2]: Colors.lightGrey,
   [Palette.CAPTION]: Colors.black,
-  [Palette.BUTTON_TEXT]: Colors.black,
+  [Palette.BUTTON_TEXT]: Colors.white,
   [Palette.OVERLINE]: Colors.black
 };
 

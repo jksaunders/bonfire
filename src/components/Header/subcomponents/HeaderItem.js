@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Typography from "../../Typography";
 import { Browser } from "../../../utils";
+import * as Colors from "../../../theming/colors";
 
 const CONSTANTS = {};
 
@@ -24,6 +25,10 @@ const StyledMenuItem = styled.div`
   user-select: none;
 `;
 
+const StyledTypography = styled(Typography.ButtonText)`
+  color: ${Colors.black};
+`;
+
 const HeaderItem = ({
   link,
   onClick,
@@ -42,7 +47,7 @@ const HeaderItem = ({
     href={link}
     {...rest}
   >
-    <Typography>{text.toUpperCase()}</Typography>
+    <StyledTypography>{text.toUpperCase()}</StyledTypography>
   </StyledMenuItem>
 );
 

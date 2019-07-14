@@ -1,8 +1,8 @@
 export const PRIMARY_BUTTON = "PRIMARY_BUTTON";
 export const SECONDARY_BUTTON = "SECONDARY_BUTTON";
 
-export const PRIMARY_TEXT = "PRIMARY_TEXT";
-export const SECONDARY_TEXT = "SECONDARY_TEXT";
+export const PRIMARY_BUTTON_TEXT = "PRIMARY_BUTTON_TEXT";
+export const SECONDARY_BUTTON_TEXT = "SECONDARY_BUTTON_TEXT";
 
 export const H1 = "H1";
 export const H2 = "H2";
