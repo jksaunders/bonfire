@@ -7,7 +7,7 @@ const CONSTANTS = {};
 
 const propTypes = {
   onClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
 };
 
 const defaultProps = {};
@@ -21,7 +21,7 @@ const HeaderButton = ({
   text,
   ...rest
 }) => (
-  <StyledHeaderButton onClick={onClick} text={text} {...rest} />
+  <StyledHeaderButton onClick={onClick} text={text} typographyProps={{ bold: true }} {...rest} />
 );
 
 HeaderButton.propTypes = propTypes;

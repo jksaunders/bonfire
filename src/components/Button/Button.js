@@ -36,12 +36,12 @@ const disabledColor = props => (props.disabled
 const StyledButton = styled.button`
   color: ${props => disabledColor(props)};
   background-color: ${props => disabledBackground(props)};
-  margin: ${theme(Palette.MARGINS, ThemeConstants.layout.key)};
-  padding: ${theme(Palette.MARGINS, ThemeConstants.layout.key)};
-
   border-radius: 0.25em;
   border-style: solid;
   border-width: ${({ variant }) => (variant === CONSTANTS.VARIANT.PRIMARY ? 0 : 1)}px;
+  margin: ${theme(Palette.MARGINS, ThemeConstants.layout.key)};
+  padding: ${theme(Palette.MARGINS, ThemeConstants.layout.key)};
+  width: ${({ width }) => width}
 `;
 
 const propTypes = {
@@ -49,14 +49,20 @@ const propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   text: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(Object.keys(CONSTANTS.VARIANT))
+  typographyProps: PropTypes.shape({
+    bold: PropTypes.bool
+  }),
+  variant: PropTypes.oneOf(Object.keys(CONSTANTS.VARIANT)),
+  width: PropTypes.string
 };
 
 const defaultProps = {
   children: null,
   disabled: false,
   onClick: () => {},
-  variant: CONSTANTS.VARIANT.PRIMARY
+  typographyProps: {},
+  variant: CONSTANTS.VARIANT.PRIMARY,
+  width: "100px"
 };
 
 const Button = ({
@@ -64,6 +70,7 @@ const Button = ({
   disabled,
   onClick,
   text,
+  typographyProps,
   variant,
   ...rest
 }) => (
@@ -74,7 +81,7 @@ const Button = ({
     variant={variant}
     {...rest}
   >
-    <Typography.ButtonText>{text}</Typography.ButtonText>
+    <Typography.ButtonText {...typographyProps}>{text}</Typography.ButtonText>
   </StyledButton>
 );
 

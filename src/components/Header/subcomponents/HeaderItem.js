@@ -47,7 +47,7 @@ const HeaderItem = ({
     href={link}
     {...rest}
   >
-    <StyledTypography>{text.toUpperCase()}</StyledTypography>
+    <StyledTypography bold {...rest}>{text.toUpperCase()}</StyledTypography>
   </StyledMenuItem>
 );
 

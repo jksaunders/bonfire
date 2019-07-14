@@ -24,12 +24,14 @@ const CONSTANTS = {
 };
 
 const propTypes = {
+  bold: PropTypes.bool,
   children: PropTypes.node,
   spaceAfter: PropTypes.bool,
   variant: PropTypes.oneOf(Object.keys(CONSTANTS.VARIANT)).isRequired
 };
 
 const defaultProps = {
+  bold: false,
   children: null,
   spaceAfter: null
 };
@@ -163,11 +165,19 @@ const checkSpaceAfter = ({ spaceAfter, variant }) => {
   return THEME_VARIANTS[variant].spaceAfter;
 };
 
+const getFontWeight = ({ bold, variant }) => {
+  if (bold) {
+    return "bold";
+  }
+
+  return THEME_VARIANTS[variant].fontWeight;
+};
+
 const StyledTypography = styled.p`
   color: ${themeVariant("variant", "color", THEME_VARIANTS, ThemeConstants.mode.key)};
   font-size: ${(props => THEME_VARIANTS[props.variant].fontSize)};
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: ${(props => THEME_VARIANTS[props.variant].fontWeight)};;
+  font-weight: ${getFontWeight};
   line-height: ${(props => THEME_VARIANTS[props.variant].lineHeight)};;
   letter-spacing: ${(props => THEME_VARIANTS[props.variant].letterSpacing)};;
   ${props => THEME_VARIANTS[props.variant].textTransform && `text-transform: ${THEME_VARIANTS[props.variant].textTransform}`}
@@ -176,9 +186,11 @@ const StyledTypography = styled.p`
   ${props => checkSpaceAfter(props) && "margin-block-end: 1em;"}
   ${props => checkSpaceAfter(props) && "margin-inline-start: 0px;"}
   ${props => checkSpaceAfter(props) && "margin-inline-end: 0px;"}
+  -webkit-font-smoothing: antialiased;
 `;
 
 const Typography = ({
+  bold,
   children,
   spaceAfter,
   variant,
@@ -186,6 +198,7 @@ const Typography = ({
 }) => (
   <StyledTypography
     as={THEME_VARIANTS[variant].as}
+    bold={bold}
     spaceAfter={spaceAfter}
     variant={variant}
     {...rest}
