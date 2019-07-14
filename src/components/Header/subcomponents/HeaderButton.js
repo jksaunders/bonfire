@@ -6,6 +6,7 @@ import Button from "../../Button";
 const CONSTANTS = {};
 
 const propTypes = {
+  onClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
 };
 
@@ -16,10 +17,11 @@ const StyledHeaderButton = styled(Button)`
 `;
 
 const HeaderButton = ({
+  onClick,
   text,
   ...rest
 }) => (
-  <StyledHeaderButton {...rest} text={text} />
+  <StyledHeaderButton onClick={onClick} text={text} {...rest} />
 );
 
 HeaderButton.propTypes = propTypes;

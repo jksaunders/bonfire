@@ -2,6 +2,7 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 
 import { storiesOf } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import { select, withKnobs } from "@storybook/addon-knobs";
 
 import { ThemeConstants } from "../../theming";
@@ -23,11 +24,11 @@ storiesOf("Header", module)
         <div>
           <div>
             <StoryHeader>
-              <Header.HeaderItem text="Programs" link="https://gooogle.com" />
-              <Header.HeaderItem text="About Us" />
-              <Header.HeaderItem text="Events" />
-              <Header.HeaderItem text="Contact Us" />
-              <Header.HeaderButton text="Donate" variant={Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY} />
+              <Header.HeaderItem text="Programs" link="https://google.com" />
+              <Header.HeaderItem text="About Us" onClick={action("About Us")} />
+              <Header.HeaderItem text="Events" onClick={action("Events")} />
+              <Header.HeaderItem text="Contact Us" onClick={action("Contact Us")} />
+              <Header.HeaderButton text="Donate" onClick={action("Donate")} variant={Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY} />
             </StoryHeader>
           </div>
         </div>

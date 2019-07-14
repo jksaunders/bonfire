@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
+import { Browser } from "../../../utils";
 
 const CONSTANTS = {};
 
@@ -20,6 +21,7 @@ const StyledMenuItem = styled.div`
   cursor: pointer;
   margin: 0px 16px;
   text-decoration: none;
+  user-select: none;
 `;
 
 const HeaderItem = ({
@@ -29,13 +31,12 @@ const HeaderItem = ({
   ...rest
 }) => (
   <StyledMenuItem
-    onClick={() => {
+    onClick={(e) => {
+      e.preventDefault();
       if (onClick) {
         onClick();
       }
-      if (link && typeof window !== "undefined") {
-        window.location.href = link;
-      }
+      Browser.goTo(link);
     }}
     as={link ? "a" : "div"}
     href={link}
