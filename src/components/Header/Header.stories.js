@@ -23,7 +23,7 @@ storiesOf("Header", module)
         <div>
           <div>
             <StoryHeader>
-              <Header.HeaderItem text="Programs" />
+              <Header.HeaderItem text="Programs" link="https://gooogle.com" />
               <Header.HeaderItem text="About Us" />
               <Header.HeaderItem text="Events" />
               <Header.HeaderItem text="Contact Us" />

@@ -6,19 +6,41 @@ import Typography from "@material-ui/core/Typography";
 const CONSTANTS = {};
 
 const propTypes = {
+  link: PropTypes.string,
+  onClick: PropTypes.func,
   text: PropTypes.string.isRequired,
 };
 
-const defaultProps = {};
+const defaultProps = {
+  link: null,
+  onClick: null,
+};
 
 const StyledMenuItem = styled.div`
+  cursor: pointer;
   margin: 0px 16px;
+  text-decoration: none;
 `;
 
 const HeaderItem = ({
-  text
+  link,
+  onClick,
+  text,
+  ...rest
 }) => (
-  <StyledMenuItem>
+  <StyledMenuItem
+    onClick={() => {
+      if (onClick) {
+        onClick();
+      }
+      if (link && typeof window !== "undefined") {
+        window.location.href = link;
+      }
+    }}
+    as={link ? "a" : "div"}
+    href={link}
+    {...rest}
+  >
     <Typography>{text.toUpperCase()}</Typography>
   </StyledMenuItem>
 );
