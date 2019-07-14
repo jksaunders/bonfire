@@ -19,9 +19,7 @@ const HeaderButton = ({
   text,
   ...rest
 }) => (
-  <StyledHeaderButton {...rest}>
-    {text}
-  </StyledHeaderButton>
+  <StyledHeaderButton {...rest} text={text} />
 );
 
 HeaderButton.propTypes = propTypes;

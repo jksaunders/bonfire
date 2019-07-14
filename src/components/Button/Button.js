@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import chroma from "chroma-js";
+import Typography from "../Typography";
 import {
   theme, themeVariant, ThemeConstants, Palette
 } from "../../theming";
@@ -9,12 +10,7 @@ import {
 const CONSTANTS = {
   VARIANT: {
     PRIMARY: "PRIMARY",
-    // STRONG_PRIMARY: "STRONG_PRIMARY",
-    SECONDARY: "SECONDARY",
-    // SUBTLE: "SUBTLE",
-    // ATTENTION: "ATTENTION",
-    // DESTRUCTIVE: "DESTRUCTIVE",
-    // SUCCESS: "SUCCESS"
+    SECONDARY: "SECONDARY"
   }
 };
 
@@ -45,13 +41,14 @@ const StyledButton = styled.button`
 
   border-radius: 0.25em;
   border-style: solid;
-  border-width: 1px;
+  border-width: ${({ variant }) => (variant === CONSTANTS.VARIANT.PRIMARY ? 0 : 1)}px;
 `;
 
 const propTypes = {
   children: PropTypes.node,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  text: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(Object.keys(CONSTANTS.VARIANT))
 };
 
@@ -66,16 +63,18 @@ const Button = ({
   children,
   disabled,
   onClick,
+  text,
   variant,
   ...rest
 }) => (
   <StyledButton
     disabled={disabled}
     onClick={onClick}
+    text={text}
     variant={variant}
     {...rest}
   >
-    {children}
+    <Typography variant={Typography.CONSTANTS.VARIANT.BUTTON}>{text}</Typography>
   </StyledButton>
 );
 

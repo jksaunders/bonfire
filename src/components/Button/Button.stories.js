@@ -20,16 +20,12 @@ storiesOf("Button", module)
         <div>
           <div>
             {Object.keys(Button.CONSTANTS.VARIANT).map(variantKey => (
-              <Button key={variantKey} variant={variantKey} onClick={action("clicked")}>
-                {variantKey.toLowerCase()}
-              </Button>
+              <Button key={variantKey} text={variantKey.toLowerCase()} variant={variantKey} onClick={action("clicked")} />
             ))}
           </div>
           <div>
             {Object.keys(Button.CONSTANTS.VARIANT).map(variantKey => (
-              <Button key={variantKey} variant={variantKey} disabled onClick={action("clicked")}>
-                {`${variantKey.toLowerCase()} disabled`}
-              </Button>
+              <Button key={variantKey} text={`${variantKey.toLowerCase()} disabled`} variant={variantKey} onClick={action("clicked")} />
             ))}
           </div>
         </div>
