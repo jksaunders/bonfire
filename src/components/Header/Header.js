@@ -3,17 +3,25 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import {
   HeaderButton,
-  HeaderItem
+  HeaderItem,
+  HeaderLogo
 } from "./subcomponents";
 
 const CONSTANTS = {};
+
+const padding = "16px";
 
 const StyledHeader = styled.div`
   align-items: center;
   display: flex;
   height: ${({ height }) => height};
   justify-content: flex-end;
-  padding: 0px 16px;
+  padding: 0px ${padding};
+  
+  & > img {
+    height: ${({ height }) => height};
+    margin-right: auto;
+  }
 `;
 
 const propTypes = {
@@ -40,5 +48,6 @@ Header.defaultProps = defaultProps;
 Header.CONSTANTS = CONSTANTS;
 Header.HeaderButton = HeaderButton;
 Header.HeaderItem = HeaderItem;
+Header.HeaderLogo = HeaderLogo;
 
 export default Header;

@@ -14,7 +14,7 @@ const StoryHeader = styled(Header)`
 
 storiesOf("Header", module)
   .addDecorator(withKnobs)
-  .add("with text", () => {
+  .add("no logo", () => {
     const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
     const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
     const theme = { mode: themeMode, layout: themeLayout };
@@ -23,6 +23,26 @@ storiesOf("Header", module)
       <ThemeProvider theme={theme}>
         <div>
           <StoryHeader>
+            <Header.HeaderItem text="Programs" link="https://google.com" />
+            <Header.HeaderItem text="About Us" onClick={action("About Us")} />
+            <Header.HeaderItem text="Events" onClick={action("Events")} />
+            <Header.HeaderItem text="Contact Us" onClick={action("Contact Us")} />
+            <Header.HeaderButton text="Donate" onClick={action("Donate")} variant={Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY} />
+          </StoryHeader>
+        </div>
+      </ThemeProvider>
+    );
+  })
+  .add("with logo", () => {
+    const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
+    const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+    const theme = { mode: themeMode, layout: themeLayout };
+
+    return (
+      <ThemeProvider theme={theme}>
+        <div>
+          <StoryHeader>
+            <Header.HeaderLogo />
             <Header.HeaderItem text="Programs" link="https://google.com" />
             <Header.HeaderItem text="About Us" onClick={action("About Us")} />
             <Header.HeaderItem text="Events" onClick={action("Events")} />
