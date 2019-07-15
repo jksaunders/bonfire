@@ -16,12 +16,7 @@ const StyledHeader = styled.div`
   display: flex;
   height: ${({ height }) => height};
   justify-content: flex-end;
-  padding: 0px ${padding};
-  
-  & > img {
-    height: ${({ height }) => height};
-    margin-right: auto;
-  }
+  padding: ${padding};
 `;
 
 const propTypes = {

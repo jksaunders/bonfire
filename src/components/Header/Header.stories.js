@@ -9,7 +9,7 @@ import { ThemeConstants } from "../../theming";
 import Header from "./Header";
 
 const StoryHeader = styled(Header)`
-  background: linear-gradient(270deg, #48C9B0 0%, white 100%);
+  background: linear-gradient(270deg, #EEEEEE 0%, white 100%);
 `;
 
 storiesOf("Header", module)
@@ -42,7 +42,7 @@ storiesOf("Header", module)
       <ThemeProvider theme={theme}>
         <div>
           <StoryHeader>
-            <Header.HeaderLogo />
+            <Header.HeaderLogo image="https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" maxHeight="150px" />
             <Header.HeaderItem text="Programs" link="https://google.com" />
             <Header.HeaderItem text="About Us" onClick={action("About Us")} />
             <Header.HeaderItem text="Events" onClick={action("Events")} />
