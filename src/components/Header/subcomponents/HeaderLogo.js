@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Browser } from "../../../utils";
-import Header from "../Header";
 
 const CONSTANTS = {};
 
@@ -22,13 +21,10 @@ const defaultProps = {
 
 const StyledHeaderLogo = styled.img`
   ${props => (props.onClick || props.link) && "cursor: pointer;"}
+  margin-right: auto;
+  ${props => props.maxHeight && `max-height: ${props.maxHeight};`}
   opacity: 0.7;
   width: auto;
-  ${props => props.maxHeight && `max-height: ${props.maxHeight};`}
-
-  ${Header} & {
-    margin-right: auto;
-  }
 `;
 
 const getOnClick = (link, onClick) => {
