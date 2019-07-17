@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { useSpring, animated, config } from "react-spring";
 import {
   HeaderButton,
   HeaderItem,
@@ -34,8 +35,9 @@ const FloatingHeader = styled(StyledBaseHeader)`
   height: 75px;
   left: 0px;
   position: fixed;
-  top: 0px;
 `;
+
+const AnimatedFloatingHeader = animated(FloatingHeader);
 
 const getStyledHeader = (layout) => {
   switch (layout) {
@@ -69,16 +71,21 @@ const Header = ({
   ...rest
 }) => {
   const StyledHeader = getStyledHeader(layout);
+
+  const { y } = useSpring({
+    config: config.stiff,
+    from: { y: showFloatingHeader ? -100 : 0 },
+    to: { y: showFloatingHeader ? 0 : -100 }
+  });
+
   return (
     <React.Fragment>
       <StyledHeader {...rest}>
         {children}
       </StyledHeader>
-      {showFloatingHeader && (
-        <FloatingHeader {...rest}>
-          {children}
-        </FloatingHeader>
-      )}
+      <AnimatedFloatingHeader {...rest} style={{ top: y.interpolate(n => `${n}px`) }}>
+        {children}
+      </AnimatedFloatingHeader>
     </React.Fragment>
   );
 };
