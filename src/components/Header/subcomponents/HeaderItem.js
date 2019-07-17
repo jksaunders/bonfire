@@ -22,6 +22,7 @@ const StyledMenuItem = styled.div`
   cursor: pointer;
   margin: 0px 16px;
   text-decoration: none;
+  white-space: nowrap;
   user-select: none;
 `;
 

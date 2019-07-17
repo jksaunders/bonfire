@@ -7,36 +7,81 @@ import {
   HeaderLogo
 } from "./subcomponents";
 
-const CONSTANTS = {};
+const CONSTANTS = {
+  LAYOUT: {
+    FULL: "FULL",
+    SIDE: "SIDE"
+  }
+};
 
 const padding = "16px";
 
-const StyledHeader = styled.div`
+const StyledBaseHeader = styled.div`
   align-items: center;
+  box-sizing: border-box;
   display: flex;
-  height: ${({ height }) => height};
   justify-content: flex-end;
   padding: ${padding};
+  width: 100%;
 `;
+
+const FullHeader = styled(StyledBaseHeader)`
+  height: ${({ height }) => height};
+`;
+
+const FloatingHeader = styled(StyledBaseHeader)`
+  box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+  height: 75px;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+`;
+
+const getStyledHeader = (layout) => {
+  switch (layout) {
+    case CONSTANTS.LAYOUT.FULL:
+      return FullHeader;
+    case CONSTANTS.LAYOUT.SIDE:
+      return null;
+    default:
+      return null;
+  }
+};
 
 const propTypes = {
   children: PropTypes.node,
-  height: PropTypes.string
+  height: PropTypes.string,
+  layout: PropTypes.oneOf(Object.keys(CONSTANTS.LAYOUT)),
+  showFloatingHeader: PropTypes.bool
 };
 
 const defaultProps = {
   children: null,
-  height: "125px"
+  height: "125px",
+  layout: CONSTANTS.LAYOUT.FULL,
+  showFloatingHeader: false
 };
 
 const Header = ({
   children,
+  layout,
+  showFloatingHeader,
   ...rest
-}) => (
-  <StyledHeader {...rest}>
-    {children}
-  </StyledHeader>
-);
+}) => {
+  const StyledHeader = getStyledHeader(layout);
+  return (
+    <React.Fragment>
+      <StyledHeader {...rest}>
+        {children}
+      </StyledHeader>
+      {showFloatingHeader && (
+        <FloatingHeader {...rest}>
+          {children}
+        </FloatingHeader>
+      )}
+    </React.Fragment>
+  );
+};
 
 Header.propTypes = propTypes;
 Header.defaultProps = defaultProps;
