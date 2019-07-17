@@ -9,7 +9,7 @@ import {
 } from "./subcomponents";
 
 const CONSTANTS = {
-  LAYOUT: {
+  VARIANT: {
     FULL: "FULL",
     SIDE: "SIDE"
   }
@@ -39,11 +39,11 @@ const FloatingHeader = styled(StyledBaseHeader)`
 
 const AnimatedFloatingHeader = animated(FloatingHeader);
 
-const getStyledHeader = (layout) => {
-  switch (layout) {
-    case CONSTANTS.LAYOUT.FULL:
+const getStyledHeader = (variant) => {
+  switch (variant) {
+    case CONSTANTS.VARIANT.FULL:
       return FullHeader;
-    case CONSTANTS.LAYOUT.SIDE:
+    case CONSTANTS.VARIANT.SIDE:
       return null;
     default:
       return null;
@@ -53,24 +53,24 @@ const getStyledHeader = (layout) => {
 const propTypes = {
   children: PropTypes.node,
   height: PropTypes.string,
-  layout: PropTypes.oneOf(Object.keys(CONSTANTS.LAYOUT)),
+  variant: PropTypes.oneOf(Object.keys(CONSTANTS.VARIANT)),
   showFloatingHeader: PropTypes.bool
 };
 
 const defaultProps = {
   children: null,
   height: "125px",
-  layout: CONSTANTS.LAYOUT.FULL,
+  variant: CONSTANTS.VARIANT.FULL,
   showFloatingHeader: false
 };
 
 const Header = ({
   children,
-  layout,
+  variant,
   showFloatingHeader,
   ...rest
 }) => {
-  const StyledHeader = getStyledHeader(layout);
+  const StyledHeader = getStyledHeader(variant);
 
   const transitions = useTransition(showFloatingHeader, null, {
     from: { top: "-100px" },
@@ -83,11 +83,13 @@ const Header = ({
       <StyledHeader {...rest}>
         {children}
       </StyledHeader>
-      {transitions.map(({ item, key, props: transitionProps }) => item && (
-        <AnimatedFloatingHeader key={key} {...rest} style={{ top: transitionProps.top }}>
-          {children}
-        </AnimatedFloatingHeader>
-      ))}
+      {variant === CONSTANTS.VARIANT.FULL
+        && transitions.map(({ item, key, props: transitionProps }) => item && (
+          <AnimatedFloatingHeader key={key} {...rest} style={{ top: transitionProps.top }}>
+            {children}
+          </AnimatedFloatingHeader>
+        ))
+      }
     </React.Fragment>
   );
 };

@@ -15,11 +15,12 @@ const StoryHeader = styled(Header)`
 
 const AutoFloatingHeaderStory = () => {
   const [showFloatingHeader, setShowFloatingHeader] = useState(false);
+  const headerHeight = 125;
 
   const bind = useGesture(
     {
       onScroll: (scrollState) => {
-        if ((scrollState.xy[1] > 125) !== showFloatingHeader) {
+        if ((scrollState.xy[1] > headerHeight) !== showFloatingHeader) {
           setShowFloatingHeader(!showFloatingHeader);
         }
       },
@@ -29,7 +30,7 @@ const AutoFloatingHeaderStory = () => {
 
   return (
     <div {...bind()} style={{ height: "400px", overflowY: "scroll" }}>
-      <StoryHeader layout={Header.CONSTANTS.LAYOUT.FULL} showFloatingHeader={showFloatingHeader} height="125px">
+      <StoryHeader variant={Header.CONSTANTS.VARIANT.FULL} showFloatingHeader={showFloatingHeader} height={`${headerHeight}px`}>
         <Header.HeaderLogo image="https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" />
         <Header.HeaderItem text="Programs" link="https://google.com" />
         <Header.HeaderItem text="About Us" onClick={action("About Us")} />
@@ -48,13 +49,13 @@ storiesOf("Header", module)
     const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
     const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
     const theme = { mode: themeMode, layout: themeLayout };
-    const layout = select("Header Layout", Object.keys(Header.CONSTANTS.LAYOUT));
+    const variant = select("Header Layout", Object.keys(Header.CONSTANTS.VARIANT));
     const showFloatingHeader = boolean("Show Floating Header", false);
 
     return (
       <ThemeProvider theme={theme}>
         <div>
-          <StoryHeader layout={layout} showFloatingHeader={showFloatingHeader}>
+          <StoryHeader variant={variant} showFloatingHeader={showFloatingHeader}>
             <Header.HeaderItem text="Programs" link="https://google.com" />
             <Header.HeaderItem text="About Us" onClick={action("About Us")} />
             <Header.HeaderItem text="Events" onClick={action("Events")} />
@@ -69,13 +70,13 @@ storiesOf("Header", module)
     const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
     const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
     const theme = { mode: themeMode, layout: themeLayout };
-    const layout = select("Header Layout", Object.keys(Header.CONSTANTS.LAYOUT));
+    const variant = select("Header Layout", Object.keys(Header.CONSTANTS.VARIANT));
     const showFloatingHeader = boolean("Show Floating Header", false);
 
     return (
       <ThemeProvider theme={theme}>
         <div>
-          <StoryHeader layout={layout} showFloatingHeader={showFloatingHeader}>
+          <StoryHeader variant={variant} showFloatingHeader={showFloatingHeader}>
             <Header.HeaderLogo image="https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" />
             <Header.HeaderItem text="Programs" link="https://google.com" />
             <Header.HeaderItem text="About Us" onClick={action("About Us")} />
@@ -87,7 +88,7 @@ storiesOf("Header", module)
       </ThemeProvider>
     );
   })
-  .add("auto floating demo", () => {
+  .add("auto floating header", () => {
     const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
     const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
     const theme = { mode: themeMode, layout: themeLayout };
