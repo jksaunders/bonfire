@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { useSpring, animated, config } from "react-spring";
+import { animated, useTransition } from "react-spring";
 import {
   HeaderButton,
   HeaderItem,
@@ -72,10 +72,10 @@ const Header = ({
 }) => {
   const StyledHeader = getStyledHeader(layout);
 
-  const { y } = useSpring({
-    config: config.stiff,
-    from: { y: showFloatingHeader ? -100 : 0 },
-    to: { y: showFloatingHeader ? 0 : -100 }
+  const transitions = useTransition(showFloatingHeader, null, {
+    from: { top: "-100px" },
+    enter: { top: "0px" },
+    leave: { top: "-100px" },
   });
 
   return (
@@ -83,9 +83,11 @@ const Header = ({
       <StyledHeader {...rest}>
         {children}
       </StyledHeader>
-      <AnimatedFloatingHeader {...rest} style={{ top: y.interpolate(n => `${n}px`) }}>
-        {children}
-      </AnimatedFloatingHeader>
+      {transitions.map(({ item, key, props: transitionProps }) => item && (
+        <AnimatedFloatingHeader key={key} {...rest} style={{ top: transitionProps.top }}>
+          {children}
+        </AnimatedFloatingHeader>
+      ))}
     </React.Fragment>
   );
 };

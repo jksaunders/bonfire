@@ -30,7 +30,7 @@ const AutoFloatingHeaderStory = () => {
   return (
     <div {...bind()} style={{ height: "400px", overflowY: "scroll" }}>
       <StoryHeader layout={Header.CONSTANTS.LAYOUT.FULL} showFloatingHeader={showFloatingHeader} height="125px">
-        <Header.HeaderLogo image="https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" maxHeight="150px" />
+        <Header.HeaderLogo image="https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" />
         <Header.HeaderItem text="Programs" link="https://google.com" />
         <Header.HeaderItem text="About Us" onClick={action("About Us")} />
         <Header.HeaderItem text="Events" onClick={action("Events")} />
@@ -76,7 +76,7 @@ storiesOf("Header", module)
       <ThemeProvider theme={theme}>
         <div>
           <StoryHeader layout={layout} showFloatingHeader={showFloatingHeader}>
-            <Header.HeaderLogo image="https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" maxHeight="150px" />
+            <Header.HeaderLogo image="https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" />
             <Header.HeaderItem text="Programs" link="https://google.com" />
             <Header.HeaderItem text="About Us" onClick={action("About Us")} />
             <Header.HeaderItem text="Events" onClick={action("Events")} />

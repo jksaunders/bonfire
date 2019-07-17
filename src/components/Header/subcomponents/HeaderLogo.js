@@ -7,23 +7,20 @@ const CONSTANTS = {};
 
 const propTypes = {
   link: PropTypes.string,
-  maxHeight: PropTypes.string,
   onClick: PropTypes.func,
   image: PropTypes.string
 };
 
 const defaultProps = {
   link: null,
-  maxHeight: null,
   onClick: null,
   image: "https://via.placeholder.com/350x150"
 };
 
 const StyledHeaderLogo = styled.img`
   ${props => (props.onClick || props.link) && "cursor: pointer;"}
+  height: 100%;
   margin-right: auto;
-  ${props => props.maxHeight && `max-height: ${props.maxHeight};`}
-  opacity: 0.7;
   width: auto;
 `;
 
