@@ -1,7 +1,4 @@
-import { assert } from "chai";
-
-describe("Math!", () => {
-  it("should work as expected", () => {
-    assert((0 + 1) === 1, "How??");
-  });
+test("adds 1 + 2 to equal 3", () => {
+  const sum = (a, b) => a + b;
+  expect(sum(1, 2)).toBe(3);
 });

@@ -1,8 +1,10 @@
 {
     "parser": "babel-eslint",
+    "plugins": ["jest"],
     "extends": "airbnb",
     "env": {
       "browser": true,
+      "jest/globals": true,
       "mocha": true
     },
     "rules": {
