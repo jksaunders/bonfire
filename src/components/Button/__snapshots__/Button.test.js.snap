@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button mounts 1`] = `
+<button
+  className="sc-bwzfXH iOhfhf"
+  disabled={false}
+  onClick={[Function]}
+  width="100px"
+>
+  <span
+    className="sc-bdVaJa nkhsS"
+  >
+    Test text
+  </span>
+</button>
+`;

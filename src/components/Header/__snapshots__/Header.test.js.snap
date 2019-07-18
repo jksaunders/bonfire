@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header mounts 1`] = `
+<div
+  className="sc-bZQynM sc-gzVnrw iRxBVV"
+  height="125px"
+/>
+`;
