@@ -56,6 +56,7 @@ const HeaderItem = ({
 
 HeaderItem.propTypes = propTypes;
 HeaderItem.defaultProps = defaultProps;
+HeaderItem.shape = propTypes;
 HeaderItem.CONSTANTS = CONSTANTS;
 
 export default HeaderItem;

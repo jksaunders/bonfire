@@ -30,14 +30,21 @@ const AutoFloatingHeaderStory = () => {
 
   return (
     <div {...bind()} style={{ height: "400px", overflowY: "scroll" }}>
-      <StoryHeader variant={Header.CONSTANTS.VARIANT.FULL} showFloatingHeader={showFloatingHeader} height={`${headerHeight}px`}>
-        <Header.HeaderLogo image="https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" />
-        <Header.HeaderItem text="Programs" link="https://google.com" />
-        <Header.HeaderItem text="About Us" onClick={action("About Us")} />
-        <Header.HeaderItem text="Events" onClick={action("Events")} />
-        <Header.HeaderItem text="Contact Us" onClick={action("Contact Us")} />
-        <Header.HeaderButton text="Donate" onClick={action("Donate")} variant={Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY} />
-      </StoryHeader>
+      <StoryHeader
+        buttons={[
+          { text: "Donate", onClick: action("Donate"), variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY }
+        ]}
+        items={[
+          { text: "Programs", link: "https://google.com" },
+          { text: "About Us", onClick: action("About Us") },
+          { text: "Events", onClick: action("Events") },
+          { text: "Contact Us", onClick: action("Contact Us") }
+        ]}
+        logo={{ image: "https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" }}
+        variant={Header.CONSTANTS.VARIANT.FULL}
+        showFloatingHeader={showFloatingHeader}
+        height={`${headerHeight}px`}
+      />
       <div style={{ height: "1000px" }}>Content!</div>
     </div>
   );
@@ -55,13 +62,20 @@ storiesOf("Header", module)
     return (
       <ThemeProvider theme={theme}>
         <div>
-          <StoryHeader variant={variant} showFloatingHeader={showFloatingHeader}>
-            <Header.HeaderItem text="Programs" link="https://google.com" />
-            <Header.HeaderItem text="About Us" onClick={action("About Us")} />
-            <Header.HeaderItem text="Events" onClick={action("Events")} />
-            <Header.HeaderItem text="Contact Us" onClick={action("Contact Us")} />
-            <Header.HeaderButton text="Donate" onClick={action("Donate")} variant={Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY} />
-          </StoryHeader>
+          <StoryHeader
+            buttons={[
+              { text: "Donate", onClick: action("Donate"), variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY }
+            ]}
+            height="125px"
+            items={[
+              { text: "Programs", link: "https://google.com" },
+              { text: "About Us", onClick: action("About Us") },
+              { text: "Events", onClick: action("Events") },
+              { text: "Contact Us", onClick: action("Contact Us") }
+            ]}
+            variant={variant}
+            showFloatingHeader={showFloatingHeader}
+          />
         </div>
       </ThemeProvider>
     );
@@ -76,14 +90,21 @@ storiesOf("Header", module)
     return (
       <ThemeProvider theme={theme}>
         <div>
-          <StoryHeader variant={variant} showFloatingHeader={showFloatingHeader}>
-            <Header.HeaderLogo image="https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" />
-            <Header.HeaderItem text="Programs" link="https://google.com" />
-            <Header.HeaderItem text="About Us" onClick={action("About Us")} />
-            <Header.HeaderItem text="Events" onClick={action("Events")} />
-            <Header.HeaderItem text="Contact Us" onClick={action("Contact Us")} />
-            <Header.HeaderButton text="Donate" onClick={action("Donate")} variant={Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY} />
-          </StoryHeader>
+          <StoryHeader
+            buttons={[
+              { text: "Donate", onClick: action("Donate"), variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY }
+            ]}
+            height="125px"
+            items={[
+              { text: "Programs", link: "https://google.com" },
+              { text: "About Us", onClick: action("About Us") },
+              { text: "Events", onClick: action("Events") },
+              { text: "Contact Us", onClick: action("Contact Us") }
+            ]}
+            logo={{ image: "https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" }}
+            variant={variant}
+            showFloatingHeader={showFloatingHeader}
+          />
         </div>
       </ThemeProvider>
     );

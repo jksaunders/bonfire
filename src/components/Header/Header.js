@@ -39,54 +39,60 @@ const FloatingHeader = styled(StyledBaseHeader)`
 
 const AnimatedFloatingHeader = animated(FloatingHeader);
 
-const getStyledHeader = (variant) => {
-  switch (variant) {
-    case CONSTANTS.VARIANT.FULL:
-      return FullHeader;
-    case CONSTANTS.VARIANT.SIDE:
-      return null;
-    default:
-      return null;
-  }
-};
-
 const propTypes = {
-  children: PropTypes.node,
+  buttons: PropTypes.arrayOf(PropTypes.shape(HeaderButton.shape)),
+  logo: PropTypes.shape(HeaderLogo.shape),
+  items: PropTypes.arrayOf(PropTypes.shape(HeaderItem.shape)),
   height: PropTypes.string,
   variant: PropTypes.oneOf(Object.keys(CONSTANTS.VARIANT)),
   showFloatingHeader: PropTypes.bool
 };
 
 const defaultProps = {
-  children: null,
+  buttons: [],
+  logo: null,
+  items: [],
   height: "125px",
   variant: CONSTANTS.VARIANT.FULL,
   showFloatingHeader: false
 };
 
 const Header = ({
-  children,
+  buttons,
+  logo,
+  items,
+  height,
   variant,
   showFloatingHeader,
   ...rest
 }) => {
-  const StyledHeader = getStyledHeader(variant);
-
   const transitions = useTransition(showFloatingHeader, null, {
     from: { top: "-100px" },
     enter: { top: "0px" },
     leave: { top: "-100px" },
   });
 
+  const renderChildren = () => (
+    <React.Fragment>
+      {logo && <Header.HeaderLogo {...logo} />}
+      {items.map((item, index) => (
+        <Header.HeaderItem key={index} {...item} />
+      ))}
+      {buttons.map((button, index) => (
+        <Header.HeaderButton key={index} {...button} />
+      ))}
+    </React.Fragment>
+  );
+
   return (
     <React.Fragment>
-      <StyledHeader {...rest}>
-        {children}
-      </StyledHeader>
+      <FullHeader height={height} {...rest}>
+        {renderChildren()}
+      </FullHeader>
       {variant === CONSTANTS.VARIANT.FULL
         && transitions.map(({ item, key, props: transitionProps }) => item && (
           <AnimatedFloatingHeader key={key} {...rest} style={{ top: transitionProps.top }}>
-            {children}
+            {renderChildren()}
           </AnimatedFloatingHeader>
         ))
       }

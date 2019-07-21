@@ -26,6 +26,7 @@ const HeaderButton = ({
 
 HeaderButton.propTypes = propTypes;
 HeaderButton.defaultProps = defaultProps;
+HeaderButton.shape = propTypes;
 HeaderButton.CONSTANTS = { ...Button.CONSTANTS, ...CONSTANTS };
 
 export default HeaderButton;
