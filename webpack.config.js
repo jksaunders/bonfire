@@ -6,11 +6,6 @@ module.exports = () => ({
     filename: "index.js",
     path: path.resolve(__dirname, "dist")
   },
-  externals: [
-    "react",
-    "prop-types",
-    "styled-components"
-  ],
   plugins: [],
   module: {
     rules: [
