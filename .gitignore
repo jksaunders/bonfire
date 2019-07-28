@@ -62,3 +62,6 @@ typings/
 
 # babel output
 lib
+
+# webpack output
+dist

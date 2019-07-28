@@ -2,9 +2,10 @@
   "name": "@jksaunders/bonfire",
   "version": "1.0.9",
   "description": "",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "cross-env BABEL_ENV=production babel src --out-dir lib",
+    "build": "webpack --mode development",
+    "build-prod": "webpack --mode production",
     "jest": "jest",
     "jest:coverage": "jest --coverage",
     "jest:watch": "jest --watch",
@@ -65,12 +66,15 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1",
+    "eslint-loader": "^2.2.1",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
     "jest": "^24.8.0",
     "jest-enzyme": "^7.0.2",
     "mocha": "^6.1.4",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "webpack": "^4.38.0",
+    "webpack-cli": "^3.3.6"
   }
 }
