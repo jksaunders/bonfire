@@ -4,7 +4,7 @@ node_js:
 cache: npm
 script:
 - npm run test
-- npm run build-prod
+- npm run build:prod
 after_success:
 - npm run deploy-storybook -- --ci
 deploy:

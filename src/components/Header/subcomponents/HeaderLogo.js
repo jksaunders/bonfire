@@ -19,7 +19,7 @@ const defaultProps = {
 
 const StyledHeaderLogo = styled.img`
   ${props => (props.onClick || props.link) && "cursor: pointer;"}
-  height: 100%;
+  height: auto;
   margin-right: auto;
   width: auto;
 `;

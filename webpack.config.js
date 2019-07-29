@@ -2,10 +2,18 @@ const path = require("path");
 
 module.exports = () => ({
   entry: "./src/index.js",
+  devtool: "inline-source-map",
   output: {
     filename: "index.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    library: "bonfire",
+    libraryTarget: "umd"
   },
+  externals: [
+    "react",
+    "prop-types",
+    "styled-components"
+  ],
   plugins: [],
   module: {
     rules: [
