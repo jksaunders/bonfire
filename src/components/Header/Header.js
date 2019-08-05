@@ -7,6 +7,7 @@ import {
   HeaderItem,
   HeaderLogo
 } from "./subcomponents";
+import { BACKGROUND_SHAPE, getBackground } from "../../shapes";
 
 const CONSTANTS = {
   VARIANT: {
@@ -19,6 +20,7 @@ const padding = "16px";
 
 const StyledBaseHeader = styled.div`
   align-items: center;
+  ${props => getBackground(props.background)}
   box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
@@ -40,6 +42,7 @@ const FloatingHeader = styled(StyledBaseHeader)`
 const AnimatedFloatingHeader = animated(FloatingHeader);
 
 const propTypes = {
+  background: BACKGROUND_SHAPE,
   buttons: PropTypes.arrayOf(PropTypes.shape(HeaderButton.shape)),
   logo: PropTypes.shape(HeaderLogo.shape),
   items: PropTypes.arrayOf(PropTypes.shape(HeaderItem.shape)),
@@ -49,6 +52,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  background: null,
   buttons: [],
   logo: null,
   items: [],
