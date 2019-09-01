@@ -9,14 +9,18 @@ const CONSTANTS = {
 };
 
 const StyledBar = styled.div`
-  height: ${({ height }) => height};
+  min-height: ${({ height }) => height};
   width: 100%;
 
+  ${props => props.background && `background: ${props.background}`}
+  ${props => props.backgroundColor && `background-color: ${props.backgroundColor}`}
   ${props => props.backgroundUrl && `background-image: url('${props.backgroundUrl}');`}
   ${props => props.backgroundUrl && "background-size: 100%;"}
 `;
 
 const propTypes = {
+  background: PropTypes.string,
+  backgroundColor: PropTypes.string,
   backgroundUrl: PropTypes.string,
   children: PropTypes.node,
   height: PropTypes.string,
@@ -24,6 +28,8 @@ const propTypes = {
 };
 
 const defaultProps = {
+  background: null,
+  backgroundColor: null,
   backgroundUrl: null,
   children: null,
   height: "300px",

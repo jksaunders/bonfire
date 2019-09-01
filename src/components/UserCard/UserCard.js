@@ -6,6 +6,7 @@ import * as colors from "../../theming/colors";
 
 const propTypes = {
   bodyText: PropTypes.string.isRequired,
+  className: PropTypes.string,
   image: PropTypes.string.isRequired,
   maxHeight: PropTypes.string,
   maxWidth: PropTypes.string,
@@ -13,6 +14,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  className: null,
   maxHeight: null,
   maxWidth: null,
 };
@@ -30,8 +32,9 @@ const CardWrapper = styled.div`
 
 const RoundImage = styled.img`
   border-radius: 50%;
+  ${props => props.maxHeight && `max-height: ${props.maxHeight}`}
   margin-bottom: 8px;
-  width: 100%;
+  object-fit: cover;
 `;
 
 const CardContainer = styled.div`
@@ -47,14 +50,15 @@ const CenteredText = styled.div`
 
 const UserCard = ({
   bodyText,
+  className,
   image,
   maxHeight,
   maxWidth,
   name
 }) => (
-  <CardWrapper maxHeight={maxHeight} maxWidth={maxWidth}>
+  <CardWrapper className={className} maxHeight={maxHeight} maxWidth={maxWidth}>
     <CardContainer>
-      <RoundImage src={image} />
+      <RoundImage maxHeight={maxWidth} src={image} />
       <CenteredText><Typography.H6>{name}</Typography.H6></CenteredText>
       <CenteredText><Typography.Body2 center>{bodyText}</Typography.Body2></CenteredText>
     </CardContainer>
