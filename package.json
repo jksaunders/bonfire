@@ -9,6 +9,7 @@
     "build:prod": "webpack --mode production",
     "jest": "jest",
     "jest:coverage": "jest --coverage",
+    "jest:interactive": "jest --watch",
     "jest:watch": "jest --watch",
     "test": "npm run lint && npm run jest:coverage",
     "test:prod": "cross-env BABEL_ENV=production npm run test",
