@@ -10,7 +10,6 @@ const CONSTANTS = {
 
 const StyledBar = styled.div`
   min-height: ${({ height }) => height};
-  width: 100%;
 
   ${props => props.background && `background: ${props.background}`}
   ${props => props.backgroundColor && `background-color: ${props.backgroundColor}`}

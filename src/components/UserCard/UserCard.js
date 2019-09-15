@@ -27,7 +27,7 @@ const CardWrapper = styled.div`
   display: inline-block;
   ${props => props.maxHeight && `max-height: ${props.maxHeight}`}
   ${props => props.maxWidth && `max-width: ${props.maxWidth}`}
-  padding: 16px;
+  padding: 32px;
 `;
 
 const RoundImage = styled.img`
