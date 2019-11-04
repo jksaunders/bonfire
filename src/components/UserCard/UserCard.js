@@ -33,7 +33,7 @@ const CardWrapper = styled.div`
 const RoundImage = styled.img`
   border-radius: 50%;
   ${props => props.maxHeight && `max-height: ${props.maxHeight}`}
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   object-fit: cover;
 `;
 
@@ -59,8 +59,8 @@ const UserCard = ({
   <CardWrapper className={className} maxHeight={maxHeight} maxWidth={maxWidth}>
     <CardContainer>
       <RoundImage maxHeight={maxWidth} src={image} />
-      <CenteredText><Typography.H6>{name}</Typography.H6></CenteredText>
-      <CenteredText><Typography.Body2 center>{bodyText}</Typography.Body2></CenteredText>
+      <CenteredText><Typography.H5>{name}</Typography.H5></CenteredText>
+      <CenteredText><Typography.Body1 center>{bodyText}</Typography.Body1></CenteredText>
     </CardContainer>
   </CardWrapper>
 );
