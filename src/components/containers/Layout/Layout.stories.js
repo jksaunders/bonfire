@@ -28,34 +28,8 @@ storiesOf("Layout", module)
     const containerSize = text("Size of container", "500px");
     const flexWrapReverse = boolean("Reverse flex-wrap?", false);
     const orientation = select("Orientation", Object.values(Layout.CONSTANTS.ORIENTATION), Object.values(Layout.CONSTANTS.ORIENTATION)[0]);
-    const horizontalAlignment = select("Horizontal Alignment", [
-      "center",
-      "start",
-      "end",
-      "flex-start",
-      "flex-end",
-      "left",
-      "right",
-      "normal",
-      "space-between",
-      "space-around",
-      "space-evenly",
-      "stretch"
-    ], "normal");
-    const verticalAlignment = select("Vertical Alignment", [
-      "center",
-      "start",
-      "end",
-      "flex-start",
-      "flex-end",
-      "left",
-      "right",
-      "normal",
-      "space-between",
-      "space-around",
-      "space-evenly",
-      "stretch"
-    ], "normal");
+    const horizontalAlignment = select("Horizontal Alignment", Layout.CONSTANTS.JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS, "normal");
+    const verticalAlignment = select("Vertical Alignment", Layout.CONSTANTS.JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS, "normal");
 
     return (
       <StoryWrapper size={containerSize}>
@@ -76,42 +50,21 @@ storiesOf("Layout", module)
     const flexWrapReverse = boolean("Reverse flex-wrap?", false);
     const varyingFlexValues = boolean("Varying flex values?", false);
     const orientation = select("Orientation", Object.values(Layout.CONSTANTS.ORIENTATION), Object.values(Layout.CONSTANTS.ORIENTATION)[0]);
-    const horizontalAlignment = select("Horizontal Alignment", [
-      "center",
-      "start",
-      "end",
-      "flex-start",
-      "flex-end",
-      "left",
-      "right",
-      "normal",
-      "space-between",
-      "space-around",
-      "space-evenly",
-      "stretch"
-    ], "normal");
-    const verticalAlignment = select("Vertical Alignment", [
-      "center",
-      "start",
-      "end",
-      "flex-start",
-      "flex-end",
-      "left",
-      "right",
-      "normal",
-      "space-between",
-      "space-around",
-      "space-evenly",
-      "stretch"
-    ], "normal");
+    const horizontalAlignment = select("Horizontal Alignment", Layout.CONSTANTS.JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS, "normal");
+    const verticalAlignment = select("Vertical Alignment", Layout.CONSTANTS.JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS, "normal");
+    const linesAlignment = select("Lines Alignment", Layout.CONSTANTS.JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS, "stretch");
 
     return (
       <StoryWrapper size={containerSize}>
         <Layout
           childrenFlex={varyingFlexValues ? i => (i === 0 ? 0 : 1) : 1}
+          childrenMargin={Layout.CONSTANTS.SPACING.LARGE}
           flexWrapReverse={flexWrapReverse}
+          fullHeightWidth
           horizontalAlignment={horizontalAlignment}
+          linesAlignment={linesAlignment}
           orientation={orientation}
+          padding={Layout.CONSTANTS.SPACING.LARGE}
           verticalAlignment={verticalAlignment}
         >
           <Content><Typography.H2>content1</Typography.H2></Content>

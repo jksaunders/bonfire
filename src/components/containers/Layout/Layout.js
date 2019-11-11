@@ -4,48 +4,70 @@ import styled from "styled-components";
 import { isArray } from "util";
 
 const CONSTANTS = {
+  JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS: [
+    "center",
+    "start",
+    "end",
+    "flex-start",
+    "flex-end",
+    "left",
+    "right",
+    "normal",
+    "space-between",
+    "space-around",
+    "space-evenly",
+    "stretch"
+  ],
   ORIENTATION: {
     HORIZONTAL: "horizontal",
     VERTICAL: "vertical"
+  },
+  SPACING: {
+    SMALL: "small",
+    MEDIUM: "medium",
+    LARGE: "large"
   }
 };
 
-const JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS = [
-  "center",
-  "start",
-  "end",
-  "flex-start",
-  "flex-end",
-  "left",
-  "right",
-  "normal",
-  "space-between",
-  "space-around",
-  "space-evenly",
-  "stretch"
-];
+const SPACING_VALUES = {
+  [CONSTANTS.SPACING.SMALL]: "4px",
+  [CONSTANTS.SPACING.MEDIUM]: "8px",
+  [CONSTANTS.SPACING.LARGE]: "16px",
+};
 
 const propTypes = {
   children: PropTypes.node,
-  childrenFlex: PropTypes.oneOf([
+  childrenFlex: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.arrayOf(PropTypes.number),
     PropTypes.func
   ]),
+  childrenMargin: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.func
+  ]),
   flexWrapReverse: PropTypes.bool,
-  horizontalAlignment: PropTypes.oneOf(JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS),
+  fullHeightWidth: PropTypes.bool,
+  horizontalAlignment: PropTypes.oneOf(CONSTANTS.JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS),
   innerContentWidth: PropTypes.string,
+  linesAlignment: PropTypes.oneOf(CONSTANTS.JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS),
   orientation: PropTypes.oneOf(Object.values(CONSTANTS.ORIENTATION)),
-  verticalAlignment: PropTypes.oneOf(JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS)
+  padding: PropTypes.oneOf(Object.values(CONSTANTS.SPACING)),
+  verticalAlignment: PropTypes.oneOf(CONSTANTS.JUSTIFY_CONTENT_ALIGN_ITEMS_KEYS)
 };
 
 const defaultProps = {
   children: null,
   childrenFlex: 1,
+  childrenMargin: null,
   flexWrapReverse: false,
+  fullHeightWidth: false,
   horizontalAlignment: "normal",
   innerContentWidth: null,
+  linesAlignment: null,
   orientation: CONSTANTS.ORIENTATION.HORIZONTAL,
+  padding: null,
   verticalAlignment: "normal"
 };
 
@@ -72,50 +94,82 @@ const getJustifyContentAndAlignItems = ({
   justify-content: ${orientation === CONSTANTS.ORIENTATION.HORIZONTAL ? horizontalAlignment : verticalAlignment};
 `;
 
-const getFlexDescendentValues = ({ children, childrenFlex }) => {
+const getDescendentValues = ({ children, childrenFlex, childrenMargin }) => {
+  if (children == null || children.length === 0) {
+    return "";
+  }
+
+  const allChildrenValues = {};
+  const childrenValues = [...children.map(() => ({}))];
+
   if (typeof childrenFlex === "number") {
-    return `
-      && > * {
-        flex: ${childrenFlex};
-      }
-    
-    `;
+    allChildrenValues.flex = childrenFlex;
+  } else if (typeof childrenFlex === "function") {
+    children.forEach((e, index) => {
+      childrenValues[index].flex = childrenFlex(index);
+    });
+  } else if (isArray(childrenFlex)) {
+    children.forEach((e, index) => {
+      childrenValues[index].flex = childrenFlex[index];
+    });
+  }
+
+  if (typeof childrenMargin === "string") {
+    allChildrenValues.margin = childrenMargin;
+  } else if (typeof childrenMargin === "function") {
+    children.forEach((e, index) => {
+      childrenValues[index].margin = childrenMargin(index);
+    });
+  } else if (isArray(childrenMargin)) {
+    children.forEach((e, index) => {
+      childrenValues[index].margin = childrenMargin[index];
+    });
   }
 
   let result = "";
+  const getSpacingValueForMargin = margin => (
+    Object.values(CONSTANTS.SPACING).indexOf(margin) > -1 ? SPACING_VALUES[margin] : margin
+  );
 
-  if (typeof childrenFlex === "function") {
-    children.forEach((e, index) => {
-      result += `
-        && > :nth-child(${index + 1}) {
-          flex: ${childrenFlex(index)};
-        }
-      `;
-    });
+  if (Object.keys(allChildrenValues).length > 0) {
+    result += `
+      && > * {
+        ${allChildrenValues.flex != null ? `flex: ${allChildrenValues.flex}` : ""}
+        ${allChildrenValues.margin != null ? `margin: ${getSpacingValueForMargin(allChildrenValues.margin)}` : ""}
+      }
+    `;
   }
 
-  if (isArray(childrenFlex)) {
-    childrenFlex.forEach((e, index) => {
+  childrenValues.forEach((values, index) => {
+    if (Object.keys(values).length > 0) {
       result += `
         && > :nth-child(${index + 1}) {
-          flex: ${e};
+          ${values.flex != null ? `flex: ${values.flex}` : ""}
+          ${values.margin != null ? `margin: ${getSpacingValueForMargin(values.margin)}` : ""}
         }
       `;
-    });
-  }
+    }
+  });
 
   return result;
 };
 
+const getPadding = ({ padding }) => (padding != null ? `padding: ${SPACING_VALUES[padding]};` : "");
+
+const getAlignContent = ({ linesAlignment }) => (linesAlignment != null ? `align-content: ${linesAlignment};` : "");
+
 const Flex = styled.div`
+    box-sizing: border-box;
     display: flex;
     flex-wrap: ${props => (props.flexWrapReverse ? "wrap-reverse" : "wrap")};
-    height: 100%;
-    width: 100%;
+    height: ${props => (props.fullHeightWidth ? "100%" : "auto")};
+    width: ${props => (props.fullHeightWidth ? "100%" : "auto")};
 
-    ${getFlexDescendentValues}
+    ${getAlignContent}
+    ${getDescendentValues}
     ${getFlexDirection}
     ${getJustifyContentAndAlignItems}
+    ${getPadding}
 `;
 
 export const InnerContentWidthContext = React.createContext(null);
