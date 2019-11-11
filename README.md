@@ -1,6 +1,6 @@
 # bonfire 🏕
 
-`bonfire` is the design system that powers [project-camper-van](https://github.com/jksaunders/project-camper-van).
+`bonfire` is the design system that powers [project-camper-van](https://github.com/jksaunders/project-camper-van). Check out the [current Storybook instance](https://jksaunders.github.io/bonfire)!
 
 ## Updating
 
