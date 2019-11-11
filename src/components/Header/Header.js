@@ -77,7 +77,7 @@ const Header = ({
   });
 
   const renderChildren = () => (
-    <React.Fragment>
+    <>
       {logo && <Header.HeaderLogo {...logo} />}
       {items.map((item, index) => (
         <Header.HeaderItem key={index} {...item} />
@@ -85,11 +85,11 @@ const Header = ({
       {buttons.map((button, index) => (
         <Header.HeaderButton key={index} {...button} />
       ))}
-    </React.Fragment>
+    </>
   );
 
   return (
-    <React.Fragment>
+    <>
       <FullHeader height={height} {...rest}>
         {renderChildren()}
       </FullHeader>
@@ -98,9 +98,8 @@ const Header = ({
           <AnimatedFloatingHeader key={key} {...rest} style={{ top: transitionProps.top }}>
             {renderChildren()}
           </AnimatedFloatingHeader>
-        ))
-      }
-    </React.Fragment>
+        ))}
+    </>
   );
 };
 

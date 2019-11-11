@@ -10,7 +10,6 @@ storiesOf("Colors", module)
         <div key={key} style={{ backgroundColor: Colors[key] }}>
           <Typography.Body1 spaceAfter={false}>{`${key}: ${Colors[key]}`}</Typography.Body1>
         </div>
-      ))
-      }
+      )) }
     </div>
   ));

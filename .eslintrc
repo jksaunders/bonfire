@@ -1,19 +1,21 @@
 {
     "parser": "babel-eslint",
     "plugins": ["jest"],
-    "extends": "airbnb",
+    "extends": ["airbnb", "airbnb/hooks"],
     "env": {
       "browser": true,
       "jest/globals": true,
       "mocha": true
     },
     "rules": {
+      "arrow-parens": "off",
       "comma-dangle": ["error", "only-multiline"],
       "eol-last": "off",
       "react/jsx-filename-extension": "off",
       "react/button-has-type": "off",
       "quotes": ["error", "double"],
       "import/prefer-default-export": "off",
+      "react/jsx-props-no-spreading": "off",
       "react/no-array-index-key": "off"
     }
   }
