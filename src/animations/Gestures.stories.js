@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useGesture } from "react-use-gesture";
+import { useDrag } from "react-use-gesture";
 import { useSpring, animated, config } from "react-spring";
 import { storiesOf } from "@storybook/react";
 import Square from "./Square";
@@ -20,6 +20,8 @@ const defaultProps = {
   bounds: undefined
 };
 
+const size = 100;
+
 const DragMe = ({
   bounds
 }) => {
@@ -27,14 +29,15 @@ const DragMe = ({
     { mousePosition: [0, 0], config: config.gentle }
   ));
 
-  const checkPosition = (local) => {
-    if (!bounds) {
-      return local;
-    }
+  const checkPosition = (xy) => {
+    const [x, y] = xy;
 
-    const [x, y] = local;
-    let newX = x;
-    let newY = y;
+    let newX = x - (size / 2);
+    let newY = y - (size / 2);
+
+    if (!bounds) {
+      return [newX, newY];
+    }
 
     newX = newX < bounds.minX ? bounds.minX : newX;
     newX = newX > bounds.maxX ? bounds.maxX : newX;
@@ -43,10 +46,11 @@ const DragMe = ({
 
     return [newX, newY];
   };
-  const bind = useGesture({ onDrag: ({ local }) => set({ mousePosition: checkPosition(local) }) });
+
+  const bind = useDrag(({ xy }) => set({ mousePosition: checkPosition(xy) }));
 
   return (
-    <AnimatedSquare height={100} width={100} {...bind()} style={{ transform: mousePosition.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`) }} />
+    <AnimatedSquare height={size} width={size} {...bind()} style={{ transform: mousePosition.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`) }} />
   );
 };
 
