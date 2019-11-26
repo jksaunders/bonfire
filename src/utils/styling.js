@@ -7,12 +7,12 @@ const processCssRule = (prop, key, calculateValue) => (props) => {
 
   const cssKey = key || prop;
   let value;
-  if (calculateValue == null) {
-    value = props[prop];
-  } else if (typeof calculateValue === "string") {
+  if (typeof calculateValue === "string") {
     value = calculateValue;
   } else if (typeof calculateValue === "function") {
     value = calculateValue(props);
+  } else {
+    value = props[prop];
   }
 
   return `${cssKey}: ${value};`;
