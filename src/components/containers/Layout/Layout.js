@@ -38,14 +38,14 @@ const Grid = styled.div`
   ${css("padding")}
   ${css("width")}
 
-  ${css([
+  ${css(
     ["centered", "justify-items", "center"],
     ["horizontalAlignment", "justify-items"]
-  ])}
-  ${css([
+  )}
+  ${css(
     ["centered", "align-items", "center"],
     ["verticalAlignment", "align-items"]
-  ])}
+  )}
 `;
 
 const Layout = ({

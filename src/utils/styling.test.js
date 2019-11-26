@@ -103,35 +103,35 @@ describe("#css", () => {
 
   describe("using multiple rules: eg. css([[...], [...]])", () => {
     test("no rule matches", () => {
-      expect(css([
+      expect(css(
         ["centered", "align-items", "center"],
         ["horizontalAlignment", "align-items"]
-      ])({})).toBe(null);
+      )({})).toBe(null);
     });
 
     test("first rule matches", () => {
-      expect(css([
+      expect(css(
         ["centered", "align-items", "center"],
         ["horizontalAlignment", "align-items"]
-      ])({
+      )({
         centered: true
       })).toBe("align-items: center;");
     });
 
     test("second rule matches", () => {
-      expect(css([
+      expect(css(
         ["centered", "align-items", "center"],
         ["horizontalAlignment", "align-items"]
-      ])({
+      )({
         horizontalAlignment: "flex-start"
       })).toBe("align-items: flex-start;");
     });
 
     test("all rules match props present, but first rule value is falsey", () => {
-      expect(css([
+      expect(css(
         ["centered", "align-items", "center"],
         ["horizontalAlignment", "align-items"]
-      ])({
+      )({
         centered: false,
         horizontalAlignment: "center"
       })).toBe("align-items: center;");
