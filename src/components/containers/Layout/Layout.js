@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { css } from "../../../utils";
 
 const propTypes = {
+  centered: PropTypes.bool,
   children: PropTypes.node,
   columns: PropTypes.string,
   gap: PropTypes.string,
@@ -16,6 +18,7 @@ const propTypes = {
 
 const defaultProps = {
   children: null,
+  centered: false,
   columns: null,
   gap: null,
   height: "100%",
@@ -26,27 +29,27 @@ const defaultProps = {
   width: "100%"
 };
 
-const css = (prop, key) => (props) => {
-  if (props[prop] == null) {
-    return null;
-  }
-  const cssKey = key || prop;
-  return `${cssKey}: ${props[prop]};`;
-};
-
 const Grid = styled.div`
   display: grid;
   ${css("rows", "grid-template-rows")}
   ${css("columns", "grid-template-columns")}
   ${css("gap", "grid-gap")}
   ${css("height")}
-  ${css("horizontalAlignment", "justify-items")}
   ${css("padding")}
-  ${css("verticalAlignment", "align-items")}
   ${css("width")}
+
+  ${css([
+    ["centered", "justify-items", "center"],
+    ["horizontalAlignment", "justify-items"]
+  ])}
+  ${css([
+    ["centered", "align-items", "center"],
+    ["verticalAlignment", "align-items"]
+  ])}
 `;
 
 const Layout = ({
+  centered,
   children,
   columns,
   gap,
@@ -58,6 +61,7 @@ const Layout = ({
   width,
 }) => (
   <Grid
+    centered={centered}
     columns={columns}
     gap={gap}
     height={height}

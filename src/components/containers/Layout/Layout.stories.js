@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { storiesOf } from "@storybook/react";
 import {
+  boolean,
   text,
   withKnobs
 } from "@storybook/addon-knobs";
@@ -23,6 +24,7 @@ const Content = styled.div`
 storiesOf("Layout", module)
   .addDecorator(withKnobs)
   .add("basic", () => {
+    const centered = boolean("Centered?", false);
     const containerSize = text("Size of container", "500px");
     const columns = text("Columns", "");
     const gap = text("Gap", "");
@@ -34,6 +36,7 @@ storiesOf("Layout", module)
     return (
       <StoryWrapper size={containerSize}>
         <Layout
+          centered={centered}
           rows={rows !== "" ? rows : null}
           columns={columns !== "" ? columns : null}
           gap={gap !== "" ? gap : null}
