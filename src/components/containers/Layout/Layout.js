@@ -33,6 +33,7 @@ const defaultProps = {
 
 const Grid = styled.div`
   display: grid;
+  box-sizing: border-box;
   ${css("rows", "grid-template-rows")}
   ${css("columns", "grid-template-columns")}
   ${css("gap", "grid-gap")}
