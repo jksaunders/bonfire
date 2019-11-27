@@ -6,6 +6,7 @@ import { css } from "../../../utils";
 const propTypes = {
   centered: PropTypes.bool,
   children: PropTypes.node,
+  className: PropTypes.string,
   columns: PropTypes.string,
   gap: PropTypes.string,
   height: PropTypes.string,
@@ -19,6 +20,7 @@ const propTypes = {
 const defaultProps = {
   children: null,
   centered: false,
+  className: null,
   columns: null,
   gap: null,
   height: "100%",
@@ -51,6 +53,7 @@ const Grid = styled.div`
 const Layout = ({
   centered,
   children,
+  className,
   columns,
   gap,
   height,
@@ -63,6 +66,7 @@ const Layout = ({
   <Grid
     centered={centered}
     columns={columns}
+    className={className}
     gap={gap}
     height={height}
     horizontalAlignment={horizontalAlignment}
