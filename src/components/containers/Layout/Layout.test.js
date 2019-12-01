@@ -13,8 +13,6 @@ test("with children", () => {
   const { component } = getLayout({}, <span>Hi!</span>);
   expectExists(component);
   expectSnapshot(component);
-  expectStyle(component, "display", "grid");
-  expectStyle(component, "box-sizing", "border-box");
 });
 
 test("with no props", () => {
@@ -23,6 +21,8 @@ test("with no props", () => {
   expectSnapshot(component);
   expectStyle(component, "display", "grid");
   expectStyle(component, "box-sizing", "border-box");
+  expectStyle(component, "height", "100%");
+  expectStyle(component, "width", "100%");
 });
 
 test("with grid properties", () => {

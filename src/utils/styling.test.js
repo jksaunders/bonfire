@@ -136,5 +136,15 @@ describe("#css", () => {
         horizontalAlignment: "center"
       })).toBe("align-items: center;");
     });
+
+    test("incorrect usage: passing an array of rules", () => {
+      expect(() => css([
+        ["centered", "align-items", "center"],
+        ["horizontalAlignment", "align-items"]
+      ])({
+        centered: false,
+        horizontalAlignment: "center"
+      })).toThrowError(new Error("`css()` takes in positional arguments, not an array of arguments: eg. `css([], [], [])`, not `css([[], [], []])`"));
+    });
   });
 });

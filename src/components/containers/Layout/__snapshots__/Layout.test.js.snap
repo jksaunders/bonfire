@@ -4,6 +4,8 @@ exports[`centered 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   justify-items: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -22,6 +24,8 @@ exports[`horizontal/vertical alignment 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   justify-items: flex-end;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -40,6 +44,8 @@ exports[`with children 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
 }
 
 <div
@@ -60,6 +66,8 @@ exports[`with grid properties 1`] = `
   grid-template-rows: 1fr 2fr;
   grid-template-columns: repeat(3,3fr);
   grid-gap: 10px;
+  height: 100%;
+  width: 100%;
 }
 
 <div
@@ -73,6 +81,8 @@ exports[`with no props 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
 }
 
 <div
@@ -86,7 +96,9 @@ exports[`with padding 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
+  height: 100%;
   padding: 10px;
+  width: 100%;
 }
 
 <div

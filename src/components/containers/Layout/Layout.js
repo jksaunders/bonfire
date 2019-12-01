@@ -43,17 +43,17 @@ const Grid = styled.div`
   ${css("rows", "grid-template-rows")}
   ${css("columns", "grid-template-columns")}
   ${css("gap", "grid-gap")}
-  ${css([
+  ${css(
     ["full", "height", "100%"],
     ["fullHeight", "height", "100%"],
     ["height"]
-  ])}
+  )}
   ${css("padding")}
-  ${css([
+  ${css(
     ["full", "width", "100%"],
     ["fullWidth", "width", "100%"],
     ["width"]
-  ])}
+  )}
   ${css(
     ["centered", "justify-items", "center"],
     ["horizontalAlignment", "justify-items"]
