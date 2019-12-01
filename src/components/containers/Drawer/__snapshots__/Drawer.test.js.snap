@@ -4,8 +4,7 @@ exports[`Drawer closed 1`] = `null`;
 
 exports[`Drawer open 1`] = `
 <div
-  class="MuiDrawer-root MuiDrawer-modal "
-  drawerstyles="[object Object]"
+  class="MuiDrawer-root MuiDrawer-modal"
   role="presentation"
   style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
 >

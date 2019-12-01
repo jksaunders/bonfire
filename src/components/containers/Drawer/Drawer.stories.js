@@ -15,7 +15,10 @@ const StoryDrawer = styled(Drawer)`
   padding: 32px;
 `;
 const DrawerContent = styled.div`
+  background-color: lightblue;
+  color: white;
   display: flex;
+  height: 100%;
   justify-content: center;
   width: 200px;
 `;
