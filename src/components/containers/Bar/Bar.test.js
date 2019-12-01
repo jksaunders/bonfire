@@ -1,12 +1,15 @@
 import React from "react";
-import { mount } from "enzyme";
-import { expectSnapshot } from "../../../utils/snapshot";
+import {
+  expectExists,
+  expectSnapshot,
+  render
+} from "../../../utils/snapshot";
 import Bar from "./Bar";
 
-const getBar = (props = {}) => <Bar {...props} />;
+const getBar = (props = {}) => render(<Bar {...props} />);
 
-test("Bar mounts", () => {
-  const wrapper = mount(getBar());
-  expect(wrapper).toExist();
-  expectSnapshot(getBar());
+test("Bar renders", () => {
+  const { component } = getBar();
+  expectExists(component);
+  expectSnapshot(component);
 });

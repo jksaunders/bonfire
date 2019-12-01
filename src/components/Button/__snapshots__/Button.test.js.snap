@@ -1,14 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button mounts 1`] = `
+exports[`Button renders 1`] = `
+.c1 {
+  font-size: 0.875rem;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  -webkit-letter-spacing: 0.02857em;
+  -moz-letter-spacing: 0.02857em;
+  -ms-letter-spacing: 0.02857em;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c0 {
+  border-radius: 0.25em;
+  border-style: solid;
+  border-width: 0px;
+  width: 100px;
+}
+
 <button
-  className="sc-bwzfXH iOhfhf"
-  disabled={false}
-  onClick={[Function]}
+  class="c0"
   width="100px"
 >
   <span
-    className="sc-bdVaJa nkhsS"
+    class="c1"
   >
     Test text
   </span>

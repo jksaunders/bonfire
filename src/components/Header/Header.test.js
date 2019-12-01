@@ -1,12 +1,15 @@
 import React from "react";
-import { mount } from "enzyme";
-import { expectSnapshot } from "../../utils/snapshot";
+import {
+  expectExists,
+  expectSnapshot,
+  render
+} from "../../utils/snapshot";
 import Header from "./Header";
 
-const getHeader = (props = {}) => <Header {...props} />;
+const getHeader = (props = {}) => render(<Header {...props} />);
 
-test("Header mounts", () => {
-  const wrapper = mount(getHeader());
-  expect(wrapper).toExist();
-  expectSnapshot(getHeader());
+test("Header renders", () => {
+  const { component } = getHeader();
+  expectExists(component);
+  expectSnapshot(component);
 });

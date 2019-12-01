@@ -1,7 +1,24 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import renderer from "react-test-renderer";
+import { render as importedRender } from "@testing-library/react";
+import "jest-styled-components";
 
-export const expectSnapshot = (mountedComponent) => {
-  const component = renderer.create(mountedComponent);
-  expect(component.toJSON()).toMatchSnapshot();
+export const render = (component) => {
+  const rendered = importedRender(component);
+  return {
+    ...rendered,
+    component: rendered.container.firstChild
+  };
+};
+
+export const expectSnapshot = (component) => {
+  expect(component).toMatchSnapshot();
+};
+
+export const expectExists = (component) => {
+  expect(component).not.toEqual(null);
+  expect(component).toBeInTheDocument();
+};
+
+export const expectStyle = (component, key, value) => {
+  expect(component).toHaveStyleRule(key, value);
 };

@@ -1,10 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Layout mounts 1`] = `
+exports[`centered 1`] = `
+.c0 {
+  display: grid;
+  box-sizing: border-box;
+  justify-items: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 <div
-  className="sc-bdVaJa unHtz"
+  class="c0"
   height="100%"
-  rows={null}
+  width="100%"
+/>
+`;
+
+exports[`horizontal/vertical alignment 1`] = `
+.c0 {
+  display: grid;
+  box-sizing: border-box;
+  justify-items: flex-end;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<div
+  class="c0"
+  height="100%"
+  width="100%"
+/>
+`;
+
+exports[`with children 1`] = `
+.c0 {
+  display: grid;
+  box-sizing: border-box;
+}
+
+<div
+  class="c0"
+  height="100%"
+  width="100%"
+>
+  <span>
+    Hi!
+  </span>
+</div>
+`;
+
+exports[`with grid properties 1`] = `
+.c0 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: repeat(3,3fr);
+  grid-gap: 10px;
+}
+
+<div
+  class="c0"
+  height="100%"
+  width="100%"
+/>
+`;
+
+exports[`with no props 1`] = `
+.c0 {
+  display: grid;
+  box-sizing: border-box;
+}
+
+<div
+  class="c0"
+  height="100%"
+  width="100%"
+/>
+`;
+
+exports[`with padding 1`] = `
+.c0 {
+  display: grid;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+<div
+  class="c0"
+  height="100%"
   width="100%"
 />
 `;

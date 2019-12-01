@@ -1,8 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Typography mounts 1`] = `
+exports[`Typography renders 1`] = `
+.c0 {
+  font-size: 6rem;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  -webkit-letter-spacing: -0.01562em;
+  -moz-letter-spacing: -0.01562em;
+  -ms-letter-spacing: -0.01562em;
+  letter-spacing: -0.01562em;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
 <h1
-  className="sc-bdVaJa dwjHUL"
+  class="c0"
 >
   Content
 </h1>
