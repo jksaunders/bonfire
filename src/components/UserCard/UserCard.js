@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Typography from "../Typography";
+import Typography, { MaterialVariants } from "../Typography";
 import * as colors from "../../theming/colors";
 
 const propTypes = {
@@ -59,8 +59,10 @@ const UserCard = ({
   <CardWrapper className={className} maxHeight={maxHeight} maxWidth={maxWidth}>
     <CardContainer>
       <RoundImage maxHeight={maxWidth} src={image} />
-      <CenteredText><Typography.H5>{name}</Typography.H5></CenteredText>
-      <CenteredText><Typography.Body1 center>{bodyText}</Typography.Body1></CenteredText>
+      <CenteredText><Typography variant={MaterialVariants.H5}>{name}</Typography></CenteredText>
+      <CenteredText>
+        <Typography center variant={MaterialVariants.Body1}>{bodyText}</Typography>
+      </CenteredText>
     </CardContainer>
   </CardWrapper>
 );

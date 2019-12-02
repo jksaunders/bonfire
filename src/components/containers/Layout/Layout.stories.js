@@ -9,7 +9,7 @@ import {
 } from "@storybook/addon-knobs";
 
 import Layout from "./Layout";
-import Typography from "../../Typography";
+import Typography, { MaterialVariants, TrelloVariants } from "../../Typography";
 
 const StoryWrapper = styled.div`
   background-color: lightblue;
@@ -44,9 +44,9 @@ storiesOf("Layout", module)
           padding={padding !== "" ? padding : null}
           verticalAlignment={verticalAlignment !== "" ? verticalAlignment : null}
         >
-          <Content><Typography.H2>content1</Typography.H2></Content>
-          <Content><Typography.H2>content2</Typography.H2></Content>
-          <Content><Typography.H2>content3</Typography.H2></Content>
+          <Content><Typography variant={MaterialVariants.H2}>content1</Typography></Content>
+          <Content><Typography variant={MaterialVariants.H2}>content2</Typography></Content>
+          <Content><Typography variant={MaterialVariants.H2}>content3</Typography></Content>
         </Layout>
       </StoryWrapper>
     );
@@ -62,25 +62,35 @@ storiesOf("Layout", module)
       <Layout columns="max-content auto max-content" padding="5px">
         <Layout columns="max-content max-content minmax(max-content, 200px)" gap="5px">
           { ["home", "boards", "search"].map(t => (
-            <Layout key={t} background="hsla(0, 0%, 100%, 0.3)" borderRadius="3px" padding="5px">{t}</Layout>
+            <Layout key={t} background="hsla(0, 0%, 100%, 0.3)" borderRadius="3px" padding="5px">
+              <Typography variant={TrelloVariants.Body}>
+                {t}
+              </Typography>
+            </Layout>
           ))}
         </Layout>
         <Layout centered>logo</Layout>
         <Layout>right buttons</Layout>
       </Layout>
       <Layout>
-        board header
+        <Typography variant={TrelloVariants.Body}>
+          board header
+        </Typography>
       </Layout>
       <Layout columns="272px" flow="column" gap="10px" padding="10px" overflowX="auto">
         { ["To-Do", "Projects", "Bookmarks", "Recipes", "To-Do 2", "Projects 2", "Bookmarks 2", "Recipes 2"].map(t => (
           <Layout key={t} background="#ebecf0" borderRadius="3px" gap="10px" padding="10px" rows="max-content">
             <Layout padding="10px">
-              {t}
+              <Typography variant={TrelloVariants.Body}>
+                {t}
+              </Typography>
             </Layout>
             { [1, 2, 3, 4, 5].map(n => (
               <Layout key={n} background="#FFFFFF" padding="10px">
-                To do
-                {n}
+                <Typography variant={TrelloVariants.Body}>
+                  To do
+                  {n}
+                </Typography>
               </Layout>
             ))}
           </Layout>

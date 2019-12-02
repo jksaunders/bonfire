@@ -2,17 +2,18 @@
 
 exports[`Button renders 1`] = `
 .c1 {
-  font-size: 0.875rem;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  color: #FFFFFF;
   font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 500;
-  line-height: 1.75;
   -webkit-letter-spacing: 0.02857em;
   -moz-letter-spacing: 0.02857em;
   -ms-letter-spacing: 0.02857em;
   letter-spacing: 0.02857em;
+  line-height: 1.75;
+  font-size: 0.875rem;
   text-transform: uppercase;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
 }
 
 .c0 {
@@ -28,6 +29,9 @@ exports[`Button renders 1`] = `
 >
   <span
     class="c1"
+    color="#FFFFFF"
+    letter-spacing="0.02857em"
+    transform="uppercase"
   >
     Test text
   </span>

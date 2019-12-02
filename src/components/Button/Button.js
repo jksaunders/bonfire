@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import chroma from "chroma-js";
-import Typography from "../Typography";
+import Typography, { MaterialVariants } from "../Typography";
 import {
   theme, themeVariant, ThemeConstants, Palette
 } from "../../theming";
@@ -81,7 +81,7 @@ const Button = ({
     variant={variant}
     {...rest}
   >
-    <Typography.ButtonText {...typographyProps}>{text}</Typography.ButtonText>
+    <Typography {...typographyProps} variant={MaterialVariants.ButtonText}>{text}</Typography>
   </StyledButton>
 );
 

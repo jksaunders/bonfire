@@ -6,7 +6,7 @@ import { select, withKnobs } from "@storybook/addon-knobs";
 
 import { ThemeConstants } from "../../../theming";
 import Bar from "./Bar";
-import Typography from "../../Typography";
+import Typography, { MaterialVariants } from "../../Typography";
 
 const StoryWrapper = styled.div`
 `;
@@ -33,13 +33,13 @@ storiesOf("Bar", module)
       <ThemeProvider theme={theme}>
         <StoryWrapper>
           <StyledBar backgroundUrl="https://images.unsplash.com/photo-1497906539264-eb74442e37a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80">
-            <Content><Typography.H2>bar content</Typography.H2></Content>
+            <Content><Typography variant={MaterialVariants.H2}>bar content</Typography></Content>
           </StyledBar>
           <StyledBar>
-            <Content><Typography.H2>bar content</Typography.H2></Content>
+            <Content><Typography variant={MaterialVariants.H2}>bar content</Typography></Content>
           </StyledBar>
           <StyledBar backgroundUrl="https://images.unsplash.com/photo-1497906539264-eb74442e37a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80">
-            <Content><Typography.H2>bar content</Typography.H2></Content>
+            <Content><Typography variant={MaterialVariants.H2}>bar content</Typography></Content>
           </StyledBar>
         </StoryWrapper>
       </ThemeProvider>
