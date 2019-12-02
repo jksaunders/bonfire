@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { css, cssBackground } from "../../../utils/styling";
+import { TypographyContext, cssTypography } from "../../Typography";
 
 const propTypes = {
   background: PropTypes.string,
@@ -23,6 +24,7 @@ const propTypes = {
   overflowY: PropTypes.string,
   rows: PropTypes.string,
   padding: PropTypes.string,
+  useTypography: PropTypes.bool,
   verticalAlignment: PropTypes.string,
   width: PropTypes.string
 };
@@ -47,6 +49,7 @@ const defaultProps = {
   overflowY: null,
   rows: null,
   padding: null,
+  useTypography: null,
   verticalAlignment: null,
   width: "100%"
 };
@@ -97,6 +100,8 @@ const Grid = styled.div`
   ${css("overflow")}
   ${css("overflowX", "overflow-x")}
   ${css("overflowY", "overflow-y")}
+  
+  ${cssTypography("typographyProps")}
 `;
 
 const Layout = ({
@@ -119,34 +124,40 @@ const Layout = ({
   overflowY,
   rows,
   padding,
+  useTypography,
   verticalAlignment,
   width,
-}) => (
-  <Grid
-    background={background}
-    borderRadius={borderRadius}
-    centered={centered}
-    columns={columns}
-    className={className}
-    flow={flow}
-    full={full}
-    fullHeight={fullHeight}
-    fullWidth={fullWidth}
-    gap={gap}
-    height={height}
-    horizontalAlignment={horizontalAlignment}
-    margin={margin}
-    overflow={overflow}
-    overflowX={overflowX}
-    overflowY={overflowY}
-    rows={rows}
-    padding={padding}
-    verticalAlignment={verticalAlignment}
-    width={width}
-  >
-    {children}
-  </Grid>
-);
+}) => {
+  const typographyProps = useContext(TypographyContext);
+
+  return (
+    <Grid
+      background={background}
+      borderRadius={borderRadius}
+      centered={centered}
+      columns={columns}
+      className={className}
+      flow={flow}
+      full={full}
+      fullHeight={fullHeight}
+      fullWidth={fullWidth}
+      gap={gap}
+      height={height}
+      horizontalAlignment={horizontalAlignment}
+      margin={margin}
+      overflow={overflow}
+      overflowX={overflowX}
+      overflowY={overflowY}
+      rows={rows}
+      padding={padding}
+      verticalAlignment={verticalAlignment}
+      width={width}
+      typographyProps={useTypography ? typographyProps : {}}
+    >
+      {children}
+    </Grid>
+  );
+};
 
 Layout.propTypes = propTypes;
 Layout.defaultProps = defaultProps;

@@ -6,6 +6,7 @@ import {
   render
 } from "../../../utils/snapshot";
 import Layout from "./Layout";
+import { TypographyContext } from "../../Typography";
 
 const getLayout = (props = {}, children) => render(<Layout {...props}>{children}</Layout>);
 
@@ -92,4 +93,34 @@ test("horizontal/vertical alignment", () => {
   expectSnapshot(component);
   expectStyle(component, "align-items", "center");
   expectStyle(component, "justify-items", "flex-end");
+});
+
+describe("using `TypographyContext`", () => {
+  test("useTypography = false", () => {
+    const { component, getByText } = render(
+      <TypographyContext.Provider value={{ color: "#FFFFFF" }}>
+        <Layout>
+          Content
+        </Layout>
+      </TypographyContext.Provider>
+    );
+
+    expectExists(component);
+    expectSnapshot(component);
+    expect(getByText("Content")).not.toHaveStyleRule("color", "#FFFFFF");
+  });
+
+  test("useTypography = true", () => {
+    const { component, getByText } = render(
+      <TypographyContext.Provider value={{ color: "#FFFFFF" }}>
+        <Layout useTypography>
+          Content
+        </Layout>
+      </TypographyContext.Provider>
+    );
+
+    expectExists(component);
+    expectSnapshot(component);
+    expect(getByText("Content")).toHaveStyleRule("color", "#FFFFFF");
+  });
 });

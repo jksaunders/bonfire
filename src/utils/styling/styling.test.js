@@ -25,11 +25,11 @@ describe("#css", () => {
 
   describe("null values", () => {
     test("null props", () => {
-      expect(css("height")(undefined)).toBe(null);
+      expect(css("height")(undefined)).toBe("");
     });
 
     test("null prop argument", () => {
-      expect(css(null)({})).toBe(null);
+      expect(css(null)({})).toBe("");
     });
   });
 
@@ -44,7 +44,7 @@ describe("#css", () => {
       {
         property: "height",
         propPassedAsArgument: "width",
-        result: null
+        result: ""
       },
     ].forEach(testCase => {
       test(`property is present = ${testCase.property === testCase.propPassedAsArgument}`, () => {
@@ -68,7 +68,7 @@ describe("#css", () => {
         property: "height",
         key: "min-height",
         propPassedAsArgument: "width",
-        result: null
+        result: ""
       },
     ].forEach(testCase => {
       test(`property is present = ${testCase.property === testCase.propPassedAsArgument}`, () => {
@@ -101,14 +101,14 @@ describe("#css", () => {
         key: "align-items",
         thirdArg: () => "center",
         propPassedAsArgument: "right",
-        result: null
+        result: ""
       },
       {
         property: "centered",
         key: "align-items",
         thirdArg: "center",
         propPassedAsArgument: "right",
-        result: null
+        result: ""
       },
     ].forEach(testCase => {
       test(`property is present = ${testCase.property === testCase.propPassedAsArgument}, third arg type = ${typeof testCase.thirdArg}`, () => {
@@ -124,7 +124,7 @@ describe("#css", () => {
       expect(css(
         ["centered", "align-items", "center"],
         ["horizontalAlignment", "align-items"]
-      )({})).toBe(null);
+      )({})).toBe("");
     });
 
     test("first rule matches", () => {

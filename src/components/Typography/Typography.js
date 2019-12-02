@@ -3,6 +3,23 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { css } from "../../utils/styling";
 
+export const TypographyContext = React.createContext({});
+
+export const cssTypography = (typographyPropKey) => (props) => {
+  const propsToCheck = typographyPropKey ? props[typographyPropKey] : props;
+  return `
+    -webkit-font-smoothing: antialiased;
+    ${css("color")(propsToCheck)}
+    ${css("font", "font-family")(propsToCheck)}
+    ${css("italic", "font-style", "italic")(propsToCheck)}
+    ${css("letterSpacing", "letter-spacing")(propsToCheck)}
+    ${css("lineHeight", "line-height")(propsToCheck)}
+    ${css("size", "font-size")(propsToCheck)}
+    ${css("transform", "text-transform")(propsToCheck)}
+    ${css(["bold", "font-weight", "bold"], ["weight", "font-weight"])(propsToCheck)}
+  `;
+};
+
 const typographyPropTypes = {
   bold: PropTypes.bool,
   color: PropTypes.string,
@@ -56,24 +73,11 @@ const defaultProps = {
 
 const StyledTypography = styled.span`
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-
-  ${css("color")}
-  ${css("font", "font-family")}
-  ${css("italic", "font-style", "italic")}
-  ${css("letterSpacing", "letter-spacing")}
-  ${css("lineHeight", "line-height")}
-  ${css("size", "font-size")}
-  ${css("transform", "text-transform")}
-  ${css(
-    ["bold", "font-weight", "bold"],
-    ["weight", "font-weight"]
-  )}
-
   ${css("spaceAfter", "margin-block-start", "1em")}
   ${css("spaceAfter", "margin-block-end", "1em")}
   ${css("spaceAfter", "margin-inline-start", "0px")}
   ${css("spaceAfter", "margin-inline-end", "0px")}
+  ${cssTypography()}
 `;
 
 const getBaseElement = (variant, props) => {

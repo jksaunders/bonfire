@@ -2,7 +2,7 @@ import { isArray } from "util";
 
 const processCssRule = (prop, key, calculateValue) => (props) => {
   if (props == null || prop == null || !props[prop]) {
-    return null;
+    return "";
   }
 
   const cssKey = key || prop;
@@ -27,11 +27,11 @@ export const css = (...args) => {
     return props => {
       for (let i = 0; i < args.length; i += 1) {
         const result = processCssRule(args[i][0], args[i][1], args[i][2])(props);
-        if (result != null) {
+        if (result !== "") {
           return result;
         }
       }
-      return null;
+      return "";
     };
   }
   return processCssRule(args[0], args[1], args[2]);
