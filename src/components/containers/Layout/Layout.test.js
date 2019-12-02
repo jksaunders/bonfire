@@ -25,11 +25,48 @@ test("with no props", () => {
   expectStyle(component, "width", "100%");
 });
 
-test("with grid properties", () => {
-  const { component } = getLayout({ columns: "repeat(3, 3fr)", gap: "10px", rows: "1fr 2fr" });
+test("with background properties", () => {
+  const { component } = getLayout({ background: "#123456" });
+  expectExists(component);
+  expectSnapshot(component);
+  expectStyle(component, "background-color", "#123456");
+});
+
+test("with border properties", () => {
+  const { component } = getLayout({ borderRadius: "5px" });
+  expectExists(component);
+  expectSnapshot(component);
+  expectStyle(component, "border-radius", "5px");
+});
+
+test("with grid properties: auto", () => {
+  const { component } = getLayout({
+    columns: "50px",
+    flow: "column",
+    gap: "10px",
+    rows: "100px"
+  });
+
   expectExists(component);
   expectSnapshot(component);
   expectStyle(component, "grid-gap", "10px");
+  expectStyle(component, "grid-auto-flow", "column");
+  expectStyle(component, "grid-auto-columns", "50px");
+  expectStyle(component, "grid-auto-rows", "100px");
+});
+
+test("with grid properties: templates", () => {
+  const { component } = getLayout({
+    columns: "repeat(3, 3fr)",
+    flow: "row",
+    gap: "10px",
+    rows: "1fr 2fr"
+  });
+
+  expectExists(component);
+  expectSnapshot(component);
+  expectStyle(component, "grid-gap", "10px");
+  expectStyle(component, "grid-auto-flow", "row");
   expectStyle(component, "grid-template-columns", "repeat(3,3fr)");
   expectStyle(component, "grid-template-rows", "1fr 2fr");
 });
