@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
-import { storiesOf } from "@storybook/react";
 import { select, withKnobs } from "@storybook/addon-knobs";
 
 import { ThemeConstants } from "../../../theming";
@@ -35,16 +34,24 @@ const DrawerStory = () => {
   );
 };
 
-storiesOf("Drawer", module)
-  .addDecorator(withKnobs)
-  .add("with text", () => {
-    const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
-    const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
-    const theme = { mode: themeMode, layout: themeLayout };
+export default {
+  title: "Containers|Drawer",
+  component: Drawer,
+  decorators: [withKnobs]
+};
 
-    return (
-      <ThemeProvider theme={theme}>
-        <DrawerStory />
-      </ThemeProvider>
-    );
-  });
+export const DrawerDefaultStory = () => {
+  const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
+  const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+  const theme = { mode: themeMode, layout: themeLayout };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <DrawerStory />
+    </ThemeProvider>
+  );
+};
+
+Drawer.story = {
+  name: "with text"
+};

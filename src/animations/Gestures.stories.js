@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useDrag } from "react-use-gesture";
 import { useSpring, animated, config } from "react-spring";
-import { storiesOf } from "@storybook/react";
 import Square from "./Square";
 
 const AnimatedSquare = animated(Square);
@@ -57,13 +56,15 @@ const DragMe = ({
 DragMe.propTypes = propTypes;
 DragMe.defaultProps = defaultProps;
 
-storiesOf("Animations", module)
-  .add("dragging", () => (
-    <DragMe />
-  ))
-  .add("dragging within bounds", () => (
-    <DragMe bounds={{
-      minX: 200, maxX: 500, minY: 100, maxY: 300
-    }}
-    />
-  ));
+export default {
+  title: "Animations|Gestures"
+};
+
+export const Dragging = () => <DragMe />;
+
+export const DraggingWithinBounds = () => (
+  <DragMe bounds={{
+    minX: 200, maxX: 500, minY: 100, maxY: 300
+  }}
+  />
+);

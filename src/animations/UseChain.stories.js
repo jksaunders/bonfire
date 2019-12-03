@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import {
   useChain, useSpring, animated, config
 } from "react-spring";
-import { storiesOf } from "@storybook/react";
 import Square from "./Square";
 
 const AnimatedSquare = animated(Square);
@@ -44,7 +43,8 @@ const ClickMe = () => {
   );
 };
 
-storiesOf("Animations", module)
-  .add("useChain", () => (
-    <ClickMe />
-  ));
+export default {
+  title: "Animations|Chain"
+};
+
+export const UseChain = () => <ClickMe />;

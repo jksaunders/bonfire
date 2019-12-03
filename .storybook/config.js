@@ -1,12 +1,8 @@
 import { addParameters, configure } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
-function loadStories() {
-  const req = require.context('../src', true, /\.stories\.js$/);
-  req.keys().sort().forEach(filename => req(filename));
-}
+configure(require.context("../src/", true, /\.stories\.js$/), module);
 
-configure(loadStories, module);
 addParameters({
   viewPort: { viewPorts: INITIAL_VIEWPORTS }
 });

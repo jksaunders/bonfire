@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 
-import { storiesOf } from "@storybook/react";
 import { select, withKnobs } from "@storybook/addon-knobs";
 
 import { ThemeConstants } from "../../../theming";
@@ -22,26 +21,34 @@ const Content = styled.div`
   padding: 32px;
 `;
 
-storiesOf("Bar", module)
-  .addDecorator(withKnobs)
-  .add("with text", () => {
-    const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
-    const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
-    const theme = { mode: themeMode, layout: themeLayout };
+export default {
+  title: "Containers|Bar",
+  component: Bar,
+  decorators: [withKnobs]
+};
 
-    return (
-      <ThemeProvider theme={theme}>
-        <StoryWrapper>
-          <StyledBar backgroundUrl="https://images.unsplash.com/photo-1497906539264-eb74442e37a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80">
-            <Content><Typography variant={MaterialVariants.H2}>bar content</Typography></Content>
-          </StyledBar>
-          <StyledBar>
-            <Content><Typography variant={MaterialVariants.H2}>bar content</Typography></Content>
-          </StyledBar>
-          <StyledBar backgroundUrl="https://images.unsplash.com/photo-1497906539264-eb74442e37a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80">
-            <Content><Typography variant={MaterialVariants.H2}>bar content</Typography></Content>
-          </StyledBar>
-        </StoryWrapper>
-      </ThemeProvider>
-    );
-  });
+export const BarStory = () => {
+  const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
+  const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+  const theme = { mode: themeMode, layout: themeLayout };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <StoryWrapper>
+        <StyledBar backgroundUrl="https://images.unsplash.com/photo-1497906539264-eb74442e37a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80">
+          <Content><Typography variant={MaterialVariants.H2}>bar content</Typography></Content>
+        </StyledBar>
+        <StyledBar>
+          <Content><Typography variant={MaterialVariants.H2}>bar content</Typography></Content>
+        </StyledBar>
+        <StyledBar backgroundUrl="https://images.unsplash.com/photo-1497906539264-eb74442e37a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80">
+          <Content><Typography variant={MaterialVariants.H2}>bar content</Typography></Content>
+        </StyledBar>
+      </StoryWrapper>
+    </ThemeProvider>
+  );
+};
+
+BarStory.story = {
+  name: "with text"
+};
