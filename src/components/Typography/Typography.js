@@ -9,6 +9,8 @@ export const cssTypography = (typographyPropKey) => (props) => {
   const propsToCheck = typographyPropKey ? props[typographyPropKey] : props;
   return `
     -webkit-font-smoothing: antialiased;
+    ${css("align", "text-align")(propsToCheck)}
+    ${css(["bold", "font-weight", "bold"], ["weight", "font-weight"])(propsToCheck)}
     ${css("color")(propsToCheck)}
     ${css("font", "font-family")(propsToCheck)}
     ${css("italic", "font-style", "italic")(propsToCheck)}
@@ -16,11 +18,11 @@ export const cssTypography = (typographyPropKey) => (props) => {
     ${css("lineHeight", "line-height")(propsToCheck)}
     ${css("size", "font-size")(propsToCheck)}
     ${css("transform", "text-transform")(propsToCheck)}
-    ${css(["bold", "font-weight", "bold"], ["weight", "font-weight"])(propsToCheck)}
   `;
 };
 
 const typographyPropTypes = {
+  align: PropTypes.string,
   bold: PropTypes.bool,
   color: PropTypes.string,
   font: PropTypes.string,
@@ -37,7 +39,7 @@ const typographyPropTypes = {
   spaceAfter: PropTypes.bool,
   size: PropTypes.string,
   transform: PropTypes.string,
-  weight: PropTypes.number,
+  weight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 const propTypes = {
@@ -48,6 +50,7 @@ const propTypes = {
 
 const defaultProps = {
   /* eslint-disable react/default-props-match-prop-types */
+  align: null,
   bold: null,
   color: null,
   font: null,
@@ -103,15 +106,11 @@ const getBaseElement = (variant, props) => {
 };
 
 const getVariant = (variant, props) => {
-  if (variant == null) {
-    return {};
-  }
-
   const result = {};
   Object.keys(typographyPropTypes).forEach(k => {
     if (props[k] != null) {
       result[k] = props[k];
-    } else if (variant[k] != null) {
+    } else if (variant && variant[k] != null) {
       result[k] = variant[k];
     }
   });

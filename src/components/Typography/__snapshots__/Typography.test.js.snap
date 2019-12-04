@@ -1,5 +1,165 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Props align 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+}
+
+<span
+  class="c0"
+>
+  Content
+</span>
+`;
+
+exports[`Props bold 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+}
+
+<span
+  class="c0"
+>
+  Content
+</span>
+`;
+
+exports[`Props color 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  color: #123456;
+}
+
+<span
+  class="c0"
+  color="#123456"
+>
+  Content
+</span>
+`;
+
+exports[`Props font 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: arial;
+}
+
+<span
+  class="c0"
+>
+  Content
+</span>
+`;
+
+exports[`Props italic 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-style: italic;
+}
+
+<span
+  class="c0"
+>
+  Content
+</span>
+`;
+
+exports[`Props letterSpacing 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-letter-spacing: 1em;
+  -moz-letter-spacing: 1em;
+  -ms-letter-spacing: 1em;
+  letter-spacing: 1em;
+}
+
+<span
+  class="c0"
+  letter-spacing="1em"
+>
+  Content
+</span>
+`;
+
+exports[`Props lineHeight 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1em;
+}
+
+<span
+  class="c0"
+>
+  Content
+</span>
+`;
+
+exports[`Props size 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-size: 20px;
+}
+
+<span
+  class="c0"
+>
+  Content
+</span>
+`;
+
+exports[`Props transform 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+}
+
+<span
+  class="c0"
+  transform="uppercase"
+>
+  Content
+</span>
+`;
+
+exports[`Props weight 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 200;
+}
+
+<span
+  class="c0"
+>
+  Content
+</span>
+`;
+
+exports[`Props weight 2`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+}
+
+<span
+  class="c0"
+>
+  Content
+</span>
+`;
+
 exports[`Typography renders 1`] = `
 .c0 {
   margin: 0;
@@ -17,6 +177,7 @@ exports[`Using variant no overrides 1`] = `
 .c0 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  font-weight: 300;
   font-family: "Roboto","Helvetica","Arial",sans-serif;
   -webkit-letter-spacing: -0.01562em;
   -moz-letter-spacing: -0.01562em;
@@ -24,7 +185,6 @@ exports[`Using variant no overrides 1`] = `
   letter-spacing: -0.01562em;
   line-height: 1;
   font-size: 6rem;
-  font-weight: 300;
 }
 
 <span
@@ -39,6 +199,7 @@ exports[`Using variant with overrides 1`] = `
 .c0 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  font-weight: 300;
   font-family: "Roboto","Helvetica","Arial",sans-serif;
   -webkit-letter-spacing: -0.01562em;
   -moz-letter-spacing: -0.01562em;
@@ -46,7 +207,6 @@ exports[`Using variant with overrides 1`] = `
   letter-spacing: -0.01562em;
   line-height: 4;
   font-size: 6rem;
-  font-weight: 300;
 }
 
 <h1

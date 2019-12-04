@@ -4,6 +4,7 @@ exports[`Button renders 1`] = `
 .c1 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  font-weight: 500;
   color: #FFFFFF;
   font-family: "Roboto","Helvetica","Arial",sans-serif;
   -webkit-letter-spacing: 0.02857em;
@@ -13,7 +14,6 @@ exports[`Button renders 1`] = `
   line-height: 1.75;
   font-size: 0.875rem;
   text-transform: uppercase;
-  font-weight: 500;
 }
 
 .c0 {
