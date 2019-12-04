@@ -41,7 +41,7 @@ const defaultProps = {
   fullHeight: false,
   fullWidth: false,
   gap: null,
-  height: "100%",
+  height: null,
   horizontalAlignment: null,
   margin: null,
   overflow: null,
@@ -51,7 +51,7 @@ const defaultProps = {
   padding: null,
   useTypography: null,
   verticalAlignment: null,
-  width: "100%"
+  width: null
 };
 
 const gridDirection = (direction) => props => {

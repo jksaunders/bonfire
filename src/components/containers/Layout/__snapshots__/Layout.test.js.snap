@@ -4,8 +4,6 @@ exports[`centered 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
   justify-items: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -16,8 +14,6 @@ exports[`centered 1`] = `
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 />
 `;
 
@@ -25,8 +21,6 @@ exports[`horizontal/vertical alignment 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
   justify-items: flex-end;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -37,8 +31,6 @@ exports[`horizontal/vertical alignment 1`] = `
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 />
 `;
 
@@ -46,15 +38,11 @@ exports[`using \`TypographyContext\` useTypography = false 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 >
   Content
 </div>
@@ -64,16 +52,12 @@ exports[`using \`TypographyContext\` useTypography = true 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
   -webkit-font-smoothing: antialiased;
   color: #FFFFFF;
 }
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 >
   Content
 </div>
@@ -84,15 +68,11 @@ exports[`with background properties 1`] = `
   display: grid;
   box-sizing: border-box;
   background-color: #123456;
-  height: 100%;
-  width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 />
 `;
 
@@ -101,15 +81,11 @@ exports[`with border properties 1`] = `
   display: grid;
   box-sizing: border-box;
   border-radius: 5px;
-  height: 100%;
-  width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 />
 `;
 
@@ -117,15 +93,11 @@ exports[`with children 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 >
   <span>
     Hi!
@@ -141,15 +113,11 @@ exports[`with grid properties: auto 1`] = `
   grid-auto-rows: 100px;
   grid-gap: 10px;
   grid-auto-flow: column;
-  height: 100%;
-  width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 />
 `;
 
@@ -161,15 +129,11 @@ exports[`with grid properties: templates 1`] = `
   grid-template-rows: 1fr 2fr;
   grid-gap: 10px;
   grid-auto-flow: row;
-  height: 100%;
-  width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 />
 `;
 
@@ -177,15 +141,11 @@ exports[`with no props 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 />
 `;
 
@@ -193,15 +153,11 @@ exports[`with padding 1`] = `
 .c0 {
   display: grid;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
   padding: 10px;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
   class="c0"
-  height="100%"
-  width="100%"
 />
 `;
