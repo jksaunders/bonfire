@@ -161,5 +161,6 @@ const Layout = ({
 
 Layout.propTypes = propTypes;
 Layout.defaultProps = defaultProps;
+Layout.shape = propTypes;
 
 export default Layout;

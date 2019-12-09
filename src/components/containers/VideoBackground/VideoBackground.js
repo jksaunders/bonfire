@@ -2,10 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { css } from "../../../utils/styling";
+import Layout from "../Layout";
 
 const propTypes = {
   children: PropTypes.node,
   filter: PropTypes.string,
+  parentLayoutProps: PropTypes.shape(Layout.shape).isRequired,
   src: PropTypes.string.isRequired
 };
 
@@ -14,16 +16,8 @@ const defaultProps = {
   filter: null
 };
 
-const Container = styled.div`
-  height: max-content;
+const Container = styled(Layout)`
   position: relative;
-  width: max-content;
-`;
-
-const ChildrenWrapper = styled.div`
-  background: hsla(0,0%,0%,.2);
-  height: max-content;
-  width: max-content;
 `;
 
 const Video = styled.video`
@@ -40,15 +34,14 @@ const Video = styled.video`
 const VideoBackground = ({
   children,
   filter,
+  parentLayoutProps,
   src
 }) => (
-  <Container>
+  <Container {...parentLayoutProps}>
     <Video filter={filter} autoPlay muted loop>
       <source src={src} type="video/mp4" />
     </Video>
-    <ChildrenWrapper>
-      {children}
-    </ChildrenWrapper>
+    {children}
   </Container>
 );
 
