@@ -5,6 +5,7 @@ import { css, cssBackground } from "../../../utils/styling";
 import { TypographyContext, cssTypography } from "../../Typography";
 
 const propTypes = {
+  align: PropTypes.string,
   background: PropTypes.string,
   borderRadius: PropTypes.string,
   centered: PropTypes.bool,
@@ -30,6 +31,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  align: null,
   background: null,
   borderRadius: null,
   children: null,
@@ -54,6 +56,38 @@ const defaultProps = {
   width: null
 };
 
+const parseAlignTargetValue = alignProp => ({
+  target: alignProp.includes("content-") ? "content" : "items",
+  value: `${alignProp}`.replace("items-", "").replace("content-", "")
+});
+
+const alignment = props => {
+  if (props.align == null) {
+    return "";
+  }
+
+  const [first, second] = props.align.split(" ");
+  let justifyResult = "";
+  let alignResult = "";
+
+  if (first !== "_") {
+    const { target: firstTarget, value: firstValue } = parseAlignTargetValue(first);
+    justifyResult = `${firstTarget}: ${firstValue}`;
+  }
+
+  if (second == null) {
+    alignResult = justifyResult;
+  } else if (second !== "_") {
+    const { target: secondTarget, value: secondValue } = parseAlignTargetValue(second);
+    alignResult = `${secondTarget}: ${secondValue}`;
+  }
+
+  return `
+    ${alignResult && `align-${alignResult};`}
+    ${justifyResult && `justify-${justifyResult};`}
+  `;
+};
+
 const gridDirection = (direction) => props => {
   if (props[direction] == null) {
     return "";
@@ -76,6 +110,17 @@ const Grid = styled.div`
   ${css("gap", "grid-gap")}
   ${css("flow", "grid-auto-flow")}
 
+  ${/* alignment */""}
+  ${alignment}
+  ${css(
+    ["centered", "justify-items", "center"],
+    ["horizontalAlignment", "justify-items"]
+  )}
+  ${css(
+    ["centered", "align-items", "center"],
+    ["verticalAlignment", "align-items"]
+  )}
+
   ${css(
     ["full", "height", "100%"],
     ["fullHeight", "height", "100%"],
@@ -89,14 +134,6 @@ const Grid = styled.div`
   ${css("margin")}
   ${css("padding")}
 
-  ${css(
-    ["centered", "justify-items", "center"],
-    ["horizontalAlignment", "justify-items"]
-  )}
-  ${css(
-    ["centered", "align-items", "center"],
-    ["verticalAlignment", "align-items"]
-  )}
   ${css("overflow")}
   ${css("overflowX", "overflow-x")}
   ${css("overflowY", "overflow-y")}
@@ -105,6 +142,7 @@ const Grid = styled.div`
 `;
 
 const Layout = ({
+  align,
   background,
   borderRadius,
   centered,
@@ -132,6 +170,7 @@ const Layout = ({
 
   return (
     <Grid
+      align={align}
       background={background}
       borderRadius={borderRadius}
       centered={centered}

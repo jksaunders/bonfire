@@ -27,9 +27,11 @@ export default {
 };
 
 export const BasicStory = () => {
+  const align = text("Alignment", "");
   const centered = boolean("Centered?", false);
   const containerSize = text("Size of container", "500px");
   const columns = text("Columns", "");
+  const full = boolean("Full height and width?", false);
   const gap = text("Gap", "");
   const horizontalAlignment = text("Horizontal alignment", "");
   const rows = text("Rows", "");
@@ -39,12 +41,14 @@ export const BasicStory = () => {
   return (
     <StoryWrapper size={containerSize}>
       <Layout
+        align={align}
         centered={centered}
-        rows={rows !== "" ? rows : null}
         columns={columns !== "" ? columns : null}
+        full={full}
         gap={gap !== "" ? gap : null}
         horizontalAlignment={horizontalAlignment !== "" ? horizontalAlignment : null}
         padding={padding !== "" ? padding : null}
+        rows={rows !== "" ? rows : null}
         verticalAlignment={verticalAlignment !== "" ? verticalAlignment : null}
       >
         <Content><Typography variant={MaterialVariants.H2}>content1</Typography></Content>

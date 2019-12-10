@@ -93,6 +93,110 @@ test("horizontal/vertical alignment", () => {
   expectStyle(component, "justify-items", "flex-end");
 });
 
+describe("using `align`", () => {
+  describe("no target => defaults to `items`", () => {
+    test("single alignment", () => {
+      const { component } = getLayout({ align: "center" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-items", "center");
+      expectStyle(component, "justify-items", "center");
+    });
+
+    test("single alignment: ignore first", () => {
+      const { component } = getLayout({ align: "_ center" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-items", "center");
+      expectStyle(component, "justify-items", undefined);
+    });
+
+    test("single alignment: ignore second", () => {
+      const { component } = getLayout({ align: "center _" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-items", undefined);
+      expectStyle(component, "justify-items", "center");
+    });
+
+    test("horizontal + vertical alignment", () => {
+      const { component } = getLayout({ align: "center left" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-items", "left");
+      expectStyle(component, "justify-items", "center");
+    });
+  });
+
+  describe("target = `items`", () => {
+    test("single alignment", () => {
+      const { component } = getLayout({ align: "items-center" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-items", "center");
+      expectStyle(component, "justify-items", "center");
+    });
+
+    test("single alignment: ignore first", () => {
+      const { component } = getLayout({ align: "_ items-center" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-items", "center");
+      expectStyle(component, "justify-items", undefined);
+    });
+
+    test("single alignment: ignore second", () => {
+      const { component } = getLayout({ align: "items-center _" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-items", undefined);
+      expectStyle(component, "justify-items", "center");
+    });
+
+    test("horizontal + vertical alignment", () => {
+      const { component } = getLayout({ align: "items-center items-left" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-items", "left");
+      expectStyle(component, "justify-items", "center");
+    });
+  });
+
+  describe("target = `content`", () => {
+    test("single alignment", () => {
+      const { component } = getLayout({ align: "content-center" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-content", "center");
+      expectStyle(component, "justify-content", "center");
+    });
+
+    test("single alignment: ignore first", () => {
+      const { component } = getLayout({ align: "_ content-center" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-content", "center");
+      expectStyle(component, "justify-content", undefined);
+    });
+
+    test("single alignment: ignore second", () => {
+      const { component } = getLayout({ align: "content-center _" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-content", undefined);
+      expectStyle(component, "justify-content", "center");
+    });
+
+    test("horizontal + vertical alignment", () => {
+      const { component } = getLayout({ align: "content-flex-end content-left" });
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, "align-content", "left");
+      expectStyle(component, "justify-content", "flex-end");
+    });
+  });
+});
+
 describe("using `TypographyContext`", () => {
   test("useTypography = false", () => {
     const { component, getByText } = render(
