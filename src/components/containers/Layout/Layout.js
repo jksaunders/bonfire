@@ -112,15 +112,10 @@ const Grid = styled.div`
 
   ${/* alignment */''}
   ${alignment}
-  ${css(
-    ['centered', 'justify-items', 'center'],
-    ['horizontalAlignment', 'justify-items']
-  )}
-  ${css(
-    ['centered', 'align-items', 'center'],
-    ['verticalAlignment', 'align-items']
-  )}
+  ${css('centered', 'justify-items', 'center')}
+  ${css('centered', 'align-items', 'center')}
 
+  ${/* sizing */''}
   ${css(
     ['full', 'height', '100%'],
     ['fullHeight', 'height', '100%'],
@@ -134,10 +129,13 @@ const Grid = styled.div`
   ${css('margin')}
   ${css('padding')}
 
+
+  ${/* overflow */''}
   ${css('overflow')}
   ${css('overflowX', 'overflow-x')}
   ${css('overflowY', 'overflow-y')}
   
+  ${/* typography */''}
   ${cssTypography('typographyProps')}
 `;
 

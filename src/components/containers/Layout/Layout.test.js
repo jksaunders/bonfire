@@ -85,14 +85,6 @@ test('centered', () => {
   expectStyle(component, 'justify-items', 'center');
 });
 
-test('horizontal/vertical alignment', () => {
-  const { component } = getLayout({ horizontalAlignment: 'flex-end', verticalAlignment: 'center' });
-  expectExists(component);
-  expectSnapshot(component);
-  expectStyle(component, 'align-items', 'center');
-  expectStyle(component, 'justify-items', 'flex-end');
-});
-
 describe('using `align`', () => {
   describe('no target => defaults to `items`', () => {
     test('single alignment', () => {
