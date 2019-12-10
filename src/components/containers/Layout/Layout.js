@@ -111,9 +111,9 @@ const Grid = styled.div`
   ${css('flow', 'grid-auto-flow')}
 
   ${/* alignment */''}
-  ${alignment}
   ${css('centered', 'justify-items', 'center')}
   ${css('centered', 'align-items', 'center')}
+  ${alignment}
 
   ${/* sizing */''}
   ${css(
