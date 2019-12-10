@@ -44,6 +44,7 @@ const typographyPropTypes = {
 
 const propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
   variant: PropTypes.shape(typographyPropTypes),
   ...typographyPropTypes
 };
@@ -71,6 +72,7 @@ const defaultProps = {
   /* eslint-enable react/default-props-match-prop-types */
 
   children: null,
+  className: null,
   variant: null
 };
 
@@ -120,10 +122,12 @@ const getVariant = (variant, props) => {
 
 const Typography = ({
   children,
+  className,
   variant,
   ...props
 }) => (
   <StyledTypography
+    className={className}
     {...getVariant(variant, props)}
     as={getBaseElement(variant, props)}
   >
