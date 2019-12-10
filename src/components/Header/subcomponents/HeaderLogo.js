@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { Browser } from "../../../utils";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Browser } from '../../../utils';
 
 const CONSTANTS = {};
 
@@ -14,11 +14,11 @@ const propTypes = {
 const defaultProps = {
   link: null,
   onClick: null,
-  image: "https://via.placeholder.com/350x150"
+  image: 'https://via.placeholder.com/350x150'
 };
 
 const StyledHeaderLogo = styled.img`
-  ${props => (props.onClick || props.link) && "cursor: pointer;"}
+  ${props => (props.onClick || props.link) && 'cursor: pointer;'}
   margin-right: auto;
   max-height: 100%;
   width: auto;

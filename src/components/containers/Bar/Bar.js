@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const CONSTANTS = {
   HEIGHT: {
-    FULL_VIEW: "100vh"
+    FULL_VIEW: '100vh'
   }
 };
 
@@ -14,7 +14,7 @@ const StyledBar = styled.div`
   ${props => props.background && `background: ${props.background}`}
   ${props => props.backgroundColor && `background-color: ${props.backgroundColor}`}
   ${props => props.backgroundUrl && `background-image: url('${props.backgroundUrl}');`}
-  ${props => props.backgroundUrl && "background-size: 100%;"}
+  ${props => props.backgroundUrl && 'background-size: 100%;'}
 `;
 
 const propTypes = {
@@ -31,7 +31,7 @@ const defaultProps = {
   backgroundColor: null,
   backgroundUrl: null,
   children: null,
-  height: "300px",
+  height: '300px',
   parallax: false
 };
 

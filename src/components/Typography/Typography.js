@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { css } from "../../utils/styling";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { css } from '../../utils/styling';
 
 export const TypographyContext = React.createContext({});
 
@@ -9,15 +9,15 @@ export const cssTypography = (typographyPropKey) => (props) => {
   const propsToCheck = typographyPropKey ? props[typographyPropKey] : props;
   return `
     -webkit-font-smoothing: antialiased;
-    ${css("align", "text-align")(propsToCheck)}
-    ${css(["bold", "font-weight", "bold"], ["weight", "font-weight"])(propsToCheck)}
-    ${css("color")(propsToCheck)}
-    ${css("font", "font-family")(propsToCheck)}
-    ${css("italic", "font-style", "italic")(propsToCheck)}
-    ${css("letterSpacing", "letter-spacing")(propsToCheck)}
-    ${css("lineHeight", "line-height")(propsToCheck)}
-    ${css("size", "font-size")(propsToCheck)}
-    ${css("transform", "text-transform")(propsToCheck)}
+    ${css('align', 'text-align')(propsToCheck)}
+    ${css(['bold', 'font-weight', 'bold'], ['weight', 'font-weight'])(propsToCheck)}
+    ${css('color')(propsToCheck)}
+    ${css('font', 'font-family')(propsToCheck)}
+    ${css('italic', 'font-style', 'italic')(propsToCheck)}
+    ${css('letterSpacing', 'letter-spacing')(propsToCheck)}
+    ${css('lineHeight', 'line-height')(propsToCheck)}
+    ${css('size', 'font-size')(propsToCheck)}
+    ${css('transform', 'text-transform')(propsToCheck)}
   `;
 };
 
@@ -78,30 +78,30 @@ const defaultProps = {
 
 const StyledTypography = styled.span`
   margin: 0;
-  ${css("spaceAfter", "margin-block-start", "1em")}
-  ${css("spaceAfter", "margin-block-end", "1em")}
-  ${css("spaceAfter", "margin-inline-start", "0px")}
-  ${css("spaceAfter", "margin-inline-end", "0px")}
+  ${css('spaceAfter', 'margin-block-start', '1em')}
+  ${css('spaceAfter', 'margin-block-end', '1em')}
+  ${css('spaceAfter', 'margin-inline-start', '0px')}
+  ${css('spaceAfter', 'margin-inline-end', '0px')}
   ${cssTypography()}
 `;
 
 const getBaseElement = (variant, props) => {
-  let baseElement = "span";
+  let baseElement = 'span';
 
   if ((variant && variant.h1) || props.h1) {
-    baseElement = "h1";
+    baseElement = 'h1';
   } else if ((variant && variant.h2) || props.h2) {
-    baseElement = "h2";
+    baseElement = 'h2';
   } else if ((variant && variant.h3) || props.h3) {
-    baseElement = "h3";
+    baseElement = 'h3';
   } else if ((variant && variant.h4) || props.h4) {
-    baseElement = "h4";
+    baseElement = 'h4';
   } else if ((variant && variant.h5) || props.h5) {
-    baseElement = "h5";
+    baseElement = 'h5';
   } else if ((variant && variant.h6) || props.h6) {
-    baseElement = "h6";
+    baseElement = 'h6';
   } else if ((variant && variant.paragraph) || props.paragraph) {
-    baseElement = "p";
+    baseElement = 'p';
   }
 
   return baseElement;

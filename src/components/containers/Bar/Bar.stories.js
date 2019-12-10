@@ -1,11 +1,11 @@
-import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
-import { select, withKnobs } from "@storybook/addon-knobs";
+import { select, withKnobs } from '@storybook/addon-knobs';
 
-import { ThemeConstants } from "../../../theming";
-import Bar from "./Bar";
-import Typography, { MaterialVariants } from "../../Typography";
+import { ThemeConstants } from '../../../theming';
+import Bar from './Bar';
+import Typography, { MaterialVariants } from '../../Typography';
 
 const StoryWrapper = styled.div`
 `;
@@ -22,14 +22,14 @@ const Content = styled.div`
 `;
 
 export default {
-  title: "Containers|Bar",
+  title: 'Containers|Bar',
   component: Bar,
   decorators: [withKnobs]
 };
 
 export const BarStory = () => {
-  const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
-  const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+  const themeMode = select('Theme Mode', Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
+  const themeLayout = select('Theme Layout', Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
   const theme = { mode: themeMode, layout: themeLayout };
 
   return (
@@ -50,5 +50,5 @@ export const BarStory = () => {
 };
 
 BarStory.story = {
-  name: "with text"
+  name: 'with text'
 };

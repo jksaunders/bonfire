@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 import {
   boolean,
   text,
   withKnobs
-} from "@storybook/addon-knobs";
+} from '@storybook/addon-knobs';
 
-import Layout from "./Layout";
-import Typography, { TypographyContext, MaterialVariants, TrelloVariants } from "../../Typography";
+import Layout from './Layout';
+import Typography, { TypographyContext, MaterialVariants, TrelloVariants } from '../../Typography';
 
 const StoryWrapper = styled.div`
   background-color: lightblue;
@@ -21,35 +21,35 @@ const Content = styled.div`
 `;
 
 export default {
-  title: "Containers|Layout",
+  title: 'Containers|Layout',
   component: Layout,
   decorators: [withKnobs]
 };
 
 export const BasicStory = () => {
-  const align = text("Alignment", "");
-  const centered = boolean("Centered?", false);
-  const containerSize = text("Size of container", "500px");
-  const columns = text("Columns", "");
-  const full = boolean("Full height and width?", false);
-  const gap = text("Gap", "");
-  const horizontalAlignment = text("Horizontal alignment", "");
-  const rows = text("Rows", "");
-  const padding = text("Padding", "");
-  const verticalAlignment = text("Vertical alignment", "");
+  const align = text('Alignment', '');
+  const centered = boolean('Centered?', false);
+  const containerSize = text('Size of container', '500px');
+  const columns = text('Columns', '');
+  const full = boolean('Full height and width?', false);
+  const gap = text('Gap', '');
+  const horizontalAlignment = text('Horizontal alignment', '');
+  const rows = text('Rows', '');
+  const padding = text('Padding', '');
+  const verticalAlignment = text('Vertical alignment', '');
 
   return (
     <StoryWrapper size={containerSize}>
       <Layout
         align={align}
         centered={centered}
-        columns={columns !== "" ? columns : null}
+        columns={columns !== '' ? columns : null}
         full={full}
-        gap={gap !== "" ? gap : null}
-        horizontalAlignment={horizontalAlignment !== "" ? horizontalAlignment : null}
-        padding={padding !== "" ? padding : null}
-        rows={rows !== "" ? rows : null}
-        verticalAlignment={verticalAlignment !== "" ? verticalAlignment : null}
+        gap={gap !== '' ? gap : null}
+        horizontalAlignment={horizontalAlignment !== '' ? horizontalAlignment : null}
+        padding={padding !== '' ? padding : null}
+        rows={rows !== '' ? rows : null}
+        verticalAlignment={verticalAlignment !== '' ? verticalAlignment : null}
       >
         <Content><Typography variant={MaterialVariants.H2}>content1</Typography></Content>
         <Content><Typography variant={MaterialVariants.H2}>content2</Typography></Content>
@@ -60,7 +60,7 @@ export const BasicStory = () => {
 };
 
 BasicStory.story = {
-  name: "Basic"
+  name: 'Basic'
 };
 
 export const TrelloStory = () => (
@@ -74,7 +74,7 @@ export const TrelloStory = () => (
     <TypographyContext.Provider value={TrelloVariants.Body}>
       <Layout columns="max-content auto max-content" padding="5px">
         <Layout columns="max-content max-content minmax(max-content, 200px)" gap="5px">
-          { ["home", "boards", "search"].map(t => (
+          { ['home', 'boards', 'search'].map(t => (
             <Layout key={t} background="hsla(0, 0%, 100%, 0.3)" borderRadius="3px" padding="5px" useTypography>
               {t}
             </Layout>
@@ -87,7 +87,7 @@ export const TrelloStory = () => (
         board header
       </Layout>
       <Layout columns="272px" flow="column" gap="10px" padding="10px" overflowX="auto">
-        { ["To-Do", "Projects", "Bookmarks", "Recipes", "To-Do 2", "Projects 2", "Bookmarks 2", "Recipes 2"].map(t => (
+        { ['To-Do', 'Projects', 'Bookmarks', 'Recipes', 'To-Do 2', 'Projects 2', 'Bookmarks 2', 'Recipes 2'].map(t => (
           <Layout key={t} background="#ebecf0" borderRadius="3px" gap="10px" padding="10px" rows="max-content">
             <Layout padding="10px" useTypography>
               {t}
@@ -106,5 +106,5 @@ export const TrelloStory = () => (
 );
 
 TrelloStory.story = {
-  name: "Trello"
+  name: 'Trello'
 };

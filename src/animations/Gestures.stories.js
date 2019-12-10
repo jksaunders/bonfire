@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useDrag } from "react-use-gesture";
-import { useSpring, animated, config } from "react-spring";
-import Square from "./Square";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDrag } from 'react-use-gesture';
+import { useSpring, animated, config } from 'react-spring';
+import Square from './Square';
 
 const AnimatedSquare = animated(Square);
 
@@ -57,7 +57,7 @@ DragMe.propTypes = propTypes;
 DragMe.defaultProps = defaultProps;
 
 export default {
-  title: "Animations|Gestures"
+  title: 'Animations|Gestures'
 };
 
 export const Dragging = () => <DragMe />;

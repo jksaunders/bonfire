@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import chroma from "chroma-js";
-import Typography, { MaterialVariants } from "../Typography";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import chroma from 'chroma-js';
+import Typography, { MaterialVariants } from '../Typography';
 import {
   theme, themeVariant, ThemeConstants, Palette
-} from "../../theming";
+} from '../../theming';
 
 const CONSTANTS = {
   VARIANT: {
-    PRIMARY: "PRIMARY",
-    SECONDARY: "SECONDARY"
+    PRIMARY: 'PRIMARY',
+    SECONDARY: 'SECONDARY'
   }
 };
 
@@ -26,12 +26,12 @@ const THEME_VARIANTS = {
 };
 
 const disabledBackground = props => (props.disabled
-  ? chroma(themeVariant("variant", "backgroundColor", THEME_VARIANTS, ThemeConstants.mode.key)(props)(props)).alpha(0.5).hex()
-  : themeVariant("variant", "backgroundColor", THEME_VARIANTS, ThemeConstants.mode.key)(props));
+  ? chroma(themeVariant('variant', 'backgroundColor', THEME_VARIANTS, ThemeConstants.mode.key)(props)(props)).alpha(0.5).hex()
+  : themeVariant('variant', 'backgroundColor', THEME_VARIANTS, ThemeConstants.mode.key)(props));
 
 const disabledColor = props => (props.disabled
-  ? chroma(themeVariant("variant", "color", THEME_VARIANTS, ThemeConstants.mode.key)(props)(props)).alpha(0.65).hex()
-  : themeVariant("variant", "color", THEME_VARIANTS, ThemeConstants.mode.key)(props));
+  ? chroma(themeVariant('variant', 'color', THEME_VARIANTS, ThemeConstants.mode.key)(props)(props)).alpha(0.65).hex()
+  : themeVariant('variant', 'color', THEME_VARIANTS, ThemeConstants.mode.key)(props));
 
 const StyledButton = styled.button`
   color: ${props => disabledColor(props)};
@@ -62,7 +62,7 @@ const defaultProps = {
   onClick: () => {},
   typographyProps: {},
   variant: CONSTANTS.VARIANT.PRIMARY,
-  width: "100px"
+  width: '100px'
 };
 
 const Button = ({

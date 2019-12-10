@@ -1,5 +1,5 @@
-import styledTheme from "styled-theming";
-import themes, { ThemeConstants } from "./themes";
+import styledTheme from 'styled-theming';
+import themes, { ThemeConstants } from './themes';
 
 const themeKeyMap = {
   [ThemeConstants.mode.key]: Object.keys(ThemeConstants.mode.values),

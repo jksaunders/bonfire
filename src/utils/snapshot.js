@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { render as importedRender } from "@testing-library/react";
-import "jest-styled-components";
+import { render as importedRender } from '@testing-library/react';
+import 'jest-styled-components';
 
 export const render = (component) => {
   const rendered = importedRender(component);

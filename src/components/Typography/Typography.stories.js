@@ -1,19 +1,19 @@
 /* eslint-disable max-len */
-import React from "react";
-import { ThemeProvider } from "styled-components";
-import { select, withKnobs } from "@storybook/addon-knobs";
-import { ThemeConstants } from "../../theming";
-import Typography, { MaterialVariants } from ".";
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { select, withKnobs } from '@storybook/addon-knobs';
+import { ThemeConstants } from '../../theming';
+import Typography, { MaterialVariants } from '.';
 
 export default {
-  title: "Style|Typography",
+  title: 'Style|Typography',
   component: Typography,
   decorators: [withKnobs]
 };
 
 export const AllStyles = () => {
-  const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
-  const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+  const themeMode = select('Theme Mode', Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
+  const themeLayout = select('Theme Layout', Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
   const theme = { mode: themeMode, layout: themeLayout };
 
   return (
@@ -64,8 +64,8 @@ export const AllStyles = () => {
 };
 
 export const SampleText = () => {
-  const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
-  const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+  const themeMode = select('Theme Mode', Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
+  const themeLayout = select('Theme Layout', Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
   const theme = { mode: themeMode, layout: themeLayout };
 
   return (

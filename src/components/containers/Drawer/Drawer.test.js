@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react';
 import {
   expectExists,
   expectSnapshot,
   render
-} from "../../../utils/snapshot";
-import Drawer from "./Drawer";
+} from '../../../utils/snapshot';
+import Drawer from './Drawer';
 
 const getDrawer = (props = {}) => render(<Drawer {...props} />);
 
-test("Drawer closed", () => {
+test('Drawer closed', () => {
   const { component } = getDrawer({ open: false });
   expect(component).toBe(null);
   expectSnapshot(component);
 });
 
-test("Drawer open", () => {
+test('Drawer open', () => {
   const { getByRole } = getDrawer({ open: true });
-  const component = getByRole("presentation");
+  const component = getByRole('presentation');
   expectExists(component);
   expectSnapshot(component);
 });

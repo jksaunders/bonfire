@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { css, cssBackground } from "../../../utils/styling";
-import { TypographyContext, cssTypography } from "../../Typography";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { css, cssBackground } from '../../../utils/styling';
+import { TypographyContext, cssTypography } from '../../Typography';
 
 const propTypes = {
   align: PropTypes.string,
@@ -57,27 +57,27 @@ const defaultProps = {
 };
 
 const parseAlignTargetValue = alignProp => ({
-  target: alignProp.includes("content-") ? "content" : "items",
-  value: `${alignProp}`.replace("items-", "").replace("content-", "")
+  target: alignProp.includes('content-') ? 'content' : 'items',
+  value: `${alignProp}`.replace('items-', '').replace('content-', '')
 });
 
 const alignment = props => {
   if (props.align == null) {
-    return "";
+    return '';
   }
 
-  const [first, second] = props.align.split(" ");
-  let justifyResult = "";
-  let alignResult = "";
+  const [first, second] = props.align.split(' ');
+  let justifyResult = '';
+  let alignResult = '';
 
-  if (first !== "_") {
+  if (first !== '_') {
     const { target: firstTarget, value: firstValue } = parseAlignTargetValue(first);
     justifyResult = `${firstTarget}: ${firstValue}`;
   }
 
   if (second == null) {
     alignResult = justifyResult;
-  } else if (second !== "_") {
+  } else if (second !== '_') {
     const { target: secondTarget, value: secondValue } = parseAlignTargetValue(second);
     alignResult = `${secondTarget}: ${secondValue}`;
   }
@@ -90,9 +90,9 @@ const alignment = props => {
 
 const gridDirection = (direction) => props => {
   if (props[direction] == null) {
-    return "";
+    return '';
   }
-  if (props[direction].includes(" ") || props[direction].includes("repeat")) {
+  if (props[direction].includes(' ') || props[direction].includes('repeat')) {
     return `grid-template-${direction}: ${props[direction]};`;
   }
   return `grid-auto-${direction}: ${props[direction]};`;
@@ -102,43 +102,43 @@ const Grid = styled.div`
   display: grid;
   box-sizing: border-box;
   ${cssBackground}
-  ${css("borderRadius", "border-radius")}
+  ${css('borderRadius', 'border-radius')}
 
-  ${/* grid properties */""}
-  ${gridDirection("columns")}
-  ${gridDirection("rows")}
-  ${css("gap", "grid-gap")}
-  ${css("flow", "grid-auto-flow")}
+  ${/* grid properties */''}
+  ${gridDirection('columns')}
+  ${gridDirection('rows')}
+  ${css('gap', 'grid-gap')}
+  ${css('flow', 'grid-auto-flow')}
 
-  ${/* alignment */""}
+  ${/* alignment */''}
   ${alignment}
   ${css(
-    ["centered", "justify-items", "center"],
-    ["horizontalAlignment", "justify-items"]
+    ['centered', 'justify-items', 'center'],
+    ['horizontalAlignment', 'justify-items']
   )}
   ${css(
-    ["centered", "align-items", "center"],
-    ["verticalAlignment", "align-items"]
+    ['centered', 'align-items', 'center'],
+    ['verticalAlignment', 'align-items']
   )}
 
   ${css(
-    ["full", "height", "100%"],
-    ["fullHeight", "height", "100%"],
-    ["height"]
+    ['full', 'height', '100%'],
+    ['fullHeight', 'height', '100%'],
+    ['height']
   )}
   ${css(
-    ["full", "width", "100%"],
-    ["fullWidth", "width", "100%"],
-    ["width"]
+    ['full', 'width', '100%'],
+    ['fullWidth', 'width', '100%'],
+    ['width']
   )}
-  ${css("margin")}
-  ${css("padding")}
+  ${css('margin')}
+  ${css('padding')}
 
-  ${css("overflow")}
-  ${css("overflowX", "overflow-x")}
-  ${css("overflowY", "overflow-y")}
+  ${css('overflow')}
+  ${css('overflowX', 'overflow-x')}
+  ${css('overflowY', 'overflow-y')}
   
-  ${cssTypography("typographyProps")}
+  ${cssTypography('typographyProps')}
 `;
 
 const Layout = ({

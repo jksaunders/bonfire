@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 import {
   text,
   withKnobs
-} from "@storybook/addon-knobs";
-import Layout from "../Layout";
-import VideoBackground from "./VideoBackground";
+} from '@storybook/addon-knobs';
+import Layout from '../Layout';
+import VideoBackground from './VideoBackground';
 
 export default {
-  title: "Containers|Video Background",
+  title: 'Containers|Video Background',
   component: VideoBackground,
   decorators: [withKnobs]
 };
@@ -19,9 +19,9 @@ const Content = styled.div`
 `;
 
 export const Basic = () => {
-  const heightOfContent = text("Height of content", "200px");
-  const widthOfContent = text("Width of content", "200px");
-  const filter = text("Filter", "opacity(60%)");
+  const heightOfContent = text('Height of content', '200px');
+  const widthOfContent = text('Width of content', '200px');
+  const filter = text('Filter', 'opacity(60%)');
 
   return (
     <VideoBackground

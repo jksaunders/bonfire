@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from 'react';
 import {
   useChain, useSpring, animated, config
-} from "react-spring";
-import Square from "./Square";
+} from 'react-spring';
+import Square from './Square';
 
 const AnimatedSquare = animated(Square);
 
@@ -44,7 +44,7 @@ const ClickMe = () => {
 };
 
 export default {
-  title: "Animations|Chain"
+  title: 'Animations|Chain'
 };
 
 export const UseChain = () => <ClickMe />;

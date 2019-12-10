@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import Typography, { MaterialVariants } from "../../Typography";
-import { Browser } from "../../../utils";
-import * as Colors from "../../../theming/colors";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Typography, { MaterialVariants } from '../../Typography';
+import { Browser } from '../../../utils';
+import * as Colors from '../../../theming/colors';
 
 const CONSTANTS = {};
 
@@ -40,7 +40,7 @@ const HeaderItem = ({
       }
       Browser.goTo(link);
     }}
-    as={link ? "a" : "div"}
+    as={link ? 'a' : 'div'}
     href={link}
     {...rest}
   >

@@ -1,2 +1,2 @@
-export { default as Browser } from "./browser";
-export * from "./styling";
+export { default as Browser } from './browser';
+export * from './styling';

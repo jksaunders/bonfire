@@ -1,6 +1,6 @@
-import modes from "./modes";
-import layouts from "./layouts";
-import { ThemeConstants as CONSTANTS } from "./constants";
+import modes from './modes';
+import layouts from './layouts';
+import { ThemeConstants as CONSTANTS } from './constants';
 
 export const ThemeConstants = CONSTANTS;
 

@@ -1,3 +1,3 @@
-import VideoBackground from "./VideoBackground";
+import VideoBackground from './VideoBackground';
 
 export default VideoBackground;

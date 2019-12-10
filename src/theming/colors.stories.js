@@ -1,9 +1,9 @@
-import React from "react";
-import Typography, { MaterialVariants } from "../components/Typography";
-import * as Colors from "./colors";
+import React from 'react';
+import Typography, { MaterialVariants } from '../components/Typography';
+import * as Colors from './colors';
 
 export default {
-  title: "Style|Colors",
+  title: 'Style|Colors',
 };
 
 export const AllColorsStory = () => (
@@ -17,5 +17,5 @@ export const AllColorsStory = () => (
 );
 
 AllColorsStory.story = {
-  name: "All colors"
+  name: 'All colors'
 };

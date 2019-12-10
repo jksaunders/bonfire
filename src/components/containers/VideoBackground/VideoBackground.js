@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { css } from "../../../utils/styling";
-import Layout from "../Layout";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { css } from '../../../utils/styling';
+import Layout from '../Layout';
 
 const propTypes = {
   children: PropTypes.node,
@@ -28,7 +28,7 @@ const Video = styled.video`
   height: 100%;
   z-index: -100;
   object-fit: cover;
-  ${css("filter")}
+  ${css('filter')}
 `;
 
 const VideoBackground = ({

@@ -1,43 +1,43 @@
-import React, { useState } from "react";
-import { useGesture } from "react-use-gesture";
-import styled, { ThemeProvider } from "styled-components";
+import React, { useState } from 'react';
+import { useGesture } from 'react-use-gesture';
+import styled, { ThemeProvider } from 'styled-components';
 
-import { action } from "@storybook/addon-actions";
-import { boolean, select, withKnobs } from "@storybook/addon-knobs";
+import { action } from '@storybook/addon-actions';
+import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 
-import { ThemeConstants } from "../../theming";
-import Header from "./Header";
+import { ThemeConstants } from '../../theming';
+import Header from './Header';
 
 const StoryHeader = styled(Header)`
   background: linear-gradient(270deg, #EEEEEE 0%, white 100%);
 `;
 
 export default {
-  title: "Containers|Header",
+  title: 'Containers|Header',
   component: Header,
   decorators: [withKnobs]
 };
 
 export const NoLogo = () => {
-  const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
-  const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+  const themeMode = select('Theme Mode', Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
+  const themeLayout = select('Theme Layout', Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
   const theme = { mode: themeMode, layout: themeLayout };
-  const variant = select("Header Layout", Object.keys(Header.CONSTANTS.VARIANT));
-  const showFloatingHeader = boolean("Show Floating Header", false);
+  const variant = select('Header Layout', Object.keys(Header.CONSTANTS.VARIANT));
+  const showFloatingHeader = boolean('Show Floating Header', false);
 
   return (
     <ThemeProvider theme={theme}>
       <div>
         <StoryHeader
           buttons={[
-            { text: "Donate", onClick: action("Donate"), variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY }
+            { text: 'Donate', onClick: action('Donate'), variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY }
           ]}
           height="125px"
           items={[
-            { text: "Programs", link: "https://google.com" },
-            { text: "About Us", onClick: action("About Us") },
-            { text: "Events", onClick: action("Events") },
-            { text: "Contact Us", onClick: action("Contact Us") }
+            { text: 'Programs', link: 'https://google.com' },
+            { text: 'About Us', onClick: action('About Us') },
+            { text: 'Events', onClick: action('Events') },
+            { text: 'Contact Us', onClick: action('Contact Us') }
           ]}
           variant={variant}
           showFloatingHeader={showFloatingHeader}
@@ -48,27 +48,27 @@ export const NoLogo = () => {
 };
 
 export const WithLogo = () => {
-  const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
-  const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+  const themeMode = select('Theme Mode', Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
+  const themeLayout = select('Theme Layout', Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
   const theme = { mode: themeMode, layout: themeLayout };
-  const variant = select("Header Layout", Object.keys(Header.CONSTANTS.VARIANT));
-  const showFloatingHeader = boolean("Show Floating Header", false);
+  const variant = select('Header Layout', Object.keys(Header.CONSTANTS.VARIANT));
+  const showFloatingHeader = boolean('Show Floating Header', false);
 
   return (
     <ThemeProvider theme={theme}>
       <div>
         <StoryHeader
           buttons={[
-            { text: "Donate", onClick: action("Donate"), variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY }
+            { text: 'Donate', onClick: action('Donate'), variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY }
           ]}
           height="125px"
           items={[
-            { text: "Programs", link: "https://google.com" },
-            { text: "About Us", onClick: action("About Us") },
-            { text: "Events", onClick: action("Events") },
-            { text: "Contact Us", onClick: action("Contact Us") }
+            { text: 'Programs', link: 'https://google.com' },
+            { text: 'About Us', onClick: action('About Us') },
+            { text: 'Events', onClick: action('Events') },
+            { text: 'Contact Us', onClick: action('Contact Us') }
           ]}
-          logo={{ image: "https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" }}
+          logo={{ image: 'https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png' }}
           variant={variant}
           showFloatingHeader={showFloatingHeader}
         />
@@ -78,8 +78,8 @@ export const WithLogo = () => {
 };
 
 export const AutoFloatingHeader = () => {
-  const themeMode = select("Theme Mode", Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
-  const themeLayout = select("Theme Layout", Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+  const themeMode = select('Theme Mode', Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
+  const themeLayout = select('Theme Layout', Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
   const theme = { mode: themeMode, layout: themeLayout };
 
   return (
@@ -105,23 +105,23 @@ const AutoFloatingHeaderStory = () => {
   );
 
   return (
-    <div {...bind()} style={{ height: "400px", overflowY: "scroll" }}>
+    <div {...bind()} style={{ height: '400px', overflowY: 'scroll' }}>
       <StoryHeader
         buttons={[
-          { text: "Donate", onClick: action("Donate"), variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY }
+          { text: 'Donate', onClick: action('Donate'), variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY }
         ]}
         items={[
-          { text: "Programs", link: "https://google.com" },
-          { text: "About Us", onClick: action("About Us") },
-          { text: "Events", onClick: action("Events") },
-          { text: "Contact Us", onClick: action("Contact Us") }
+          { text: 'Programs', link: 'https://google.com' },
+          { text: 'About Us', onClick: action('About Us') },
+          { text: 'Events', onClick: action('Events') },
+          { text: 'Contact Us', onClick: action('Contact Us') }
         ]}
-        logo={{ image: "https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png" }}
+        logo={{ image: 'https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png' }}
         variant={Header.CONSTANTS.VARIANT.FULL}
         showFloatingHeader={showFloatingHeader}
         height={`${headerHeight}px`}
       />
-      <div style={{ height: "1000px" }}>Content!</div>
+      <div style={{ height: '1000px' }}>Content!</div>
     </div>
   );
 };

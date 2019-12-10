@@ -1,5 +1,5 @@
 const goTo = (url) => {
-  if (url && typeof window !== "undefined") {
+  if (url && typeof window !== 'undefined') {
     window.location.href = url;
   }
 };

@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import Typography, { MaterialVariants } from "../Typography";
-import * as colors from "../../theming/colors";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Typography, { MaterialVariants } from '../Typography';
+import * as colors from '../../theming/colors';
 
 const propTypes = {
   bodyText: PropTypes.string.isRequired,

@@ -1,6 +1,6 @@
-import * as Palette from "../palette";
-import * as Sizes from "../sizing";
-import { ThemeConstants } from "./constants";
+import * as Palette from '../palette';
+import * as Sizes from '../sizing';
+import { ThemeConstants } from './constants';
 
 const COMPACT = {
   [Palette.MARGINS]: Sizes.s

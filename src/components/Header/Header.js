@@ -1,22 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { animated, useTransition } from "react-spring";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { animated, useTransition } from 'react-spring';
 import {
   HeaderButton,
   HeaderItem,
   HeaderLogo
-} from "./subcomponents";
-import { BACKGROUND_SHAPE, getBackground } from "../../shapes";
+} from './subcomponents';
+import { BACKGROUND_SHAPE, getBackground } from '../../shapes';
 
 const CONSTANTS = {
   VARIANT: {
-    FULL: "FULL",
-    SIDE: "SIDE"
+    FULL: 'FULL',
+    SIDE: 'SIDE'
   }
 };
 
-const padding = "16px";
+const padding = '16px';
 
 const StyledBaseHeader = styled.div`
   align-items: center;
@@ -56,7 +56,7 @@ const defaultProps = {
   buttons: [],
   logo: null,
   items: [],
-  height: "125px",
+  height: '125px',
   variant: CONSTANTS.VARIANT.FULL,
   showFloatingHeader: false
 };
@@ -71,9 +71,9 @@ const Header = ({
   ...rest
 }) => {
   const transitions = useTransition(showFloatingHeader, null, {
-    from: { top: "-100px" },
-    enter: { top: "0px" },
-    leave: { top: "-100px" },
+    from: { top: '-100px' },
+    enter: { top: '0px' },
+    leave: { top: '-100px' },
   });
 
   const renderChildren = () => (

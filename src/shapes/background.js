@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 export const BACKGROUND_SHAPE = PropTypes.oneOfType([
   PropTypes.shape({
@@ -11,7 +11,7 @@ export const BACKGROUND_SHAPE = PropTypes.oneOfType([
 
 export const getBackground = (backgroundShape) => {
   if (!backgroundShape) {
-    return "";
+    return '';
   }
   if (backgroundShape.background) {
     return `background: ${backgroundShape.background}`;
@@ -19,5 +19,5 @@ export const getBackground = (backgroundShape) => {
   if (backgroundShape.backgroundColor) {
     return `background-color: ${backgroundShape.backgroundColor}`;
   }
-  return "";
+  return '';
 };
