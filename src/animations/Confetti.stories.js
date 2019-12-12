@@ -14,7 +14,7 @@ const AnimatedConfettiDot = animated(StyledConfettiDot);
 
 const alignWithAnchor = (anchorRef) => {
   if (!anchorRef.current) {
-    return '';
+    return {};
   }
 
   const { width } = anchorRef.current.getBoundingClientRect();
@@ -25,11 +25,77 @@ const alignWithAnchor = (anchorRef) => {
   };
 };
 
+const getRandomListItem = list => list[Math.floor(Math.random() * list.length)];
+
+const flatRandom = (min, max) => (Math.random() * (max - min)) + min;
+
+const bellCurveRandom = (min, max) => {
+  let u = 0;
+  let v = 0;
+  while (u === 0) u = Math.random();
+  while (v === 0) v = Math.random();
+  let num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+  num = num / 10.0 + 0.5; // Translate to 0 -> 1
+  if (num > 1 || num < 0) return bellCurveRandom(); // resample between 0 and 1
+  return (num * (max - min)) + min;
+};
+
+const Circle = ({
+  color,
+  initialSize
+}) => (
+  <circle
+    cx={`${initialSize / 2}`}
+    cy={`${initialSize / 2}`}
+    r={`${(initialSize / 2) * 0.6}`}
+    fill={color}
+  />
+);
+
+const Triangle = ({
+  color,
+  initialSize
+}) => {
+  const flipped = Math.round(Math.random()) === 1;
+  return (
+    <polygon
+      points={`${initialSize / 2},0 ${initialSize},${flatRandom(flipped ? (initialSize / 2) : 0, initialSize)} 0,${flatRandom(flipped ? 0 : (initialSize / 2), initialSize)}`}
+      fill={color}
+    />
+  );
+};
+
+const Square = ({
+  color,
+  initialSize
+}) => {
+  const flipped = Math.round(Math.random()) === 1;
+  return (
+    <rect
+      height={`${flatRandom(0, flipped ? initialSize : initialSize / 2)}`}
+      width={`${flatRandom(0, flipped ? initialSize / 2 : initialSize)}`}
+      fill={color}
+    />
+  );
+};
+
+const randomShape = (props) => {
+  const shapes = ['circle', 'triangle', 'rectangle'];
+  const shape = getRandomListItem(shapes);
+  switch (shape) {
+    case 'circle': return <Circle {...props} />;
+    case 'triangle': return <Triangle {...props} />;
+    case 'rectangle': return <Square {...props} />;
+    default: return null;
+  }
+};
+
 const ConfettiDot = ({
   anchorRef,
   color,
   initialSize,
   horizontalEnergy,
+  rotate,
   upwardsEnergy,
 }) => {
   const { initialX, initialY } = alignWithAnchor(anchorRef);
@@ -60,8 +126,6 @@ const ConfettiDot = ({
       height={`${initialSize}`}
       width={`${initialSize}`}
       style={{
-        height: `${initialSize}px`,
-        width: `${initialSize}px`,
         opacity,
         transform: interpolate([upwards, horizontal, scale], (v, h, s) => {
           const currentTime = (new Date()).getTime() / 1000;
@@ -77,16 +141,11 @@ const ConfettiDot = ({
           const finalX = initialX + totalHorizontal;
           const finalY = initialY - totalUpwards + totalGravity;
 
-          return `translate3d(${finalX}px, ${finalY}px, 0) scale(${s})`;
+          return `translate3d(${finalX}px, ${finalY}px, 0) scale(${s}) rotate(${rotate}deg)`;
         })
       }}
     >
-      <circle
-        cx={`${initialSize / 2}`}
-        cy={`${initialSize / 2}`}
-        r={`${(initialSize / 2) * 0.6}`}
-        fill={color}
-      />
+      {randomShape({ color, initialSize })}
     </AnimatedConfettiDot>
   );
 };
@@ -95,41 +154,32 @@ export default {
   title: 'Demos|Animations|Confetti'
 };
 
-const bellCurve = (min, max) => {
-  const num = Math.random();
-  // let u = 0;
-  // let v = 0;
-  // while (u === 0) u = Math.random();
-  // while (v === 0) v = Math.random();
-  // let num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
-  // num = num / 10.0 + 0.5; // Translate to 0 -> 1
-  // if (num > 1 || num < 0) return bellCurve(); // resample between 0 and 1
-  return (num * (max - min)) + min;
-};
-
-const getColor = colors => colors[Math.floor(Math.random() * colors.length)];
-
 const ConfettiCannon = ({
   anchorRef,
   colors,
+  directional,
   dotCount,
   size,
   horizontal,
   upwards
-}) => (
-  <div>
-    {(new Array(dotCount).fill()).map((_, index) => (
-      <ConfettiDot
-        key={index}
-        anchorRef={anchorRef}
-        color={getColor(colors)}
-        initialSize={bellCurve(size[0], size[1])}
-        horizontalEnergy={bellCurve(horizontal[0], horizontal[1])}
-        upwardsEnergy={bellCurve(upwards[0], upwards[1])}
-      />
-    ))}
-  </div>
-);
+}) => {
+  const random = directional ? bellCurveRandom : flatRandom;
+  return (
+    <div>
+      {(new Array(dotCount).fill()).map((_, index) => (
+        <ConfettiDot
+          key={index}
+          anchorRef={anchorRef}
+          color={getRandomListItem(colors)}
+          initialSize={flatRandom(size[0], size[1])}
+          horizontalEnergy={random(horizontal[0], horizontal[1])}
+          rotate={flatRandom(0, 360)}
+          upwardsEnergy={random(upwards[0], upwards[1])}
+        />
+      ))}
+    </div>
+  );
+};
 
 const ButtonWithConfetti = () => {
   const [done, setDone] = useState(false);
