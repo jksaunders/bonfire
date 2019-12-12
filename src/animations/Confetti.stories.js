@@ -85,8 +85,6 @@ const ConfettiDot = ({
         cx={`${initialSize / 2}`}
         cy={`${initialSize / 2}`}
         r={`${(initialSize / 2) * 0.6}`}
-        stroke={color}
-        strokeWidth="3"
         fill={color}
       />
     </AnimatedConfettiDot>
