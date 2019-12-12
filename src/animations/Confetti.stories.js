@@ -209,6 +209,7 @@ export const ConfettiStory = () => (
     <p>Try doing something.</p>
     <p>Maybe clicking the button?</p>
     <p>It might do something.</p>
+    <p>This is actually hosted separately at @jksaunders/confetti!</p>
     <ButtonWithConfetti />
     <ButtonWithConfetti />
     <ButtonWithConfetti />
