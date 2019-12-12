@@ -5,8 +5,7 @@ import {
   useSpring, animated, config, interpolate
 } from 'react-spring';
 
-const StyledConfettiDot = styled.div`
-  border-radius: 50%;
+const StyledConfettiDot = styled.svg`
   position: absolute;
   will-change: transform;
 `;
@@ -57,34 +56,40 @@ const ConfettiDot = ({
   const gravityPerSecond = 30;
 
   return (
-    <div>
-      <AnimatedConfettiDot
-        color={color}
-        initialSize={initialSize}
-        style={{
-          backgroundColor: color,
-          height: `${initialSize}px`,
-          width: `${initialSize}px`,
-          opacity,
-          transform: interpolate([upwards, horizontal, scale], (v, h, s) => {
-            const currentTime = (new Date()).getTime() / 1000;
-            const duration = currentTime - lastTime;
-            const totalDuration = currentTime - startTime;
-            const verticalTraveled = v * duration;
-            const horizontalTraveled = h * duration;
-            totalUpwards += verticalTraveled;
-            totalHorizontal += horizontalTraveled;
-            lastTime = currentTime;
+    <AnimatedConfettiDot
+      height={`${initialSize}`}
+      width={`${initialSize}`}
+      style={{
+        height: `${initialSize}px`,
+        width: `${initialSize}px`,
+        opacity,
+        transform: interpolate([upwards, horizontal, scale], (v, h, s) => {
+          const currentTime = (new Date()).getTime() / 1000;
+          const duration = currentTime - lastTime;
+          const totalDuration = currentTime - startTime;
+          const verticalTraveled = v * duration;
+          const horizontalTraveled = h * duration;
+          totalUpwards += verticalTraveled;
+          totalHorizontal += horizontalTraveled;
+          lastTime = currentTime;
 
-            const totalGravity = gravityPerSecond * totalDuration;
-            const finalX = initialX + totalHorizontal;
-            const finalY = initialY - totalUpwards + totalGravity;
+          const totalGravity = gravityPerSecond * totalDuration;
+          const finalX = initialX + totalHorizontal;
+          const finalY = initialY - totalUpwards + totalGravity;
 
-            return `translate3d(${finalX}px, ${finalY}px, 0) scale(${s})`;
-          })
-        }}
+          return `translate3d(${finalX}px, ${finalY}px, 0) scale(${s})`;
+        })
+      }}
+    >
+      <circle
+        cx={`${initialSize / 2}`}
+        cy={`${initialSize / 2}`}
+        r={`${(initialSize / 2) * 0.6}`}
+        stroke={color}
+        strokeWidth="3"
+        fill={color}
       />
-    </div>
+    </AnimatedConfettiDot>
   );
 };
 
