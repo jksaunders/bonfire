@@ -44,7 +44,7 @@ const ClickMe = () => {
 };
 
 export default {
-  title: 'Animations|Chain'
+  title: 'Demos|Animations|Chain'
 };
 
 export const UseChain = () => <ClickMe />;

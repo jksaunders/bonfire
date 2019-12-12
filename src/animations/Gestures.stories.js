@@ -57,7 +57,7 @@ DragMe.propTypes = propTypes;
 DragMe.defaultProps = defaultProps;
 
 export default {
-  title: 'Animations|Gestures'
+  title: 'Demos|Animations|Gestures'
 };
 
 export const Dragging = () => <DragMe />;
