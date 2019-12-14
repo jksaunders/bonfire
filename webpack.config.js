@@ -1,37 +1,39 @@
-const path = require("path");
+const path = require('path');
+
+const exclude = /(node_modules)|(.*\.stories.js)|(.*\.test.js)/;
 
 module.exports = () => ({
-  entry: "./src/index.js",
-  devtool: "inline-source-map",
+  entry: './src/index.js',
+  devtool: 'inline-source-map',
   output: {
-    filename: "index.js",
-    path: path.resolve(__dirname, "dist"),
-    library: "bonfire",
-    libraryTarget: "umd"
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist'),
+    library: 'bonfire',
+    libraryTarget: 'umd'
   },
   externals: [
-    "react",
-    "prop-types",
-    "styled-components"
+    'react',
+    'prop-types',
+    'styled-components'
   ],
   plugins: [],
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        enforce: "pre",
-        exclude: /node_modules/,
-        loader: "eslint-loader",
+        enforce: 'pre',
+        exclude,
+        loader: 'eslint-loader',
         options: {
           emitWarnings: true,
-          configFile: "./.eslintrc"
+          configFile: './.eslintrc'
         }
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        exclude,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       }
     ]

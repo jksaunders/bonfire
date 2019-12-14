@@ -3,10 +3,10 @@ module.exports = (api) => {
 
   let presets = [];
 
-  if (api.env("production")) {
-    presets = ["@babel/preset-env", "@babel/preset-react"];
+  if (api.env('production')) {
+    presets = ['@babel/preset-env', '@babel/preset-react'];
   } else {
-    presets = ["@babel/preset-env", "@babel/preset-react"];
+    presets = ['@babel/preset-env', '@babel/preset-react'];
   }
 
   return {
