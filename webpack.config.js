@@ -1,6 +1,6 @@
 const path = require('path');
 
-const exclude = /(node_modules)|(.*\.stories.js)|(.*\.test.js)/;
+const exclude = /(node_modules)|(.*\.stories\.js)|(.*\.test\.js)/;
 
 module.exports = () => ({
   entry: './src/index.js',
