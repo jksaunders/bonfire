@@ -11,10 +11,16 @@
       "arrow-parens": "off",
       "comma-dangle": ["error", "only-multiline"],
       "eol-last": "off",
-      "react/jsx-filename-extension": "off",
-      "react/button-has-type": "off",
+      "import/no-extraneous-dependencies": ["error", {
+        "devDependencies": [
+          ".storybook/**",
+          "**/*.stories.js"
+        ]
+      }],
       "import/prefer-default-export": "off",
+      "react/button-has-type": "off",
+      "react/jsx-filename-extension": "off",
       "react/jsx-props-no-spreading": "off",
-      "react/no-array-index-key": "off"
+      "react/no-array-index-key": "off",
     }
   }
