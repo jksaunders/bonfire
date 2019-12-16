@@ -1,33 +1,33 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { css, cssBackground } from '../../../utils/styling';
+import { css, cssBackground, CssRuleType } from '../../../utils/styling';
 import { TypographyContext, cssTypography } from '../../Typography';
 
 const propTypes = {
-  align: PropTypes.string,
-  background: PropTypes.string,
-  borderRadius: PropTypes.string,
+  align: CssRuleType(PropTypes.string),
+  background: CssRuleType(PropTypes.string),
+  borderRadius: CssRuleType(PropTypes.string),
   centered: PropTypes.bool,
   children: PropTypes.node,
-  className: PropTypes.string,
-  columns: PropTypes.string,
-  flow: PropTypes.string,
+  className: CssRuleType(PropTypes.string),
+  columns: CssRuleType(PropTypes.string),
+  flow: CssRuleType(PropTypes.string),
   full: PropTypes.bool,
   fullHeight: PropTypes.bool,
   fullWidth: PropTypes.bool,
-  gap: PropTypes.string,
-  height: PropTypes.string,
-  horizontalAlignment: PropTypes.string,
-  margin: PropTypes.string,
-  overflow: PropTypes.string,
-  overflowX: PropTypes.string,
-  overflowY: PropTypes.string,
-  rows: PropTypes.string,
-  padding: PropTypes.string,
+  gap: CssRuleType(PropTypes.string),
+  height: CssRuleType(PropTypes.string),
+  horizontalAlignment: CssRuleType(PropTypes.string),
+  margin: CssRuleType(PropTypes.string),
+  overflow: CssRuleType(PropTypes.string),
+  overflowX: CssRuleType(PropTypes.string),
+  overflowY: CssRuleType(PropTypes.string),
+  rows: CssRuleType(PropTypes.string),
+  padding: CssRuleType(PropTypes.string),
   useTypography: PropTypes.bool,
-  verticalAlignment: PropTypes.string,
-  width: PropTypes.string
+  verticalAlignment: CssRuleType(PropTypes.string),
+  width: CssRuleType(PropTypes.string)
 };
 
 const defaultProps = {
@@ -88,14 +88,14 @@ const alignment = props => {
   `;
 };
 
-const gridDirection = (direction) => props => {
+const gridDirectionKey = (direction) => props => {
   if (props[direction] == null) {
     return '';
   }
   if (props[direction].includes(' ') || props[direction].includes('repeat')) {
-    return `grid-template-${direction}: ${props[direction]};`;
+    return `grid-template-${direction}`;
   }
-  return `grid-auto-${direction}: ${props[direction]};`;
+  return `grid-auto-${direction}`;
 };
 
 const Grid = styled.div`
@@ -105,8 +105,8 @@ const Grid = styled.div`
   ${css('borderRadius', 'border-radius')}
 
   ${/* grid properties */''}
-  ${gridDirection('columns')}
-  ${gridDirection('rows')}
+  ${css('columns', gridDirectionKey('columns'))}
+  ${css('rows', gridDirectionKey('rows'))}
   ${css('gap', 'grid-gap')}
   ${css('flow', 'grid-auto-flow')}
 
