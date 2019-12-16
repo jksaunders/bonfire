@@ -11,28 +11,27 @@ const propTypes = {
     minX: PropTypes.number.isRequired,
     maxX: PropTypes.number.isRequired,
     minY: PropTypes.number.isRequired,
-    maxY: PropTypes.number.isRequired
-  })
+    maxY: PropTypes.number.isRequired,
+  }),
 };
 
 const defaultProps = {
-  bounds: undefined
+  bounds: undefined,
 };
 
 const size = 100;
 
-const DragMe = ({
-  bounds
-}) => {
-  const [{ mousePosition }, set] = useSpring(() => (
-    { mousePosition: [0, 0], config: config.gentle }
-  ));
+const DragMe = ({ bounds }) => {
+  const [{ mousePosition }, set] = useSpring(() => ({
+    mousePosition: [0, 0],
+    config: config.gentle,
+  }));
 
-  const checkPosition = (xy) => {
+  const checkPosition = xy => {
     const [x, y] = xy;
 
-    let newX = x - (size / 2);
-    let newY = y - (size / 2);
+    let newX = x - size / 2;
+    let newY = y - size / 2;
 
     if (!bounds) {
       return [newX, newY];
@@ -49,7 +48,16 @@ const DragMe = ({
   const bind = useDrag(({ xy }) => set({ mousePosition: checkPosition(xy) }));
 
   return (
-    <AnimatedSquare height={size} width={size} {...bind()} style={{ transform: mousePosition.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`) }} />
+    <AnimatedSquare
+      height={size}
+      width={size}
+      {...bind()}
+      style={{
+        transform: mousePosition.interpolate(
+          (x, y) => `translate3d(${x}px,${y}px,0)`
+        ),
+      }}
+    />
   );
 };
 
@@ -57,14 +65,18 @@ DragMe.propTypes = propTypes;
 DragMe.defaultProps = defaultProps;
 
 export default {
-  title: 'Demos|Animations|Gestures'
+  title: 'Demos|Animations|Gestures',
 };
 
 export const Dragging = () => <DragMe />;
 
 export const DraggingWithinBounds = () => (
-  <DragMe bounds={{
-    minX: 200, maxX: 500, minY: 100, maxY: 300
-  }}
+  <DragMe
+    bounds={{
+      minX: 200,
+      maxX: 500,
+      minY: 100,
+      maxY: 300,
+    }}
   />
 );

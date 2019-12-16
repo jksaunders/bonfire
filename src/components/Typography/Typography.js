@@ -5,12 +5,15 @@ import { css } from '../../utils/styling';
 
 export const TypographyContext = React.createContext({});
 
-export const cssTypography = (typographyPropKey) => (props) => {
+export const cssTypography = typographyPropKey => props => {
   const propsToCheck = typographyPropKey ? props[typographyPropKey] : props;
   return `
     -webkit-font-smoothing: antialiased;
     ${css('align', 'text-align')(propsToCheck)}
-    ${css(['bold', 'font-weight', 'bold'], ['weight', 'font-weight'])(propsToCheck)}
+    ${css(
+      ['bold', 'font-weight', 'bold'],
+      ['weight', 'font-weight']
+    )(propsToCheck)}
     ${css('color')(propsToCheck)}
     ${css('font', 'font-family')(propsToCheck)}
     ${css('italic', 'font-style', 'italic')(propsToCheck)}
@@ -46,7 +49,7 @@ const propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   variant: PropTypes.shape(typographyPropTypes),
-  ...typographyPropTypes
+  ...typographyPropTypes,
 };
 
 const defaultProps = {
@@ -73,7 +76,7 @@ const defaultProps = {
 
   children: null,
   className: null,
-  variant: null
+  variant: null,
 };
 
 const StyledTypography = styled.span`
@@ -120,12 +123,7 @@ const getVariant = (variant, props) => {
   return result;
 };
 
-const Typography = ({
-  children,
-  className,
-  variant,
-  ...props
-}) => (
+const Typography = ({ children, className, variant, ...props }) => (
   <StyledTypography
     className={className}
     {...getVariant(variant, props)}

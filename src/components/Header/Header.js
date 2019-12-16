@@ -2,18 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { animated, useTransition } from 'react-spring';
-import {
-  HeaderButton,
-  HeaderItem,
-  HeaderLogo
-} from './subcomponents';
+import { HeaderButton, HeaderItem, HeaderLogo } from './subcomponents';
 import { BACKGROUND_SHAPE, getBackground } from '../../shapes';
 
 const CONSTANTS = {
   VARIANT: {
     FULL: 'FULL',
-    SIDE: 'SIDE'
-  }
+    SIDE: 'SIDE',
+  },
 };
 
 const padding = '16px';
@@ -33,7 +29,7 @@ const FullHeader = styled(StyledBaseHeader)`
 `;
 
 const FloatingHeader = styled(StyledBaseHeader)`
-  box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   height: 75px;
   left: 0px;
   position: fixed;
@@ -48,7 +44,7 @@ const propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(HeaderItem.shape)),
   height: PropTypes.string,
   variant: PropTypes.oneOf(Object.keys(CONSTANTS.VARIANT)),
-  showFloatingHeader: PropTypes.bool
+  showFloatingHeader: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -58,7 +54,7 @@ const defaultProps = {
   items: [],
   height: '125px',
   variant: CONSTANTS.VARIANT.FULL,
-  showFloatingHeader: false
+  showFloatingHeader: false,
 };
 
 const Header = ({
@@ -93,12 +89,19 @@ const Header = ({
       <FullHeader height={height} {...rest}>
         {renderChildren()}
       </FullHeader>
-      {variant === CONSTANTS.VARIANT.FULL
-        && transitions.map(({ item, key, props: transitionProps }) => item && (
-          <AnimatedFloatingHeader key={key} {...rest} style={{ top: transitionProps.top }}>
-            {renderChildren()}
-          </AnimatedFloatingHeader>
-        ))}
+      {variant === CONSTANTS.VARIANT.FULL &&
+        transitions.map(
+          ({ item, key, props: transitionProps }) =>
+            item && (
+              <AnimatedFloatingHeader
+                key={key}
+                {...rest}
+                style={{ top: transitionProps.top }}
+              >
+                {renderChildren()}
+              </AnimatedFloatingHeader>
+            )
+        )}
     </>
   );
 };

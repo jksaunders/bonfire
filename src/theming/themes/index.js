@@ -6,5 +6,5 @@ export const ThemeConstants = CONSTANTS;
 
 export default {
   [CONSTANTS.mode.key]: modes,
-  [CONSTANTS.layout.key]: layouts
+  [CONSTANTS.layout.key]: layouts,
 };

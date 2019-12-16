@@ -19,7 +19,7 @@ const LIGHT = {
   [Palette.BODY2]: Colors.lightGrey,
   [Palette.CAPTION]: Colors.black,
   [Palette.BUTTON_TEXT]: Colors.white,
-  [Palette.OVERLINE]: Colors.black
+  [Palette.OVERLINE]: Colors.black,
 };
 
 const DARK = {
@@ -39,7 +39,7 @@ const DARK = {
   [Palette.BODY2]: Colors.lightGrey,
   [Palette.CAPTION]: Colors.black,
   [Palette.BUTTON_TEXT]: Colors.white,
-  [Palette.OVERLINE]: Colors.black
+  [Palette.OVERLINE]: Colors.black,
 };
 
 const GREEK = {
@@ -59,7 +59,7 @@ const GREEK = {
   [Palette.BODY2]: Colors.lightGrey,
   [Palette.CAPTION]: Colors.black,
   [Palette.BUTTON_TEXT]: Colors.white,
-  [Palette.OVERLINE]: Colors.black
+  [Palette.OVERLINE]: Colors.black,
 };
 
 export default {

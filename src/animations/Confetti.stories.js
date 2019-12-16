@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import {
-  useSpring, animated, config, interpolate
-} from 'react-spring';
+import { useSpring, animated, config, interpolate } from 'react-spring';
 
 const StyledConfettiDot = styled.svg`
   position: absolute;
@@ -12,7 +10,7 @@ const StyledConfettiDot = styled.svg`
 
 const AnimatedConfettiDot = animated(StyledConfettiDot);
 
-const alignWithAnchor = (anchorRef) => {
+const alignWithAnchor = anchorRef => {
   if (!anchorRef.current) {
     return {};
   }
@@ -21,13 +19,13 @@ const alignWithAnchor = (anchorRef) => {
 
   return {
     initialX: width / 2,
-    initialY: 0
+    initialY: 0,
   };
 };
 
 const getRandomListItem = list => list[Math.floor(Math.random() * list.length)];
 
-const flatRandom = (min, max) => (Math.random() * (max - min)) + min;
+const flatRandom = (min, max) => Math.random() * (max - min) + min;
 
 const bellCurveRandom = (min, max) => {
   let u = 0;
@@ -37,13 +35,10 @@ const bellCurveRandom = (min, max) => {
   let num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
   num = num / 10.0 + 0.5; // Translate to 0 -> 1
   if (num > 1 || num < 0) return bellCurveRandom(); // resample between 0 and 1
-  return (num * (max - min)) + min;
+  return num * (max - min) + min;
 };
 
-const Circle = ({
-  color,
-  initialSize
-}) => (
+const Circle = ({ color, initialSize }) => (
   <circle
     cx={`${initialSize / 2}`}
     cy={`${initialSize / 2}`}
@@ -52,23 +47,20 @@ const Circle = ({
   />
 );
 
-const Triangle = ({
-  color,
-  initialSize
-}) => {
+const Triangle = ({ color, initialSize }) => {
   const flipped = Math.round(Math.random()) === 1;
   return (
     <polygon
-      points={`${initialSize / 2},0 ${initialSize},${flatRandom(flipped ? (initialSize / 2) : 0, initialSize)} 0,${flatRandom(flipped ? 0 : (initialSize / 2), initialSize)}`}
+      points={`${initialSize / 2},0 ${initialSize},${flatRandom(
+        flipped ? initialSize / 2 : 0,
+        initialSize
+      )} 0,${flatRandom(flipped ? 0 : initialSize / 2, initialSize)}`}
       fill={color}
     />
   );
 };
 
-const Square = ({
-  color,
-  initialSize
-}) => {
+const Square = ({ color, initialSize }) => {
   const flipped = Math.round(Math.random()) === 1;
   return (
     <rect
@@ -79,14 +71,18 @@ const Square = ({
   );
 };
 
-const randomShape = (props) => {
+const randomShape = props => {
   const shapes = ['circle', 'triangle', 'rectangle'];
   const shape = getRandomListItem(shapes);
   switch (shape) {
-    case 'circle': return <Circle {...props} />;
-    case 'triangle': return <Triangle {...props} />;
-    case 'rectangle': return <Square {...props} />;
-    default: return null;
+    case 'circle':
+      return <Circle {...props} />;
+    case 'triangle':
+      return <Triangle {...props} />;
+    case 'rectangle':
+      return <Square {...props} />;
+    default:
+      return null;
   }
 };
 
@@ -100,24 +96,25 @@ const ConfettiDot = ({
 }) => {
   const { initialX, initialY } = alignWithAnchor(anchorRef);
 
-  const {
-    horizontal,
-    opacity,
-    scale,
-    upwards,
-  } = useSpring({
+  const { horizontal, opacity, scale, upwards } = useSpring({
     config: config.default,
     from: {
-      upwards: upwardsEnergy, horizontal: horizontalEnergy, opacity: 80, scale: 1
+      upwards: upwardsEnergy,
+      horizontal: horizontalEnergy,
+      opacity: 80,
+      scale: 1,
     },
     to: {
-      upwards: 0, horizontal: 0, opacity: 0, scale: 0.6
-    }
+      upwards: 0,
+      horizontal: 0,
+      opacity: 0,
+      scale: 0.6,
+    },
   });
 
   let totalUpwards = 0;
   let totalHorizontal = 0;
-  const startTime = (new Date()).getTime() / 1000;
+  const startTime = new Date().getTime() / 1000;
   let lastTime = startTime;
   const gravityPerSecond = 30;
 
@@ -128,7 +125,7 @@ const ConfettiDot = ({
       style={{
         opacity,
         transform: interpolate([upwards, horizontal, scale], (v, h, s) => {
-          const currentTime = (new Date()).getTime() / 1000;
+          const currentTime = new Date().getTime() / 1000;
           const duration = currentTime - lastTime;
           const totalDuration = currentTime - startTime;
           const verticalTraveled = v * duration;
@@ -142,7 +139,7 @@ const ConfettiDot = ({
           const finalY = initialY - totalUpwards + totalGravity;
 
           return `translate3d(${finalX}px, ${finalY}px, 0) scale(${s}) rotate(${rotate}deg)`;
-        })
+        }),
       }}
     >
       {randomShape({ color, initialSize })}
@@ -151,7 +148,7 @@ const ConfettiDot = ({
 };
 
 export default {
-  title: 'Demos|Animations|Confetti'
+  title: 'Demos|Animations|Confetti',
 };
 
 const ConfettiCannon = ({
@@ -161,12 +158,12 @@ const ConfettiCannon = ({
   dotCount,
   size,
   horizontal,
-  upwards
+  upwards,
 }) => {
   const random = directional ? bellCurveRandom : flatRandom;
   return (
     <div>
-      {(new Array(dotCount).fill()).map((_, index) => (
+      {new Array(dotCount).fill().map((_, index) => (
         <ConfettiDot
           key={index}
           anchorRef={anchorRef}
@@ -188,17 +185,16 @@ const ButtonWithConfetti = () => {
   return (
     <button ref={anchorRef} onClick={() => setDone(!done)}>
       {done ? 'Done!' : 'Not done'}
-      { done && (
-      <ConfettiCannon
-        anchorRef={anchorRef}
-        colors={['red', 'yellow', 'blue', 'green', 'purple']}
-        dotCount={100}
-        size={[8, 12]}
-        horizontal={[-300, 300]}
-        upwards={[500, 1000]}
-      />
-      ) }
-
+      {done && (
+        <ConfettiCannon
+          anchorRef={anchorRef}
+          colors={['red', 'yellow', 'blue', 'green', 'purple']}
+          dotCount={100}
+          size={[8, 12]}
+          horizontal={[-300, 300]}
+          upwards={[500, 1000]}
+        />
+      )}
     </button>
   );
 };
@@ -217,5 +213,5 @@ export const ConfettiStory = () => (
 );
 
 ConfettiStory.story = {
-  name: 'Confetti'
+  name: 'Confetti',
 };

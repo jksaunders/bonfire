@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-  boolean,
-  text,
-  withKnobs
-} from '@storybook/addon-knobs';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 
 import Layout from './Layout';
-import Typography, { TypographyContext, MaterialVariants, TrelloVariants } from '../../Typography';
+import Typography, {
+  TypographyContext,
+  MaterialVariants,
+  TrelloVariants,
+} from '../../Typography';
 
 const StoryWrapper = styled.div`
   background-color: lightblue;
@@ -23,7 +23,7 @@ const Content = styled.div`
 export default {
   title: 'Containers|Layout',
   component: Layout,
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
 
 export const BasicStory = () => {
@@ -46,21 +46,29 @@ export const BasicStory = () => {
         columns={columns !== '' ? columns : null}
         full={full}
         gap={gap !== '' ? gap : null}
-        horizontalAlignment={horizontalAlignment !== '' ? horizontalAlignment : null}
+        horizontalAlignment={
+          horizontalAlignment !== '' ? horizontalAlignment : null
+        }
         padding={padding !== '' ? padding : null}
         rows={rows !== '' ? rows : null}
         verticalAlignment={verticalAlignment !== '' ? verticalAlignment : null}
       >
-        <Content><Typography variant={MaterialVariants.H2}>content1</Typography></Content>
-        <Content><Typography variant={MaterialVariants.H2}>content2</Typography></Content>
-        <Content><Typography variant={MaterialVariants.H2}>content3</Typography></Content>
+        <Content>
+          <Typography variant={MaterialVariants.H2}>content1</Typography>
+        </Content>
+        <Content>
+          <Typography variant={MaterialVariants.H2}>content2</Typography>
+        </Content>
+        <Content>
+          <Typography variant={MaterialVariants.H2}>content3</Typography>
+        </Content>
       </Layout>
     </StoryWrapper>
   );
 };
 
 BasicStory.story = {
-  name: 'Basic'
+  name: 'Basic',
 };
 
 export const TrelloStory = () => (
@@ -73,26 +81,57 @@ export const TrelloStory = () => (
   >
     <TypographyContext.Provider value={TrelloVariants.Body}>
       <Layout columns="max-content auto max-content" padding="5px">
-        <Layout columns="max-content max-content minmax(max-content, 200px)" gap="5px">
-          { ['home', 'boards', 'search'].map(t => (
-            <Layout key={t} background="hsla(0, 0%, 100%, 0.3)" borderRadius="3px" padding="5px" useTypography>
+        <Layout
+          columns="max-content max-content minmax(max-content, 200px)"
+          gap="5px"
+        >
+          {['home', 'boards', 'search'].map(t => (
+            <Layout
+              key={t}
+              background="hsla(0, 0%, 100%, 0.3)"
+              borderRadius="3px"
+              padding="5px"
+              useTypography
+            >
               {t}
             </Layout>
           ))}
         </Layout>
-        <Layout centered useTypography>logo</Layout>
+        <Layout centered useTypography>
+          logo
+        </Layout>
         <Layout useTypography>right buttons</Layout>
       </Layout>
-      <Layout useTypography>
-        board header
-      </Layout>
-      <Layout columns="272px" flow="column" gap="10px" padding="10px" overflowX="auto">
-        { ['To-Do', 'Projects', 'Bookmarks', 'Recipes', 'To-Do 2', 'Projects 2', 'Bookmarks 2', 'Recipes 2'].map(t => (
-          <Layout key={t} background="#ebecf0" borderRadius="3px" gap="10px" padding="10px" rows="max-content">
+      <Layout useTypography>board header</Layout>
+      <Layout
+        columns="272px"
+        flow="column"
+        gap="10px"
+        padding="10px"
+        overflowX="auto"
+      >
+        {[
+          'To-Do',
+          'Projects',
+          'Bookmarks',
+          'Recipes',
+          'To-Do 2',
+          'Projects 2',
+          'Bookmarks 2',
+          'Recipes 2',
+        ].map(t => (
+          <Layout
+            key={t}
+            background="#ebecf0"
+            borderRadius="3px"
+            gap="10px"
+            padding="10px"
+            rows="max-content"
+          >
             <Layout padding="10px" useTypography>
               {t}
             </Layout>
-            { [1, 2, 3, 4, 5].map(n => (
+            {[1, 2, 3, 4, 5].map(n => (
               <Layout key={n} background="#FFFFFF" padding="10px" useTypography>
                 To do
                 {n}
@@ -106,5 +145,5 @@ export const TrelloStory = () => (
 );
 
 TrelloStory.story = {
-  name: 'Trello'
+  name: 'Trello',
 };

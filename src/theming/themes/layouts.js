@@ -3,14 +3,14 @@ import * as Sizes from '../sizing';
 import { ThemeConstants } from './constants';
 
 const COMPACT = {
-  [Palette.MARGINS]: Sizes.s
+  [Palette.MARGINS]: Sizes.s,
 };
 
 const COZY = {
-  [Palette.MARGINS]: Sizes.m
+  [Palette.MARGINS]: Sizes.m,
 };
 
 export default {
   [ThemeConstants.layout.values.compact]: COMPACT,
-  [ThemeConstants.layout.values.cozy]: COZY
+  [ThemeConstants.layout.values.cozy]: COZY,
 };

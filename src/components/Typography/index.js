@@ -1,10 +1,10 @@
 import Typography, {
   cssTypography as ImportedCssTypography,
-  TypographyContext as ImportedTypographyContext
+  TypographyContext as ImportedTypographyContext,
 } from './Typography';
 import {
   MaterialVariants as ImportedMaterialVariants,
-  TrelloVariants as ImportedTrelloVariants
+  TrelloVariants as ImportedTrelloVariants,
 } from './variants';
 
 export default Typography;

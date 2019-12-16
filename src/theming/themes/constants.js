@@ -4,22 +4,22 @@ export const ThemeConstants = {
     values: {
       light: 'light',
       dark: 'dark',
-      greek: 'greek'
-    }
+      greek: 'greek',
+    },
   },
   layout: {
     key: 'layout',
     values: {
       compact: 'compact',
-      cozy: 'cozy'
-    }
+      cozy: 'cozy',
+    },
   },
   zoom: {
     key: 'zoom',
     values: {
       normal: 'normal',
       big: 'big',
-      bigger: 'bigger'
-    }
-  }
+      bigger: 'bigger',
+    },
+  },
 };

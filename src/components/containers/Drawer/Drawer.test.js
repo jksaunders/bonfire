@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  expectExists,
-  expectSnapshot,
-  render
-} from '../../../utils/snapshot';
+import { expectExists, expectSnapshot, render } from '../../../utils/snapshot';
 import Drawer from './Drawer';
 
 const getDrawer = (props = {}) => render(<Drawer {...props} />);

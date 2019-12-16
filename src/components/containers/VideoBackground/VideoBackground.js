@@ -8,12 +8,12 @@ const propTypes = {
   children: PropTypes.node,
   filter: PropTypes.string,
   parentLayoutProps: PropTypes.shape(Layout.shape).isRequired,
-  src: PropTypes.string.isRequired
+  src: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
   children: null,
-  filter: null
+  filter: null,
 };
 
 const Container = styled(Layout)`
@@ -31,12 +31,7 @@ const Video = styled.video`
   ${css('filter')}
 `;
 
-const VideoBackground = ({
-  children,
-  filter,
-  parentLayoutProps,
-  src
-}) => (
+const VideoBackground = ({ children, filter, parentLayoutProps, src }) => (
   <Container {...parentLayoutProps}>
     <Video filter={filter} autoPlay muted loop>
       <source src={src} type="video/mp4" />

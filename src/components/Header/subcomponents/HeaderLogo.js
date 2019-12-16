@@ -8,13 +8,13 @@ const CONSTANTS = {};
 const propTypes = {
   link: PropTypes.string,
   onClick: PropTypes.func,
-  image: PropTypes.string
+  image: PropTypes.string,
 };
 
 const defaultProps = {
   link: null,
   onClick: null,
-  image: 'https://via.placeholder.com/350x150'
+  image: 'https://via.placeholder.com/350x150',
 };
 
 const StyledHeaderLogo = styled.img`
@@ -29,7 +29,7 @@ const getOnClick = (link, onClick) => {
     return null;
   }
 
-  return (e) => {
+  return e => {
     e.preventDefault();
     if (onClick) {
       onClick();
@@ -40,12 +40,7 @@ const getOnClick = (link, onClick) => {
   };
 };
 
-const HeaderItem = ({
-  link,
-  onClick,
-  image,
-  ...rest
-}) => (
+const HeaderItem = ({ link, onClick, image, ...rest }) => (
   <StyledHeaderLogo
     onClick={getOnClick(link, onClick)}
     href={link}

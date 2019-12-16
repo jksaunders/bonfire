@@ -27,7 +27,7 @@ const propTypes = {
   padding: CssRuleType(PropTypes.string),
   useTypography: PropTypes.bool,
   verticalAlignment: CssRuleType(PropTypes.string),
-  width: CssRuleType(PropTypes.string)
+  width: CssRuleType(PropTypes.string),
 };
 
 const defaultProps = {
@@ -53,12 +53,12 @@ const defaultProps = {
   padding: null,
   useTypography: null,
   verticalAlignment: null,
-  width: null
+  width: null,
 };
 
 const parseAlignTargetValue = alignProp => ({
   target: alignProp.includes('content-') ? 'content' : 'items',
-  value: `${alignProp}`.replace('items-', '').replace('content-', '')
+  value: `${alignProp}`.replace('items-', '').replace('content-', ''),
 });
 
 const alignment = props => {
@@ -71,14 +71,18 @@ const alignment = props => {
   let alignResult = '';
 
   if (first !== '_') {
-    const { target: firstTarget, value: firstValue } = parseAlignTargetValue(first);
+    const { target: firstTarget, value: firstValue } = parseAlignTargetValue(
+      first
+    );
     justifyResult = `${firstTarget}: ${firstValue}`;
   }
 
   if (second == null) {
     alignResult = justifyResult;
   } else if (second !== '_') {
-    const { target: secondTarget, value: secondValue } = parseAlignTargetValue(second);
+    const { target: secondTarget, value: secondValue } = parseAlignTargetValue(
+      second
+    );
     alignResult = `${secondTarget}: ${secondValue}`;
   }
 
@@ -88,7 +92,7 @@ const alignment = props => {
   `;
 };
 
-const gridDirectionKey = (direction) => props => {
+const gridDirectionKey = direction => props => {
   if (props[direction] == null) {
     return '';
   }
@@ -104,38 +108,34 @@ const Grid = styled.div`
   ${cssBackground}
   ${css('borderRadius', 'border-radius')}
 
-  ${/* grid properties */''}
+  ${/* grid properties */ ''}
   ${css('columns', gridDirectionKey('columns'))}
   ${css('rows', gridDirectionKey('rows'))}
   ${css('gap', 'grid-gap')}
   ${css('flow', 'grid-auto-flow')}
 
-  ${/* alignment */''}
+  ${/* alignment */ ''}
   ${css('centered', 'justify-items', 'center')}
   ${css('centered', 'align-items', 'center')}
   ${alignment}
 
-  ${/* sizing */''}
+  ${/* sizing */ ''}
   ${css(
     ['full', 'height', '100%'],
     ['fullHeight', 'height', '100%'],
     ['height']
   )}
-  ${css(
-    ['full', 'width', '100%'],
-    ['fullWidth', 'width', '100%'],
-    ['width']
-  )}
+  ${css(['full', 'width', '100%'], ['fullWidth', 'width', '100%'], ['width'])}
   ${css('margin')}
   ${css('padding')}
 
 
-  ${/* overflow */''}
+  ${/* overflow */ ''}
   ${css('overflow')}
   ${css('overflowX', 'overflow-x')}
   ${css('overflowY', 'overflow-y')}
   
-  ${/* typography */''}
+  ${/* typography */ ''}
   ${cssTypography('typographyProps')}
 `;
 

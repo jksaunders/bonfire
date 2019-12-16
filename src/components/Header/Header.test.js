@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  expectExists,
-  expectSnapshot,
-  render
-} from '../../utils/snapshot';
+import { expectExists, expectSnapshot, render } from '../../utils/snapshot';
 import Header from './Header';
 
 const getHeader = (props = {}) => render(<Header {...props} />);

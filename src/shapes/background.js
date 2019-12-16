@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 
 export const BACKGROUND_SHAPE = PropTypes.oneOfType([
   PropTypes.shape({
-    background: PropTypes.string
+    background: PropTypes.string,
   }),
   PropTypes.shape({
-    backgroundColor: PropTypes.string
+    backgroundColor: PropTypes.string,
   }),
 ]);
 
-export const getBackground = (backgroundShape) => {
+export const getBackground = backgroundShape => {
   if (!backgroundShape) {
     return '';
   }

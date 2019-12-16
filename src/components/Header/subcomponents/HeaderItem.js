@@ -26,14 +26,9 @@ const StyledMenuItem = styled.div`
   user-select: none;
 `;
 
-const HeaderItem = ({
-  link,
-  onClick,
-  text,
-  ...rest
-}) => (
+const HeaderItem = ({ link, onClick, text, ...rest }) => (
   <StyledMenuItem
-    onClick={(e) => {
+    onClick={e => {
       e.preventDefault();
       if (onClick) {
         onClick();
@@ -44,7 +39,12 @@ const HeaderItem = ({
     href={link}
     {...rest}
   >
-    <Typography bold color={Colors.black} variant={MaterialVariants.ButtonText} {...rest}>
+    <Typography
+      bold
+      color={Colors.black}
+      variant={MaterialVariants.ButtonText}
+      {...rest}
+    >
       {text.toUpperCase()}
     </Typography>
   </StyledMenuItem>

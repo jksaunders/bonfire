@@ -3,12 +3,13 @@ import {
   expectExists,
   expectSnapshot,
   expectStyle,
-  render
+  render,
 } from '../../../utils/snapshot';
 import Layout from './Layout';
 import { TypographyContext } from '../../Typography';
 
-const getLayout = (props = {}, children) => render(<Layout {...props}>{children}</Layout>);
+const getLayout = (props = {}, children) =>
+  render(<Layout {...props}>{children}</Layout>);
 
 test('with children', () => {
   const { component } = getLayout({}, <span>Hi!</span>);
@@ -43,7 +44,7 @@ test('with grid properties: auto', () => {
     columns: '50px',
     flow: 'column',
     gap: '10px',
-    rows: '100px'
+    rows: '100px',
   });
 
   expectExists(component);
@@ -59,7 +60,7 @@ test('with grid properties: templates', () => {
     columns: 'repeat(3, 3fr)',
     flow: 'row',
     gap: '10px',
-    rows: '1fr 2fr'
+    rows: '1fr 2fr',
   });
 
   expectExists(component);
@@ -180,7 +181,9 @@ describe('using `align`', () => {
     });
 
     test('horizontal + vertical alignment', () => {
-      const { component } = getLayout({ align: 'content-flex-end content-left' });
+      const { component } = getLayout({
+        align: 'content-flex-end content-left',
+      });
       expectExists(component);
       expectSnapshot(component);
       expectStyle(component, 'align-content', 'left');
@@ -193,9 +196,7 @@ describe('using `TypographyContext`', () => {
   test('useTypography = false', () => {
     const { component, getByText } = render(
       <TypographyContext.Provider value={{ color: '#FFFFFF' }}>
-        <Layout>
-          Content
-        </Layout>
+        <Layout>Content</Layout>
       </TypographyContext.Provider>
     );
 
@@ -207,9 +208,7 @@ describe('using `TypographyContext`', () => {
   test('useTypography = true', () => {
     const { component, getByText } = render(
       <TypographyContext.Provider value={{ color: '#FFFFFF' }}>
-        <Layout useTypography>
-          Content
-        </Layout>
+        <Layout useTypography>Content</Layout>
       </TypographyContext.Provider>
     );
 

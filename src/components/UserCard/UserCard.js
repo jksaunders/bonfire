@@ -10,7 +10,7 @@ const propTypes = {
   image: PropTypes.string.isRequired,
   maxHeight: PropTypes.string,
   maxWidth: PropTypes.string,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
@@ -54,14 +54,18 @@ const UserCard = ({
   image,
   maxHeight,
   maxWidth,
-  name
+  name,
 }) => (
   <CardWrapper className={className} maxHeight={maxHeight} maxWidth={maxWidth}>
     <CardContainer>
       <RoundImage maxHeight={maxWidth} src={image} />
-      <CenteredText><Typography variant={MaterialVariants.H5}>{name}</Typography></CenteredText>
       <CenteredText>
-        <Typography center variant={MaterialVariants.Body1}>{bodyText}</Typography>
+        <Typography variant={MaterialVariants.H5}>{name}</Typography>
+      </CenteredText>
+      <CenteredText>
+        <Typography center variant={MaterialVariants.Body1}>
+          {bodyText}
+        </Typography>
       </CenteredText>
     </CardContainer>
   </CardWrapper>

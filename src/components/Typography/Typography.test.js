@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  expectExists,
-  expectSnapshot,
-  render
-} from '../../utils/snapshot';
+import { expectExists, expectSnapshot, render } from '../../utils/snapshot';
 import Typography from './Typography';
 
 test('Typography renders', () => {
@@ -16,12 +12,18 @@ describe('Props', () => {
   [
     { prop: 'align', propValue: 'center', key: 'text-align' },
     {
-      prop: 'bold', propValue: true, key: 'font-weight', value: 'bold'
+      prop: 'bold',
+      propValue: true,
+      key: 'font-weight',
+      value: 'bold',
     },
     { prop: 'color', propValue: '#123456' },
     { prop: 'font', propValue: 'arial', key: 'font-family' },
     {
-      prop: 'italic', propValue: true, key: 'font-style', value: 'italic'
+      prop: 'italic',
+      propValue: true,
+      key: 'font-style',
+      value: 'italic',
     },
     { prop: 'letterSpacing', propValue: '1em', key: 'letter-spacing' },
     { prop: 'lineHeight', propValue: '1em', key: 'line-height' },
@@ -32,7 +34,9 @@ describe('Props', () => {
   ].forEach(testCase => {
     test(`${testCase.prop}`, () => {
       const { component } = render(
-        <Typography {...{ [testCase.prop]: testCase.propValue }}>Content</Typography>
+        <Typography {...{ [testCase.prop]: testCase.propValue }}>
+          Content
+        </Typography>
       );
       expectExists(component);
       expectSnapshot(component);
@@ -50,11 +54,13 @@ describe('Using variant', () => {
     font: '"Roboto","Helvetica","Arial",sans-serif',
     weight: 300,
     lineHeight: 1,
-    letterSpacing: '-0.01562em'
+    letterSpacing: '-0.01562em',
   };
 
   test('no overrides', () => {
-    const { component } = render(<Typography variant={variant}>Content</Typography>);
+    const { component } = render(
+      <Typography variant={variant}>Content</Typography>
+    );
     expectExists(component);
     expectSnapshot(component);
     expect(component).toHaveStyleRule('line-height', '1');
@@ -62,7 +68,9 @@ describe('Using variant', () => {
 
   test('with overrides', () => {
     const { component } = render(
-      <Typography h1 lineHeight={4} variant={variant}>Content</Typography>
+      <Typography h1 lineHeight={4} variant={variant}>
+        Content
+      </Typography>
     );
     expectExists(component);
     expectSnapshot(component);

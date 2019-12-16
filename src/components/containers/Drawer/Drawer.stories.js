@@ -4,9 +4,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { select, withKnobs } from '@storybook/addon-knobs';
 
 import { ThemeConstants } from '../../../theming';
-import {
-  Button
-} from '../..';
+import { Button } from '../..';
 import Drawer from './Drawer';
 
 const StoryWrapper = styled.div``;
@@ -37,12 +35,20 @@ const DrawerStory = () => {
 export default {
   title: 'Containers|Drawer',
   component: Drawer,
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
 
 export const DrawerDefaultStory = () => {
-  const themeMode = select('Theme Mode', Object.keys(ThemeConstants.mode.values), Object.keys(ThemeConstants.mode.values)[0]);
-  const themeLayout = select('Theme Layout', Object.keys(ThemeConstants.layout.values), Object.keys(ThemeConstants.layout.values)[0]);
+  const themeMode = select(
+    'Theme Mode',
+    Object.keys(ThemeConstants.mode.values),
+    Object.keys(ThemeConstants.mode.values)[0]
+  );
+  const themeLayout = select(
+    'Theme Layout',
+    Object.keys(ThemeConstants.layout.values),
+    Object.keys(ThemeConstants.layout.values)[0]
+  );
   const theme = { mode: themeMode, layout: themeLayout };
 
   return (
@@ -53,5 +59,5 @@ export const DrawerDefaultStory = () => {
 };
 
 Drawer.story = {
-  name: 'with text'
+  name: 'with text',
 };

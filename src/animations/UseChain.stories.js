@@ -1,7 +1,5 @@
 import React, { useRef, useState } from 'react';
-import {
-  useChain, useSpring, animated, config
-} from 'react-spring';
+import { useChain, useSpring, animated, config } from 'react-spring';
 import Square from './Square';
 
 const AnimatedSquare = animated(Square);
@@ -14,7 +12,7 @@ const ClickMe = () => {
     ref: springRef,
     config: config.stiff,
     from: { size: 0 },
-    to: { size: open ? 200 : 0 }
+    to: { size: open ? 200 : 0 },
   });
 
   const springRef2 = useRef();
@@ -22,7 +20,11 @@ const ClickMe = () => {
     ref: springRef2,
     config: config.stiff,
     from: { background: Square.styles.getBackground({ gradientRotation: 85 }) },
-    to: { background: Square.styles.getBackground({ gradientRotation: open ? 190 : 85 }) }
+    to: {
+      background: Square.styles.getBackground({
+        gradientRotation: open ? 190 : 85,
+      }),
+    },
   });
 
   const chain = [springRef, springRef2];
@@ -36,7 +38,7 @@ const ClickMe = () => {
         style={{
           background: background.interpolate(c => c),
           height: size.interpolate(n => `${100 + n}px`),
-          width: size.interpolate(n => `${100 + n}px`)
+          width: size.interpolate(n => `${100 + n}px`),
         }}
       />
     </div>
@@ -44,7 +46,7 @@ const ClickMe = () => {
 };
 
 export default {
-  title: 'Demos|Animations|Chain'
+  title: 'Demos|Animations|Chain',
 };
 
 export const UseChain = () => <ClickMe />;

@@ -7,19 +7,15 @@ const CONSTANTS = {};
 const propTypes = {
   children: PropTypes.node,
   onClose: PropTypes.func,
-  open: PropTypes.bool.isRequired
+  open: PropTypes.bool.isRequired,
 };
 
 const defaultProps = {
   children: null,
-  onClose: null
+  onClose: null,
 };
 
-const Drawer = ({
-  children,
-  onClose,
-  open
-}) => (
+const Drawer = ({ children, onClose, open }) => (
   <MaterialDrawer onClose={onClose} open={open}>
     {children}
   </MaterialDrawer>

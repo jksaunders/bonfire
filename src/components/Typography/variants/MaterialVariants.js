@@ -10,7 +10,7 @@ export const H1 = {
   weight: 300,
   lineHeight: 1,
   letterSpacing: '-0.01562em',
-  spaceAfter: false
+  spaceAfter: false,
 };
 export const H2 = {
   font,
@@ -20,7 +20,7 @@ export const H2 = {
   weight: 300,
   lineHeight: 1,
   letterSpacing: '-0.00833em',
-  spaceAfter: false
+  spaceAfter: false,
 };
 export const H3 = {
   font,
@@ -30,7 +30,7 @@ export const H3 = {
   weight: 400,
   lineHeight: 1.04,
   letterSpacing: '0em',
-  spaceAfter: false
+  spaceAfter: false,
 };
 export const H4 = {
   font,
@@ -40,7 +40,7 @@ export const H4 = {
   weight: 400,
   lineHeight: 1.17,
   letterSpacing: '0.00735em',
-  spaceAfter: false
+  spaceAfter: false,
 };
 export const H5 = {
   font,
@@ -50,7 +50,7 @@ export const H5 = {
   weight: 400,
   lineHeight: 1.33,
   letterSpacing: '0em',
-  spaceAfter: false
+  spaceAfter: false,
 };
 export const H6 = {
   font,
@@ -60,7 +60,7 @@ export const H6 = {
   weight: 500,
   lineHeight: 1.6,
   letterSpacing: '0.0075em',
-  spaceAfter: false
+  spaceAfter: false,
 };
 export const Subtitle1 = {
   font,
@@ -70,7 +70,7 @@ export const Subtitle1 = {
   weight: 400,
   lineHeight: 1.75,
   letterSpacing: '0.00938em',
-  spaceAfter: false
+  spaceAfter: false,
 };
 export const Subtitle2 = {
   font,
@@ -80,7 +80,7 @@ export const Subtitle2 = {
   weight: 500,
   lineHeight: 1.57,
   letterSpacing: '0.00714em',
-  spaceAfter: false
+  spaceAfter: false,
 };
 export const Body1 = {
   font,
@@ -90,7 +90,7 @@ export const Body1 = {
   weight: 400,
   lineHeight: 1.5,
   letterSpacing: '0.00938em',
-  spaceAfter: true
+  spaceAfter: true,
 };
 export const Body2 = {
   font,
@@ -100,7 +100,7 @@ export const Body2 = {
   weight: 400,
   lineHeight: 1.43,
   letterSpacing: '0.01071em',
-  spaceAfter: true
+  spaceAfter: true,
 };
 export const Caption = {
   font,
@@ -109,7 +109,7 @@ export const Caption = {
   weight: 400,
   lineHeight: 1.66,
   letterSpacing: '0.03333em',
-  spaceAfter: false
+  spaceAfter: false,
 };
 export const ButtonText = {
   font,
@@ -119,7 +119,7 @@ export const ButtonText = {
   lineHeight: 1.75,
   letterSpacing: '0.02857em',
   spaceAfter: false,
-  transform: 'uppercase'
+  transform: 'uppercase',
 };
 export const Overline = {
   font,
@@ -129,5 +129,5 @@ export const Overline = {
   lineHeight: 2.66,
   letterSpacing: '0.08333em',
   spaceAfter: false,
-  transform: 'uppercase'
+  transform: 'uppercase',
 };
