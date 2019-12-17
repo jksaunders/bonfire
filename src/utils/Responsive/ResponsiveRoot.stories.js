@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { ResponsiveRoot, ResponsiveSizesContext } from './styling';
+import ResponsiveRoot, { ResponsiveSizesContext } from './ResponsiveRoot';
 
 export default {
   title: 'Utils|ResponsiveRoot',
