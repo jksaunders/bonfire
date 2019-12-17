@@ -7,18 +7,8 @@ export const ResponsiveSizesContext = React.createContext({});
 const propTypes = {
   children: PropTypes.node,
   debounce: PropTypes.number,
-  presets: PropTypes.arrayOf(
-    PropTypes.shape({
-      height: PropTypes.shape({
-        min: PropTypes.number,
-        max: PropTypes.number,
-      }),
-      width: PropTypes.shape({
-        min: PropTypes.number,
-        max: PropTypes.number,
-      }),
-    })
-  ),
+  // eslint-disable-next-line react/forbid-prop-types
+  presets: PropTypes.object,
 };
 
 const defaultProps = {
@@ -50,12 +40,16 @@ const ResponsiveRoot = ({ children, presets, debounce: debounceValue }) => {
   });
 
   useEffect(() => {
-    const listener = debounce(() => {
-      setWindowSize({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }, debounceValue);
+    const listener = debounce(
+      () => {
+        setWindowSize({
+          height: window.innerHeight,
+          width: window.innerWidth,
+        });
+      },
+      debounceValue,
+      true
+    );
 
     window.addEventListener('resize', listener);
 
