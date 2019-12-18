@@ -1,11 +1,4 @@
-import {
-  css,
-  processCssRule,
-  processResponsiveCss,
-  responsiveCss,
-} from './css';
-
-import Sizes from './Sizes';
+import { css, processCssRule, responsiveCss } from './css';
 
 describe('#css', () => {
   test('returns a function', () => {
@@ -200,59 +193,6 @@ describe('#css', () => {
       ).toBe(
         '@media all and (max-width: 50px) { align-items: center; }\n@media all and (min-width: 50px) { align-items: left; }'
       );
-    });
-  });
-});
-
-describe('#processResponsiveCss', () => {
-  describe('null values', () => {
-    test('returns null', () => {
-      expect(processResponsiveCss(undefined)).toBe('');
-      expect(processResponsiveCss(null)).toBe('');
-      expect(processResponsiveCss(null, null)).toBe('');
-    });
-  });
-
-  describe('value is a string', () => {
-    test('no transform', () => {
-      expect(processResponsiveCss('3px')).toBe('3px');
-    });
-
-    test('with transform', () => {
-      expect(processResponsiveCss('3px', value => `grid-gap: ${value};`)).toBe(
-        'grid-gap: 3px;'
-      );
-    });
-  });
-
-  describe('value is a `Sizes` object', () => {
-    test('no transform', () => {
-      expect(
-        processResponsiveCss(
-          new Sizes({
-            '_-45px': 'grid-gap: 3px;',
-            '45px-55px': 'grid-gap: 4px;',
-            '55px-_': 'grid-gap: 5px;',
-          })
-        )
-      ).toBe(`@media all and (max-width: 45px) { grid-gap: 3px; }
-@media all and (min-width: 45px) and (max-width: 55px) { grid-gap: 4px; }
-@media all and (min-width: 55px) { grid-gap: 5px; }`);
-    });
-
-    test('with transform', () => {
-      expect(
-        processResponsiveCss(
-          new Sizes({
-            '_-45px': '3px',
-            '45px-55px': '4px',
-            '55px-_': '5px',
-          }),
-          value => `grid-gap: ${value};`
-        )
-      ).toBe(`@media all and (max-width: 45px) { grid-gap: 3px; }
-@media all and (min-width: 45px) and (max-width: 55px) { grid-gap: 4px; }
-@media all and (min-width: 55px) { grid-gap: 5px; }`);
     });
   });
 });

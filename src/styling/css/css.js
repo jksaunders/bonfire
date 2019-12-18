@@ -3,43 +3,6 @@ import Sizes from './Sizes';
 
 export const responsiveCss = value => new Sizes(value);
 
-export const processResponsiveCss = (input, transform) => {
-  if (input == null) {
-    return '';
-  }
-
-  if (input instanceof Sizes) {
-    let result = '';
-    Object.keys(input.value).forEach(k => {
-      if (k === '_') {
-        result = `${result}\n${
-          transform != null ? transform(input.value[k]) : input.value[k]
-        }`;
-      }
-
-      const split = k.split('-');
-      const min = split[0] !== '_' ? split[0] : null;
-      const max = split[1] !== '_' ? split[1] : null;
-      let signature = '@media all and';
-      if (min) {
-        signature += ` (min-width: ${split[0]})`;
-      }
-      if (max) {
-        signature += `${min ? ' and' : ''} (max-width: ${split[1]})`;
-      }
-      result = `${result}\n${signature} { ${
-        transform != null ? transform(input.value[k]) : input.value[k]
-      } }`;
-    });
-    return result.substring(1);
-  }
-
-  if (transform == null) {
-    return input;
-  }
-  return transform(input);
-};
-
 const getPropsForTransform = (size, props) => {
   const sizedProps = {};
   Object.keys(props).forEach(k => {
