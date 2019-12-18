@@ -4,12 +4,12 @@ import Sizes from './Sizes';
 /**
  * Use this in your files that are using responsive-props-enabled components
  *
- * eg. <SomeComponent height="50px" background={responsiveCss({
+ * eg. <SomeComponent height="50px" background={responsiveProps({
  *  "_-200px": "blue",
  *  "200px-_": "red"
  * })} />
  */
-export const responsiveCss = value => new Sizes(value);
+export const responsiveProps = value => new Sizes(value);
 
 const getPropsForTransform = (size, props) => {
   const sizedProps = {};
@@ -88,7 +88,7 @@ export const processCssRule = (prop, key, calculateValue) => props => {
  * `
  *
  * It automatically handles regular values as well as responsive values passed in
- * via `responsiveCss`.
+ * via `responsiveProps`.
  *
  * Given one argument, `css` will fetch the given prop name, use it as the css key, and
  * make the value of the prop equal to the value of the key

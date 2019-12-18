@@ -1,4 +1,4 @@
-import { css, processCssRule, responsiveCss } from './css';
+import { css, processCssRule, responsiveProps } from './css';
 
 describe('#css', () => {
   test('returns a function', () => {
@@ -178,14 +178,14 @@ describe('#css', () => {
     });
   });
 
-  describe('using `responsiveCss`', () => {
+  describe('using `responsiveProps`', () => {
     test('rule matches', () => {
       expect(
         css(
           ['centered', 'align-items', 'center'],
           ['horizontalAlignment', 'align-items']
         )({
-          horizontalAlignment: responsiveCss({
+          horizontalAlignment: responsiveProps({
             '_-50px': 'center',
             '50px-_': 'left',
           }),
@@ -234,8 +234,8 @@ describe('#processCssRule', () => {
     test('one argument', () => {
       expect(
         processCssRule('gap')({
-          gap: responsiveCss({ '_-50px': 'center', '50px-_': 'left' }),
-          margin: responsiveCss({ '_-50px': 'up', '50px-_': 'down' }),
+          gap: responsiveProps({ '_-50px': 'center', '50px-_': 'left' }),
+          margin: responsiveProps({ '_-50px': 'up', '50px-_': 'down' }),
         })
       ).toBe(
         '@media all and (max-width: 50px) { gap: center; }\n@media all and (min-width: 50px) { gap: left; }'
@@ -248,8 +248,8 @@ describe('#processCssRule', () => {
           'gap',
           'grid-gap'
         )({
-          gap: responsiveCss({ '_-50px': 'center', '50px-_': 'left' }),
-          margin: responsiveCss({ '_-50px': 'up', '50px-_': 'down' }),
+          gap: responsiveProps({ '_-50px': 'center', '50px-_': 'left' }),
+          margin: responsiveProps({ '_-50px': 'up', '50px-_': 'down' }),
         })
       ).toBe(
         '@media all and (max-width: 50px) { grid-gap: center; }\n@media all and (min-width: 50px) { grid-gap: left; }'
@@ -263,8 +263,8 @@ describe('#processCssRule', () => {
           'grid-gap',
           props => `${props.gap}-${props.margin}`
         )({
-          gap: responsiveCss({ '_-50px': 'center', '50px-_': 'left' }),
-          margin: responsiveCss({ '_-50px': 'up', '50px-_': 'down' }),
+          gap: responsiveProps({ '_-50px': 'center', '50px-_': 'left' }),
+          margin: responsiveProps({ '_-50px': 'up', '50px-_': 'down' }),
         })
       ).toBe(
         '@media all and (max-width: 50px) { grid-gap: center-up; }\n@media all and (min-width: 50px) { grid-gap: left-down; }'
