@@ -3,7 +3,7 @@ import {
   processCssRule,
   processResponsiveCss,
   responsiveCss,
-} from './styling';
+} from './css';
 
 import Sizes from './Sizes';
 

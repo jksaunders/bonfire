@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { css } from '../../../utils/styling';
+import { css } from '../../../styling';
 import Layout from '../Layout';
 
 const propTypes = {
   children: PropTypes.node,
   filter: PropTypes.string,
+  muted: PropTypes.bool,
   parentLayoutProps: PropTypes.shape(Layout.shape).isRequired,
   src: PropTypes.string.isRequired,
 };
@@ -14,6 +15,7 @@ const propTypes = {
 const defaultProps = {
   children: null,
   filter: null,
+  muted: true,
 };
 
 const Container = styled(Layout)`
@@ -31,9 +33,15 @@ const Video = styled.video`
   ${css('filter')}
 `;
 
-const VideoBackground = ({ children, filter, parentLayoutProps, src }) => (
+const VideoBackground = ({
+  children,
+  filter,
+  muted,
+  parentLayoutProps,
+  src,
+}) => (
   <Container {...parentLayoutProps}>
-    <Video filter={filter} autoPlay muted loop>
+    <Video filter={filter} autoPlay muted={muted} loop>
       <source src={src} type="video/mp4" />
     </Video>
     {children}

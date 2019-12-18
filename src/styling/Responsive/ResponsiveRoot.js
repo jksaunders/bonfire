@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import debounce from '../debounce';
+import debounce from '../../utils/debounce';
 
 export const ResponsiveSizesContext = React.createContext({});
 

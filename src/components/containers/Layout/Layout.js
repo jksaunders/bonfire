@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { css, cssBackground, CssRuleType } from '../../../utils/styling';
+import { css, cssBackground, CssRuleType } from '../../../styling';
 import { TypographyContext, cssTypography } from '../../Typography';
 
 const propTypes = {
