@@ -1,32 +1,11 @@
 import {
   css,
-  cssBackground,
   processCssRule,
   processResponsiveCss,
-  reconcileMediaQueries,
   responsiveCss,
-  Sizes,
 } from './styling';
 
-describe('#cssBackground', () => {
-  describe('using unrecognized input', () => {
-    test('returns css string', () => {
-      expect(cssBackground({ background: 'null' })).toBe('');
-    });
-  });
-
-  describe('using a color hex code', () => {
-    test('returns a string', () => {
-      expect(typeof cssBackground({ background: '#123456' })).toBe('string');
-    });
-
-    test('returns css string', () => {
-      expect(cssBackground({ background: '#123456' })).toBe(
-        'background-color: #123456;'
-      );
-    });
-  });
-});
+import Sizes from './Sizes';
 
 describe('#css', () => {
   test('returns a function', () => {
@@ -275,51 +254,6 @@ describe('#processResponsiveCss', () => {
 @media all and (min-width: 45px) and (max-width: 55px) { grid-gap: 4px; }
 @media all and (min-width: 55px) { grid-gap: 5px; }`);
     });
-  });
-});
-
-describe('#reconcileMediaQueries', () => {
-  test('with no media queries', () => {
-    expect(reconcileMediaQueries('')).toBe('');
-    expect(reconcileMediaQueries('text-align: center;')).toBe(
-      'text-align: center;'
-    );
-  });
-
-  test('with one media query', () => {
-    expect(
-      reconcileMediaQueries(
-        'text-align: left;\n@media asdasd { text-align: center; }'
-      )
-    ).toBe('text-align: left;\n@media asdasd {\ntext-align: center;\n}');
-
-    expect(reconcileMediaQueries('@media asdasd { text-align: center; }')).toBe(
-      '@media asdasd {\ntext-align: center;\n}'
-    );
-
-    expect(
-      reconcileMediaQueries('@media asdasd {\n\ntext-align: center;\n\n}')
-    ).toBe('@media asdasd {\ntext-align: center;\n}');
-  });
-
-  test('with matching media queries', () => {
-    expect(
-      reconcileMediaQueries(
-        'text-align: left;\n@media asdasd { text-align: center; }\n@media asdasd{ justify-self: flex-end; }'
-      )
-    ).toBe(
-      'text-align: left;\n@media asdasd {\ntext-align: center;\njustify-self: flex-end;\n}'
-    );
-  });
-
-  test('with not matching media queries', () => {
-    expect(
-      reconcileMediaQueries(
-        'text-align: left;\n@media asdasd { text-align: center; }\n@media asdasd{ justify-self: flex-end; }\n@media asdasd2{ justify-self: flex-start; }'
-      )
-    ).toBe(
-      'text-align: left;\n@media asdasd {\ntext-align: center;\njustify-self: flex-end;\n}\n@media asdasd2 {\njustify-self: flex-start;\n}'
-    );
   });
 });
 
