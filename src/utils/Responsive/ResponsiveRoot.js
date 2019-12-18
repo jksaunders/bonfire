@@ -40,16 +40,12 @@ const ResponsiveRoot = ({ children, presets, debounce: debounceValue }) => {
   });
 
   useEffect(() => {
-    const listener = debounce(
-      () => {
-        setWindowSize({
-          height: window.innerHeight,
-          width: window.innerWidth,
-        });
-      },
-      debounceValue,
-      true
-    );
+    const listener = debounce(() => {
+      setWindowSize({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }, debounceValue);
 
     window.addEventListener('resize', listener);
 
