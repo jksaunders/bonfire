@@ -1,6 +1,7 @@
 branches:
   except:
   - review
+  - review-revert
 
 language: node_js
 node_js:
