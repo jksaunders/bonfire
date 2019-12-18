@@ -1,6 +1,14 @@
 import { isArray } from 'util';
 import Sizes from './Sizes';
 
+/**
+ * Use this in your files that are using responsive-props-enabled components
+ *
+ * eg. <SomeComponent height="50px" background={responsiveCss({
+ *  "_-200px": "blue",
+ *  "200px-_": "red"
+ * })} />
+ */
 export const responsiveCss = value => new Sizes(value);
 
 const getPropsForTransform = (size, props) => {
@@ -20,6 +28,9 @@ const getPropsForTransform = (size, props) => {
   return sizedProps;
 };
 
+/**
+ * Exported only for tests
+ */
 export const processCssRule = (prop, key, calculateValue) => props => {
   if (props == null || prop == null || !props[prop]) {
     return '';
@@ -71,6 +82,42 @@ export const processCssRule = (prop, key, calculateValue) => props => {
   return result.substring(1);
 };
 
+/**
+ * Use in styled-components template tags, eg. styled.div`
+ *  ${css('margin')}
+ * `
+ *
+ * It automatically handles regular values as well as responsive values passed in
+ * via `responsiveCss`.
+ *
+ * Given one argument, `css` will fetch the given prop name, use it as the css key, and
+ * make the value of the prop equal to the value of the key
+ *
+ * eg. `css('margin') -> margin: <value of props['margin']>
+ *
+ * Given two arguments, `css` will fetch the given prop name, use the second argument as
+ * the css key, and make the value of the prop equal to the value of the key
+ *
+ * eg. `css('gap', 'grid-gap')` -> grid-gap: <value of props['gap']>
+ *
+ * You can also pass in a function to base the key on other props
+ *
+ * eg. `css('gap', (props) => props['anotherValue'])` -> <value of props['anotherValue']: <value of props['gap']>
+ *
+ * Given three arguments, `css` will fetch the given prop name, use the second argument as
+ * the css key, and use the third value to calculate the value
+ *
+ * eg. `css('gap', 'grid-gap', (props) => props['anotherValue'])` -> grid-gap: <value of props['anotherValue']>
+ *
+ * Passing in a non-function will force that value to be used regardless of the prop value. This is useful
+ * for boolean props
+ *
+ * eg. `css('centered', 'text-align', 'center')
+ *
+ * You can also use multiple rules and only the first matched rule will be used.
+ *
+ * eg. `css(['centered', 'text-align', 'center'], ['textAlign', 'text-align'])`
+ */
 export const css = (...args) => {
   if (isArray(args[0])) {
     if (isArray(args[0][0])) {
