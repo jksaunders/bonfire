@@ -83,7 +83,6 @@
     "jest-styled-components": "^6.3.4",
     "mocha": "^6.2.2",
     "prettier": "1.19.1",
-    "terser-webpack-plugin": "^2.3.1",
     "typescript": "^3.7.3",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"

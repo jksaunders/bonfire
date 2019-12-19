@@ -1,6 +1,5 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 
 const exclude = /(node_modules)|(.*\.stories\.js)|(.*\.test\.js)/;
 
@@ -17,10 +16,6 @@ module.exports = () => ({
   },
   externals: ['react', 'prop-types', 'styled-components'],
   plugins: [new CleanWebpackPlugin()],
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()]
-  },
   module: {
     rules: [
       {
