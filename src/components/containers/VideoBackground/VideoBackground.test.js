@@ -1,5 +1,5 @@
 import React from 'react';
-import { expectExists, expectSnapshot, render } from '../../../utils/snapshot';
+import { expectExists, expectSnapshot, render } from '../../../testing';
 import VideoBackground from './VideoBackground';
 
 const getVideoBackground = (props = {}) =>

@@ -1,22 +1,26 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const exclude = /(node_modules)|(.*\.stories\.js)|(.*\.test\.js)/;
 
 module.exports = () => ({
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+  },
   devtool: 'inline-source-map',
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     library: 'bonfire',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
-  externals: [
-    'react',
-    'prop-types',
-    'styled-components'
-  ],
-  plugins: [],
+  externals: ['react', 'prop-types', 'styled-components'],
+  plugins: [new CleanWebpackPlugin()],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()]
+  },
   module: {
     rules: [
       {
@@ -26,16 +30,16 @@ module.exports = () => ({
         loader: 'eslint-loader',
         options: {
           emitWarnings: true,
-          configFile: './.eslintrc'
-        }
+          configFile: './.eslintrc',
+        },
       },
       {
         test: /\.(js|jsx)$/,
         exclude,
         use: {
-          loader: 'babel-loader'
-        }
-      }
-    ]
-  }
+          loader: 'babel-loader',
+        },
+      },
+    ],
+  },
 });

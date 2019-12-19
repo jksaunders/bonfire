@@ -4,7 +4,7 @@ import {
   expectSnapshot,
   expectStyle,
   render,
-} from '../../../utils/snapshot';
+} from '../../../testing';
 import Layout from './Layout';
 import { TypographyContext } from '../../Typography';
 
