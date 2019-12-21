@@ -3,7 +3,7 @@ import { text, withKnobs } from '@storybook/addon-knobs';
 import UserCard from './UserCard';
 
 export default {
-  title: 'Components|User Card',
+  title: 'Deprecated|User Card',
   component: UserCard,
   decorators: [withKnobs],
 };
