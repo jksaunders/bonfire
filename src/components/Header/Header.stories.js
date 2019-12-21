@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useGesture } from 'react-use-gesture';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 
 import { action } from '@storybook/addon-actions';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 
-import { ThemeConstants } from '../../theming';
 import Header from './Header';
 
 const StoryHeader = styled(Header)`
@@ -19,17 +18,6 @@ export default {
 };
 
 export const NoLogo = () => {
-  const themeMode = select(
-    'Theme Mode',
-    Object.keys(ThemeConstants.mode.values),
-    Object.keys(ThemeConstants.mode.values)[0]
-  );
-  const themeLayout = select(
-    'Theme Layout',
-    Object.keys(ThemeConstants.layout.values),
-    Object.keys(ThemeConstants.layout.values)[0]
-  );
-  const theme = { mode: themeMode, layout: themeLayout };
   const variant = select(
     'Header Layout',
     Object.keys(Header.CONSTANTS.VARIANT)
@@ -37,43 +25,30 @@ export const NoLogo = () => {
   const showFloatingHeader = boolean('Show Floating Header', false);
 
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <StoryHeader
-          buttons={[
-            {
-              text: 'Donate',
-              onClick: action('Donate'),
-              variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY,
-            },
-          ]}
-          height="125px"
-          items={[
-            { text: 'Programs', link: 'https://google.com' },
-            { text: 'About Us', onClick: action('About Us') },
-            { text: 'Events', onClick: action('Events') },
-            { text: 'Contact Us', onClick: action('Contact Us') },
-          ]}
-          variant={variant}
-          showFloatingHeader={showFloatingHeader}
-        />
-      </div>
-    </ThemeProvider>
+    <div>
+      <StoryHeader
+        buttons={[
+          {
+            text: 'Donate',
+            onClick: action('Donate'),
+            variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY,
+          },
+        ]}
+        height="125px"
+        items={[
+          { text: 'Programs', link: 'https://google.com' },
+          { text: 'About Us', onClick: action('About Us') },
+          { text: 'Events', onClick: action('Events') },
+          { text: 'Contact Us', onClick: action('Contact Us') },
+        ]}
+        variant={variant}
+        showFloatingHeader={showFloatingHeader}
+      />
+    </div>
   );
 };
 
 export const WithLogo = () => {
-  const themeMode = select(
-    'Theme Mode',
-    Object.keys(ThemeConstants.mode.values),
-    Object.keys(ThemeConstants.mode.values)[0]
-  );
-  const themeLayout = select(
-    'Theme Layout',
-    Object.keys(ThemeConstants.layout.values),
-    Object.keys(ThemeConstants.layout.values)[0]
-  );
-  const theme = { mode: themeMode, layout: themeLayout };
   const variant = select(
     'Header Layout',
     Object.keys(Header.CONSTANTS.VARIANT)
@@ -81,54 +56,34 @@ export const WithLogo = () => {
   const showFloatingHeader = boolean('Show Floating Header', false);
 
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <StoryHeader
-          buttons={[
-            {
-              text: 'Donate',
-              onClick: action('Donate'),
-              variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY,
-            },
-          ]}
-          height="125px"
-          items={[
-            { text: 'Programs', link: 'https://google.com' },
-            { text: 'About Us', onClick: action('About Us') },
-            { text: 'Events', onClick: action('Events') },
-            { text: 'Contact Us', onClick: action('Contact Us') },
-          ]}
-          logo={{
-            image:
-              'https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png',
-          }}
-          variant={variant}
-          showFloatingHeader={showFloatingHeader}
-        />
-      </div>
-    </ThemeProvider>
+    <div>
+      <StoryHeader
+        buttons={[
+          {
+            text: 'Donate',
+            onClick: action('Donate'),
+            variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY,
+          },
+        ]}
+        height="125px"
+        items={[
+          { text: 'Programs', link: 'https://google.com' },
+          { text: 'About Us', onClick: action('About Us') },
+          { text: 'Events', onClick: action('Events') },
+          { text: 'Contact Us', onClick: action('Contact Us') },
+        ]}
+        logo={{
+          image:
+            'https://kidsupfront.com/wp-content/uploads/2019/01/KUF-Color-150.png',
+        }}
+        variant={variant}
+        showFloatingHeader={showFloatingHeader}
+      />
+    </div>
   );
 };
 
-export const AutoFloatingHeader = () => {
-  const themeMode = select(
-    'Theme Mode',
-    Object.keys(ThemeConstants.mode.values),
-    Object.keys(ThemeConstants.mode.values)[0]
-  );
-  const themeLayout = select(
-    'Theme Layout',
-    Object.keys(ThemeConstants.layout.values),
-    Object.keys(ThemeConstants.layout.values)[0]
-  );
-  const theme = { mode: themeMode, layout: themeLayout };
-
-  return (
-    <ThemeProvider theme={theme}>
-      <AutoFloatingHeaderStory />
-    </ThemeProvider>
-  );
-};
+export const AutoFloatingHeader = () => <AutoFloatingHeaderStory />;
 
 const AutoFloatingHeaderStory = () => {
   const [showFloatingHeader, setShowFloatingHeader] = useState(false);

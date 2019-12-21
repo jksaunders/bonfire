@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 
-import { ThemeConstants } from '../../../theming';
 import { Button } from '../..';
 import Drawer from './Drawer';
 
@@ -38,25 +37,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const DrawerDefaultStory = () => {
-  const themeMode = select(
-    'Theme Mode',
-    Object.keys(ThemeConstants.mode.values),
-    Object.keys(ThemeConstants.mode.values)[0]
-  );
-  const themeLayout = select(
-    'Theme Layout',
-    Object.keys(ThemeConstants.layout.values),
-    Object.keys(ThemeConstants.layout.values)[0]
-  );
-  const theme = { mode: themeMode, layout: themeLayout };
-
-  return (
-    <ThemeProvider theme={theme}>
-      <DrawerStory />
-    </ThemeProvider>
-  );
-};
+export const DrawerDefaultStory = () => <DrawerStory />;
 
 Drawer.story = {
   name: 'with text',

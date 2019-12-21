@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import chroma from 'chroma-js';
 import Typography, { MaterialVariants } from '../Typography';
-import { theme, themeVariant, ThemeConstants, Palette } from '../../theming';
+import * as Colors from '../../theming/colors';
 
 const CONSTANTS = {
   VARIANT: {
@@ -12,69 +12,32 @@ const CONSTANTS = {
   },
 };
 
-const THEME_VARIANTS = {
-  [CONSTANTS.VARIANT.PRIMARY]: {
-    color: Palette.PRIMARY_TEXT,
-    backgroundColor: Palette.PRIMARY_BUTTON,
-  },
-  [CONSTANTS.VARIANT.SECONDARY]: {
-    color: Palette.SECONDARY_TEXT,
-    backgroundColor: Palette.SECONDARY_BUTTON,
-  },
-};
-
-const disabledBackground = props =>
+const background = props =>
   props.disabled
-    ? chroma(
-        themeVariant(
-          'variant',
-          'backgroundColor',
-          THEME_VARIANTS,
-          ThemeConstants.mode.key
-        )(props)(props)
-      )
+    ? chroma(Colors.blue)
         .alpha(0.5)
         .hex()
-    : themeVariant(
-        'variant',
-        'backgroundColor',
-        THEME_VARIANTS,
-        ThemeConstants.mode.key
-      )(props);
+    : Colors.blue;
 
-const disabledColor = props =>
+const color = props =>
   props.disabled
-    ? chroma(
-        themeVariant(
-          'variant',
-          'color',
-          THEME_VARIANTS,
-          ThemeConstants.mode.key
-        )(props)(props)
-      )
+    ? chroma(Colors.white)
         .alpha(0.65)
         .hex()
-    : themeVariant(
-        'variant',
-        'color',
-        THEME_VARIANTS,
-        ThemeConstants.mode.key
-      )(props);
+    : Colors.white;
 
 const StyledButton = styled.button`
-  color: ${props => disabledColor(props)};
-  background-color: ${props => disabledBackground(props)};
+  color: ${color};
+  background-color: ${background};
   border-radius: 0.25em;
   border-style: solid;
   border-width: ${({ variant }) =>
     variant === CONSTANTS.VARIANT.PRIMARY ? 0 : 1}px;
-  margin: ${theme(Palette.MARGINS, ThemeConstants.layout.key)};
-  padding: ${theme(Palette.MARGINS, ThemeConstants.layout.key)};
+  padding: 8px;
   width: ${({ width }) => width};
 `;
 
 const propTypes = {
-  children: PropTypes.node,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   text: PropTypes.string.isRequired,
@@ -86,7 +49,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-  children: null,
   disabled: false,
   onClick: () => {},
   typographyProps: {},
@@ -94,21 +56,12 @@ const defaultProps = {
   width: '100px',
 };
 
-const Button = ({
-  children,
-  disabled,
-  onClick,
-  text,
-  typographyProps,
-  variant,
-  ...rest
-}) => (
+const Button = ({ disabled, onClick, text, typographyProps, variant }) => (
   <StyledButton
     disabled={disabled}
     onClick={onClick}
     text={text}
     variant={variant}
-    {...rest}
   >
     <Typography {...typographyProps} variant={MaterialVariants.ButtonText}>
       {text}
