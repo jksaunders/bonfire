@@ -31,8 +31,7 @@ const StyledButton = styled.button`
   background-color: ${background};
   border-radius: 0.25em;
   border-style: solid;
-  border-width: ${({ variant }) =>
-    variant === CONSTANTS.VARIANT.PRIMARY ? 0 : 1}px;
+  border-width: 1px;
   padding: 8px;
   width: ${({ width }) => width};
 `;
