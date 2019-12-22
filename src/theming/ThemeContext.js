@@ -45,9 +45,12 @@ const useTheme = (
   };
 };
 
+export const bonfireThemePropKey = 'bonfireTheme';
+
 export const withThemes = Component => props => {
   const theme = useContext(ThemeContext);
-  return <Component {...props} bonfireTheme={theme} />;
+  const bonfireProps = { [bonfireThemePropKey]: theme };
+  return <Component {...props} {...bonfireProps} />;
 };
 
 // eslint-disable-next-line react/prop-types
