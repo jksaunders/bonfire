@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 
-const ThemeContext = React.createContext({});
+const ThemeContext = React.createContext(null);
 
 const useTheme = (
   initialTheme = {
@@ -24,17 +24,40 @@ const useTheme = (
 
   const getCurrentVariant = (componentKey, variantKey) => {
     const result = {};
-    Object.keys(theme.variants.components[componentKey][variantKey]).forEach(
-      propKey => {
-        const variantValue =
-          theme.variants.components[componentKey][variantKey][propKey];
 
-        result[propKey] =
-          typeof variantValue === 'function'
-            ? variantValue(theme.current)
-            : variantValue;
-      }
-    );
+    if (theme.variants == null) {
+      throw new Error('Theme missing `variants` field');
+    }
+    if (theme.variants.components == null) {
+      throw new Error('`theme.variants` missing `components` field');
+    }
+    if (theme.variants.components[componentKey] == null) {
+      throw new Error(
+        `\`theme.variants.components\` missing \`${componentKey}\` field`
+      );
+    }
+    if (theme.variants.components[componentKey][variantKey] == null) {
+      throw new Error(
+        `\`theme.variants.components.${componentKey}\` missing \`${variantKey}\` field`
+      );
+    }
+
+    const variant = theme.variants.components[componentKey][variantKey];
+
+    if (typeof variant !== 'object') {
+      return {};
+    }
+
+    Object.keys(variant).forEach(propKey => {
+      const variantValue =
+        theme.variants.components[componentKey][variantKey][propKey];
+
+      result[propKey] =
+        typeof variantValue === 'function'
+          ? variantValue(theme.current)
+          : variantValue;
+    });
+
     return result;
   };
 
@@ -46,6 +69,7 @@ const useTheme = (
 };
 
 export const bonfireThemePropKey = 'bonfireTheme';
+export const bonfireThemeVariantPropKey = 'variant';
 
 export const withThemes = Component => props => {
   const theme = useContext(ThemeContext);

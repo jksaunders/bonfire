@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { css } from '../../styling';
+import { bonfireThemePropKey, withThemes } from '../../theming/ThemeContext';
 
 export const TypographyContext = React.createContext({});
 
@@ -48,7 +49,10 @@ const typographyPropTypes = {
 const propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  variant: PropTypes.shape(typographyPropTypes),
+  variant: PropTypes.oneOfType([
+    PropTypes.shape(typographyPropTypes),
+    PropTypes.string,
+  ]),
   ...typographyPropTypes,
 };
 
@@ -112,10 +116,21 @@ const getBaseElement = (variant, props) => {
 
 const getVariant = (variant, props) => {
   const result = {};
+  const themeVariant =
+    typeof variant === 'string' && props[bonfireThemePropKey] != null
+      ? props[bonfireThemePropKey].getCurrentVariant('typography', variant)
+      : null;
+
   Object.keys(typographyPropTypes).forEach(k => {
     if (props[k] != null) {
       result[k] = props[k];
-    } else if (variant && variant[k] != null) {
+    } else if (themeVariant != null) {
+      result[k] = themeVariant[k];
+    } else if (
+      typeof variant === 'object' &&
+      variant != null &&
+      variant[k] != null
+    ) {
       result[k] = variant[k];
     }
   });
@@ -135,4 +150,4 @@ const Typography = ({ children, className, variant, ...props }) => (
 
 Typography.propTypes = propTypes;
 Typography.defaultProps = defaultProps;
-export default Typography;
+export default withThemes(Typography);

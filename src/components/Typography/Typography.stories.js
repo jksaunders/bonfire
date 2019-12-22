@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useContext } from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 import Typography, { MaterialVariants } from '.';
+import { ThemeContext, ThemeRoot, colors } from '../../theming';
 
 export default {
   title: 'Style|Typography',
@@ -51,6 +52,93 @@ export const AllStyles = () => (
       <Typography variant={MaterialVariants.Overline}>overline</Typography>
     </div>
   </div>
+);
+
+const ThemeChanger = () => {
+  const { theme, setCurrentTheme } = useContext(ThemeContext);
+  return (
+    <div>
+      <button
+        onClick={() => {
+          setCurrentTheme({
+            mode: theme.current.mode === 'light' ? 'dark' : 'light',
+          });
+        }}
+      >
+        {theme.current.mode}
+      </button>
+    </div>
+  );
+};
+
+const themedMaterialVariants = () => {
+  const result = {};
+  Object.keys(MaterialVariants).forEach(k => {
+    result[k] = {
+      ...MaterialVariants[k],
+      color: ({ mode }) =>
+        mode === 'light' ? MaterialVariants[k].color : colors.lightGrey,
+    };
+  });
+  return result;
+};
+
+export const AllStylesThemed = () => (
+  <ThemeRoot
+    initialTheme={{
+      current: {
+        mode: 'light',
+      },
+      variants: {
+        components: {
+          typography: themedMaterialVariants(),
+        },
+      },
+    }}
+  >
+    <div>
+      <ThemeChanger />
+      <div>
+        <Typography variant="H1">h1</Typography>
+      </div>
+      <div>
+        <Typography variant="H2">h2</Typography>
+      </div>
+      <div>
+        <Typography variant="H3">h3</Typography>
+      </div>
+      <div>
+        <Typography variant="H4">h4</Typography>
+      </div>
+      <div>
+        <Typography variant="H5">h5</Typography>
+      </div>
+      <div>
+        <Typography variant="H6">h6</Typography>
+      </div>
+      <div>
+        <Typography variant="Subtitle1">subtitle1</Typography>
+      </div>
+      <div>
+        <Typography variant="Subtitle2">subtitle2</Typography>
+      </div>
+      <div>
+        <Typography variant="Body1">body1</Typography>
+      </div>
+      <div>
+        <Typography variant="Body2">body2</Typography>
+      </div>
+      <div>
+        <Typography variant="Caption">caption</Typography>
+      </div>
+      <div>
+        <Typography variant="ButtonText">button</Typography>
+      </div>
+      <div>
+        <Typography variant="Overline">overline</Typography>
+      </div>
+    </div>
+  </ThemeRoot>
 );
 
 export const SampleText = () => (
