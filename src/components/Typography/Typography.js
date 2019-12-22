@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { css } from '../../styling';
-import { bonfireThemePropKey, withThemes } from '../../theming/ThemeContext';
+import { getVariant, withThemes } from '../../theming/ThemeContext';
 
 export const TypographyContext = React.createContext({});
 
@@ -92,7 +92,8 @@ const StyledTypography = styled.span`
   ${cssTypography()}
 `;
 
-const getBaseElement = (variant, props) => {
+const getBaseElement = props => {
+  const { variant } = props;
   let baseElement = 'span';
 
   if ((variant && variant.h1) || props.h1) {
@@ -114,35 +115,11 @@ const getBaseElement = (variant, props) => {
   return baseElement;
 };
 
-const getVariant = (variant, props) => {
-  const result = {};
-  const themeVariant =
-    typeof variant === 'string' && props[bonfireThemePropKey] != null
-      ? props[bonfireThemePropKey].getCurrentVariant('typography', variant)
-      : null;
-
-  Object.keys(typographyPropTypes).forEach(k => {
-    if (props[k] != null) {
-      result[k] = props[k];
-    } else if (themeVariant != null) {
-      result[k] = themeVariant[k];
-    } else if (
-      typeof variant === 'object' &&
-      variant != null &&
-      variant[k] != null
-    ) {
-      result[k] = variant[k];
-    }
-  });
-
-  return result;
-};
-
-const Typography = ({ children, className, variant, ...props }) => (
+const Typography = ({ children, className, ...props }) => (
   <StyledTypography
     className={className}
-    {...getVariant(variant, props)}
-    as={getBaseElement(variant, props)}
+    {...getVariant('typography', props, typographyPropTypes)}
+    as={getBaseElement(props)}
   >
     {children}
   </StyledTypography>

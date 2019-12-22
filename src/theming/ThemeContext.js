@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { isArray } from 'util';
 
 const ThemeContext = React.createContext(null);
 
@@ -70,6 +71,36 @@ const useTheme = (
 
 export const bonfireThemePropKey = 'bonfireTheme';
 export const bonfireThemeVariantPropKey = 'variant';
+
+export const getVariant = (componentName, props, propsToCheck) => {
+  const result = {};
+
+  const variant = props[bonfireThemeVariantPropKey];
+  const themeVariant =
+    typeof variant === 'string' && props[bonfireThemePropKey] != null
+      ? props[bonfireThemePropKey].getCurrentVariant(componentName, variant)
+      : null;
+
+  const toCheck = isArray(propsToCheck)
+    ? propsToCheck
+    : Object.keys(propsToCheck);
+
+  toCheck.forEach(k => {
+    if (props[k] != null) {
+      result[k] = props[k];
+    } else if (themeVariant != null) {
+      result[k] = themeVariant[k];
+    } else if (
+      typeof variant === 'object' &&
+      variant != null &&
+      variant[k] != null
+    ) {
+      result[k] = variant[k];
+    }
+  });
+
+  return result;
+};
 
 export const withThemes = Component => props => {
   const theme = useContext(ThemeContext);
