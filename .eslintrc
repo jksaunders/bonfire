@@ -15,7 +15,8 @@
       "import/no-extraneous-dependencies": ["error", {
         "devDependencies": [
           ".storybook/**",
-          "**/*.stories.js"
+          "**/*.stories.js",
+          "rollup.config.js"
         ]
       }],
       "import/prefer-default-export": "off",
