@@ -4,13 +4,8 @@ import styled from 'styled-components';
 import chroma from 'chroma-js';
 import Typography, { MaterialVariants } from '../Typography';
 import * as Colors from '../../theming/colors';
-
-const CONSTANTS = {
-  VARIANT: {
-    PRIMARY: 'PRIMARY',
-    SECONDARY: 'SECONDARY',
-  },
-};
+import { getVariant, withThemes } from '../../theming/ThemeContext';
+import { css } from '../../styling';
 
 const background = props =>
   props.disabled
@@ -29,40 +24,51 @@ const color = props =>
 const StyledButton = styled.button`
   color: ${color};
   background-color: ${background};
-  border-radius: 0.25em;
+  ${css('borderRadius', 'border-radius')}
   border-style: solid;
   border-width: 1px;
   padding: 8px;
   width: ${({ width }) => width};
 `;
 
+const buttonStyleProps = {
+  borderRadius: PropTypes.string,
+};
+
 const propTypes = {
+  ...buttonStyleProps,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   text: PropTypes.string.isRequired,
   typographyProps: PropTypes.shape({
     bold: PropTypes.bool,
   }),
-  variant: PropTypes.oneOf(Object.keys(CONSTANTS.VARIANT)),
+  variant: PropTypes.oneOfType([
+    PropTypes.shape(buttonStyleProps),
+    PropTypes.string,
+  ]),
   width: PropTypes.string,
 };
 
 const defaultProps = {
+  /* eslint-disable react/default-props-match-prop-types */
+  borderRadius: null,
+  /* eslint-enable react/default-props-match-prop-types */
   disabled: false,
   onClick: () => {},
   typographyProps: {},
-  variant: CONSTANTS.VARIANT.PRIMARY,
+  variant: null,
   width: '100px',
 };
 
-const Button = ({ disabled, onClick, text, typographyProps, variant }) => (
+const Button = ({ disabled, onClick, text, typographyProps, ...props }) => (
   <StyledButton
     disabled={disabled}
     onClick={onClick}
     text={text}
-    variant={variant}
+    {...getVariant('button', props, buttonStyleProps)}
   >
-    <Typography {...typographyProps} variant={MaterialVariants.ButtonText}>
+    <Typography variant={MaterialVariants.ButtonText} {...typographyProps}>
       {text}
     </Typography>
   </StyledButton>
@@ -70,6 +76,7 @@ const Button = ({ disabled, onClick, text, typographyProps, variant }) => (
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
-Button.CONSTANTS = CONSTANTS;
 
-export default Button;
+const ThemedButton = withThemes(Button);
+
+export default ThemedButton;

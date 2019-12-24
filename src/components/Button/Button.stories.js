@@ -2,6 +2,7 @@ import React from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
+import { ThemeRoot } from '../../theming';
 
 import Button from './Button';
 
@@ -14,27 +15,48 @@ export default {
 export const ButtonStory = () => {
   return (
     <div>
-      <div>
-        {Object.keys(Button.CONSTANTS.VARIANT).map(variantKey => (
-          <Button
-            key={variantKey}
-            text={variantKey.toLowerCase()}
-            variant={variantKey}
-            onClick={action('clicked')}
-          />
-        ))}
-      </div>
-      <div>
-        {Object.keys(Button.CONSTANTS.VARIANT).map(variantKey => (
-          <Button
-            key={variantKey}
-            text={`${variantKey.toLowerCase()} disabled`}
-            variant={variantKey}
-            onClick={action('clicked')}
-          />
-        ))}
-      </div>
+      <Button text="Button" onClick={action('clicked')} />
+      <Button text="disabled" onClick={action('clicked disabled')} disabled />
     </div>
+  );
+};
+
+ButtonStory.story = {
+  name: 'Button',
+};
+
+export const ThemedButtonStory = () => {
+  return (
+    <ThemeRoot
+      initialTheme={{
+        current: {
+          mode: 'light',
+        },
+        variants: {
+          components: {
+            button: {
+              primary: {
+                borderRadius: '0.25em',
+              },
+              secondary: {
+                borderRadius: '0.75em',
+              },
+            },
+          },
+        },
+      }}
+    >
+      <Button
+        text="Primary"
+        onClick={action('clicked primary')}
+        variant="primary"
+      />
+      <Button
+        text="Secondary"
+        onClick={action('clicked secondary')}
+        variant="secondary"
+      />
+    </ThemeRoot>
   );
 };
 

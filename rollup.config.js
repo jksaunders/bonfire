@@ -5,10 +5,12 @@ import commonjs from 'rollup-plugin-commonjs';
 import externals from 'rollup-plugin-node-externals';
 import babel from 'rollup-plugin-babel';
 import localResolve from 'rollup-plugin-local-resolve';
+import sourceMaps from 'rollup-plugin-sourcemaps';
 
 import pkg from './package.json';
 
 const plugins = [
+  sourceMaps(),
   externals(),
   localResolve(),
   resolve(),
@@ -32,6 +34,7 @@ export default [
       name: 'bonfire',
       file: pkg.browser,
       format: 'umd',
+      sourcemaps: true,
     },
     plugins: [...plugins],
   },
@@ -45,8 +48,8 @@ export default [
   {
     input: 'src/index.js',
     output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' },
+      { file: pkg.main, format: 'cjs', sourcemaps: true },
+      { file: pkg.module, format: 'es', sourcemaps: true },
     ],
     plugins: [...plugins],
   },
