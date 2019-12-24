@@ -14,6 +14,10 @@ const cssBackground = ({ background: backgroundProp }, chromaProps = {}) => {
   }
 
   if (typeof backgroundProp === 'string') {
+    if (backgroundProp.includes('rgb') || backgroundProp.includes('hsla')) {
+      return `background-color: ${backgroundProp};`;
+    }
+
     try {
       return `background-color: ${applyChroma(backgroundProp, chromaProps)};`;
     } catch (error) {

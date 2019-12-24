@@ -17,3 +17,17 @@ describe('using a color hex code', () => {
     );
   });
 });
+
+describe('using rgb() color', () => {
+  test('returns string', () => {
+    expect(typeof cssBackground({ background: 'rgb(0,0,0,0.9)' })).toBe(
+      'string'
+    );
+  });
+
+  test('returns css string: background-color', () => {
+    expect(cssBackground({ background: 'rgb(0,0,0,0.9)' })).toBe(
+      'background-color: rgb(0,0,0,0.9);'
+    );
+  });
+});
