@@ -2,7 +2,7 @@ import React from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
-import { ThemeRoot } from '../../theming';
+import { ThemeRoot, colors } from '../../theming';
 
 import Button from './Button';
 import { MaterialVariants } from '../Typography';
@@ -38,11 +38,17 @@ export const ThemedButtonStory = () => {
             button: {
               primary: {
                 typography: MaterialVariants.ButtonText,
+                background: colors.blue,
                 borderRadius: '0.25em',
+                borderStyle: 'solid',
+                borderWidth: '1px',
               },
               secondary: {
                 typography: MaterialVariants.ButtonText,
+                background: colors.blue,
                 borderRadius: '0.75em',
+                borderStyle: 'solid',
+                borderWidth: '1px',
               },
             },
           },

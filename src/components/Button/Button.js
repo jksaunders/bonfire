@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Typography, { typographyPropTypes } from '../Typography';
-import * as Colors from '../../theming/colors';
 import { getVariant, withThemes } from '../../theming/ThemeContext';
 import { css, cssBackground } from '../../styling';
 
 const StyledButton = styled.button`
   ${props => cssBackground(props, { alpha: props.disabled ? 0.5 : 1 })}
   ${css('borderRadius', 'border-radius')}
-  border-style: solid;
-  border-width: 1px;
+  ${css('borderStyle', 'border-style')}
+  ${css('borderWidth', 'border-width')}
   ${css('padding')}
   width: ${({ width }) => width};
 `;
@@ -38,7 +37,7 @@ const propTypes = {
 
 const defaultProps = {
   /* eslint-disable react/default-props-match-prop-types */
-  background: Colors.blue,
+  background: null,
   borderRadius: null,
   borderStyle: null,
   borderWidth: null,
