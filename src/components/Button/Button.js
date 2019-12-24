@@ -1,38 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import chroma from 'chroma-js';
-import Typography, { MaterialVariants } from '../Typography';
+import Typography, { typographyPropTypes } from '../Typography';
 import * as Colors from '../../theming/colors';
 import { getVariant, withThemes } from '../../theming/ThemeContext';
-import { css } from '../../styling';
-
-const background = props =>
-  props.disabled
-    ? chroma(Colors.blue)
-        .alpha(0.5)
-        .hex()
-    : Colors.blue;
-
-const color = props =>
-  props.disabled
-    ? chroma(Colors.white)
-        .alpha(0.65)
-        .hex()
-    : Colors.white;
+import { css, cssBackground } from '../../styling';
 
 const StyledButton = styled.button`
-  color: ${color};
-  background-color: ${background};
+  ${props => cssBackground(props, { alpha: props.disabled ? 0.5 : 1 })}
   ${css('borderRadius', 'border-radius')}
   border-style: solid;
   border-width: 1px;
-  padding: 8px;
+  ${css('padding')}
   width: ${({ width }) => width};
 `;
 
 const buttonStyleProps = {
+  background: PropTypes.string,
   borderRadius: PropTypes.string,
+  borderStyle: PropTypes.string,
+  borderWidth: PropTypes.string,
+  padding: PropTypes.string,
+  typography: PropTypes.shape(typographyPropTypes),
 };
 
 const propTypes = {
@@ -40,9 +29,6 @@ const propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   text: PropTypes.string.isRequired,
-  typographyProps: PropTypes.shape({
-    bold: PropTypes.bool,
-  }),
   variant: PropTypes.oneOfType([
     PropTypes.shape(buttonStyleProps),
     PropTypes.string,
@@ -52,27 +38,36 @@ const propTypes = {
 
 const defaultProps = {
   /* eslint-disable react/default-props-match-prop-types */
+  background: Colors.blue,
   borderRadius: null,
+  borderStyle: null,
+  borderWidth: null,
+  padding: null,
+  typography: null,
   /* eslint-enable react/default-props-match-prop-types */
   disabled: false,
   onClick: () => {},
-  typographyProps: {},
   variant: null,
   width: '100px',
 };
 
-const Button = ({ disabled, onClick, text, typographyProps, ...props }) => (
-  <StyledButton
-    disabled={disabled}
-    onClick={onClick}
-    text={text}
-    {...getVariant('button', props, buttonStyleProps)}
-  >
-    <Typography variant={MaterialVariants.ButtonText} {...typographyProps}>
-      {text}
-    </Typography>
-  </StyledButton>
-);
+const Button = ({ disabled, onClick, text, ...props }) => {
+  const { typography, ...buttonVariant } = getVariant(
+    'button',
+    props,
+    buttonStyleProps
+  );
+  return (
+    <StyledButton
+      disabled={disabled}
+      onClick={onClick}
+      text={text}
+      {...buttonVariant}
+    >
+      <Typography {...typography}>{text}</Typography>
+    </StyledButton>
+  );
+};
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;

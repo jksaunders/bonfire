@@ -1,10 +1,8 @@
 import cssBackground from './cssBackground';
 
-describe('using unrecognized input', () => {
+describe('using input not recognized by chroma', () => {
   test('returns css string: background-color', () => {
-    expect(cssBackground({ background: 'null' })).toBe(
-      'background-color: null;'
-    );
+    expect(cssBackground({ background: 'null' })).toBe('');
   });
 });
 

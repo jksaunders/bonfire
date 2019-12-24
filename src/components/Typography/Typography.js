@@ -25,7 +25,7 @@ export const cssTypography = typographyPropKey => props => {
   `;
 };
 
-const typographyPropTypes = {
+export const typographyPropTypes = {
   align: PropTypes.string,
   bold: PropTypes.bool,
   color: PropTypes.string,

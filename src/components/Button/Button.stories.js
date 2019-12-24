@@ -5,6 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { ThemeRoot } from '../../theming';
 
 import Button from './Button';
+import { MaterialVariants } from '../Typography';
 
 export default {
   title: 'Components|Button',
@@ -36,9 +37,11 @@ export const ThemedButtonStory = () => {
           components: {
             button: {
               primary: {
+                typography: MaterialVariants.ButtonText,
                 borderRadius: '0.25em',
               },
               secondary: {
+                typography: MaterialVariants.ButtonText,
                 borderRadius: '0.75em',
               },
             },
