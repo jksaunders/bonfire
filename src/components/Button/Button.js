@@ -10,6 +10,7 @@ const StyledButton = styled.button`
   ${css('borderRadius', 'border-radius')}
   ${css('borderStyle', 'border-style')}
   ${css('borderWidth', 'border-width')}
+  ${css('cursor')}
   ${css('padding')}
   width: ${({ width }) => width};
 `;
@@ -28,6 +29,7 @@ const propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   text: PropTypes.string.isRequired,
+  cursor: PropTypes.string,
   variant: PropTypes.oneOfType([
     PropTypes.shape(buttonStyleProps),
     PropTypes.string,
@@ -44,6 +46,7 @@ const defaultProps = {
   padding: null,
   typography: null,
   /* eslint-enable react/default-props-match-prop-types */
+  cursor: 'pointer',
   disabled: false,
   onClick: () => {},
   variant: null,
