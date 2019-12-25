@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`variant and prop both present using different keys: object merged 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  color: red;
+  font-size: 14px;
+}
+
+<button
+  class=""
+>
+  <span
+    class="c0"
+    color="red"
+  >
+    content
+  </span>
+</button>
+`;
+
+exports[`variant and prop both present using same keys: props take priority 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  color: red;
+  font-size: 5px;
+}
+
+<button
+  class=""
+>
+  <span
+    class="c0"
+    color="red"
+  >
+    content
+  </span>
+</button>
+`;

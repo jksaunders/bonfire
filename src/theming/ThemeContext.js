@@ -85,16 +85,20 @@ export const getVariant = (componentName, props, propsToCheck) => {
     ? propsToCheck
     : Object.keys(propsToCheck);
 
+  const objectCheck = (o, key) =>
+    o != null && typeof o === 'object' && !isArray(o) && o[key] != null;
+
   toCheck.forEach(k => {
-    if (props[k] != null) {
+    if (objectCheck(props, k) && objectCheck(themeVariant, k)) {
+      result[k] = {
+        ...themeVariant[k],
+        ...props[k],
+      };
+    } else if (props[k] != null) {
       result[k] = props[k];
     } else if (themeVariant != null) {
       result[k] = themeVariant[k];
-    } else if (
-      typeof variant === 'object' &&
-      variant != null &&
-      variant[k] != null
-    ) {
+    } else if (objectCheck(variant, k)) {
       result[k] = variant[k];
     }
   });
