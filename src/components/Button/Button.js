@@ -12,7 +12,7 @@ const StyledButton = styled.button`
   ${css('borderWidth', 'border-width')}
   ${css('cursor')}
   ${css('padding')}
-  width: ${({ width }) => width};
+  ${css('width')}
 `;
 
 const buttonStyleProps = {
