@@ -43,7 +43,7 @@ const defaultProps = {
   borderRadius: null,
   borderStyle: null,
   borderWidth: null,
-  cursor: 'pointer',
+  cursor: null,
   padding: null,
   typography: null,
   /* eslint-enable react/default-props-match-prop-types */
