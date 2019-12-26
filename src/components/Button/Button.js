@@ -10,7 +10,7 @@ const StyledButton = styled.button`
   ${css('borderRadius', 'border-radius')}
   ${css('borderStyle', 'border-style')}
   ${css('borderWidth', 'border-width')}
-  ${css('cursor')}
+  ${css('cursor', 'cursor', props => (props.disabled ? 'auto' : props.cursor))}
   ${css('padding')}
   ${css('width')}
 `;
