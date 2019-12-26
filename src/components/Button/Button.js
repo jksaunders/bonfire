@@ -20,6 +20,7 @@ const buttonStyleProps = {
   borderRadius: PropTypes.string,
   borderStyle: PropTypes.string,
   borderWidth: PropTypes.string,
+  cursor: PropTypes.string,
   padding: PropTypes.string,
   typography: PropTypes.shape(typographyPropTypes),
 };
@@ -29,7 +30,6 @@ const propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   text: PropTypes.string.isRequired,
-  cursor: PropTypes.string,
   variant: PropTypes.oneOfType([
     PropTypes.shape(buttonStyleProps),
     PropTypes.string,
@@ -43,10 +43,10 @@ const defaultProps = {
   borderRadius: null,
   borderStyle: null,
   borderWidth: null,
+  cursor: 'pointer',
   padding: null,
   typography: null,
   /* eslint-enable react/default-props-match-prop-types */
-  cursor: 'pointer',
   disabled: false,
   onClick: () => {},
   variant: null,
