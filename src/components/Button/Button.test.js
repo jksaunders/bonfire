@@ -16,13 +16,14 @@ test('`Button` renders', () => {
   expectSnapshot(component);
 });
 
-describe('`Button styles', () => {
+describe('`Button` styles', () => {
   [
     { prop: 'background', key: 'background-color', value: '#ff0000' },
     { prop: 'borderRadius', key: 'border-radius', value: '1px' },
     { prop: 'borderStyle', key: 'border-style', value: 'solid' },
     { prop: 'borderWidth', key: 'border-width', value: '2px' },
     { prop: 'padding', value: '10px' },
+    { prop: 'padding', value: '10px 20px' },
   ].forEach(testCase => {
     test(`Prop: ${testCase.prop} has value ${testCase.value}`, () => {
       const { component } = getButton({

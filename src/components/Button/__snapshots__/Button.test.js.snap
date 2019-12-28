@@ -1,6 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`\`Button styles Prop: background has value #ff0000 1`] = `
+exports[`\`Button\` renders 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+<button
+  class=""
+>
+  <span
+    class="c0"
+  >
+    Test text
+  </span>
+</button>
+`;
+
+exports[`\`Button\` styles Prop: background has value #ff0000 1`] = `
 .c1 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -21,7 +38,7 @@ exports[`\`Button styles Prop: background has value #ff0000 1`] = `
 </button>
 `;
 
-exports[`\`Button styles Prop: borderRadius has value 1px 1`] = `
+exports[`\`Button\` styles Prop: borderRadius has value 1px 1`] = `
 .c1 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -42,7 +59,7 @@ exports[`\`Button styles Prop: borderRadius has value 1px 1`] = `
 </button>
 `;
 
-exports[`\`Button styles Prop: borderStyle has value solid 1`] = `
+exports[`\`Button\` styles Prop: borderStyle has value solid 1`] = `
 .c1 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -63,7 +80,7 @@ exports[`\`Button styles Prop: borderStyle has value solid 1`] = `
 </button>
 `;
 
-exports[`\`Button styles Prop: borderWidth has value 2px 1`] = `
+exports[`\`Button\` styles Prop: borderWidth has value 2px 1`] = `
 .c1 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -84,7 +101,7 @@ exports[`\`Button styles Prop: borderWidth has value 2px 1`] = `
 </button>
 `;
 
-exports[`\`Button styles Prop: padding has value 10px 1`] = `
+exports[`\`Button\` styles Prop: padding has value 10px 1`] = `
 .c1 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -105,17 +122,21 @@ exports[`\`Button styles Prop: padding has value 10px 1`] = `
 </button>
 `;
 
-exports[`\`Button\` renders 1`] = `
-.c0 {
+exports[`\`Button\` styles Prop: padding has value 10px 20px 1`] = `
+.c1 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
 }
 
+.c0 {
+  padding: 10px 20px;
+}
+
 <button
-  class=""
+  class="c0"
 >
   <span
-    class="c0"
+    class="c1"
   >
     Test text
   </span>
