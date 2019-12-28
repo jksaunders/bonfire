@@ -3,73 +3,82 @@ import { expectExists, expectSnapshot, expectStyle, render } from '../testing';
 import Button from '../components/Button';
 import { ThemeRoot } from './ThemeContext';
 
-describe('variant and prop both present', () => {
-  test('using different keys: object merged', () => {
-    const { component, getByText } = render(
-      <ThemeRoot
-        initialTheme={{
-          current: {
-            mode: 'light',
+const initialTheme = {
+  current: {},
+  variants: {
+    components: {
+      button: {
+        primary: {
+          padding: '15px 20px',
+          typography: {
+            color: 'red',
+            size: '14px',
           },
-          variants: {
-            components: {
-              button: {
-                primary: {
-                  typography: {
-                    size: '14px',
-                  },
-                },
-              },
-            },
-          },
-        }}
-      >
-        <Button
-          text="content"
-          typography={{ color: 'red' }}
-          variant="primary"
-        />
-      </ThemeRoot>
-    );
-    expectExists(component);
-    expectSnapshot(component);
+        },
+      },
+    },
+  },
+};
 
-    const span = getByText('content');
-    expectExists(span);
-    expectStyle(span, 'color', 'red');
-    expectStyle(span, 'font-size', '14px');
+describe('variant and prop both present', () => {
+  describe('string value', () => {
+    test('using same keys: props take priority', () => {
+      const { component, getByText } = render(
+        <ThemeRoot initialTheme={initialTheme}>
+          <Button text="content" padding="5px 5px" variant="primary" />
+        </ThemeRoot>
+      );
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, 'padding', '5px 5px');
+
+      const span = getByText('content');
+      expectExists(span);
+      expectStyle(span, 'color', 'red');
+      expectStyle(span, 'font-size', '14px');
+    });
   });
 
-  test('using same keys: props take priority', () => {
-    const { component, getByText } = render(
-      <ThemeRoot
-        initialTheme={{
-          current: {
-            mode: 'light',
-          },
-          variants: {
-            components: {
-              button: {
-                primary: {
-                  typography: {
-                    color: 'red',
-                    size: '14px',
-                  },
-                },
-              },
-            },
-          },
-        }}
-      >
-        <Button text="content" typography={{ size: '5px' }} variant="primary" />
-      </ThemeRoot>
-    );
-    expectExists(component);
-    expectSnapshot(component);
+  describe('object value', () => {
+    test('using different keys: object merged', () => {
+      const { component, getByText } = render(
+        <ThemeRoot initialTheme={initialTheme}>
+          <Button
+            text="content"
+            typography={{ align: 'left' }}
+            variant="primary"
+          />
+        </ThemeRoot>
+      );
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, 'padding', '15px 20px');
 
-    const span = getByText('content');
-    expectExists(span);
-    expectStyle(span, 'color', 'red');
-    expectStyle(span, 'font-size', '5px');
+      const span = getByText('content');
+      expectExists(span);
+      expectStyle(span, 'color', 'red');
+      expectStyle(span, 'font-size', '14px');
+      expectStyle(span, 'text-align', 'left');
+    });
+
+    test('using same keys: props take priority', () => {
+      const { component, getByText } = render(
+        <ThemeRoot initialTheme={initialTheme}>
+          <Button
+            text="content"
+            typography={{ size: '5px' }}
+            variant="primary"
+          />
+        </ThemeRoot>
+      );
+      expectExists(component);
+      expectSnapshot(component);
+      expectStyle(component, 'padding', '15px 20px');
+
+      const span = getByText('content');
+      expectExists(span);
+      expectStyle(span, 'color', 'red');
+      expectStyle(span, 'font-size', '5px');
+    });
   });
 });
