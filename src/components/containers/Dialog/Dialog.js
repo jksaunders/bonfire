@@ -14,6 +14,7 @@ const defaultProps = {
 
 const Dialog = ({ children, onClose, ...rest }) => (
   <MaterialDialog
+    maxWidth={false}
     onBackdropClick={onClose == null ? () => {} : () => onClose()}
     {...rest}
   >
