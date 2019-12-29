@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog closed 1`] = `<div />`;
+
+exports[`Dialog open 1`] = `
+<div
+  class="MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthFalse MuiPaper-rounded"
+  role="dialog"
+>
+  test-dialog
+</div>
+`;
