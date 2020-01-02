@@ -4,3 +4,4 @@ export { default as Typography } from './Typography';
 export * from './Typography';
 export { default as UserCard } from './UserCard';
 export * from './containers';
+export * from './inputs';
