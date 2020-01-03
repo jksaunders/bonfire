@@ -11,7 +11,10 @@ export default {
 };
 
 export const TextFieldStory = () => {
-  return <TextField placeholder="Text field" />;
+  return (
+    // eslint-disable-next-line no-console
+    <TextField placeholder="Text field" onSubmit={() => console.log('Done!')} />
+  );
 };
 
 TextFieldStory.story = {

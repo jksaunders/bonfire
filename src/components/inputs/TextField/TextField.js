@@ -16,6 +16,7 @@ const propTypes = {
   ]),
   name: PropTypes.string,
   onInput: PropTypes.func,
+  onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
   showError: PropTypes.bool,
   validate: PropTypes.func,
@@ -25,6 +26,7 @@ const defaultProps = {
   ...BoxDefaultProps,
   name: null,
   onInput: null,
+  onSubmit: null,
   placeholder: null,
   showError: true,
   validate: null,
@@ -74,10 +76,23 @@ const getOnInput = ({ onInput, validate, currentError, setError }) => {
   };
 };
 
+const getOnKeyUp = ({ onSubmit }) => {
+  if (onSubmit == null) {
+    return null;
+  }
+
+  return e => {
+    if (e.keyCode === 13 || e.which === 13) {
+      onSubmit();
+    }
+  };
+};
+
 const TextField = ({
   name,
   error: errorProp,
   onInput,
+  onSubmit,
   placeholder,
   showError,
   validate,
@@ -110,6 +125,7 @@ const TextField = ({
         type="text"
         name={name}
         onInput={getOnInput({ onInput, validate, error, setError })}
+        onKeyUp={getOnKeyUp({ onSubmit })}
         placeholder={placeholder}
         ref={inputRef}
       />
