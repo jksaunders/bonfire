@@ -15,6 +15,7 @@ const propTypes = {
     }),
   ]),
   name: PropTypes.string,
+  onInput: PropTypes.func,
   placeholder: PropTypes.string,
   showError: PropTypes.bool,
   validate: PropTypes.func,
@@ -23,6 +24,7 @@ const propTypes = {
 const defaultProps = {
   ...BoxDefaultProps,
   name: null,
+  onInput: null,
   placeholder: null,
   showError: true,
   validate: null,
@@ -59,17 +61,23 @@ const validateString = (string, validate, currentError, setError) => {
   }
 };
 
-const getOnInput = (validate, currentError, setError) => {
-  if (validate == null) {
+const getOnInput = ({ onInput, validate, currentError, setError }) => {
+  if (onInput == null && validate == null) {
     return null;
   }
 
-  return e => validateString(e.target.value, validate, currentError, setError);
+  return e => {
+    if (onInput != null) {
+      onInput(e.target.value);
+    }
+    validateString(e.target.value, validate, currentError, setError);
+  };
 };
 
 const TextField = ({
   name,
   error: errorProp,
+  onInput,
   placeholder,
   showError,
   validate,
@@ -101,7 +109,7 @@ const TextField = ({
         padding="3px"
         type="text"
         name={name}
-        onInput={getOnInput(validate, error, setError)}
+        onInput={getOnInput({ onInput, validate, error, setError })}
         placeholder={placeholder}
         ref={inputRef}
       />
