@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Typography, { typographyPropTypes } from '../Typography';
+import Progress from '../Progress';
 import { getVariant, withThemes } from '../../theming/ThemeContext';
 import { css, cssBackground } from '../../styling';
 
@@ -11,6 +12,7 @@ const StyledButton = styled.button`
   ${css('borderStyle', 'border-style')}
   ${css('borderWidth', 'border-width')}
   ${css('cursor', 'cursor', props => (props.disabled ? 'auto' : props.cursor))}
+  ${css('height')}
   ${css('padding')}
   ${css('width')}
 `;
@@ -28,6 +30,7 @@ const buttonStyleProps = {
 const propTypes = {
   ...buttonStyleProps,
   disabled: PropTypes.bool,
+  height: PropTypes.string,
   onClick: PropTypes.func,
   text: PropTypes.string.isRequired,
   variant: PropTypes.oneOfType([
@@ -48,12 +51,21 @@ const defaultProps = {
   typography: null,
   /* eslint-enable react/default-props-match-prop-types */
   disabled: false,
+  height: null,
   onClick: () => {},
   variant: null,
-  width: '100px',
+  width: null,
 };
 
-const Button = ({ disabled, onClick, text, ...props }) => {
+const Button = ({
+  disabled,
+  height,
+  loading,
+  onClick,
+  text,
+  width,
+  ...props
+}) => {
   const { typography, ...buttonVariant } = getVariant(
     'button',
     props,
@@ -62,11 +74,19 @@ const Button = ({ disabled, onClick, text, ...props }) => {
   return (
     <StyledButton
       disabled={disabled}
+      height={height}
       onClick={onClick}
       text={text}
+      width={width}
       {...buttonVariant}
     >
-      <Typography {...typography}>{text}</Typography>
+      {loading && (
+        <Progress
+          color={typography == null ? null : typography.color}
+          size={typography.size}
+        />
+      )}
+      {!loading && <Typography {...typography}>{text}</Typography>}
     </StyledButton>
   );
 };

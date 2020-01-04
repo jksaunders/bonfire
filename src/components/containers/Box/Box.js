@@ -75,7 +75,7 @@ const Box = React.forwardRef(({ children, component, ...rest }, ref) => (
   </StyledBox>
 ));
 
-Box.propTypes = { ...BoxPropTypes, component: PropTypes.string.isRequired };
-Box.defaultProps = BoxDefaultProps;
+Box.propTypes = { ...BoxPropTypes, component: PropTypes.string };
+Box.defaultProps = { ...BoxDefaultProps, component: 'div' };
 
 export default Box;
