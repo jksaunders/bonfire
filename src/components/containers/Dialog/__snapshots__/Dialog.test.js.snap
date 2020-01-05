@@ -4,7 +4,7 @@ exports[`Dialog closed 1`] = `<div />`;
 
 exports[`Dialog open 1`] = `
 <div
-  class="MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthFalse MuiPaper-rounded"
+  class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthFalse MuiPaper-elevation24 MuiPaper-rounded"
   role="dialog"
 >
   test-dialog

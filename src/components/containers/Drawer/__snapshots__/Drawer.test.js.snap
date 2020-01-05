@@ -18,7 +18,7 @@ exports[`Drawer open 1`] = `
     tabindex="0"
   />
   <div
-    class="MuiPaper-root MuiPaper-elevation16 MuiDrawer-paper MuiDrawer-paperAnchorLeft"
+    class="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiPaper-elevation16"
     tabindex="-1"
   />
   <div
