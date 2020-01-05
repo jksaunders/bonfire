@@ -21,6 +21,10 @@ exports[`renders 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
+.c2 {
+  width: 100%;
+}
+
 .c2::-webkit-input-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
@@ -77,6 +81,10 @@ exports[`validation error is passed as a prop error is shown when input is valid
   box-sizing: border-box;
   grid-gap: 4px;
   -webkit-font-smoothing: antialiased;
+}
+
+.c2 {
+  width: 100%;
 }
 
 .c2::-webkit-input-placeholder {

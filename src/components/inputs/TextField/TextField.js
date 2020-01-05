@@ -35,6 +35,7 @@ const defaultProps = {
 const borderColor = 'rgba(102,119,136,.2)';
 
 const StyledInput = styled(Box)`
+  width: 100%;
   ::placeholder {
     color: ${borderColor};
     font-size: 1rem;
