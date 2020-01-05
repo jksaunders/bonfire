@@ -150,15 +150,19 @@ const Grid = styled.div`
   ${cssTypography('typographyProps')}
 `;
 
-const Layout = ({ children, useTypography, ...rest }) => {
+const Layout = React.forwardRef(({ children, useTypography, ...rest }, ref) => {
   const typographyProps = useContext(TypographyContext);
 
   return (
-    <Grid typographyProps={useTypography ? typographyProps : {}} {...rest}>
+    <Grid
+      typographyProps={useTypography ? typographyProps : {}}
+      {...rest}
+      ref={ref}
+    >
       {children}
     </Grid>
   );
-};
+});
 
 Layout.propTypes = propTypes;
 Layout.defaultProps = defaultProps;
