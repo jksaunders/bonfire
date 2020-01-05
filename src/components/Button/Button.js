@@ -29,10 +29,11 @@ const buttonStyleProps = {
 
 const propTypes = {
   ...buttonStyleProps,
+  className: PropTypes.string,
   disabled: PropTypes.bool,
   height: PropTypes.string,
   onClick: PropTypes.func,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   variant: PropTypes.oneOfType([
     PropTypes.shape(buttonStyleProps),
     PropTypes.string,
@@ -46,10 +47,11 @@ const defaultProps = {
   borderRadius: null,
   borderStyle: null,
   borderWidth: null,
-  cursor: null,
+  cursor: 'pointer',
   padding: null,
   typography: null,
   /* eslint-enable react/default-props-match-prop-types */
+  className: null,
   disabled: false,
   height: null,
   onClick: () => {},
@@ -58,6 +60,7 @@ const defaultProps = {
 };
 
 const Button = ({
+  className,
   disabled,
   height,
   loading,
@@ -73,6 +76,7 @@ const Button = ({
   );
   return (
     <StyledButton
+      className={className}
       disabled={disabled}
       height={height}
       onClick={onClick}

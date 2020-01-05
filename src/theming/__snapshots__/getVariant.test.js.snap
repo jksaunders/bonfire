@@ -10,11 +10,13 @@ exports[`variant and prop both present object value using different keys: object
 }
 
 .c0 {
+  cursor: pointer;
   padding: 15px 20px;
 }
 
 <button
   class="c0"
+  cursor="pointer"
 >
   <span
     class="c1"
@@ -34,11 +36,13 @@ exports[`variant and prop both present object value using same keys: props take 
 }
 
 .c0 {
+  cursor: pointer;
   padding: 15px 20px;
 }
 
 <button
   class="c0"
+  cursor="pointer"
 >
   <span
     class="c1"
@@ -58,11 +62,13 @@ exports[`variant and prop both present string value using same keys: props take 
 }
 
 .c0 {
+  cursor: pointer;
   padding: 5px 5px;
 }
 
 <button
   class="c0"
+  cursor="pointer"
 >
   <span
     class="c1"
