@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { css, cssBackground, cssBorder, CssRuleType } from '../../../styling';
+import { withThemes } from '../../../theming';
 
 export const BoxPropTypes = {
   align: CssRuleType(PropTypes.string),
@@ -10,6 +11,7 @@ export const BoxPropTypes = {
   borderRadius: CssRuleType(PropTypes.string),
   children: PropTypes.node,
   className: CssRuleType(PropTypes.string),
+  cursor: CssRuleType(PropTypes.string),
   elevation: CssRuleType(PropTypes.number),
   full: PropTypes.bool,
   fullHeight: PropTypes.bool,
@@ -94,6 +96,7 @@ const StyledBox = styled.div`
       props => materialPaperElevations[props.elevation],
     ]
   )}
+  ${css('cursor')}
 
   ${/* sizing */ ''}
   ${css(
@@ -124,4 +127,4 @@ const Box = React.forwardRef(({ children, component, ...rest }, ref) => (
 Box.propTypes = { ...BoxPropTypes, component: PropTypes.string };
 Box.defaultProps = { ...BoxDefaultProps, component: 'div' };
 
-export default Box;
+export default withThemes(Box);

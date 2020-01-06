@@ -1,29 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Box, { BoxPropTypes, BoxDefaultProps } from '../containers/Box';
 import Typography, { typographyPropTypes } from '../Typography';
 import Progress from '../Progress';
 import { getVariant, withThemes } from '../../theming/ThemeContext';
 import { css, cssBackground } from '../../styling';
 
-const StyledButton = styled.button`
+const StyledBox = styled(Box)`
   ${props => cssBackground(props, { alpha: props.disabled ? 0.5 : 1 })}
-  ${css('borderRadius', 'border-radius')}
-  ${css('borderStyle', 'border-style')}
-  ${css('borderWidth', 'border-width')}
   ${css('cursor', 'cursor', props => (props.disabled ? 'auto' : props.cursor))}
-  ${css('height')}
-  ${css('padding')}
-  ${css('width')}
 `;
 
 const buttonStyleProps = {
-  background: PropTypes.string,
-  borderRadius: PropTypes.string,
-  borderStyle: PropTypes.string,
-  borderWidth: PropTypes.string,
-  cursor: PropTypes.string,
-  padding: PropTypes.string,
+  ...BoxPropTypes,
   typography: PropTypes.shape(typographyPropTypes),
 };
 
@@ -38,17 +28,12 @@ const propTypes = {
     PropTypes.shape(buttonStyleProps),
     PropTypes.string,
   ]),
-  width: PropTypes.string,
 };
 
 const defaultProps = {
+  ...BoxDefaultProps,
   /* eslint-disable react/default-props-match-prop-types */
-  background: null,
-  borderRadius: null,
-  borderStyle: null,
-  borderWidth: null,
   cursor: 'pointer',
-  padding: null,
   typography: null,
   /* eslint-enable react/default-props-match-prop-types */
   className: null,
@@ -56,7 +41,6 @@ const defaultProps = {
   height: null,
   onClick: () => {},
   variant: null,
-  width: null,
 };
 
 const Button = ({
@@ -75,8 +59,9 @@ const Button = ({
     buttonStyleProps
   );
   return (
-    <StyledButton
+    <StyledBox
       className={className}
+      component="button"
       disabled={disabled}
       height={height}
       onClick={onClick}
@@ -91,7 +76,7 @@ const Button = ({
         />
       )}
       {!loading && <Typography {...typography}>{text}</Typography>}
-    </StyledButton>
+    </StyledBox>
   );
 };
 

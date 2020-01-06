@@ -1,21 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`\`Button\` renders 1`] = `
-.c1 {
+.c0 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
 }
 
-.c0 {
+.c1 {
   cursor: pointer;
 }
 
 <button
-  class="c0"
+  class="c0 c1"
   cursor="pointer"
 >
   <span
-    class="c1"
+    class="c2"
   >
     Test text
   </span>
@@ -23,22 +34,68 @@ exports[`\`Button\` renders 1`] = `
 `;
 
 exports[`\`Button\` styles Prop: background has value #ff0000 1`] = `
-.c1 {
+.c0 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  background-color: #ff0000;
+  cursor: pointer;
+}
+
+.c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
 }
 
-.c0 {
+.c1 {
   background-color: #ff0000;
   cursor: pointer;
 }
 
 <button
-  class="c0"
+  class="c0 c1"
   cursor="pointer"
 >
   <span
-    class="c1"
+    class="c2"
+  >
+    Test text
+  </span>
+</button>
+`;
+
+exports[`\`Button\` styles Prop: border has value solid 1px 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  border: solid 1px;
+  cursor: pointer;
+}
+
+.c2 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  cursor: pointer;
+}
+
+<button
+  class="c0 c1"
+  cursor="pointer"
+>
+  <span
+    class="c2"
   >
     Test text
   </span>
@@ -46,68 +103,33 @@ exports[`\`Button\` styles Prop: background has value #ff0000 1`] = `
 `;
 
 exports[`\`Button\` styles Prop: borderRadius has value 1px 1`] = `
-.c1 {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-}
-
 .c0 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
   border-radius: 1px;
   cursor: pointer;
 }
 
-<button
-  class="c0"
-  cursor="pointer"
->
-  <span
-    class="c1"
-  >
-    Test text
-  </span>
-</button>
-`;
-
-exports[`\`Button\` styles Prop: borderStyle has value solid 1`] = `
-.c1 {
+.c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
 }
 
-.c0 {
-  border-style: solid;
-  cursor: pointer;
-}
-
-<button
-  class="c0"
-  cursor="pointer"
->
-  <span
-    class="c1"
-  >
-    Test text
-  </span>
-</button>
-`;
-
-exports[`\`Button\` styles Prop: borderWidth has value 2px 1`] = `
 .c1 {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-}
-
-.c0 {
-  border-width: 2px;
   cursor: pointer;
 }
 
 <button
-  class="c0"
+  class="c0 c1"
   cursor="pointer"
 >
   <span
-    class="c1"
+    class="c2"
   >
     Test text
   </span>
@@ -115,22 +137,33 @@ exports[`\`Button\` styles Prop: borderWidth has value 2px 1`] = `
 `;
 
 exports[`\`Button\` styles Prop: padding has value 10px 1`] = `
-.c1 {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-}
-
 .c0 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
   cursor: pointer;
   padding: 10px;
 }
 
+.c2 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  cursor: pointer;
+}
+
 <button
-  class="c0"
+  class="c0 c1"
   cursor="pointer"
 >
   <span
-    class="c1"
+    class="c2"
   >
     Test text
   </span>
@@ -138,22 +171,33 @@ exports[`\`Button\` styles Prop: padding has value 10px 1`] = `
 `;
 
 exports[`\`Button\` styles Prop: padding has value 10px 20px 1`] = `
-.c1 {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-}
-
 .c0 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
   cursor: pointer;
   padding: 10px 20px;
 }
 
+.c2 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  cursor: pointer;
+}
+
 <button
-  class="c0"
+  class="c0 c1"
   cursor="pointer"
 >
   <span
-    class="c1"
+    class="c2"
   >
     Test text
   </span>
@@ -161,22 +205,33 @@ exports[`\`Button\` styles Prop: padding has value 10px 20px 1`] = `
 `;
 
 exports[`\`Typography\` styles Prop: color has value #ff0000 1`] = `
-.c1 {
+.c0 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   color: #ff0000;
 }
 
-.c0 {
+.c1 {
   cursor: pointer;
 }
 
 <button
-  class="c0"
+  class="c0 c1"
   cursor="pointer"
 >
   <span
-    class="c1"
+    class="c2"
     color="#ff0000"
   >
     Test text
@@ -186,7 +241,7 @@ exports[`\`Typography\` styles Prop: color has value #ff0000 1`] = `
 
 exports[`\`Typography\` styles Prop: color has value #ff0000 2`] = `
 <span
-  class="sc-bdVaJa kBwMOF"
+  class="sc-bwzfXH jEThsa"
   color="#ff0000"
 >
   Test text
@@ -194,22 +249,33 @@ exports[`\`Typography\` styles Prop: color has value #ff0000 2`] = `
 `;
 
 exports[`\`Typography\` styles Prop: size has value 14px 1`] = `
-.c1 {
+.c0 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
 }
 
-.c0 {
+.c1 {
   cursor: pointer;
 }
 
 <button
-  class="c0"
+  class="c0 c1"
   cursor="pointer"
 >
   <span
-    class="c1"
+    class="c2"
   >
     Test text
   </span>
@@ -218,7 +284,7 @@ exports[`\`Typography\` styles Prop: size has value 14px 1`] = `
 
 exports[`\`Typography\` styles Prop: size has value 14px 2`] = `
 <span
-  class="sc-bdVaJa fOTNNx"
+  class="sc-bwzfXH eXSLtH"
 >
   Test text
 </span>

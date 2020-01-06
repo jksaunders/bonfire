@@ -109,11 +109,12 @@ export const getVariant = (componentName, props, propsToCheck) => {
   return result;
 };
 
-export const withThemes = Component => props => {
-  const theme = useContext(ThemeContext);
-  const bonfireProps = { [bonfireThemePropKey]: theme };
-  return <Component {...props} {...bonfireProps} />;
-};
+export const withThemes = Component =>
+  React.forwardRef((props, ref) => {
+    const theme = useContext(ThemeContext);
+    const bonfireProps = { [bonfireThemePropKey]: theme };
+    return <Component {...props} {...bonfireProps} ref={ref} />;
+  });
 
 // eslint-disable-next-line react/prop-types
 export const ThemeRoot = ({ children, initialTheme }) => {
