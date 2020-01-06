@@ -13,12 +13,13 @@ export default {
 export const TextFieldStory = () => {
   const error = text('Error', '');
   const label = text('Label', '');
+  const placeholder = text('Placeholder', '');
 
   return (
     <TextField
       error={error === '' ? null : error}
       label={label === '' ? null : label}
-      placeholder="Text field"
+      placeholder={placeholder === '' ? null : placeholder}
       // eslint-disable-next-line no-console
       onSubmit={() => console.log('Done!')}
     />
@@ -29,10 +30,20 @@ TextFieldStory.story = {
   name: 'Text Field',
 };
 
-export const Styled = () => (
-  <TypographyContext.Provider value={TrelloVariants.Body}>
-    <Layout maxWidth="50%" useTypography>
-      <TextField placeholder="Text field" />
-    </Layout>
-  </TypographyContext.Provider>
-);
+export const Styled = () => {
+  const error = text('Error', '');
+  const label = text('Label', '');
+  const placeholder = text('Placeholder', '');
+
+  return (
+    <TypographyContext.Provider value={TrelloVariants.Body}>
+      <Layout maxWidth="50%" useTypography>
+        <TextField
+          error={error === '' ? null : error}
+          label={label === '' ? null : label}
+          placeholder={placeholder === '' ? null : placeholder}
+        />
+      </Layout>
+    </TypographyContext.Provider>
+  );
+};
