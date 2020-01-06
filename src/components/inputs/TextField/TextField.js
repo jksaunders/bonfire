@@ -14,6 +14,7 @@ const propTypes = {
       color: PropTypes.string,
     }),
   ]),
+  label: PropTypes.string,
   name: PropTypes.string,
   onInput: PropTypes.func,
   onSubmit: PropTypes.func,
@@ -24,6 +25,7 @@ const propTypes = {
 
 const defaultProps = {
   ...BoxDefaultProps,
+  label: null,
   name: null,
   onInput: null,
   onSubmit: null,
@@ -90,8 +92,9 @@ const getOnKeyUp = ({ onSubmit }) => {
 };
 
 const TextField = ({
-  name,
   error: errorProp,
+  label,
+  name,
   onInput,
   onSubmit,
   placeholder,
@@ -117,6 +120,9 @@ const TextField = ({
 
   return (
     <Layout gap="4px">
+      <label>
+        <Typography size="14px">{label}</Typography>
+      </label>
       <StyledInput
         {...rest}
         border={`1px solid ${borderColor}`}

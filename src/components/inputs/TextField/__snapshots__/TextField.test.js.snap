@@ -1,63 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders 1`] = `
-.c1 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  box-sizing: border-box;
-  border: 1px solid rgba(102,119,136,.2);
-  border-radius: 5px;
-  padding: 3px;
-}
-
-.c0 {
-  display: grid;
-  box-sizing: border-box;
-  grid-gap: 4px;
-  -webkit-font-smoothing: antialiased;
-}
-
 .c2 {
-  width: 100%;
-}
-
-.c2::-webkit-input-placeholder {
-  color: rgba(102,119,136,.2);
-  font-size: 1rem;
-}
-
-.c2::-moz-placeholder {
-  color: rgba(102,119,136,.2);
-  font-size: 1rem;
-}
-
-.c2:-ms-input-placeholder {
-  color: rgba(102,119,136,.2);
-  font-size: 1rem;
-}
-
-.c2::placeholder {
-  color: rgba(102,119,136,.2);
-  font-size: 1rem;
-}
-
-<div
-  class="c0"
->
-  <input
-    class="c1 c2"
-    placeholder="input placeholder"
-    type="text"
-  />
-</div>
-`;
-
-exports[`validation error is passed as a prop error is shown when input is valid 1`] = `
-.c1 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -70,7 +14,7 @@ exports[`validation error is passed as a prop error is shown when input is valid
   padding: 3px;
 }
 
-.c3 {
+.c1 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
@@ -83,26 +27,26 @@ exports[`validation error is passed as a prop error is shown when input is valid
   -webkit-font-smoothing: antialiased;
 }
 
-.c2 {
+.c3 {
   width: 100%;
 }
 
-.c2::-webkit-input-placeholder {
+.c3::-webkit-input-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c2::-moz-placeholder {
+.c3::-moz-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c2:-ms-input-placeholder {
+.c3:-ms-input-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c2::placeholder {
+.c3::placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
@@ -110,13 +54,85 @@ exports[`validation error is passed as a prop error is shown when input is valid
 <div
   class="c0"
 >
+  <label>
+    <span
+      class="c1"
+    />
+  </label>
   <input
-    class="c1 c2"
+    class="c2 c3"
+    placeholder="input placeholder"
+    type="text"
+  />
+</div>
+`;
+
+exports[`validation error is passed as a prop error is shown when input is valid 1`] = `
+.c2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  border: 1px solid rgba(102,119,136,.2);
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.c1 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+
+.c0 {
+  display: grid;
+  box-sizing: border-box;
+  grid-gap: 4px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c3 {
+  width: 100%;
+}
+
+.c3::-webkit-input-placeholder {
+  color: rgba(102,119,136,.2);
+  font-size: 1rem;
+}
+
+.c3::-moz-placeholder {
+  color: rgba(102,119,136,.2);
+  font-size: 1rem;
+}
+
+.c3:-ms-input-placeholder {
+  color: rgba(102,119,136,.2);
+  font-size: 1rem;
+}
+
+.c3::placeholder {
+  color: rgba(102,119,136,.2);
+  font-size: 1rem;
+}
+
+<div
+  class="c0"
+>
+  <label>
+    <span
+      class="c1"
+    />
+  </label>
+  <input
+    class="c2 c3"
     placeholder="input placeholder"
     type="text"
   />
   <span
-    class="c3"
+    class="c1"
   >
     test error
   </span>

@@ -23,6 +23,7 @@
       "react/button-has-type": "off",
       "react/jsx-filename-extension": "off",
       "react/jsx-props-no-spreading": "off",
-      "react/no-array-index-key": "off"
+      "react/no-array-index-key": "off",
+      "jsx-a11y/label-has-associated-control": "off"
     }
   }

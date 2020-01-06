@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import Layout from '../../containers/Layout';
 import TextField from './TextField';
 import { TypographyContext, TrelloVariants } from '../../Typography';
@@ -11,9 +11,17 @@ export default {
 };
 
 export const TextFieldStory = () => {
+  const error = text('Error', '');
+  const label = text('Label', '');
+
   return (
-    // eslint-disable-next-line no-console
-    <TextField placeholder="Text field" onSubmit={() => console.log('Done!')} />
+    <TextField
+      error={error === '' ? null : error}
+      label={label === '' ? null : label}
+      placeholder="Text field"
+      // eslint-disable-next-line no-console
+      onSubmit={() => console.log('Done!')}
+    />
   );
 };
 
