@@ -93,13 +93,19 @@ const getOnKeyUp = ({ onSubmit }) => {
 
 const TextField = ({
   error: errorProp,
+  height,
   label,
+  maxHeight,
+  minHeight,
+  maxWidth,
+  minWidth,
   name,
   onInput,
   onSubmit,
   placeholder,
   showError,
   validate,
+  width,
   ...rest
 }) => {
   const [error, setError] = useState(false);
@@ -119,7 +125,15 @@ const TextField = ({
   }, [validate, errorProp, error]);
 
   return (
-    <Layout gap="4px">
+    <Layout
+      gap="4px"
+      height={height}
+      maxHeight={maxHeight}
+      minHeight={minHeight}
+      maxWidth={maxWidth}
+      minWidth={minWidth}
+      width={width}
+    >
       <label>
         <Typography size="14px">{label}</Typography>
       </label>
