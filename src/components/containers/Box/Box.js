@@ -28,7 +28,14 @@ export const BoxPropTypes = {
   width: CssRuleType(PropTypes.string),
 };
 
-export const BoxDefaultProps = Object.fromEntries(
+const fromEntries = iterable =>
+  [...iterable].reduce((obj, [key, val]) => {
+    // eslint-disable-next-line no-param-reassign
+    obj[key] = val;
+    return obj;
+  }, {});
+
+export const BoxDefaultProps = fromEntries(
   Object.entries(BoxPropTypes).map(e => [e[0], null])
 );
 
