@@ -199,7 +199,7 @@ exports[`\`Typography\` styles Prop: color has value #ff0000 1`] = `
 
 exports[`\`Typography\` styles Prop: color has value #ff0000 2`] = `
 <span
-  class="sc-htpNat dIOnZa"
+  class="sc-bwzfXH jEThsa"
   color="#ff0000"
 >
   Test text
@@ -236,7 +236,7 @@ exports[`\`Typography\` styles Prop: size has value 14px 1`] = `
 
 exports[`\`Typography\` styles Prop: size has value 14px 2`] = `
 <span
-  class="sc-htpNat hZajHm"
+  class="sc-bwzfXH eXSLtH"
 >
   Test text
 </span>
