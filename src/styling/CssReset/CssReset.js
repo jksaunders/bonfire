@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import React from 'react';
 
-const CssReset = styled.div`
+const cssResetString = `
   html,
   body,
   div,
+  button,
   span,
   applet,
   object,
@@ -126,5 +127,13 @@ const CssReset = styled.div`
     border-spacing: 0;
   }
 `;
+
+// eslint-disable-next-line react/prop-types
+const CssReset = ({ children }) => (
+  <>
+    <style id="cssReset">{cssResetString}</style>
+    {children}
+  </>
+);
 
 export default CssReset;
