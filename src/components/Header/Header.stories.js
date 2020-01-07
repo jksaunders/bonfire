@@ -31,7 +31,17 @@ export const NoLogo = () => {
           {
             text: 'Donate',
             onClick: action('Donate'),
-            variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY,
+            variant: {
+              background: '#166cb1',
+              borderRadius: '0.25em',
+              padding: '8px',
+              typography: {
+                bold: true,
+                color: 'white',
+                transform: 'uppercase',
+              },
+              width: '100px',
+            },
           },
         ]}
         height="125px"
@@ -62,7 +72,17 @@ export const WithLogo = () => {
           {
             text: 'Donate',
             onClick: action('Donate'),
-            variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY,
+            variant: {
+              background: '#166cb1',
+              borderRadius: '0.25em',
+              padding: '8px',
+              typography: {
+                bold: true,
+                color: 'white',
+                transform: 'uppercase',
+              },
+              width: '100px',
+            },
           },
         ]}
         height="125px"
@@ -107,7 +127,17 @@ const AutoFloatingHeaderStory = () => {
           {
             text: 'Donate',
             onClick: action('Donate'),
-            variant: Header.HeaderButton.CONSTANTS.VARIANT.PRIMARY,
+            variant: {
+              background: '#166cb1',
+              borderRadius: '0.25em',
+              padding: '8px',
+              typography: {
+                bold: true,
+                color: 'white',
+                transform: 'uppercase',
+              },
+              width: '100px',
+            },
           },
         ]}
         items={[

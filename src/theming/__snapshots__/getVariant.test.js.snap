@@ -3,6 +3,7 @@
 exports[`variant and prop both present object value using different keys: object merged 1`] = `
 .c0 {
   box-sizing: border-box;
+  border: none;
   cursor: pointer;
   padding: 15px 20px;
 }
@@ -35,6 +36,7 @@ exports[`variant and prop both present object value using different keys: object
 exports[`variant and prop both present object value using same keys: props take priority 1`] = `
 .c0 {
   box-sizing: border-box;
+  border: none;
   cursor: pointer;
   padding: 15px 20px;
 }
@@ -66,6 +68,7 @@ exports[`variant and prop both present object value using same keys: props take 
 exports[`variant and prop both present string value using same keys: props take priority 1`] = `
 .c0 {
   box-sizing: border-box;
+  border: none;
   cursor: pointer;
   padding: 5px 5px;
 }

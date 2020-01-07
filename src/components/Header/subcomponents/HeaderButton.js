@@ -28,6 +28,6 @@ const HeaderButton = ({ onClick, text, ...rest }) => (
 HeaderButton.propTypes = propTypes;
 HeaderButton.defaultProps = defaultProps;
 HeaderButton.shape = propTypes;
-HeaderButton.CONSTANTS = { ...Button.CONSTANTS, ...CONSTANTS };
+HeaderButton.CONSTANTS = CONSTANTS;
 
 export default HeaderButton;

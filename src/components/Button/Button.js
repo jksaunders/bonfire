@@ -33,6 +33,7 @@ const propTypes = {
 const defaultProps = {
   ...BoxDefaultProps,
   /* eslint-disable react/default-props-match-prop-types */
+  border: 'none',
   cursor: 'pointer',
   typography: null,
   /* eslint-enable react/default-props-match-prop-types */
