@@ -1,5 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`as textarea renders 1`] = `
+.c2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  border: 1px solid rgba(102,119,136,.2);
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.c1 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+
+.c0 {
+  display: grid;
+  box-sizing: border-box;
+  grid-gap: 4px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c3 {
+  width: 100%;
+}
+
+.c3::-webkit-input-placeholder {
+  color: rgba(102,119,136,.2);
+  font-size: 1rem;
+}
+
+.c3::-moz-placeholder {
+  color: rgba(102,119,136,.2);
+  font-size: 1rem;
+}
+
+.c3:-ms-input-placeholder {
+  color: rgba(102,119,136,.2);
+  font-size: 1rem;
+}
+
+.c3::placeholder {
+  color: rgba(102,119,136,.2);
+  font-size: 1rem;
+}
+
+<div
+  class="c0"
+>
+  <label>
+    <span
+      class="c1"
+    />
+  </label>
+  <textarea
+    class="c2 c3"
+    placeholder="input placeholder"
+    type="text"
+  />
+</div>
+`;
+
 exports[`renders 1`] = `
 .c2 {
   margin: 0;

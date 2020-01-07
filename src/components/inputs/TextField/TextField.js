@@ -20,6 +20,7 @@ const propTypes = {
   onSubmit: PropTypes.func,
   placeholder: PropTypes.string,
   showError: PropTypes.bool,
+  textArea: PropTypes.bool,
   validate: PropTypes.func,
 };
 
@@ -31,6 +32,7 @@ const defaultProps = {
   onSubmit: null,
   placeholder: null,
   showError: true,
+  textArea: false,
   validate: null,
 };
 
@@ -104,6 +106,7 @@ const TextField = ({
   onSubmit,
   placeholder,
   showError,
+  textArea,
   validate,
   width,
   ...rest
@@ -141,7 +144,7 @@ const TextField = ({
         {...rest}
         border={`1px solid ${borderColor}`}
         borderRadius="5px"
-        component="input"
+        component={textArea ? 'textarea' : 'input'}
         padding="3px"
         type="text"
         name={name}

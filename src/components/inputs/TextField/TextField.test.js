@@ -25,6 +25,20 @@ test('renders', () => {
   expectSnapshot(component);
 });
 
+describe('as textarea', () => {
+  test('renders', () => {
+    const { component, getByPlaceholderText } = getTextField({
+      textArea: true,
+    });
+    expectExists(component);
+    expectSnapshot(component);
+    expectExists(getByPlaceholderText(placeholder));
+    expect(getByPlaceholderText(placeholder).tagName.toLowerCase()).toBe(
+      'textarea'
+    );
+  });
+});
+
 describe('validation', () => {
   const validate = text => text.length === 5;
 

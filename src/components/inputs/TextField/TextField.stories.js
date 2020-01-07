@@ -30,6 +30,27 @@ TextFieldStory.story = {
   name: 'Text Field',
 };
 
+export const TextAreaStory = () => {
+  const error = text('Error', '');
+  const label = text('Label', '');
+  const placeholder = text('Placeholder', '');
+
+  return (
+    <TextField
+      textArea
+      error={error === '' ? null : error}
+      label={label === '' ? null : label}
+      placeholder={placeholder === '' ? null : placeholder}
+      // eslint-disable-next-line no-console
+      onSubmit={() => console.log('Done!')}
+    />
+  );
+};
+
+TextAreaStory.story = {
+  name: 'TextArea',
+};
+
 export const Styled = () => {
   const error = text('Error', '');
   const label = text('Label', '');
