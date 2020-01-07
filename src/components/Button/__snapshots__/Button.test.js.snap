@@ -2,12 +2,6 @@
 
 exports[`\`Button\` renders 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   cursor: pointer;
 }
@@ -35,12 +29,6 @@ exports[`\`Button\` renders 1`] = `
 
 exports[`\`Button\` styles Prop: background has value #ff0000 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   background-color: #ff0000;
   cursor: pointer;
@@ -70,12 +58,6 @@ exports[`\`Button\` styles Prop: background has value #ff0000 1`] = `
 
 exports[`\`Button\` styles Prop: border has value solid 1px 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   border: solid 1px;
   cursor: pointer;
@@ -104,12 +86,6 @@ exports[`\`Button\` styles Prop: border has value solid 1px 1`] = `
 
 exports[`\`Button\` styles Prop: borderRadius has value 1px 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   border-radius: 1px;
   cursor: pointer;
@@ -138,12 +114,6 @@ exports[`\`Button\` styles Prop: borderRadius has value 1px 1`] = `
 
 exports[`\`Button\` styles Prop: padding has value 10px 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   cursor: pointer;
   padding: 10px;
@@ -172,12 +142,6 @@ exports[`\`Button\` styles Prop: padding has value 10px 1`] = `
 
 exports[`\`Button\` styles Prop: padding has value 10px 20px 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   cursor: pointer;
   padding: 10px 20px;
@@ -206,12 +170,6 @@ exports[`\`Button\` styles Prop: padding has value 10px 20px 1`] = `
 
 exports[`\`Typography\` styles Prop: color has value #ff0000 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   cursor: pointer;
 }
@@ -241,7 +199,7 @@ exports[`\`Typography\` styles Prop: color has value #ff0000 1`] = `
 
 exports[`\`Typography\` styles Prop: color has value #ff0000 2`] = `
 <span
-  class="sc-bwzfXH jEThsa"
+  class="sc-htpNat dIOnZa"
   color="#ff0000"
 >
   Test text
@@ -250,12 +208,6 @@ exports[`\`Typography\` styles Prop: color has value #ff0000 2`] = `
 
 exports[`\`Typography\` styles Prop: size has value 14px 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   cursor: pointer;
 }
@@ -284,7 +236,7 @@ exports[`\`Typography\` styles Prop: size has value 14px 1`] = `
 
 exports[`\`Typography\` styles Prop: size has value 14px 2`] = `
 <span
-  class="sc-bwzfXH eXSLtH"
+  class="sc-htpNat hZajHm"
 >
   Test text
 </span>

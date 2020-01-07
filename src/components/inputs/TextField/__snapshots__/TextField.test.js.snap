@@ -2,12 +2,6 @@
 
 exports[`as textarea renders 1`] = `
 .c2 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   border: 1px solid rgba(102,119,136,.2);
   border-radius: 5px;
@@ -69,12 +63,6 @@ exports[`as textarea renders 1`] = `
 
 exports[`renders 1`] = `
 .c2 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   border: 1px solid rgba(102,119,136,.2);
   border-radius: 5px;
@@ -136,12 +124,6 @@ exports[`renders 1`] = `
 
 exports[`validation error is passed as a prop error is shown when input is valid 1`] = `
 .c2 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   border: 1px solid rgba(102,119,136,.2);
   border-radius: 5px;

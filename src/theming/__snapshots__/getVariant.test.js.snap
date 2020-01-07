@@ -2,12 +2,6 @@
 
 exports[`variant and prop both present object value using different keys: object merged 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   cursor: pointer;
   padding: 15px 20px;
@@ -40,12 +34,6 @@ exports[`variant and prop both present object value using different keys: object
 
 exports[`variant and prop both present object value using same keys: props take priority 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   cursor: pointer;
   padding: 15px 20px;
@@ -77,12 +65,6 @@ exports[`variant and prop both present object value using same keys: props take 
 
 exports[`variant and prop both present string value using same keys: props take priority 1`] = `
 .c0 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box;
   cursor: pointer;
   padding: 5px 5px;
