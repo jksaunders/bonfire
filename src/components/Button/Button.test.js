@@ -53,7 +53,6 @@ describe('`Typography` styles', () => {
 
       const typography = queryByText(buttonText);
       expectExists(typography);
-      expectSnapshot(typography);
       expectStyle(typography, testCase.key || testCase.prop, testCase.value);
     });
   });

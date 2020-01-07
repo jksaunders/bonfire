@@ -197,15 +197,6 @@ exports[`\`Typography\` styles Prop: color has value #ff0000 1`] = `
 </button>
 `;
 
-exports[`\`Typography\` styles Prop: color has value #ff0000 2`] = `
-<span
-  class="sc-bwzfXH jEThsa"
-  color="#ff0000"
->
-  Test text
-</span>
-`;
-
 exports[`\`Typography\` styles Prop: size has value 14px 1`] = `
 .c0 {
   box-sizing: border-box;
@@ -232,12 +223,4 @@ exports[`\`Typography\` styles Prop: size has value 14px 1`] = `
     Test text
   </span>
 </button>
-`;
-
-exports[`\`Typography\` styles Prop: size has value 14px 2`] = `
-<span
-  class="sc-bwzfXH eXSLtH"
->
-  Test text
-</span>
 `;
