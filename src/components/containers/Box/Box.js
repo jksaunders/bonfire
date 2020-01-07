@@ -118,11 +118,13 @@ const StyledBox = styled.div`
   ${css('overflowY', 'overflow-y')}
 `;
 
-const Box = React.forwardRef(({ children, component, ...rest }, ref) => (
-  <StyledBox as={component} ref={ref} {...rest}>
-    {children}
-  </StyledBox>
-));
+const Box = React.forwardRef(
+  ({ children, className, component, ...rest }, ref) => (
+    <StyledBox as={component} ref={ref} {...rest} className={className}>
+      {children}
+    </StyledBox>
+  )
+);
 
 Box.propTypes = { ...BoxPropTypes, component: PropTypes.string };
 Box.defaultProps = { ...BoxDefaultProps, component: 'div' };
