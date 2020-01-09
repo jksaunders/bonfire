@@ -10,6 +10,7 @@ exports[`\`Button\` renders 1`] = `
 .c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
 }
 
 .c1 {
@@ -39,6 +40,7 @@ exports[`\`Button\` styles Prop: background has value #ff0000 1`] = `
 .c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
 }
 
 .c1 {
@@ -68,6 +70,7 @@ exports[`\`Button\` styles Prop: border has value solid 1px 1`] = `
 .c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
 }
 
 .c1 {
@@ -97,6 +100,7 @@ exports[`\`Button\` styles Prop: borderRadius has value 1px 1`] = `
 .c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
 }
 
 .c1 {
@@ -126,6 +130,7 @@ exports[`\`Button\` styles Prop: padding has value 10px 1`] = `
 .c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
 }
 
 .c1 {
@@ -155,6 +160,7 @@ exports[`\`Button\` styles Prop: padding has value 10px 20px 1`] = `
 .c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
 }
 
 .c1 {
@@ -184,6 +190,7 @@ exports[`\`Typography\` styles Prop: color has value #ff0000 1`] = `
   margin: 0;
   -webkit-font-smoothing: antialiased;
   color: #ff0000;
+  white-space: nowrap;
 }
 
 .c1 {
@@ -214,6 +221,7 @@ exports[`\`Typography\` styles Prop: size has value 14px 1`] = `
   margin: 0;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .c1 {

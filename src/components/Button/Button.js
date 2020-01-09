@@ -76,7 +76,11 @@ const Button = ({
           size={typography.size}
         />
       )}
-      {!loading && <Typography {...typography}>{text}</Typography>}
+      {!loading && (
+        <Typography whitespace="nowrap" {...typography}>
+          {text}
+        </Typography>
+      )}
     </StyledBox>
   );
 };

@@ -14,6 +14,7 @@ exports[`variant and prop both present object value using different keys: object
   text-align: left;
   color: red;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .c1 {
@@ -46,6 +47,7 @@ exports[`variant and prop both present object value using same keys: props take 
   -webkit-font-smoothing: antialiased;
   color: red;
   font-size: 5px;
+  white-space: nowrap;
 }
 
 .c1 {
@@ -78,6 +80,7 @@ exports[`variant and prop both present string value using same keys: props take 
   -webkit-font-smoothing: antialiased;
   color: red;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .c1 {
