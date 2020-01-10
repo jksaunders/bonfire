@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import debounce from '../../utils/debounce';
 
 export const ResponsiveSizesContext = React.createContext({});
+
+export const useResponsiveSizes = () => {
+  const responsiveSizes = useContext(ResponsiveSizesContext);
+  return responsiveSizes;
+};
 
 const propTypes = {
   children: PropTypes.node,
