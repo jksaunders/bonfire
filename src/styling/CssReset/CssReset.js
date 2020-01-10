@@ -83,6 +83,7 @@ const cssResetString = `
   mark,
   audio,
   video {
+    background-color: unset;
     margin: 0;
     padding: 0;
     border: 0;
