@@ -22,6 +22,7 @@ export const cssTypography = typographyPropKey => props => {
     ${css('lineHeight', 'line-height')(propsToCheck)}
     ${css('size', 'font-size')(propsToCheck)}
     ${css('transform', 'text-transform')(propsToCheck)}
+    ${css('underlined', 'text-decoration', 'underline')(propsToCheck)}
     ${css('whitespace', 'white-space')(propsToCheck)}
   `;
 };
@@ -44,6 +45,7 @@ export const typographyPropTypes = {
   spaceAfter: PropTypes.bool,
   size: PropTypes.string,
   transform: PropTypes.string,
+  underlined: PropTypes.bool,
   weight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   whitespace: PropTypes.string,
 };
@@ -77,6 +79,7 @@ const defaultProps = {
   spaceAfter: null,
   size: null,
   transform: null,
+  underlined: null,
   weight: null,
   whitespace: null,
   /* eslint-enable react/default-props-match-prop-types */

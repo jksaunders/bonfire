@@ -29,6 +29,12 @@ describe('Props', () => {
     { prop: 'lineHeight', propValue: '1em', key: 'line-height' },
     { prop: 'size', propValue: '20px', key: 'font-size' },
     { prop: 'transform', propValue: 'uppercase', key: 'text-transform' },
+    {
+      prop: 'underlined',
+      propValue: true,
+      key: 'text-decoration',
+      value: 'underline',
+    },
     { prop: 'weight', propValue: '200', key: 'font-weight' },
     { prop: 'weight', propValue: 300, key: 'font-weight' },
   ].forEach(testCase => {

@@ -132,6 +132,21 @@ exports[`Props transform 1`] = `
 </span>
 `;
 
+exports[`Props underlined 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<span
+  class="c0"
+>
+  Content
+</span>
+`;
+
 exports[`Props weight 1`] = `
 .c0 {
   margin: 0;
