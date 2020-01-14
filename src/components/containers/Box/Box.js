@@ -26,6 +26,7 @@ export const BoxPropTypes = {
   overflowX: CssRuleType(PropTypes.string),
   overflowY: CssRuleType(PropTypes.string),
   padding: CssRuleType(PropTypes.string),
+  position: CssRuleType(PropTypes.string),
   useTypography: PropTypes.bool,
   width: CssRuleType(PropTypes.string),
 };
@@ -40,6 +41,15 @@ const fromEntries = iterable =>
 export const BoxDefaultProps = fromEntries(
   Object.entries(BoxPropTypes).map(e => [e[0], null])
 );
+
+const cssReset = `
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+`;
 
 const materialPaperElevations = [
   'none',
@@ -70,6 +80,9 @@ const materialPaperElevations = [
 ];
 
 const StyledBox = styled.div`
+  ${/* reset */ ''}
+  ${cssReset}
+  
   box-sizing: border-box;
 
   ${/* design */ ''}
@@ -99,6 +112,9 @@ const StyledBox = styled.div`
   ${css('minWidth', 'min-width')}
   ${css('margin')}
   ${css('padding')}
+  
+  ${/* overflow */ ''}
+  ${css('position')}
 
   ${/* overflow */ ''}
   ${css('overflow')}
