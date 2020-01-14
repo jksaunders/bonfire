@@ -103,7 +103,7 @@ const StyledBox = styled.div`
   ${css('margin')}
   ${css('padding')}
   
-  ${/* overflow */ ''}
+  ${/* positioning */ ''}
   ${css(
     ['absolute', 'position', 'absolute'],
     ['absoluteAnchor', 'position', 'relative'],
