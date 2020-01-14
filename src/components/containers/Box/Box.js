@@ -5,6 +5,8 @@ import { css, cssBackground, cssBorder, CssRuleType } from '../../../styling';
 import { withThemes } from '../../../theming';
 
 export const BoxPropTypes = {
+  absolute: PropTypes.bool,
+  absoluteAnchor: PropTypes.bool,
   align: CssRuleType(PropTypes.string),
   background: CssRuleType(PropTypes.string),
   border: CssRuleType(PropTypes.string),
@@ -102,7 +104,11 @@ const StyledBox = styled.div`
   ${css('padding')}
   
   ${/* overflow */ ''}
-  ${css('position')}
+  ${css(
+    ['absolute', 'position', 'absolute'],
+    ['absoluteAnchor', 'position', 'relative'],
+    ['position']
+  )}
 
   ${/* overflow */ ''}
   ${css('overflow')}
