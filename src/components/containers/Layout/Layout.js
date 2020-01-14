@@ -1,16 +1,14 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { css, cssBackground, CssRuleType } from '../../../styling';
+import Box, { BoxPropTypes, BoxDefaultProps } from '../Box';
+import { css, CssRuleType } from '../../../styling';
 import { TypographyContext, cssTypography } from '../../Typography';
 
 const propTypes = {
+  ...BoxPropTypes,
   align: CssRuleType(PropTypes.string),
-  background: CssRuleType(PropTypes.string),
-  borderRadius: CssRuleType(PropTypes.string),
   centered: PropTypes.bool,
-  children: PropTypes.node,
-  className: CssRuleType(PropTypes.string),
   columns: CssRuleType(PropTypes.string),
   flow: CssRuleType(PropTypes.string),
   full: PropTypes.bool,
@@ -19,28 +17,14 @@ const propTypes = {
   gap: CssRuleType(PropTypes.string),
   height: CssRuleType(PropTypes.string),
   horizontalAlignment: CssRuleType(PropTypes.string),
-  margin: CssRuleType(PropTypes.string),
-  maxHeight: CssRuleType(PropTypes.string),
-  maxWidth: CssRuleType(PropTypes.string),
-  minHeight: CssRuleType(PropTypes.string),
-  minWidth: CssRuleType(PropTypes.string),
-  overflow: CssRuleType(PropTypes.string),
-  overflowX: CssRuleType(PropTypes.string),
-  overflowY: CssRuleType(PropTypes.string),
-  rows: CssRuleType(PropTypes.string),
-  padding: CssRuleType(PropTypes.string),
   useTypography: PropTypes.bool,
   verticalAlignment: CssRuleType(PropTypes.string),
-  width: CssRuleType(PropTypes.string),
 };
 
 const defaultProps = {
+  ...BoxDefaultProps,
   align: null,
-  background: null,
-  borderRadius: null,
-  children: null,
   centered: false,
-  className: null,
   columns: null,
   flow: null,
   full: false,
@@ -49,19 +33,8 @@ const defaultProps = {
   gap: null,
   height: null,
   horizontalAlignment: null,
-  margin: null,
-  maxHeight: null,
-  maxWidth: null,
-  minHeight: null,
-  minWidth: null,
-  overflow: null,
-  overflowX: null,
-  overflowY: null,
-  rows: null,
-  padding: null,
   useTypography: null,
   verticalAlignment: null,
-  width: null,
 };
 
 const parseAlignTargetValue = alignProp => ({
@@ -110,11 +83,8 @@ const gridDirectionKey = direction => props => {
   return `grid-auto-${direction}`;
 };
 
-const Grid = styled.div`
+const StyledBox = styled(Box)`
   display: grid;
-  box-sizing: border-box;
-  ${cssBackground}
-  ${css('borderRadius', 'border-radius')}
 
   ${/* grid properties */ ''}
   ${css('columns', gridDirectionKey('columns'))}
@@ -126,25 +96,6 @@ const Grid = styled.div`
   ${css('centered', 'justify-items', 'center')}
   ${css('centered', 'align-items', 'center')}
   ${alignment}
-
-  ${/* sizing */ ''}
-  ${css(
-    ['full', 'height', '100%'],
-    ['fullHeight', 'height', '100%'],
-    ['height']
-  )}
-  ${css(['full', 'width', '100%'], ['fullWidth', 'width', '100%'], ['width'])}
-  ${css('maxHeight', 'max-height')}
-  ${css('maxWidth', 'max-width')}
-  ${css('minHeight', 'min-height')}
-  ${css('minWidth', 'min-width')}
-  ${css('margin')}
-  ${css('padding')}
-
-  ${/* overflow */ ''}
-  ${css('overflow')}
-  ${css('overflowX', 'overflow-x')}
-  ${css('overflowY', 'overflow-y')}
   
   ${/* typography */ ''}
   ${cssTypography('typographyProps')}
@@ -154,13 +105,14 @@ const Layout = React.forwardRef(({ children, useTypography, ...rest }, ref) => {
   const typographyProps = useContext(TypographyContext);
 
   return (
-    <Grid
+    <StyledBox
+      component="div"
       typographyProps={useTypography ? typographyProps : {}}
       {...rest}
       ref={ref}
     >
       {children}
-    </Grid>
+    </StyledBox>
   );
 });
 

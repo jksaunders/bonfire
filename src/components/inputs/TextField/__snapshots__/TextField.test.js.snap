@@ -1,60 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`as textarea renders 1`] = `
-.c2 {
+.c0 {
+  box-sizing: border-box;
+}
+
+.c3 {
   box-sizing: border-box;
   border: 1px solid rgba(102,119,136,.2);
   border-radius: 5px;
   padding: 3px;
 }
 
-.c1 {
+.c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
 }
 
-.c0 {
+.c1 {
   display: grid;
-  box-sizing: border-box;
   grid-gap: 4px;
   -webkit-font-smoothing: antialiased;
 }
 
-.c3 {
+.c4 {
   width: 100%;
 }
 
-.c3::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c3::-moz-placeholder {
+.c4::-moz-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c3:-ms-input-placeholder {
+.c4:-ms-input-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c3::placeholder {
+.c4::placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 >
   <label>
     <span
-      class="c1"
+      class="c2"
     />
   </label>
   <textarea
-    class="c2 c3"
+    class="c3 c4"
     placeholder="input placeholder"
     type="text"
   />
@@ -62,60 +65,63 @@ exports[`as textarea renders 1`] = `
 `;
 
 exports[`renders 1`] = `
-.c2 {
+.c0 {
+  box-sizing: border-box;
+}
+
+.c3 {
   box-sizing: border-box;
   border: 1px solid rgba(102,119,136,.2);
   border-radius: 5px;
   padding: 3px;
 }
 
-.c1 {
+.c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
 }
 
-.c0 {
+.c1 {
   display: grid;
-  box-sizing: border-box;
   grid-gap: 4px;
   -webkit-font-smoothing: antialiased;
 }
 
-.c3 {
+.c4 {
   width: 100%;
 }
 
-.c3::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c3::-moz-placeholder {
+.c4::-moz-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c3:-ms-input-placeholder {
+.c4:-ms-input-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c3::placeholder {
+.c4::placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 >
   <label>
     <span
-      class="c1"
+      class="c2"
     />
   </label>
   <input
-    class="c2 c3"
+    class="c3 c4"
     placeholder="input placeholder"
     type="text"
   />
@@ -123,65 +129,68 @@ exports[`renders 1`] = `
 `;
 
 exports[`validation error is passed as a prop error is shown when input is valid 1`] = `
-.c2 {
+.c0 {
+  box-sizing: border-box;
+}
+
+.c3 {
   box-sizing: border-box;
   border: 1px solid rgba(102,119,136,.2);
   border-radius: 5px;
   padding: 3px;
 }
 
-.c1 {
+.c2 {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
 }
 
-.c0 {
+.c1 {
   display: grid;
-  box-sizing: border-box;
   grid-gap: 4px;
   -webkit-font-smoothing: antialiased;
 }
 
-.c3 {
+.c4 {
   width: 100%;
 }
 
-.c3::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c3::-moz-placeholder {
+.c4::-moz-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c3:-ms-input-placeholder {
+.c4:-ms-input-placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
-.c3::placeholder {
+.c4::placeholder {
   color: rgba(102,119,136,.2);
   font-size: 1rem;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 >
   <label>
     <span
-      class="c1"
+      class="c2"
     />
   </label>
   <input
-    class="c2 c3"
+    class="c3 c4"
     placeholder="input placeholder"
     type="text"
   />
   <span
-    class="c1"
+    class="c2"
   >
     test error
   </span>

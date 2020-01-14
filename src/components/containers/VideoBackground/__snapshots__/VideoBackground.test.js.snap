@@ -2,18 +2,21 @@
 
 exports[`VideoBackground open 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  -webkit-font-smoothing: antialiased;
 }
 
 .c1 {
-  position: relative;
+  display: grid;
+  -webkit-font-smoothing: antialiased;
 }
 
 .c2 {
+  position: relative;
+}
+
+.c3 {
   position: absolute;
   top: 0;
   left: 0;
@@ -26,11 +29,11 @@ exports[`VideoBackground open 1`] = `
 }
 
 <div
-  class="c0 c1"
+  class="c0 c1 c2"
 >
   <video
     autoplay=""
-    class="c2"
+    class="c3"
     filter="opacity(70%)"
     loop=""
   >

@@ -2,8 +2,11 @@
 
 exports[`centered 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   justify-items: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -13,19 +16,22 @@ exports[`centered 1`] = `
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`TypographyContext\` useTypography = false 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 >
   Content
 </div>
@@ -33,14 +39,17 @@ exports[`using \`TypographyContext\` useTypography = false 1`] = `
 
 exports[`using \`TypographyContext\` useTypography = true 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-font-smoothing: antialiased;
   color: #FFFFFF;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 >
   Content
 </div>
@@ -48,8 +57,11 @@ exports[`using \`TypographyContext\` useTypography = true 1`] = `
 
 exports[`using \`align\` no target => defaults to \`items\` horizontal + vertical alignment 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-align-items: left;
   -webkit-box-align: left;
   -ms-flex-align: left;
@@ -59,14 +71,17 @@ exports[`using \`align\` no target => defaults to \`items\` horizontal + vertica
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` no target => defaults to \`items\` single alignment 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -76,14 +91,17 @@ exports[`using \`align\` no target => defaults to \`items\` single alignment 1`]
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` no target => defaults to \`items\` single alignment: ignore first 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -92,27 +110,33 @@ exports[`using \`align\` no target => defaults to \`items\` single alignment: ig
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` no target => defaults to \`items\` single alignment: ignore second 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   justify-items: center;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` target = \`content\` horizontal + vertical alignment 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-align-content: left;
   -ms-flex-line-pack: left;
   align-content: left;
@@ -124,14 +148,17 @@ exports[`using \`align\` target = \`content\` horizontal + vertical alignment 1`
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` target = \`content\` single alignment 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
@@ -143,14 +170,17 @@ exports[`using \`align\` target = \`content\` single alignment 1`] = `
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` target = \`content\` single alignment: ignore first 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
@@ -158,14 +188,17 @@ exports[`using \`align\` target = \`content\` single alignment: ignore first 1`]
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` target = \`content\` single alignment: ignore second 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -174,14 +207,17 @@ exports[`using \`align\` target = \`content\` single alignment: ignore second 1`
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` target = \`items\` horizontal + vertical alignment 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-align-items: left;
   -webkit-box-align: left;
   -ms-flex-align: left;
@@ -191,14 +227,17 @@ exports[`using \`align\` target = \`items\` horizontal + vertical alignment 1`] 
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` target = \`items\` single alignment 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -208,14 +247,17 @@ exports[`using \`align\` target = \`items\` single alignment 1`] = `
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` target = \`items\` single alignment: ignore first 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -224,58 +266,70 @@ exports[`using \`align\` target = \`items\` single alignment: ignore first 1`] =
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`using \`align\` target = \`items\` single alignment: ignore second 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   justify-items: center;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`with background properties 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
   background-color: #123456;
+}
+
+.c1 {
+  display: grid;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`with border properties 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
   border-radius: 5px;
+}
+
+.c1 {
+  display: grid;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`with children 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 >
   <span>
     Hi!
@@ -285,8 +339,11 @@ exports[`with children 1`] = `
 
 exports[`with grid properties: auto 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   grid-auto-columns: 50px;
   grid-auto-rows: 100px;
   grid-gap: 10px;
@@ -295,14 +352,17 @@ exports[`with grid properties: auto 1`] = `
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`with grid properties: templates 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   grid-template-columns: repeat(3,3fr);
   grid-template-rows: 1fr 2fr;
   grid-gap: 10px;
@@ -311,31 +371,37 @@ exports[`with grid properties: templates 1`] = `
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`with no props 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
 
 exports[`with padding 1`] = `
 .c0 {
-  display: grid;
   box-sizing: border-box;
   padding: 10px;
+}
+
+.c1 {
+  display: grid;
   -webkit-font-smoothing: antialiased;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 />
 `;
