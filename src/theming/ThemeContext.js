@@ -72,7 +72,12 @@ const useTheme = (
 export const bonfireThemePropKey = 'bonfireTheme';
 export const bonfireThemeVariantPropKey = 'variant';
 
-export const getVariant = (componentName, props, propsToCheck) => {
+export const getVariant = (
+  componentName,
+  props,
+  defaultProps,
+  propsToCheck
+) => {
   const result = {};
 
   const variant = props[bonfireThemeVariantPropKey];
@@ -100,10 +105,12 @@ export const getVariant = (componentName, props, propsToCheck) => {
       };
     } else if (props[k] != null) {
       result[k] = props[k];
-    } else if (themeVariant != null) {
+    } else if (themeVariant != null && themeVariant[k] != null) {
       result[k] = themeVariant[k];
     } else if (objectCheck(variant) && variant[k] != null) {
       result[k] = variant[k];
+    } else if (defaultProps[k] != null) {
+      result[k] = defaultProps[k];
     }
   });
   return result;

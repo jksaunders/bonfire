@@ -30,12 +30,13 @@ const propTypes = {
   ]),
 };
 
-const defaultProps = {
-  ...BoxDefaultProps,
-  /* eslint-disable react/default-props-match-prop-types */
+const variantDefaults = {
   border: 'none',
   cursor: 'pointer',
-  typography: null,
+};
+
+const defaultProps = {
+  ...BoxDefaultProps,
   /* eslint-enable react/default-props-match-prop-types */
   className: null,
   disabled: false,
@@ -57,6 +58,7 @@ const Button = ({
   const { typography, ...buttonVariant } = getVariant(
     'button',
     props,
+    variantDefaults,
     buttonStyleProps
   );
   return (

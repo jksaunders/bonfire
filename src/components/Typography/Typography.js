@@ -124,7 +124,7 @@ const getBaseElement = props => {
 const Typography = ({ children, className, ...props }) => (
   <StyledTypography
     className={className}
-    {...getVariant('typography', props, typographyPropTypes)}
+    {...getVariant('typography', props, {}, typographyPropTypes)}
     as={getBaseElement(props)}
   >
     {children}
