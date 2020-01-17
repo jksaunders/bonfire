@@ -86,6 +86,29 @@ test('centered', () => {
   expectStyle(component, 'justify-items', 'center');
 });
 
+describe('using flow props', () => {
+  test('`flow` prop', () => {
+    const { component } = getLayout({ flow: 'dense' });
+    expectExists(component);
+    expectSnapshot(component);
+    expectStyle(component, 'grid-auto-flow', 'dense');
+  });
+
+  test('`column` prop', () => {
+    const { component } = getLayout({ row: true });
+    expectExists(component);
+    expectSnapshot(component);
+    expectStyle(component, 'grid-auto-flow', 'column');
+  });
+
+  test('`row` prop', () => {
+    const { component } = getLayout({ row: true });
+    expectExists(component);
+    expectSnapshot(component);
+    expectStyle(component, 'grid-auto-flow', 'column');
+  });
+});
+
 describe('using `align`', () => {
   describe('no target => defaults to `items`', () => {
     test('single alignment', () => {

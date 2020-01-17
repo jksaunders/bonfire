@@ -9,6 +9,7 @@ const propTypes = {
   ...BoxPropTypes,
   align: CssRuleType(PropTypes.string),
   centered: PropTypes.bool,
+  column: CssRuleType(PropTypes.bool),
   columns: CssRuleType(PropTypes.string),
   flow: CssRuleType(PropTypes.string),
   full: PropTypes.bool,
@@ -17,6 +18,8 @@ const propTypes = {
   gap: CssRuleType(PropTypes.string),
   height: CssRuleType(PropTypes.string),
   horizontalAlignment: CssRuleType(PropTypes.string),
+  row: CssRuleType(PropTypes.bool),
+  rows: CssRuleType(PropTypes.string),
   useTypography: PropTypes.bool,
   verticalAlignment: CssRuleType(PropTypes.string),
 };
@@ -25,6 +28,7 @@ const defaultProps = {
   ...BoxDefaultProps,
   align: null,
   centered: false,
+  column: null,
   columns: null,
   flow: null,
   full: false,
@@ -33,6 +37,8 @@ const defaultProps = {
   gap: null,
   height: null,
   horizontalAlignment: null,
+  row: null,
+  rows: null,
   useTypography: null,
   verticalAlignment: null,
 };
@@ -90,7 +96,11 @@ const StyledBox = styled(Box)`
   ${css('columns', gridDirectionKey('columns'))}
   ${css('rows', gridDirectionKey('rows'))}
   ${css('gap', 'grid-gap')}
-  ${css('flow', 'grid-auto-flow')}
+  ${css(
+    ['column', 'grid-auto-flow', 'row'],
+    ['row', 'grid-auto-flow', 'column'],
+    ['flow', 'grid-auto-flow']
+  )}
 
   ${/* alignment */ ''}
   ${css('centered', 'justify-items', 'center')}

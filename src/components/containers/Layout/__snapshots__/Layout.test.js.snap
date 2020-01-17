@@ -286,6 +286,54 @@ exports[`using \`align\` target = \`items\` single alignment: ignore second 1`] 
 />
 `;
 
+exports[`using flow props \`column\` prop 1`] = `
+.c0 {
+  box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+<div
+  class="c0 c1"
+/>
+`;
+
+exports[`using flow props \`flow\` prop 1`] = `
+.c0 {
+  box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
+  grid-auto-flow: dense;
+  -webkit-font-smoothing: antialiased;
+}
+
+<div
+  class="c0 c1"
+/>
+`;
+
+exports[`using flow props \`row\` prop 1`] = `
+.c0 {
+  box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+<div
+  class="c0 c1"
+/>
+`;
+
 exports[`with background properties 1`] = `
 .c0 {
   box-sizing: border-box;
