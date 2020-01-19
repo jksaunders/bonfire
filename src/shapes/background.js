@@ -14,10 +14,10 @@ export const getBackground = backgroundShape => {
     return '';
   }
   if (backgroundShape.background) {
-    return `background: ${backgroundShape.background}`;
+    return `background: ${backgroundShape.background};`;
   }
   if (backgroundShape.backgroundColor) {
-    return `background-color: ${backgroundShape.backgroundColor}`;
+    return `background-color: ${backgroundShape.backgroundColor};`;
   }
   return '';
 };

@@ -12,7 +12,7 @@ const StoryHeader = styled(Header)`
 `;
 
 export default {
-  title: 'Containers|Header',
+  title: 'Deprecated|Header',
   component: Header,
   decorators: [withKnobs],
 };
