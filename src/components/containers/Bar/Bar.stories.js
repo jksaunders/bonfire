@@ -20,7 +20,7 @@ const Content = styled.div`
 `;
 
 export default {
-  title: 'Containers|Bar',
+  title: 'Deprecated|Bar',
   component: Bar,
   decorators: [withKnobs],
 };
