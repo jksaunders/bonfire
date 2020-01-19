@@ -25,14 +25,14 @@ const CardWrapper = styled.div`
   border-style: solid;
   border-width: 1px;
   display: inline-block;
-  ${props => props.maxHeight && `max-height: ${props.maxHeight}`}
-  ${props => props.maxWidth && `max-width: ${props.maxWidth}`}
+  ${props => props.maxHeight && `max-height: ${props.maxHeight};`}
+  ${props => props.maxWidth && `max-width: ${props.maxWidth};`}
   padding: 32px;
 `;
 
 const RoundImage = styled.img`
   border-radius: 50%;
-  ${props => props.maxHeight && `max-height: ${props.maxHeight}`}
+  ${props => props.maxHeight && `max-height: ${props.maxHeight};`}
   margin-bottom: 16px;
   object-fit: cover;
 `;
