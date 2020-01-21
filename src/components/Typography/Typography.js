@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { css } from '../../styling';
+import { css, CssRuleType } from '../../styling';
 import { getVariant, withThemes } from '../../theming/ThemeContext';
 
 export const TypographyContext = React.createContext({});
@@ -28,26 +28,30 @@ export const cssTypography = typographyPropKey => props => {
 };
 
 export const typographyPropTypes = {
-  align: PropTypes.string,
-  bold: PropTypes.bool,
-  color: PropTypes.string,
-  font: PropTypes.string,
-  h1: PropTypes.bool,
-  h2: PropTypes.bool,
-  h3: PropTypes.bool,
-  h4: PropTypes.bool,
-  h5: PropTypes.bool,
-  h6: PropTypes.bool,
-  italic: PropTypes.bool,
-  letterSpacing: PropTypes.string,
-  lineHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  paragraph: PropTypes.bool,
-  spaceAfter: PropTypes.bool,
-  size: PropTypes.string,
-  transform: PropTypes.string,
-  underlined: PropTypes.bool,
-  weight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  whitespace: PropTypes.string,
+  align: CssRuleType(PropTypes.string),
+  bold: CssRuleType(PropTypes.bool),
+  color: CssRuleType(PropTypes.string),
+  font: CssRuleType(PropTypes.string),
+  h1: CssRuleType(PropTypes.bool),
+  h2: CssRuleType(PropTypes.bool),
+  h3: CssRuleType(PropTypes.bool),
+  h4: CssRuleType(PropTypes.bool),
+  h5: CssRuleType(PropTypes.bool),
+  h6: CssRuleType(PropTypes.bool),
+  italic: CssRuleType(PropTypes.bool),
+  letterSpacing: CssRuleType(PropTypes.string),
+  lineHeight: CssRuleType(
+    PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  ),
+  paragraph: CssRuleType(PropTypes.bool),
+  spaceAfter: CssRuleType(PropTypes.bool),
+  size: CssRuleType(PropTypes.string),
+  transform: CssRuleType(PropTypes.string),
+  underlined: CssRuleType(PropTypes.bool),
+  weight: CssRuleType(
+    PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  ),
+  whitespace: CssRuleType(PropTypes.string),
 };
 
 const propTypes = {
