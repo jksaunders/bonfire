@@ -22,28 +22,42 @@ const Container = styled(Layout)`
   position: relative;
 `;
 
-const Video = styled.video`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -100;
-  object-fit: cover;
-  ${css('filter')}
+// eslint-disable-next-line react/prop-types
+const MutableVideo = ({ className, src, type }) => (
+  <div
+    className={className}
+    // eslint-disable-next-line react/no-danger
+    dangerouslySetInnerHTML={{
+      __html: `
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+    >
+      <source src="${src}" type=${type}>
+    </video>
+  `,
+    }}
+  />
+);
+
+const Video = styled(MutableVideo)`
+  > video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    object-fit: cover;
+    ${css('filter')}
+  }
 `;
 
-const VideoBackground = ({
-  children,
-  filter,
-  muted,
-  parentLayoutProps,
-  src,
-}) => (
+const VideoBackground = ({ children, filter, parentLayoutProps, src }) => (
   <Container {...parentLayoutProps}>
-    <Video filter={filter} autoPlay muted={muted} loop>
-      <source src={src} type="video/mp4" />
-    </Video>
+    <Video filter={filter} src={src} type="video/mp4" />
     {children}
   </Container>
 );

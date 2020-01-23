@@ -16,7 +16,7 @@ exports[`VideoBackground open 1`] = `
   position: relative;
 }
 
-.c3 {
+.c3 > video {
   position: absolute;
   top: 0;
   left: 0;
@@ -31,16 +31,28 @@ exports[`VideoBackground open 1`] = `
 <div
   class="c0 c1 c2"
 >
-  <video
-    autoplay=""
+  <div
     class="c3"
-    filter="opacity(70%)"
-    loop=""
   >
-    <source
-      src="https://upload.wikimedia.org/wikipedia/commons/6/60/Wikipedia_logo_puzzle_globe_spins_horizontally_and_vertically%2C_revealing_the_contents_of_all_of_its_puzzle_pieces_%284K_resolution%29_%28VP9%29.webm"
-      type="video/mp4"
-    />
-  </video>
+    
+    
+    <video
+      autoplay=""
+      loop=""
+      muted=""
+      playsinline=""
+    >
+      
+      
+      <source
+        src="https://upload.wikimedia.org/wikipedia/commons/6/60/Wikipedia_logo_puzzle_globe_spins_horizontally_and_vertically%2C_revealing_the_contents_of_all_of_its_puzzle_pieces_%284K_resolution%29_%28VP9%29.webm"
+        type="video/mp4"
+      />
+      
+    
+    </video>
+    
+  
+  </div>
 </div>
 `;
