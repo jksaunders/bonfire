@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`data-test 1`] = `
+.c0 {
+  box-sizing: border-box;
+}
+
+<input
+  class="c0"
+  data-test="testId"
+/>
+`;
+
 exports[`positioning absolute 1`] = `
 .c0 {
   box-sizing: border-box;

@@ -117,8 +117,14 @@ const StyledBox = styled.div`
 `;
 
 const Box = React.forwardRef(
-  ({ children, className, component, ...rest }, ref) => (
-    <StyledBox as={component} ref={ref} {...rest} className={className}>
+  ({ children, className, component, 'data-test': dataTest, ...rest }, ref) => (
+    <StyledBox
+      as={component}
+      ref={ref}
+      {...rest}
+      className={className}
+      data-test={dataTest}
+    >
       {children}
     </StyledBox>
   )

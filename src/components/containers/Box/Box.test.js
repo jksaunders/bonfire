@@ -11,6 +11,13 @@ test('renders', () => {
   expectSnapshot(component);
 });
 
+test('data-test', () => {
+  const { component } = getBox({ component: 'input', 'data-test': 'testId' });
+  expectExists(component);
+  expectSnapshot(component);
+  expect(component).toHaveAttribute('data-test', 'testId');
+});
+
 describe('positioning', () => {
   test('position', () => {
     const { component } = getBox({ position: 'relative' });
