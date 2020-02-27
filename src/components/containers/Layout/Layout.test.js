@@ -17,6 +17,13 @@ test('with children', () => {
   expectSnapshot(component);
 });
 
+test('`data-test` prop', () => {
+  const { component } = getLayout({ 'data-test': 'testId' });
+  expectExists(component);
+  expectSnapshot(component);
+  expect(component).toHaveAttribute('data-test', 'testId');
+});
+
 test('with no props', () => {
   const { component } = getLayout({});
   expectExists(component);

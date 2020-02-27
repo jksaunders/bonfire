@@ -8,6 +8,15 @@ test('Typography renders', () => {
   expectSnapshot(component);
 });
 
+test('`data-test` prop', () => {
+  const { component } = render(
+    <Typography data-test="testId">Content</Typography>
+  );
+  expectExists(component);
+  expectSnapshot(component);
+  expect(component).toHaveAttribute('data-test', 'testId');
+});
+
 describe('Props', () => {
   [
     { prop: 'align', propValue: 'center', key: 'text-align' },

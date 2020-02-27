@@ -47,6 +47,7 @@ const defaultProps = {
 
 const Button = ({
   className,
+  'data-test': dataTest,
   disabled,
   height,
   loading,
@@ -64,6 +65,7 @@ const Button = ({
   return (
     <StyledBox
       className={className}
+      data-test={dataTest}
       component="button"
       disabled={disabled}
       height={height}

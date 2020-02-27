@@ -16,6 +16,13 @@ test('`Button` renders', () => {
   expectSnapshot(component);
 });
 
+test('`data-test` prop', () => {
+  const { component } = getButton({ text: 'Test text', 'data-test': 'testId' });
+  expectExists(component);
+  expectSnapshot(component);
+  expect(component).toHaveAttribute('data-test', 'testId');
+});
+
 describe('`Button` styles', () => {
   [
     { prop: 'background', key: 'background-color', value: '#ff0000' },

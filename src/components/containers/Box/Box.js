@@ -130,7 +130,11 @@ const Box = React.forwardRef(
   )
 );
 
-Box.propTypes = { ...BoxPropTypes, component: PropTypes.string };
-Box.defaultProps = { ...BoxDefaultProps, component: 'div' };
+Box.propTypes = {
+  ...BoxPropTypes,
+  component: PropTypes.string,
+  'data-test': PropTypes.string,
+};
+Box.defaultProps = { ...BoxDefaultProps, component: 'div', 'data-test': null };
 
 export default withThemes(Box);

@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`\`data-test\` prop 1`] = `
+.c0 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+<span
+  class="c0"
+  data-test="testId"
+>
+  Content
+</span>
+`;
+
 exports[`Props align 1`] = `
 .c0 {
   margin: 0;

@@ -25,6 +25,18 @@ test('renders', () => {
   expectSnapshot(component);
 });
 
+test('`data-test` prop', () => {
+  const { component, getByPlaceholderText } = getTextField({
+    'data-test': 'testId',
+  });
+  expectExists(component);
+  expectSnapshot(component);
+  expect(getByPlaceholderText(placeholder)).toHaveAttribute(
+    'data-test',
+    'testId'
+  );
+});
+
 describe('as textarea', () => {
   test('renders', () => {
     const { component, getByPlaceholderText } = getTextField({

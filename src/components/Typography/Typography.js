@@ -125,9 +125,15 @@ const getBaseElement = props => {
   return baseElement;
 };
 
-const Typography = ({ children, className, ...props }) => (
+const Typography = ({
+  children,
+  className,
+  'data-test': dataTest,
+  ...props
+}) => (
   <StyledTypography
     className={className}
+    data-test={dataTest}
     {...getVariant('typography', props, {}, typographyPropTypes)}
     as={getBaseElement(props)}
   >

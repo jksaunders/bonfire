@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`\`data-test\` prop 1`] = `
+.c0 {
+  box-sizing: border-box;
+}
+
+.c1 {
+  display: grid;
+  -webkit-font-smoothing: antialiased;
+}
+
+<div
+  class="c0 c1"
+  data-test="testId"
+/>
+`;
+
 exports[`centered 1`] = `
 .c0 {
   box-sizing: border-box;

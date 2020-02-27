@@ -239,3 +239,33 @@ exports[`\`Typography\` styles Prop: size has value 14px 1`] = `
   </span>
 </button>
 `;
+
+exports[`\`data-test\` prop 1`] = `
+.c0 {
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+}
+
+.c2 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
+}
+
+.c1 {
+  cursor: pointer;
+}
+
+<button
+  class="c0 c1"
+  cursor="pointer"
+  data-test="testId"
+>
+  <span
+    class="c2"
+  >
+    Test text
+  </span>
+</button>
+`;
