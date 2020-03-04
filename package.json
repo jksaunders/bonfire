@@ -1,6 +1,6 @@
 {
   "name": "@jksaunders/bonfire",
-  "version": "1.8.11",
+  "version": "1.8.12",
   "description": "",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
