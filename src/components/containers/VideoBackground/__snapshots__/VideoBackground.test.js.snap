@@ -35,7 +35,7 @@ exports[`VideoBackground open 1`] = `
     class="c3"
   >
     
-    
+        
     <video
       autoplay=""
       loop=""
@@ -43,16 +43,16 @@ exports[`VideoBackground open 1`] = `
       playsinline=""
     >
       
-      
+          
       <source
         src="https://upload.wikimedia.org/wikipedia/commons/6/60/Wikipedia_logo_puzzle_globe_spins_horizontally_and_vertically%2C_revealing_the_contents_of_all_of_its_puzzle_pieces_%284K_resolution%29_%28VP9%29.webm"
         type="video/mp4"
       />
       
-    
+        
     </video>
     
-  
+
   </div>
 </div>
 `;
