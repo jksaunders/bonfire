@@ -61,19 +61,20 @@ const MutableVideo = ({ className, src, type }) => {
     }
   }, [isFirstLoad]);
 
-  const dangerouslySetInnerHTMLProps = {
-    dangerouslySetInnerHTML: {
-      __html: `
-        <video
-          autoplay
-          loop
-          muted
-          playsinline
-        >
-          <source src="${src}" type=${type}>
-        </video>
-`,
-    },
+  const dangerouslySetInnerHTML = {
+    __html:
+      isFirstLoad || videoCanPlay
+        ? `
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+          >
+            <source src="${src}" type=${type}>
+          </video>
+        `
+        : `<div id="placeholder" />`,
   };
 
   return (
@@ -81,16 +82,22 @@ const MutableVideo = ({ className, src, type }) => {
       className={className}
       ref={ref}
       // eslint-disable-next-line react/no-danger
-      {...(isFirstLoad || videoCanPlay ? dangerouslySetInnerHTMLProps : {})}
-      style={{
-        ...(!(isFirstLoad || videoCanPlay) ? { padding: '100% 100% 0 0' } : {}),
-      }}
+      dangerouslySetInnerHTML={dangerouslySetInnerHTML}
     />
   );
 };
 
 const Video = styled(MutableVideo)`
-  ${css('fallbackColor', 'background-color')}
+  > #placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    object-fit: cover;
+    ${css('fallbackColor', 'background-color')}
+  }
 
   > video {
     position: absolute;
