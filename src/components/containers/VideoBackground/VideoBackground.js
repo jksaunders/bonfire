@@ -27,25 +27,39 @@ const Container = styled(Layout)`
 // eslint-disable-next-line react/prop-types
 const MutableVideo = ({ className, src, type }) => {
   const ref = useRef();
+
+  const getVideoElement = () => {
+    if (!ref.current || !ref.current.children) {
+      return null;
+    }
+    return ref.current.getElementsByTagName('video')[0];
+  };
+
   const [{ isFirstLoad, videoCanPlay }, setState] = useState({
     isFirstLoad: true,
     videoCanPlay: false,
   });
 
   useEffect(() => {
-    if (ref.current && ref.current.children && ref.current.children[0]) {
-      if (ref.current.children[0].play != null) {
+    if (isFirstLoad) {
+      const video = getVideoElement();
+      if (video && video.readyState >= 4) {
         setState({
           isFirstLoad: false,
           videoCanPlay: true,
         });
-      } else {
+      } else if (video) {
+        video.addEventListener('canplaythrough', () => {
+          setState({
+            videoCanPlay: true,
+          });
+        });
         setState({
           isFirstLoad: false,
         });
       }
     }
-  }, [videoCanPlay]);
+  }, [isFirstLoad]);
 
   const dangerouslySetInnerHTMLProps = {
     dangerouslySetInnerHTML: {
