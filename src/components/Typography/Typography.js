@@ -6,7 +6,7 @@ import { getVariant, withThemes } from '../../theming/ThemeContext';
 
 export const TypographyContext = React.createContext({});
 
-export const cssTypography = typographyPropKey => props => {
+export const cssTypography = (typographyPropKey) => (props) => {
   const propsToCheck = typographyPropKey ? props[typographyPropKey] : props;
   return `
     -webkit-font-smoothing: antialiased;
@@ -102,7 +102,7 @@ const StyledTypography = styled.span`
   ${cssTypography()}
 `;
 
-const getBaseElement = props => {
+const getBaseElement = (props) => {
   const { variant } = props;
   let baseElement = 'span';
 

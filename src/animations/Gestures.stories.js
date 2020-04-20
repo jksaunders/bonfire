@@ -27,7 +27,7 @@ const DragMe = ({ bounds }) => {
     config: config.gentle,
   }));
 
-  const checkPosition = xy => {
+  const checkPosition = (xy) => {
     const [x, y] = xy;
 
     let newX = x - size / 2;

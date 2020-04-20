@@ -13,7 +13,7 @@ const useTheme = (
 ) => {
   const [theme, setTheme] = useState(initialTheme);
 
-  const setCurrentTheme = newCurrent => {
+  const setCurrentTheme = (newCurrent) => {
     setTheme({
       ...theme,
       current: {
@@ -49,7 +49,7 @@ const useTheme = (
       return {};
     }
 
-    Object.keys(variant).forEach(propKey => {
+    Object.keys(variant).forEach((propKey) => {
       const variantValue =
         theme.variants.components[componentKey][variantKey][propKey];
 
@@ -90,9 +90,9 @@ export const getVariant = (
     ? propsToCheck
     : Object.keys(propsToCheck);
 
-  const objectCheck = o => o != null && typeof o === 'object' && !isArray(o);
+  const objectCheck = (o) => o != null && typeof o === 'object' && !isArray(o);
 
-  toCheck.forEach(k => {
+  toCheck.forEach((k) => {
     if (
       objectCheck(props) &&
       objectCheck(props[k]) &&
@@ -116,7 +116,7 @@ export const getVariant = (
   return result;
 };
 
-export const withThemes = Component =>
+export const withThemes = (Component) =>
   React.forwardRef((props, ref) => {
     const theme = useContext(ThemeContext);
     const bonfireProps = { [bonfireThemePropKey]: theme };

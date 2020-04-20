@@ -33,7 +33,7 @@ export const BoxPropTypes = {
   width: CssRuleType(PropTypes.string),
 };
 
-const fromEntries = iterable =>
+const fromEntries = (iterable) =>
   [...iterable].reduce((obj, [key, val]) => {
     // eslint-disable-next-line no-param-reassign
     obj[key] = val;
@@ -41,7 +41,7 @@ const fromEntries = iterable =>
   }, {});
 
 export const BoxDefaultProps = fromEntries(
-  Object.entries(BoxPropTypes).map(e => [e[0], null])
+  Object.entries(BoxPropTypes).map((e) => [e[0], null])
 );
 
 const materialPaperElevations = [
@@ -84,7 +84,7 @@ const StyledBox = styled.div`
     [
       'elevation',
       'box-shadow',
-      props => materialPaperElevations[props.elevation],
+      (props) => materialPaperElevations[props.elevation],
     ]
   )}
   ${css('cursor')}

@@ -10,7 +10,7 @@ const StyledConfettiDot = styled.svg`
 
 const AnimatedConfettiDot = animated(StyledConfettiDot);
 
-const alignWithAnchor = anchorRef => {
+const alignWithAnchor = (anchorRef) => {
   if (!anchorRef.current) {
     return {};
   }
@@ -23,7 +23,8 @@ const alignWithAnchor = anchorRef => {
   };
 };
 
-const getRandomListItem = list => list[Math.floor(Math.random() * list.length)];
+const getRandomListItem = (list) =>
+  list[Math.floor(Math.random() * list.length)];
 
 const flatRandom = (min, max) => Math.random() * (max - min) + min;
 
@@ -71,7 +72,7 @@ const Square = ({ color, initialSize }) => {
   );
 };
 
-const randomShape = props => {
+const randomShape = (props) => {
   const shapes = ['circle', 'triangle', 'rectangle'];
   const shape = getRandomListItem(shapes);
   switch (shape) {

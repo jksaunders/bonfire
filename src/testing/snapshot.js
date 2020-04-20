@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { render as importedRender } from '@testing-library/react';
 
-export const render = component => {
+export const render = (component) => {
   const rendered = importedRender(component);
   return {
     ...rendered,
@@ -9,11 +9,11 @@ export const render = component => {
   };
 };
 
-export const expectSnapshot = component => {
+export const expectSnapshot = (component) => {
   expect(component).toMatchSnapshot();
 };
 
-export const expectExists = component => {
+export const expectExists = (component) => {
   expect(component).not.toEqual(null);
   expect(component).toBeInTheDocument();
 };

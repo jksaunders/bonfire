@@ -1,4 +1,4 @@
-export const reconcileMediaQueries = styles => {
+export const reconcileMediaQueries = (styles) => {
   if (styles.indexOf('@media') < 0) {
     return styles;
   }
@@ -49,7 +49,7 @@ export const reconcileMediaQueries = styles => {
   noMediaQueriesString = noMediaQueriesString.trim();
 
   let result = noMediaQueriesString;
-  Object.keys(mediaQueries).forEach(k => {
+  Object.keys(mediaQueries).forEach((k) => {
     result += `\n${k} {\n${mediaQueries[k]}\n}`;
   });
 

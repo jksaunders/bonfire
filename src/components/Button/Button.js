@@ -8,8 +8,10 @@ import { getVariant, withThemes } from '../../theming/ThemeContext';
 import { css, cssBackground } from '../../styling';
 
 const StyledBox = styled(Box)`
-  ${props => cssBackground(props, { alpha: props.disabled ? 0.5 : 1 })}
-  ${css('cursor', 'cursor', props => (props.disabled ? 'auto' : props.cursor))}
+  ${(props) => cssBackground(props, { alpha: props.disabled ? 0.5 : 1 })}
+  ${css('cursor', 'cursor', (props) =>
+    props.disabled ? 'auto' : props.cursor
+  )}
 `;
 
 const buttonStyleProps = {

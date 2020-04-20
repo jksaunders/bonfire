@@ -11,8 +11,8 @@ export default {
 };
 
 const Content = styled.div`
-  height: ${props => props.height};
-  width: ${props => props.width};
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
 `;
 
 export const Basic = () => {

@@ -36,9 +36,9 @@ const ClickMe = () => {
       <AnimatedSquare
         onClick={() => setIsOpen(!open)}
         style={{
-          background: background.interpolate(c => c),
-          height: size.interpolate(n => `${100 + n}px`),
-          width: size.interpolate(n => `${100 + n}px`),
+          background: background.interpolate((c) => c),
+          height: size.interpolate((n) => `${100 + n}px`),
+          width: size.interpolate((n) => `${100 + n}px`),
         }}
       />
     </div>

@@ -30,7 +30,7 @@ describe('`Button` styles', () => {
     { prop: 'borderRadius', key: 'border-radius', value: '1px' },
     { prop: 'padding', value: '10px' },
     { prop: 'padding', value: '10px 20px' },
-  ].forEach(testCase => {
+  ].forEach((testCase) => {
     test(`Prop: ${testCase.prop} has value ${testCase.value}`, () => {
       const { component } = getButton({
         text: buttonText,
@@ -47,7 +47,7 @@ describe('`Typography` styles', () => {
   [
     { prop: 'color', value: '#ff0000' },
     { prop: 'size', key: 'font-size', value: '14px' },
-  ].forEach(testCase => {
+  ].forEach((testCase) => {
     test(`Prop: ${testCase.prop} has value ${testCase.value}`, () => {
       const { component, queryByText } = getButton({
         text: buttonText,

@@ -21,7 +21,7 @@ const plugins = [
     namedExports: {
       react: Object.keys(React),
       'react-dom': Object.keys(ReactDOM),
-      'react-is': ['isElement', 'isValidElementType', 'ForwardRef'],
+      'react-is': ['isElement', 'isValidElementType', 'ForwardRef', 'Memo'],
     },
   }),
 ];

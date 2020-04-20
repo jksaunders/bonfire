@@ -8,7 +8,7 @@ export default {
 
 export const AllColorsStory = () => (
   <div>
-    {Object.keys(Colors).map(key => (
+    {Object.keys(Colors).map((key) => (
       <div key={key} style={{ backgroundColor: Colors[key] }}>
         <Typography variant={MaterialVariants.Body1} spaceAfter={false}>
           {`${key}: ${Colors[key]}`}

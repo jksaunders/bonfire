@@ -111,7 +111,7 @@ const AutoFloatingHeaderStory = () => {
 
   const bind = useGesture(
     {
-      onScroll: scrollState => {
+      onScroll: (scrollState) => {
         if (scrollState.xy[1] > headerHeight !== showFloatingHeader) {
           setShowFloatingHeader(!showFloatingHeader);
         }

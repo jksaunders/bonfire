@@ -46,7 +46,7 @@ const StyledInput = styled(Box)`
   }
 `;
 
-const getError = error => {
+const getError = (error) => {
   if (typeof error === 'string') {
     return error;
   }
@@ -73,7 +73,7 @@ const getOnInput = ({ onInput, validate, currentError, setError }) => {
     return null;
   }
 
-  return e => {
+  return (e) => {
     if (onInput != null) {
       onInput(e.target.value);
     }
@@ -86,7 +86,7 @@ const getOnKeyUp = ({ onSubmit }) => {
     return null;
   }
 
-  return e => {
+  return (e) => {
     if (e.keyCode === 13 || e.which === 13) {
       onSubmit();
     }

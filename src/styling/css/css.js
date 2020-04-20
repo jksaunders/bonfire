@@ -9,11 +9,11 @@ import Sizes from './Sizes';
  *  "200px-_": "red"
  * })} />
  */
-export const responsiveProps = value => new Sizes(value);
+export const responsiveProps = (value) => new Sizes(value);
 
 const getPropsForTransform = (size, props) => {
   const sizedProps = {};
-  Object.keys(props).forEach(k => {
+  Object.keys(props).forEach((k) => {
     if (props[k] instanceof Sizes) {
       const matchingMediaQuery = props[k].size(size);
       if (matchingMediaQuery) {
@@ -31,7 +31,7 @@ const getPropsForTransform = (size, props) => {
 /**
  * Exported only for tests
  */
-export const processCssRule = (prop, key, calculateValue) => props => {
+export const processCssRule = (prop, key, calculateValue) => (props) => {
   if (props == null || prop == null || !props[prop]) {
     return '';
   }
@@ -40,11 +40,11 @@ export const processCssRule = (prop, key, calculateValue) => props => {
     props[prop] instanceof Sizes ? props[prop].value : { _: props[prop] };
 
   let result = '';
-  const appendResult = add => {
+  const appendResult = (add) => {
     result = `${result}\n${add}`;
   };
 
-  const getResult = k => {
+  const getResult = (k) => {
     const calculatedKey =
       typeof key === 'function' ? key(getPropsForTransform(k, props)) : key;
     const cssKey = calculatedKey || prop;
@@ -60,7 +60,7 @@ export const processCssRule = (prop, key, calculateValue) => props => {
     return `${cssKey}: ${value != null ? value : sizes[k]};`;
   };
 
-  Object.keys(sizes).forEach(k => {
+  Object.keys(sizes).forEach((k) => {
     if (k === '_') {
       appendResult(getResult(k));
       return;
@@ -126,7 +126,7 @@ export const css = (...args) => {
       );
     }
 
-    return props => {
+    return (props) => {
       for (let i = 0; i < args.length; i += 1) {
         const result = processCssRule(
           args[i][0],

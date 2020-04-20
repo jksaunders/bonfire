@@ -43,12 +43,12 @@ const defaultProps = {
   verticalAlignment: null,
 };
 
-const parseAlignTargetValue = alignProp => ({
+const parseAlignTargetValue = (alignProp) => ({
   target: alignProp.includes('content-') ? 'content' : 'items',
   value: `${alignProp}`.replace('items-', '').replace('content-', ''),
 });
 
-const alignment = props => {
+const alignment = (props) => {
   if (props.align == null) {
     return '';
   }
@@ -79,7 +79,7 @@ const alignment = props => {
   `;
 };
 
-const gridDirectionKey = direction => props => {
+const gridDirectionKey = (direction) => (props) => {
   if (props[direction] == null) {
     return '';
   }

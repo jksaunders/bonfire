@@ -29,7 +29,7 @@ const ResponsiveRoot = ({ children, presets, debounce: debounceValue }) => {
   });
 
   const calculatedPresets = {};
-  Object.keys(presets).forEach(k => {
+  Object.keys(presets).forEach((k) => {
     const preset = presets[k];
     const valid =
       (preset.height == null ||

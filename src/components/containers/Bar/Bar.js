@@ -11,12 +11,12 @@ const CONSTANTS = {
 const StyledBar = styled.div`
   min-height: ${({ height }) => height};
 
-  ${props => props.background && `background: ${props.background}`}
-  ${props =>
+  ${(props) => props.background && `background: ${props.background}`}
+  ${(props) =>
     props.backgroundColor && `background-color: ${props.backgroundColor}`}
-  ${props =>
+  ${(props) =>
     props.backgroundUrl && `background-image: url('${props.backgroundUrl}');`}
-  ${props => props.backgroundUrl && 'background-size: 100%;'}
+  ${(props) => props.backgroundUrl && 'background-size: 100%;'}
 `;
 
 const propTypes = {

@@ -46,7 +46,7 @@ describe('Props', () => {
     },
     { prop: 'weight', propValue: '200', key: 'font-weight' },
     { prop: 'weight', propValue: 300, key: 'font-weight' },
-  ].forEach(testCase => {
+  ].forEach((testCase) => {
     test(`${testCase.prop}`, () => {
       const { component } = render(
         <Typography {...{ [testCase.prop]: testCase.propValue }}>

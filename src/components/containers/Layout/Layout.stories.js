@@ -12,8 +12,8 @@ import Typography, {
 
 const StoryWrapper = styled.div`
   background-color: lightblue;
-  height: ${props => props.size};
-  width: ${props => props.size};
+  height: ${(props) => props.size};
+  width: ${(props) => props.size};
 `;
 
 const Content = styled.div`
@@ -85,7 +85,7 @@ export const TrelloStory = () => (
           columns="max-content max-content minmax(max-content, 200px)"
           gap="5px"
         >
-          {['home', 'boards', 'search'].map(t => (
+          {['home', 'boards', 'search'].map((t) => (
             <Layout
               key={t}
               background="hsla(0, 0%, 100%, 0.3)"
@@ -119,7 +119,7 @@ export const TrelloStory = () => (
           'Projects 2',
           'Bookmarks 2',
           'Recipes 2',
-        ].map(t => (
+        ].map((t) => (
           <Layout
             key={t}
             background="#ebecf0"
@@ -131,7 +131,7 @@ export const TrelloStory = () => (
             <Layout padding="10px" useTypography>
               {t}
             </Layout>
-            {[1, 2, 3, 4, 5].map(n => (
+            {[1, 2, 3, 4, 5].map((n) => (
               <Layout key={n} background="#FFFFFF" padding="10px" useTypography>
                 To do
                 {n}

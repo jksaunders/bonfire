@@ -12,7 +12,7 @@ class Sizes {
       return this.privateValue._;
     }
     const firstKeyThatStartsAtMinimum = Object.keys(this.privateValue).find(
-      k => k.charAt(0) === '_'
+      (k) => k.charAt(0) === '_'
     );
     return this.privateValue[firstKeyThatStartsAtMinimum];
   }

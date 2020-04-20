@@ -9,7 +9,7 @@ export const BACKGROUND_SHAPE = PropTypes.oneOfType([
   }),
 ]);
 
-export const getBackground = backgroundShape => {
+export const getBackground = (backgroundShape) => {
   if (!backgroundShape) {
     return '';
   }

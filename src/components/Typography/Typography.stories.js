@@ -73,7 +73,7 @@ const ThemeChanger = () => {
 
 const themedMaterialVariants = () => {
   const result = {};
-  Object.keys(MaterialVariants).forEach(k => {
+  Object.keys(MaterialVariants).forEach((k) => {
     result[k] = {
       ...MaterialVariants[k],
       color: ({ mode }) =>

@@ -52,7 +52,7 @@ describe('as textarea', () => {
 });
 
 describe('validation', () => {
-  const validate = text => text.length === 5;
+  const validate = (text) => text.length === 5;
 
   describe('error is passed as a prop', () => {
     const errorMessage = 'test error';

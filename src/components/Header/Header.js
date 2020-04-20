@@ -16,7 +16,7 @@ const padding = '16px';
 
 const StyledBaseHeader = styled.div`
   align-items: center;
-  ${props => getBackground(props.background)}
+  ${(props) => getBackground(props.background)}
   box-sizing: border-box;
   display: flex;
   justify-content: flex-end;

@@ -28,9 +28,10 @@ describe('#css', () => {
         propPassedAsArgument: 'width',
         result: '',
       },
-    ].forEach(testCase => {
-      test(`property is present = ${testCase.property ===
-        testCase.propPassedAsArgument}`, () => {
+    ].forEach((testCase) => {
+      test(`property is present = ${
+        testCase.property === testCase.propPassedAsArgument
+      }`, () => {
         expect(
           css(testCase.property)({
             [testCase.propPassedAsArgument]: value,
@@ -55,9 +56,10 @@ describe('#css', () => {
         propPassedAsArgument: 'width',
         result: '',
       },
-    ].forEach(testCase => {
-      test(`property is present = ${testCase.property ===
-        testCase.propPassedAsArgument}`, () => {
+    ].forEach((testCase) => {
+      test(`property is present = ${
+        testCase.property === testCase.propPassedAsArgument
+      }`, () => {
         expect(
           css(
             testCase.property,
@@ -101,9 +103,10 @@ describe('#css', () => {
         propPassedAsArgument: 'right',
         result: '',
       },
-    ].forEach(testCase => {
-      test(`property is present = ${testCase.property ===
-        testCase.propPassedAsArgument}, third arg type = ${typeof testCase.thirdArg}`, () => {
+    ].forEach((testCase) => {
+      test(`property is present = ${
+        testCase.property === testCase.propPassedAsArgument
+      }, third arg type = ${typeof testCase.thirdArg}`, () => {
         expect(
           css(
             testCase.property,
@@ -222,7 +225,7 @@ describe('#processCssRule', () => {
       expect(
         processCssRule(
           'gap',
-          props => `grid-gap-${props.gap}`
+          (props) => `grid-gap-${props.gap}`
         )({
           gap: 'left',
         })
@@ -261,7 +264,7 @@ describe('#processCssRule', () => {
         processCssRule(
           'gap',
           'grid-gap',
-          props => `${props.gap}-${props.margin}`
+          (props) => `${props.gap}-${props.margin}`
         )({
           gap: responsiveProps({ '_-50px': 'center', '50px-_': 'left' }),
           margin: responsiveProps({ '_-50px': 'up', '50px-_': 'down' }),

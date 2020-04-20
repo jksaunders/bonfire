@@ -28,7 +28,7 @@ const StyledMenuItem = styled.div`
 
 const HeaderItem = ({ link, onClick, text, ...rest }) => (
   <StyledMenuItem
-    onClick={e => {
+    onClick={(e) => {
       e.preventDefault();
       if (onClick) {
         onClick();
