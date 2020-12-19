@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "target": "es5",
+    "strictNullChecks": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "lib": ["es6", "dom"],
+    "module": "ES2015",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./src"],
+  "exclude": ["node_modules", "dist"]
+}

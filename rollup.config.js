@@ -1,56 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import externals from 'rollup-plugin-node-externals';
-import babel from 'rollup-plugin-babel';
-import localResolve from 'rollup-plugin-local-resolve';
-import sourceMaps from 'rollup-plugin-sourcemaps';
-
+import typescript from 'rollup-plugin-typescript2';
+import { DEFAULT_EXTENSIONS } from '@babel/core';
 import pkg from './package.json';
+import babel from '@rollup/plugin-babel';
+import resolve from '@rollup/plugin-node-resolve';
+
+const input = 'src/index.ts';
+const external = [
+  ...Object.keys(pkg.dependencies || {}),
+  ...Object.keys(pkg.peerDependencies || {}),
+  /@babel\/runtime/,
+  /@babel\/plugin-transform-runtime/,
+];
 
 const plugins = [
-  sourceMaps(),
-  externals(),
-  localResolve(),
-  resolve(),
   babel({
-    exclude: 'node_modules/**',
+    babelHelpers: 'runtime',
+    extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
   }),
-  commonjs({
-    namedExports: {
-      react: Object.keys(React),
-      'react-dom': Object.keys(ReactDOM),
-      'react-is': ['isElement', 'isValidElementType', 'ForwardRef', 'Memo'],
-    },
+  resolve({
+    resolveOnly: [/^(?!react$)/],
+  }),
+  typescript({
+    typescript: require('typescript'),
   }),
 ];
 
 export default [
-  // browser-friendly UMD build
   {
-    input: 'src/index.js',
+    input,
     output: {
-      name: 'bonfire',
-      file: pkg.browser,
-      format: 'umd',
-      sourcemaps: true,
+      file: pkg.module,
+      format: 'esm',
+      sourcemap: true,
     },
-    plugins: [...plugins],
+    plugins,
+    external,
   },
-
-  // CommonJS (for Node) and ES module (for bundlers) build.
-  // (We could have three entries in the configuration array
-  // instead of two, but it's quicker to generate multiple
-  // builds from a single configuration where possible, using
-  // an array for the `output` option, where we can specify
-  // `file` and `format` for each target)
   {
-    input: 'src/index.js',
-    output: [
-      { file: pkg.main, format: 'cjs', sourcemaps: true },
-      { file: pkg.module, format: 'es', sourcemaps: true },
-    ],
-    plugins: [...plugins],
+    input,
+    output: {
+      file: pkg.main,
+      format: 'cjs',
+      sourcemap: true,
+    },
+    plugins,
+    external,
   },
 ];
