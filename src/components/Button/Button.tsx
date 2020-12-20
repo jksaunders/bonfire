@@ -1,17 +1,17 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
   background-color: ${(props): string => props.color};
 `;
 
-interface ButtonProps {
+const Button: FC<{
   color: string;
   children?: never;
-}
+}> = ({ color = 'red' }) => {
+  const [value] = useState(color);
 
-const Button: FC<ButtonProps> = ({ color = 'red' }) => (
-  <StyledButton color={color}>test button</StyledButton>
-);
+  return <StyledButton color={color}>test button</StyledButton>;
+};
 
 export default Button;
