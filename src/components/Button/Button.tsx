@@ -5,7 +5,7 @@ const StyledButton = styled.button`
   background-color: ${(props): string => props.color};
 `;
 
-const Button: FC<{
+export const Button: FC<{
   color: string;
   children?: never;
 }> = ({ color = 'red' }) => {
@@ -13,5 +13,3 @@ const Button: FC<{
 
   return <StyledButton color={color}>test button</StyledButton>;
 };
-
-export default Button;
