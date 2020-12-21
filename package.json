@@ -10,16 +10,18 @@
     "build": "rollup -c",
     "build:prod": "rollup -c",
     "build:watch": "rollup -c -w",
+    "check-types": "tsc --noemit",
+    "eslint": "eslint src",
     "jest": "jest",
     "jest:coverage": "jest --coverage",
     "jest:interactive": "jest --watch",
     "jest:watch": "jest --watch",
+    "lint": "npm run eslint && npm run check-types",
     "test": "npm run lint && npm run jest:coverage",
     "test:prod": "cross-env BABEL_ENV=production npm run test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy-storybook": "storybook-to-ghpages",
-    "lint": "eslint src"
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "repository": {
     "type": "git",
