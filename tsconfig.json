@@ -1,15 +1,23 @@
 {
   "compilerOptions": {
     "declaration": true,
+    "declarationDir": "./dist",
     "target": "es5",
     "strictNullChecks": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "lib": ["es6", "dom"],
-    "module": "ES2015",
+    "jsx": "react",
+    "module": "esnext",
     "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2017", "dom"],
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["./src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"]
 }
