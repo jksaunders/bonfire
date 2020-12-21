@@ -5,9 +5,11 @@ const StyledButton = styled.button`
   background-color: ${(props: { color: string }): string => props.color};
 `;
 
-export const Button: FC<{
+export interface ButtonProps {
   color: string;
   children?: never;
-}> = ({ color = 'red' }) => (
+}
+
+export const Button: FC<ButtonProps> = ({ color = 'red' }) => (
   <StyledButton color={color}>test button</StyledButton>
 );
