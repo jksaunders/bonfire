@@ -64,6 +64,40 @@ const testCases: TestCase<ExampleProps>[] = [
     },
     title: 'string key and value',
   },
+  {
+    args: ['height', (props): string => props.width],
+    expected: 'full: xs;',
+    props: {
+      color: 'red',
+      height: 'xs',
+      width: 'full',
+    },
+    title: 'function key',
+  },
+  {
+    args: ['height', (props): string => props.width, 'purple'],
+    expected: 'full: purple;',
+    props: {
+      color: 'red',
+      height: 'xs',
+      width: 'full',
+    },
+    title: 'function key, string value',
+  },
+  {
+    args: [
+      'height',
+      (props): string => props.width,
+      (props): string => props.height + ' x2',
+    ],
+    expected: 'full: xs x2;',
+    props: {
+      color: 'red',
+      height: 'xs',
+      width: 'full',
+    },
+    title: 'function key and value',
+  },
 ];
 
 describe('processCssRule: regular props', () => {

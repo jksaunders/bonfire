@@ -24,12 +24,16 @@ export function processCssRule<T>(
       key = prop;
     } else if (typeof keyArg === 'string') {
       key = keyArg;
+    } else if (typeof keyArg === 'function') {
+      key = keyArg(props);
     }
 
     if (!valueArg) {
       value = props[prop];
     } else if (typeof valueArg === 'string') {
       value = valueArg;
+    } else if (typeof valueArg === 'function') {
+      value = valueArg(props);
     }
 
     return `${key}: ${value};`;
