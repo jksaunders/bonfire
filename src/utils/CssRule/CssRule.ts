@@ -5,7 +5,6 @@ export type CssRule<T> = [
   StringOrPropsFunction<T>?,
   StringOrPropsFunction<T>?
 ];
-type CssRuleArgs<T> = CssRule<T> | CssRule<T>[];
 
 export interface MinMax {
   max: string;
@@ -82,6 +81,69 @@ export function processCssRule<T>(
   };
 }
 
+/**
+ * Use in styled-components template tags, eg. styled.div`
+ *  ${cssRule('margin')}
+ * `
+ *
+ * It automatically handles regular values as well as responsive values passed in
+ * via `responsiveProps`.
+ *
+ * Given one argument, `cssRule` will fetch the given prop name, use it as the css key, and
+ * make the value of the prop equal to the value of the key
+ *
+ * eg. `cssRule('margin') -> margin: <value of props['margin']>
+ *
+ * Given two arguments, `cssRule` will fetch the given prop name, use the second argument as
+ * the css key, and make the value of the prop equal to the value of the key
+ *
+ * eg. `cssRule('gap', 'grid-gap')` -> grid-gap: <value of props['gap']>
+ *
+ * You can also pass in a function to base the key on other props
+ *
+ * eg. `cssRule('gap', (props) => props['anotherValue'])` -> <value of props['anotherValue']: <value of props['gap']>
+ *
+ * Given three arguments, `cssRule` will fetch the given prop name, use the second argument as
+ * the css key, and use the third value to calculate the value
+ *
+ * eg. `cssRule('gap', 'grid-gap', (props) => props['anotherValue'])` -> grid-gap: <value of props['anotherValue']>
+ *
+ * Passing in a non-function will force that value to be used regardless of the prop value. This is useful
+ * for boolean props
+ *
+ * eg. `cssRule('centered', 'text-align', 'center')
+ *
+ * You can also use multiple rules and only the first matched rule will be used.
+ *
+ * eg. `cssRule(['centered', 'text-align', 'center'], ['textAlign', 'text-align'])`
+ */
+export type CssRuleArgs<T> = CssRule<T> | CssRule<T>[];
+
 export function cssRule<T>(...args: CssRuleArgs<T>): (props?: T) => string {
-  return (): string => `${args.length}`;
+  if (!Array.isArray(args[0])) {
+    const argsArguments = args as CssRule<T>;
+    return processCssRule(argsArguments[0], argsArguments[1], argsArguments[2]);
+  }
+
+  if (Array.isArray(args[0][0])) {
+    throw new Error(
+      '`css()` takes in positional arguments, not an array of arguments: eg. `css([], [], [])`, not `css([[], [], []])`'
+    );
+  }
+
+  const argsList = args as CssRule<T>[];
+
+  return (props): string => {
+    for (let i = 0; i < args.length; i += 1) {
+      const result = processCssRule(
+        argsList[i][0],
+        argsList[i][1],
+        argsList[i][2]
+      )(props);
+      if (result !== '') {
+        return result;
+      }
+    }
+    return '';
+  };
 }
