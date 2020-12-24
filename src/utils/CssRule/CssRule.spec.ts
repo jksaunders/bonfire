@@ -14,6 +14,8 @@ interface TestCase<T> {
   title: string;
 }
 
+const trim = (s: string): string => s.split('\n').join('').split(' ').join('');
+
 describe('processCssRule: regular props', () => {
   const testCases: TestCase<ExampleProps>[] = [
     {
@@ -109,12 +111,12 @@ describe('processCssRule: regular props', () => {
         args.length >= 2 ? args[2] : undefined
       )(props);
 
-      expect(result).toEqual(expected);
+      expect(trim(result)).toEqual(trim(expected));
     });
   });
 });
 
-describe('processCssRule: responsive props, no responsive usage', () => {
+describe('processCssRule: responsive props without responsive usage', () => {
   type ResponsiveExampleProps = ResponsiveProps<ExampleProps>;
 
   const testCases: TestCase<ResponsiveExampleProps>[] = [
@@ -211,7 +213,70 @@ describe('processCssRule: responsive props, no responsive usage', () => {
         args.length >= 2 ? args[2] : undefined
       )(props);
 
-      expect(result).toEqual(expected);
+      expect(trim(result)).toEqual(trim(expected));
+    });
+  });
+});
+
+describe('processCssRule: responsive props with responsive usage', () => {
+  type ResponsiveExampleProps = ResponsiveProps<ExampleProps>;
+
+  const testCases: TestCase<ResponsiveExampleProps>[] = [
+    {
+      args: ['color'],
+      expected: '',
+      props: {
+        height: {
+          '_-200px': 'xs',
+          '200px-_': 's',
+        },
+        width: 'full',
+      },
+      title: 'missing prop',
+    },
+    {
+      args: ['height'],
+      expected: `
+        @media all and (max-width: 200px) { height: xs; }
+        @media all and (min-width: 200px) { height: s; }
+      `,
+      props: {
+        height: {
+          '_-200px': 'xs',
+          '200px-_': 's',
+        },
+        width: 'full',
+      },
+      title: 'two levels',
+    },
+    {
+      args: ['height'],
+      expected: `
+        @media all and (max-width: 200px) { height: xs; }
+        @media all and (min-width: 200px) and (max-width: 300px) { height: s; }
+        @media all and (min-width: 300px) { height: m; }
+      `,
+      props: {
+        height: {
+          '_-200px': 'xs',
+          '200px-300px': 's',
+          '300px-_': 'm',
+        },
+        width: 'full',
+      },
+      title: 'three levels',
+    },
+  ];
+
+  testCases.forEach(({ args, expected, props, title }) => {
+    test(title, () => {
+      const result = processCssRule<ResponsiveExampleProps>(
+        args[0],
+        args.length >= 1 ? args[1] : undefined,
+        args.length >= 2 ? args[2] : undefined
+      )(props);
+
+      expect(trim(result)).toEqual(trim(expected));
     });
   });
 });
