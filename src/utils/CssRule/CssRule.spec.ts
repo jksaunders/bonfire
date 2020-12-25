@@ -343,12 +343,7 @@ describe('cssRule', () => {
 
     testCases.forEach(({ args, expected, props, title }) => {
       test(title, () => {
-        const result = cssRule<ResponsiveExampleProps>(
-          args[0],
-          args.length >= 1 ? args[1] : undefined,
-          args.length >= 2 ? args[2] : undefined
-        )(props);
-
+        const result = cssRule<ResponsiveExampleProps>(...args)(props);
         expect(trim(result)).toEqual(trim(expected));
       });
     });
