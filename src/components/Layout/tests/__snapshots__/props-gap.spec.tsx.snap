@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gap with context context value, no prop value 1`] = `
+.c0 {
+  display: grid;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`gap with context context value, prop true 1`] = `
+.c0 {
+  display: grid;
+  grid-gap: 30px;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`gap with context context value, prop value override 1`] = `
+.c0 {
+  display: grid;
+  grid-gap: 40px;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`gap with context no context value, prop true 1`] = `
+.c0 {
+  display: grid;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`gap with context no value 1`] = `
+.c0 {
+  display: grid;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`gap with context prop value 1`] = `
+.c0 {
+  display: grid;
+  grid-gap: 40px;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`gap without context no value 1`] = `
+.c0 {
+  display: grid;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`gap without context prop true 1`] = `
+.c0 {
+  display: grid;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`gap without context prop value 1`] = `
+.c0 {
+  display: grid;
+  grid-gap: 40px;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;

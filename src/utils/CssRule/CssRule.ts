@@ -1,8 +1,9 @@
 type PropsToString<T> = (props: T) => string;
 type StringOrPropsFunction<T> = string | PropsToString<T>;
+type StringOrNullOrPropsFunction<T> = string | null | PropsToString<T>;
 export type CssRule<T> = [
   keyof T,
-  StringOrPropsFunction<T>?,
+  StringOrNullOrPropsFunction<T>?,
   StringOrPropsFunction<T>?
 ];
 
@@ -26,7 +27,7 @@ export const mediaQuery = (minMax: MinMax, content: string): string => {
 
 export function processCssRule<T>(
   prop: keyof T,
-  keyArg?: StringOrPropsFunction<T>,
+  keyArg?: StringOrNullOrPropsFunction<T>,
   valueArg?: StringOrPropsFunction<T>
 ): (props?: T) => string {
   return (props?: T): string => {
@@ -50,8 +51,10 @@ export function processCssRule<T>(
       let key;
       let value;
 
-      if (!keyArg) {
+      if (keyArg === undefined) {
         key = prop;
+      } else if (keyArg === null) {
+        key = null;
       } else if (typeof keyArg === 'string') {
         key = keyArg;
       } else if (typeof keyArg === 'function') {
@@ -72,7 +75,9 @@ export function processCssRule<T>(
       }
 
       const [min, max] = size.split('-');
-      const sizeResult = mediaQuery({ min, max }, `${key}: ${value};`);
+
+      const content = key === null ? `${value}` : `${key}: ${value};`;
+      const sizeResult = mediaQuery({ min, max }, content);
 
       result += `\n${sizeResult}`;
     });
@@ -112,6 +117,13 @@ export function processCssRule<T>(
  * for boolean props
  *
  * eg. `cssRule('centered', 'text-align', 'center')
+ *
+ * Passing in `null` as the key will mean no key is used, and only the value of the third argument will be used
+ *
+ * eg. `cssRule('align', null, props => getAlignment(props.align)) -> `${the-result-of-getAlignment()-with-no-key}`
+ *
+ * The only reason this is different than just passing `${props => getAlignment(props.align)}` is that it'll only run if
+ * the `align` prop is specified
  *
  * You can also use multiple rules and only the first matched rule will be used.
  *

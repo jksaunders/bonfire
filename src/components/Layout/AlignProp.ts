@@ -1,5 +1,3 @@
-import { LayoutProps } from './Layout';
-
 export type AlignCombinations =
   | '_'
   | 'center'
@@ -234,7 +232,11 @@ const parseAlignTargetValue = (
   value: `${alignProp}`.replace('items-', '').replace('content-', ''),
 });
 
-export const getAlignmentCss = (alignmentProp: AlignCombinations): string => {
+export const getAlignmentCss = (alignmentProp?: AlignCombinations): string => {
+  if (!alignmentProp) {
+    return '';
+  }
+
   const [first, second] = alignmentProp.split(' ') as AlignCombinations[];
   let justifyResult = '';
   let alignResult = '';

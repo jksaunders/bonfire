@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`align mixed items/content align 1`] = `
+.c0 {
+  display: grid;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  justify-items: center;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`align no align prop 1`] = `
+.c0 {
+  display: grid;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`align single items align 1`] = `
+.c0 {
+  display: grid;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-items: center;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`align two content align 1`] = `
+.c0 {
+  display: grid;
+  -webkit-align-content: flex-end;
+  -ms-flex-line-pack: end;
+  align-content: flex-end;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`align two content align 2`] = `
+.c0 {
+  display: grid;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`align two identical items align 1`] = `
+.c0 {
+  display: grid;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-items: center;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`align two items align 1`] = `
+.c0 {
+  display: grid;
+  -webkit-align-items: end;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: end;
+  justify-items: center;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
