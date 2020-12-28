@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`column + row column 1`] = `
+.c0 {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`column + row no column, no row 1`] = `
+.c0 {
+  display: grid;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`column + row row 1`] = `
+.c0 {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
