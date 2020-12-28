@@ -7,7 +7,10 @@ import 'jest-styled-components';
 interface RenderResult extends ReturnType<typeof testingReactRender> {
   component: ChildNode | null;
   screen: typeof testingReactScreen;
-  hasStyle: (style: string | Record<string, string | undefined>) => void;
+  hasStyle: (
+    style: string | Record<string, string | undefined>,
+    options?: { media?: string; modifier?: string }
+  ) => void;
   takeSnapshot: () => void;
 }
 
@@ -19,7 +22,10 @@ const render = (ui: React.ReactElement): RenderResult => {
     ...result,
     component,
     screen: testingReactScreen,
-    hasStyle: (style: string | Record<string, string | undefined>): void => {
+    hasStyle: (
+      style: string | Record<string, string | undefined>,
+      options?: { media?: string; modifier?: string }
+    ): void => {
       if (typeof style === 'object') {
         Object.keys(style).forEach((styleKey) => {
           expect(component).toHaveStyleRule(styleKey, style[styleKey]);
@@ -30,7 +36,7 @@ const render = (ui: React.ReactElement): RenderResult => {
           .join('')
           .split(':')
           .map((s) => s.trim());
-        expect(component).toHaveStyleRule(key, value);
+        expect(component).toHaveStyleRule(key, value, options);
       }
     },
     takeSnapshot: (): void => {

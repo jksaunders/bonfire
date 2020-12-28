@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`non-responsive multiple value columns 1`] = `
+.c0 {
+  display: grid;
+  grid-template-columns: 10px 12px;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`non-responsive multiple value rows 1`] = `
+.c0 {
+  display: grid;
+  grid-template-rows: 10px 12px;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`non-responsive no columns, no rows 1`] = `
+.c0 {
+  display: grid;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`non-responsive responsive columns 1`] = `
+.c0 {
+  display: grid;
+}
+
+@media all and (max-width:200px) {
+  .c0 {
+    grid-auto-columns: 10px;
+  }
+}
+
+@media all and (min-width:200px) {
+  .c0 {
+    grid-template-columns: repeat(auto-fill,10px);
+  }
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`non-responsive single value column 1`] = `
+.c0 {
+  display: grid;
+  grid-auto-columns: 10px;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
+
+exports[`non-responsive single value rows 1`] = `
+.c0 {
+  display: grid;
+  grid-auto-rows: 10px;
+}
+
+<div
+  class="c0"
+>
+  content
+</div>
+`;
