@@ -20,7 +20,7 @@ export const mediaQuery = (minMax: MinMax, content: string): string => {
   const min = minMax.min === '_' ? '' : `(min-width: ${minMax.min})`;
   const max = minMax.max === '_' ? '' : `(max-width: ${minMax.max})`;
 
-  return `@media all and ${min} ${min && max && 'and'} ${max} {
+  return `@media all and ${min}${min && max && ' and '}${max} {
     ${content}
   }`;
 };
