@@ -1,3 +1,6 @@
+import { sizesObjectToCss } from '../../utils/CssRule/CssRule';
+import { LayoutProps } from './Layout';
+
 export type AlignCombinations =
   | '_'
   | 'center'
@@ -232,35 +235,39 @@ const parseAlignTargetValue = (
   value: `${alignProp}`.replace('items-', '').replace('content-', ''),
 });
 
-export const getAlignmentCss = (alignmentProp?: AlignCombinations): string => {
+export const getAlignmentCss = (props: LayoutProps): string => {
+  const alignmentProp = props.align;
+
   if (!alignmentProp) {
     return '';
   }
 
-  const [first, second] = alignmentProp.split(' ') as AlignCombinations[];
-  let justifyResult = '';
-  let alignResult = '';
+  return sizesObjectToCss(alignmentProp, (sizeValue) => {
+    const [first, second] = sizeValue.split(' ') as AlignCombinations[];
+    let justifyResult = '';
+    let alignResult = '';
 
-  if (first !== '_') {
-    const {
-      contentOrItemsKey: firstContentOrItemsKey,
-      value: firstValue,
-    } = parseAlignTargetValue(first);
-    justifyResult = `${firstContentOrItemsKey}: ${firstValue}`;
-  }
+    if (first !== '_') {
+      const {
+        contentOrItemsKey: firstContentOrItemsKey,
+        value: firstValue,
+      } = parseAlignTargetValue(first);
+      justifyResult = `${firstContentOrItemsKey}: ${firstValue}`;
+    }
 
-  if (second == null) {
-    alignResult = justifyResult;
-  } else if (second !== '_') {
-    const {
-      contentOrItemsKey: secondContentOrItemsKey,
-      value: secondValue,
-    } = parseAlignTargetValue(second);
-    alignResult = `${secondContentOrItemsKey}: ${secondValue}`;
-  }
+    if (second == null) {
+      alignResult = justifyResult;
+    } else if (second !== '_') {
+      const {
+        contentOrItemsKey: secondContentOrItemsKey,
+        value: secondValue,
+      } = parseAlignTargetValue(second);
+      alignResult = `${secondContentOrItemsKey}: ${secondValue}`;
+    }
 
-  return `
-    ${alignResult && `align-${alignResult};`}
-    ${justifyResult && `justify-${justifyResult};`}
-  `;
+    return `
+      ${alignResult && `align-${alignResult};`}
+      ${justifyResult && `justify-${justifyResult};`}
+    `;
+  });
 };

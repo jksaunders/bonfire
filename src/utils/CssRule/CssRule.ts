@@ -25,6 +25,44 @@ export const mediaQuery = (minMax: MinMax, content: string): string => {
   }`;
 };
 
+export function sizesObjectToCss(
+  obj: unknown,
+  mappingFunction: (value: string, key?: string) => string
+): string {
+  if (!obj) {
+    return '';
+  }
+
+  const sizes: string[] = [];
+
+  const isObject = typeof obj === 'object';
+
+  if (isObject) {
+    Object.keys(obj as Record<string, unknown>).forEach((key) => {
+      sizes.push(key);
+    });
+  } else {
+    sizes.push('_-_');
+  }
+
+  let result = '';
+
+  sizes.forEach((size) => {
+    const content = mappingFunction(
+      isObject
+        ? ((obj as Record<string, unknown>)[size] as string)
+        : (obj as string),
+      size
+    );
+    const [min, max] = size.split('-');
+    const sizeResult = mediaQuery({ min, max }, content);
+
+    result += `\n${sizeResult}`;
+  });
+
+  return result;
+}
+
 export function processCssRule<T>(
   prop: keyof T,
   keyArg?: StringOrNullOrPropsFunction<T>,
@@ -35,26 +73,12 @@ export function processCssRule<T>(
       return '';
     }
 
-    const sizes: string[] = [];
-
-    if (typeof props[prop] !== 'object') {
-      sizes.push('_-_');
-    } else {
-      Object.keys(props[prop]).forEach((key) => {
-        sizes.push(key);
-      });
-    }
-
-    let result = '';
-
-    sizes.forEach((size) => {
+    return sizesObjectToCss(props[prop], (sizeValue) => {
       let key;
       let value;
 
       if (keyArg === undefined) {
         key = prop;
-      } else if (keyArg === null) {
-        key = null;
       } else if (typeof keyArg === 'string') {
         key = keyArg;
       } else if (typeof keyArg === 'function') {
@@ -64,7 +88,7 @@ export function processCssRule<T>(
       if (!valueArg) {
         const propValue = props[prop];
         if (typeof propValue === 'object') {
-          value = ((propValue as unknown) as Record<string, unknown>)[size];
+          value = sizeValue;
         } else {
           value = propValue;
         }
@@ -74,15 +98,9 @@ export function processCssRule<T>(
         value = valueArg(props);
       }
 
-      const [min, max] = size.split('-');
-
       const content = key === null ? `${value}` : `${key}: ${value};`;
-      const sizeResult = mediaQuery({ min, max }, content);
-
-      result += `\n${sizeResult}`;
+      return content;
     });
-
-    return result;
   };
 }
 
@@ -117,13 +135,6 @@ export function processCssRule<T>(
  * for boolean props
  *
  * eg. `cssRule('centered', 'text-align', 'center')
- *
- * Passing in `null` as the key will mean no key is used, and only the value of the third argument will be used
- *
- * eg. `cssRule('align', null, props => getAlignment(props.align)) -> `${the-result-of-getAlignment()-with-no-key}`
- *
- * The only reason this is different than just passing `${props => getAlignment(props.align)}` is that it'll only run if
- * the `align` prop is specified
  *
  * You can also use multiple rules and only the first matched rule will be used.
  *

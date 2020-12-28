@@ -1,4 +1,4 @@
-import { cssRule, CssRule, processCssRule } from './CssRule';
+import { cssRule, CssRule, processCssRule, sizesObjectToCss } from './CssRule';
 import { ResponsiveProps } from '../ResponsiveProps';
 
 interface ExampleProps {
@@ -10,6 +10,40 @@ interface ExampleProps {
 type ResponsiveExampleProps = ResponsiveProps<ExampleProps>;
 
 const trim = (s: string): string => s.split('\n').join('').split(' ').join('');
+
+describe('sizesObjectToCss', () => {
+  interface TestCase {
+    obj: unknown;
+    expected: string;
+    mappingFunction: (value: string, key?: string) => string;
+    title: string;
+  }
+
+  const testCases: TestCase[] = [
+    {
+      obj: 'test',
+      expected: 'test!_-_!',
+      mappingFunction: (value, key): string => `${value}!${key}!`,
+      title: 'string prop',
+    },
+    {
+      obj: { '_-200px': 'mobile', '200px-_': 'tablet' },
+      expected: `
+        @media all and (max-width: 200px) { mobile!_-200px! }
+        @media all and (min-width: 200px) { tablet!200px-_! }
+      `,
+      mappingFunction: (value, key): string => `${value}!${key}!`,
+      title: 'object prop',
+    },
+  ];
+
+  testCases.forEach(({ expected, obj, mappingFunction, title }) => {
+    test(title, () => {
+      const result = sizesObjectToCss(obj, mappingFunction);
+      expect(trim(result)).toEqual(trim(expected));
+    });
+  });
+});
 
 describe('processCssRule', () => {
   interface TestCase<T> {

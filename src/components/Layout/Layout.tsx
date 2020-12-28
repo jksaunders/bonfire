@@ -21,9 +21,7 @@ const StyledLayout = styled.div<LayoutProps>`
   display: grid;
 
   ${/* align */ ''}
-  ${cssRule<LayoutProps>('align', null, (props) =>
-    typeof props.align === 'string' ? getAlignmentCss(props.align) : ''
-  )}
+  ${getAlignmentCss}
 
   ${/* size */ ''}
   ${cssRule<LayoutProps>('full', 'height', '100%')}
